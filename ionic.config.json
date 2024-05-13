@@ -1,0 +1,7 @@
+{
+  "name": "Mimesis",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

@@ -1,0 +1,14 @@
+{
+	"appId": "ee.forgr.mimesis",
+	"appName": "Mimesis",
+	"webDir": "dist",
+	"bundledWebRuntime": false,
+	"plugins": {
+		"SplashScreen": {
+			"launchAutoHide": false
+		},
+		"CapacitorUpdater": {
+			"autoUpdate": true
+		}
+	}
+}

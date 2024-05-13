@@ -1,0 +1,53 @@
+accept: kabul
+backHome: Hoşgeldiniz
+beCarefull: Uyarı
+by: ile
+close: kapat
+continue: Devam et
+createTeam: Takımları oluşturun
+en: ingilizce
+fairRule: oyunu adil kılmak için oyuncuların sırası rastgele olacaktır.
+fr: Fransızca
+gameWin: oyun kazanıldı
+go: başlamak
+id: Cum
+inequal: takımlar eşit değil.
+is: dır-dir
+langTitle: Dilinizi seçiniz
+leave: oyundan çıkmak istediğinden emin misin?
+more: daha fazla
+noInternet: internete bağlı değilsiniz, işte mevcut temaların listesi
+noInternetFirst: çevrimdışı oynayabilmek için ilk kez internete bağlanın
+openSource: açık kaynak kodunu kontrol edin
+pass: geçmek
+play: oynamak
+player: oyuncu
+rankWith: ile birlikte
+rate: uygulamayı oyla
+ready: hazır
+replay: tekrar oynatma
+restart: tekrar başlat
+restore: eski haline getirmek
+resume: devam etmek
+rule010: ulaşan ilk takım
+rule011: 10 nokta
+rule012: oyunu kazan.
+rule020: sert bir kol
+rule021: 45 saniye
+rule030: mimleri yapan kişi telefonu elinde tutar ve kimseye göstermez.
+rule040: mimleri yapan kişi, ekranda yazan cümleyi ekip üyelerine tahmin ettirmelidir.
+rule050: hatırlatma
+rule051: >-
+  mimik yaptığınızda söz söylemeye, şarkı söylemeye hatta yazmaya bile hakkınız
+  yoktur.
+ruleTitle: oyunun kuralları
+score: Puan
+stop: Durmak
+stopGame: oyunu durdur
+team: mürettebat
+themes: temalar
+turnOf: sıra geldi
+update: Düzenle
+validate: Doğrulamak
+win: kazanmak
+winner: kazanmak !
