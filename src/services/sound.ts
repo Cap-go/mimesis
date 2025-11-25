@@ -1,9 +1,7 @@
 import { NativeAudio } from '@capgo/native-audio'
 import { isPlatform } from '@ionic/vue'
 
-const audioGenrator = (
-  names: string[],
-): { [key: string]: HTMLAudioElement } => {
+function audioGenrator(names: string[]): { [key: string]: HTMLAudioElement } {
   const suit: { [key: string]: HTMLAudioElement } = {}
   names.forEach((name) => {
     suit[name] = new Audio(`assets/sounds/${name}.mp3`)
@@ -19,7 +17,7 @@ const sounds: { [key: string]: HTMLAudioElement } = audioGenrator([
   ...soundName,
 ])
 
-export const setVolume = (volume: number): void => {
+export function setVolume(volume: number): void {
   if (isPlatform('capacitor')) {
     Object.keys(sounds).forEach((key) => {
       sounds[key].volume = volume / 100
@@ -33,7 +31,7 @@ export const setVolume = (volume: number): void => {
   }
 }
 
-export const pauseSound = async (sound: string): Promise<void> => {
+export async function pauseSound(sound: string): Promise<void> {
   // console.log('pause', sound)
   if (isPlatform('capacitor')) {
     await NativeAudio.stop({
@@ -45,14 +43,14 @@ export const pauseSound = async (sound: string): Promise<void> => {
   }
 }
 
-export const stopSound = async (sound: string): Promise<void> => {
+export async function stopSound(sound: string): Promise<void> {
   // console.log('stop', sound)
   await pauseSound(sound)
   sounds[sound].currentTime = 0
   sounds[sound].loop = false
 }
 
-export const loopSound = async (sound: string): Promise<void> => {
+export async function loopSound(sound: string): Promise<void> {
   // console.log('loop', sound)
   if (isPlatform('capacitor')) {
     await NativeAudio.loop({
@@ -65,7 +63,7 @@ export const loopSound = async (sound: string): Promise<void> => {
   }
 }
 
-export const playSound = async (sound: string): Promise<void> => {
+export async function playSound(sound: string): Promise<void> {
   // console.log('play', sound)
   if (isPlatform('capacitor')) {
     try {
@@ -83,7 +81,7 @@ export const playSound = async (sound: string): Promise<void> => {
   }
 }
 
-export const initSound = (): void => {
+export function initSound(): void {
   if (isPlatform('capacitor')) {
     NativeAudio.configure({ focus: false })
     Object.keys(sounds).forEach((key) => {

@@ -1,19 +1,13 @@
 import { Preferences } from '@capacitor/preferences'
 
-export const setStorage = async<Type>(
-  key: string,
-  value: Type,
-): Promise<void> => {
+export async function setStorage<Type>(key: string, value: Type): Promise<void> {
   await Preferences.set({
     key,
     value: typeof value === 'string' ? value : JSON.stringify(value),
   })
 }
 
-export const getStorage = async<Type>(
-  key: string,
-  defaultValue: Type | null = null,
-): Promise<Type | null> => {
+export async function getStorage<Type>(key: string, defaultValue: Type | null = null): Promise<Type | null> {
   const res = await Preferences.get({ key })
   try {
     return res.value ? (JSON.parse(res.value) as Type) : defaultValue

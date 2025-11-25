@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { IonApp, IonRouterOutlet } from '@ionic/vue'
 import { computed } from 'vue'
+import PageLoader from '~/components/PageLoader.vue'
 import { useMainStore } from '~/store/main'
 
 const main = useMainStore()
@@ -14,11 +15,12 @@ const isInit = computed(() => main.initialized)
         <IonRouterOutlet />
       </template>
       <template #fallback>
-        <div>Loading...</div>
+        <PageLoader :show="true" />
       </template>
     </suspense>
     <div v-else>
-      Loading...
+      <PageLoader :show="true" />
     </div>
+    <PageLoader :show="main.loading" />
   </IonApp>
 </template>

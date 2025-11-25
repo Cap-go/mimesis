@@ -1,8 +1,8 @@
-import { createRouter, createWebHistory } from '@ionic/vue-router'
 import type { RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory } from '@ionic/vue-router'
+import GamePage from '../views/GamePage.vue'
 import HomePage from '../views/HomePage.vue'
 import ThemePage from '../views/ThemePage.vue'
-import GamePage from '../views/GamePage.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {

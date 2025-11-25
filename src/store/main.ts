@@ -1,19 +1,19 @@
-import { acceptHMRUpdate, defineStore } from 'pinia'
-import { computed, ref } from 'vue'
-import { randomSelect } from '../services/random'
-
 import type {
   GuessDb,
   LangMessages,
   Mode,
 } from '../services/database'
+import type { Database } from './../types/database.types'
+import { acceptHMRUpdate, defineStore } from 'pinia'
+
+import { computed, ref } from 'vue'
 import {
   useDb,
 } from '../services/database'
-import type { Database } from './../types/database.types'
+import { randomSelect } from '../services/random'
 import { useGameStore } from './game'
 
-const filterListById = (list: Database['public']['Tables']['mimesis_guesses']['Row'][], past: number[]) => {
+function filterListById(list: Database['public']['Tables']['mimesis_guesses']['Row'][], past: number[]) {
   const filtered = list.filter(n => !past.includes(n.id))
   return filtered
 }

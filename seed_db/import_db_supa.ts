@@ -1,11 +1,11 @@
-import { get } from 'https'
-import csvtojson from 'csvtojson'
+import { get } from 'node:https'
 import { createClient } from '@supabase/supabase-js'
+import csvtojson from 'csvtojson'
 
 const supabaseUrl = 'https://asavjwzyvjjyjdmsjlhv.supabase.co'
 const supabaseAnonKey = '***'
 
-export const useSupabase = () => {
+export function useSupabase() {
   return createClient(supabaseUrl, supabaseAnonKey)
 }
 
@@ -31,7 +31,7 @@ const modeId = {
 }
 const langId = 1
 
-const urlToBuffer = (url: string): Promise<Buffer> => {
+function urlToBuffer(url: string): Promise<Buffer> {
   return new Promise((resolve, reject) => {
     const data: Uint8Array[] = []
     get(url, (res) => {
@@ -61,7 +61,7 @@ interface Guesses extends CsvImport {
   mode: number
 }
 
-const autoRetryUpload = async (destination: string, body: Buffer): Promise<string> => {
+async function autoRetryUpload(destination: string, body: Buffer): Promise<string> {
   let image = ''
   while (image !== '') {
     const res = await supabase
@@ -82,7 +82,7 @@ const autoRetryUpload = async (destination: string, body: Buffer): Promise<strin
   return image
 }
 
-const parseAndUpload = async (folder: string, kind: string) => {
+async function parseAndUpload(folder: string, kind: string) {
   console.log('Load data csv', folder)
   const datas: Guesses[] = await csvtojson({ delimiter: ';' }).fromFile(
     `./seed_db/${folder}/${kind}.csv`,
@@ -128,7 +128,7 @@ const parseAndUpload = async (folder: string, kind: string) => {
   console.log('Data csv uploaded', folder, kind)
 }
 
-const main = async () => {
+async function main() {
   await Promise.all(folders.map(async (folder) => {
     if (kinds.includes('base')) {
       console.log('Upload base', folder)

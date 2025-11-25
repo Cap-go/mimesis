@@ -1,15 +1,15 @@
+// import { isPlatform } from '@ionic/vue'
+import type { PurchasesPackage } from '@revenuecat/purchases-capacitor'
+import type { Database } from '../types/database.types'
 // import { IAPProductCustom, registerProduct, restore } from './iap'
 import { createClient } from '@supabase/supabase-js'
-// import { isPlatform } from '@ionic/vue'
-import type { Package } from '@capgo/capacitor-purchases'
-import type { Database } from '../types/database.types'
 // import { findPackage, isPurchased, restore } from './iap'
 import { GetDeviceId } from './capacitor'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string
 
-const useSupabase = () => {
+function useSupabase() {
   return createClient<Database>(supabaseUrl, supabaseAnonKey)
 }
 
@@ -23,7 +23,7 @@ export interface Entity {
   uuid: string
 }
 export interface Mode {
-  package?: Package | null
+  package?: PurchasesPackage | null
 }
 export interface Team extends Entity {
   score: number
@@ -66,7 +66,7 @@ interface UseDatabase {
   ) => Promise<number>
 }
 
-const getFakeGuesses = (category: number, lang: number) => {
+function getFakeGuesses(category: number, lang: number) {
   return [
     { title: `${lang}_${category}_1`, lang: 1, id: 0 },
     { title: `${lang}_${category}_2`, lang: 1, id: 1 },
@@ -87,7 +87,7 @@ const fakeThemes: Database['public']['Tables']['mimesis_modes']['Row'][] = [
   },
 ]
 
-export const useDb = (): UseDatabase => {
+export function useDb(): UseDatabase {
   const db = useSupabase()
   const getGuesses = async (mode: number, lang: number) => {
     if (!import.meta.env.VITE_SUPABASE_URL)
@@ -187,10 +187,12 @@ export const useDb = (): UseDatabase => {
       .select()
       .eq('id', deviceId)
       .single()
-    if (!user || error)
+    if (!user || error) {
       await db.from('mimesis_users').insert({ id: deviceId, games: 1 })
-    else
-      await db.from('mimesis_users').update({ id: deviceId, games: user.games + 1 }).eq('id', deviceId)
+    }
+    else {
+      await db.from('mimesis_users').update({ games: user.games + 1 }).eq('id', deviceId)
+    }
     await db.from('mimesis_games').insert({
       lang: 1,
       mode,

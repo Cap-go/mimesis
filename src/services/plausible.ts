@@ -1,10 +1,7 @@
-import Plausible from 'plausible-tracker'
 import { isPlatform } from '@ionic/vue'
+import Plausible from 'plausible-tracker'
 
-export const trackEvent = (
-  eventName: string,
-  eventData: { [propName: string]: string | number | boolean },
-) => {
+export function trackEvent(eventName: string, eventData: { [propName: string]: string | number | boolean }) {
   const { trackEvent } = Plausible({
     trackLocalhost: isPlatform('capacitor'),
     domain: import.meta.env.domain as string,
@@ -12,7 +9,7 @@ export const trackEvent = (
   trackEvent(eventName, { props: eventData })
 }
 
-export const initPlausible = (): void => {
+export function initPlausible(): void {
   const { enableAutoPageviews } = Plausible({
     trackLocalhost: isPlatform('capacitor'),
     domain: import.meta.env.domain as string,

@@ -1,12 +1,12 @@
 import { config } from 'dotenv'
-import keys from '../configs.json' assert {type: 'json'}
+import keys from '../configs.json' with { type: 'json' }
 
 config()
 
 export const branch = process.env.BRANCH || process.env.GITHUB_HEAD_REF || 'main'
 console.log('Branch', branch)
 
-export const getRightKey = (keyname) => {
+export function getRightKey(keyname) {
   // console.log('getRightKey', branch, keyname)
   if (!keys || !keys[keyname])
     return ''

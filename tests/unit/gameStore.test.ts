@@ -1,21 +1,21 @@
-import { beforeEach, describe, expect, test } from 'vitest'
-import { createPinia, setActivePinia } from 'pinia'
 import { mockRandom, resetMockRandom } from 'jest-mock-random'
+import { createPinia, setActivePinia } from 'pinia'
+import { beforeEach, describe, expect, it } from 'vitest'
 import { randomPlayer, useGameStore } from '../../src/store/game'
 
-describe('GameStore', () => {
+describe('gameStore', () => {
   beforeEach(() => {
     setActivePinia(createPinia())
   })
 
-  test('mode', () => {
+  it('mode', () => {
     const game = useGameStore()
     expect(game.mode).toBe(0)
     game.teams[0].players.push(randomPlayer())
     expect(game.mode).toBe(1)
   })
 
-  test('score', () => {
+  it('score', () => {
     const game = useGameStore()
     game.nextTeam()
     expect(game.winned).toBe(false)
@@ -34,7 +34,7 @@ describe('GameStore', () => {
     expect(game.team?.score).toBe(0)
   })
 
-  test('team order', () => {
+  it('team order', () => {
     const game = useGameStore()
     const uid1 = game.teams[1].uuid
     const uid0 = game.teams[0].uuid

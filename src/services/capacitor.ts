@@ -1,12 +1,12 @@
+import { App } from '@capacitor/app'
+import { Device } from '@capacitor/device'
 import { SplashScreen } from '@capacitor/splash-screen'
 import { StatusBar } from '@capacitor/status-bar'
 import { isPlatform } from '@ionic/vue'
-import { App } from '@capacitor/app'
-import { Device } from '@capacitor/device'
-import { initSound } from './sound'
 import { useMainStore } from '~/store/main'
+import { initSound } from './sound'
 
-export const initCapacitor = (): void => {
+export function initCapacitor(): void {
   if (isPlatform('capacitor')) {
     const main = useMainStore()
     App.addListener('appStateChange', (state) => {
@@ -19,7 +19,7 @@ export const initCapacitor = (): void => {
   }
 }
 
-export const GetDeviceId = async (): Promise<string> => {
+export async function GetDeviceId(): Promise<string> {
   const info = await Device.getId()
-  return info.uuid
+  return info.identifier
 }

@@ -1,5 +1,5 @@
-import { createWriteStream, readFileSync, unlinkSync } from 'fs'
-import { get } from 'https'
+import { createWriteStream, readFileSync, unlinkSync } from 'node:fs'
+import { get } from 'node:https'
 import csvtojson from 'csvtojson'
 import admin from 'firebase-admin'
 
@@ -21,7 +21,7 @@ const kind = ['base']
 // const kind = ['base', 'plus']
 // const folders = ['art', 'expression', 'improbable', 'rebus']
 
-const downloadImage = async (url: string) => {
+async function downloadImage(url: string) {
   let name = url.split('/')[url.split('/').length - 1]
   if (name === '800x800bb-50.webp')
     name = url.split('/')[url.split('/').length - 2]
@@ -44,7 +44,7 @@ const downloadImage = async (url: string) => {
   return path
 }
 
-const parseAndUpload = async (folder: string, kind: string) => {
+async function parseAndUpload(folder: string, kind: string) {
   const ref = firestore.collection(
     `mode/${folder}${kind === 'base' ? '' : '_plus'}/fr`,
   )

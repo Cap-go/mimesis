@@ -1,11 +1,11 @@
 /// <reference types="vitest" />
 
-import path, { resolve } from 'path'
-import { defineConfig } from 'vite'
+import path, { resolve } from 'node:path'
+import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import vue from '@vitejs/plugin-vue'
-import WindiCSS from 'vite-plugin-windicss'
+import { defineConfig } from 'vite'
 import EnvironmentPlugin from 'vite-plugin-environment'
-import VueI18n from '@intlify/vite-plugin-vue-i18n'
+import WindiCSS from 'vite-plugin-windicss'
 import pack from './package.json'
 import { getRightKey } from './scripts/utils.mjs'
 
@@ -39,8 +39,11 @@ export default defineConfig({
   test: {
     include: ['tests/**/*.test.ts'],
     environment: 'jsdom',
-    deps: {
-      inline: ['@vue', 'plausible', 'plausible-tracker'],
+    setupFiles: ['./vitest.setup.ts'],
+    server: {
+      deps: {
+        inline: ['@vue', 'plausible', 'plausible-tracker', '@ionic/vue', '@ionic/core', '@stencil/core'],
+      },
     },
   },
 })

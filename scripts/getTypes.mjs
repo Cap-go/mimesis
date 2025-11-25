@@ -1,12 +1,12 @@
-import { exec as execCb } from 'child_process'
-import util from 'util'
+import { exec as execCb } from 'node:child_process'
+import util from 'node:util'
 import { supa_url } from './utils.mjs'
 
 const exec = util.promisify(execCb)
 const projectId = supa_url.split('//')[1].split('.')[0]
 const command = `npx supabase gen types typescript --project-id=${projectId} > src/types/database.types.ts`
 
-const main = async () => {
+async function main() {
   try {
     const { stderr } = await exec(command)
     if (stderr)

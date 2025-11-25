@@ -38,7 +38,7 @@ defineEmits(['close'])
           leave-to="opacity-0"
         >
           <DialogOverlay
-            class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75"
+            class="fixed inset-0 transition-opacity bg-gray-900 bg-opacity-75"
           />
         </TransitionChild>
 
@@ -57,29 +57,29 @@ defineEmits(['close'])
           leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
           <div
-            class="inline-block px-4 pt-5 pb-4 overflow-hidden align-bottom transition-all transform border-2 rounded-lg shadow-xl border-rose-500 text-rose-500 bg-pizazz-500 sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6"
+            class="inline-block px-6 pt-6 pb-5 overflow-hidden align-bottom transition-all transform border-2 shadow-xl border-rose-500 text-rose-500 bg-pizazz-500 rounded-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-8"
           >
             <div>
               <div
-                class="flex items-center justify-center w-12 h-12 mx-auto bg-green-100 rounded-full"
+                class="flex items-center justify-center w-14 h-14 mx-auto rounded-full bg-lavender-500 shadow-sm"
               >
                 <slot name="icon" />
               </div>
-              <div class="mt-3 text-center sm:mt-5">
+              <div class="mt-4 text-center sm:mt-6">
                 <DialogTitle
                   as="h3"
-                  class="text-4xl font-semibold text-gray-50 first-letter:uppercase"
+                  class="text-3xl font-bold leading-tight text-gray-50 first-letter:uppercase sm:text-4xl"
                 >
                   <slot name="title" />
                 </DialogTitle>
-                <div class="mt-2">
-                  <p class="pt-5 text-sm text-yellow-200">
+                <div class="mt-4">
+                  <div class="text-base leading-relaxed text-gray-50 sm:text-lg">
                     <slot name="content" />
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div name="buttons" class="flex mt-5 justify-items-center">
+            <div class="flex flex-wrap gap-2 mt-6 justify-center sm:mt-8 sm:gap-3">
               <slot name="buttons" />
             </div>
           </div>

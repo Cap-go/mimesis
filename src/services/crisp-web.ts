@@ -1,38 +1,38 @@
-export type eventColor =
-  | 'red'
-  | 'orange'
-  | 'yellow'
-  | 'green'
-  | 'blue'
-  | 'purple'
-  | 'pink'
-  | 'brown'
-  | 'grey'
-  | 'black'
+export type eventColor
+  = | 'red'
+    | 'orange'
+    | 'yellow'
+    | 'green'
+    | 'blue'
+    | 'purple'
+    | 'pink'
+    | 'brown'
+    | 'grey'
+    | 'black'
 
 export interface CapacitorCrispPlugin {
-  configure(data: { websiteID: string }): Promise<void>
-  openMessenger(): Promise<void>
-  setTokenID(data: { tokenID: string }): Promise<void>
-  setUser(data: {
+  configure: (data: { websiteID: string }) => Promise<void>
+  openMessenger: () => Promise<void>
+  setTokenID: (data: { tokenID: string }) => Promise<void>
+  setUser: (data: {
     nickname?: string
     phone?: string
     email?: string
     avatar?: string
-  }): Promise<void>
-  pushEvent(data: { name: string; color: eventColor }): Promise<void>
-  setCompany(data: {
+  }) => Promise<void>
+  pushEvent: (data: { name: string, color: eventColor }) => Promise<void>
+  setCompany: (data: {
     name: string
     url?: string
     description?: string
     employment?: [title: string, role: string]
     geolocation?: [country: string, city: string]
-  }): Promise<void>
-  setInt(data: { key: string; value: number }): Promise<void>
-  setString(data: { key: string; value: string }): Promise<void>
-  sendMessage(data: { value: string }): Promise<void>
-  setSegment(data: { segment: string }): Promise<void>
-  reset(): Promise<void>
+  }) => Promise<void>
+  setInt: (data: { key: string, value: number }) => Promise<void>
+  setString: (data: { key: string, value: string }) => Promise<void>
+  sendMessage: (data: { value: string }) => Promise<void>
+  setSegment: (data: { segment: string }) => Promise<void>
+  reset: () => Promise<void>
 }
 
 declare global {
@@ -224,7 +224,7 @@ export class CapacitorCrispWeb {
     this.push(...arr)
   }
 
-  async pushEvent(data: { name: string; color: eventColor }): Promise<void> {
+  async pushEvent(data: { name: string, color: eventColor }): Promise<void> {
     this.push(['set', 'session:event', [[[data.name, null, data.color]]]])
   }
 
@@ -245,11 +245,11 @@ export class CapacitorCrispWeb {
     this.push(['set', 'user:company', [data.name, meta]])
   }
 
-  async setInt(data: { key: string; value: number }): Promise<void> {
+  async setInt(data: { key: string, value: number }): Promise<void> {
     this.push(['set', 'session:data', [data.key, data.value]])
   }
 
-  async setString(data: { key: string; value: string }): Promise<void> {
+  async setString(data: { key: string, value: string }): Promise<void> {
     this.push(['set', 'session:data', [data.key, data.value]])
   }
 

@@ -4,29 +4,30 @@ on:
   push:
     tags:
       - '*'
-      
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: "Build code and release"
+    name: Build code and release
     steps:
       - name: Check out
         uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.0.1
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
         with:
-          version: 6.22.2
+          bun-version: latest
       - name: Install dependencies
         id: install_code
-        run: pnpm i        
+        run: bun install
       - name: Lint
         id: lint_code
-        run: pnpm lint:markup && pnpm lint:script
+        run: bun run lint:markup && bun run lint:script
       - name: Test
         id: test_code
-        run: pnpm test:run
+        run: bun run test:run
       - name: Build
         id: build_code
-        run: pnpm run build
+        run: bun run build
       - name: Create Release Alpha
         if: "contains(github.ref, '-alpha.')"
         id: create_release_prepro
@@ -39,39 +40,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
         with:
-          version: 7
-      - name: Use Node.js 16
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: 'pnpm'
+          bun-version: latest
       - name: Install dependencies
         id: install_code
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
       - name: Build
         id: build_code
-        run: pnpm build
+        run: bun run build
       - name: Sync
         id: sync_code
         run: npx cap sync
       - name: Setup java
         uses: actions/setup-java@v3
         with:
-            distribution: 'zulu'
-            java-version: '11'
+          distribution: zulu
+          java-version: '11'
       - name: Decode Keystore File
         uses: timheuer/base64-to-file@v1
         id: android_keystore
         with:
-          fileName: "android_keystore.keystore"
+          fileName: android_keystore.keystore
           encodedString: ${{ secrets.ANDROID_KEYSTORE_FILE }}
       - name: Decode Google Play Confi File
         uses: timheuer/base64-to-file@v1
         id: service_account_json_file
         with:
-          fileName: "serviceAccount.json"
+          fileName: serviceAccount.json
           encodedString: ${{ secrets.PLAY_CONFIG_JSON }}
       - uses: maierj/fastlane-action@v2.3.0
         env:
@@ -90,52 +87,48 @@ jobs:
           path: ./android/app/build/outputs/bundle/release/app-release.aab
           retention-days: 60
   build_ios:
-      runs-on: macOS-latest
-      steps:
-        - uses: actions/checkout@v3
-        - uses: pnpm/action-setup@v2
-          with:
-            version: 7
-        - name: Use Node.js 16
-          uses: actions/setup-node@v3
-          with:
-            node-version: 16
-            cache: 'pnpm'
-        - name: Install dependencies
-          id: install_code
-          run: pnpm install --frozen-lockfile
-        - name: Build
-          id: build_code
-          run: pnpm build
-        - name: Sync
-          id: sync_code
-          run: npx cap sync
-        - uses: ruby/setup-ruby@v1
-          with:
-            ruby-version: '2.7.2'
-        - uses: maierj/fastlane-action@v2.3.0
-          env:
-            DEVELOPER_APP_IDENTIFIER: ${{ secrets.DEVELOPER_APP_IDENTIFIER }}
-            DEVELOPER_APP_ID: ${{ secrets.DEVELOPER_APP_ID }}
-            PROVISIONING_PROFILE_SPECIFIER: match AppStore ${{ secrets.DEVELOPER_APP_IDENTIFIER }}
-            TEMP_KEYCHAIN_USER: ${{ secrets.TEMP_KEYCHAIN_USER }}
-            TEMP_KEYCHAIN_PASSWORD: ${{ secrets.TEMP_KEYCHAIN_PASSWORD }}
-            APPLE_ISSUER_ID: ${{ secrets.APPLE_ISSUER_ID }}
-            APPLE_KEY_ID: ${{ secrets.APPLE_KEY_ID }}
-            APPLE_KEY_CONTENT: ${{ secrets.APPLE_KEY_CONTENT }}
-            CERTIFICATE_STORE_URL: ${{ secrets.CERTIFICATE_STORE_URL }}
-            GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
-            GIT_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-            FASTLANE_APPLE_ID: ${{ secrets.FASTLANE_APPLE_ID }}
-            MATCH_USERNAME: ${{ secrets.FASTLANE_APPLE_ID }}
-            MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-            APP_STORE_CONNECT_TEAM_ID: ${{ secrets.APP_STORE_CONNECT_TEAM_ID }}
-            DEVELOPER_PORTAL_TEAM_ID: ${{ secrets.DEVELOPER_PORTAL_TEAM_ID }}
-          with:
-            lane: closed_beta
-        - name: Upload release bundle
-          uses: actions/upload-artifact@v2
-          with:
-            name: ios-release
-            path: ./App.ipa
-            retention-days: 60
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+      - name: Install dependencies
+        id: install_code
+        run: bun install --frozen-lockfile
+      - name: Build
+        id: build_code
+        run: bun run build
+      - name: Sync
+        id: sync_code
+        run: npx cap sync
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+      - uses: maierj/fastlane-action@v2.3.0
+        env:
+          DEVELOPER_APP_IDENTIFIER: ${{ secrets.DEVELOPER_APP_IDENTIFIER }}
+          DEVELOPER_APP_ID: ${{ secrets.DEVELOPER_APP_ID }}
+          PROVISIONING_PROFILE_SPECIFIER: match AppStore ${{ secrets.DEVELOPER_APP_IDENTIFIER }}
+          TEMP_KEYCHAIN_USER: ${{ secrets.TEMP_KEYCHAIN_USER }}
+          TEMP_KEYCHAIN_PASSWORD: ${{ secrets.TEMP_KEYCHAIN_PASSWORD }}
+          APPLE_ISSUER_ID: ${{ secrets.APPLE_ISSUER_ID }}
+          APPLE_KEY_ID: ${{ secrets.APPLE_KEY_ID }}
+          APPLE_KEY_CONTENT: ${{ secrets.APPLE_KEY_CONTENT }}
+          CERTIFICATE_STORE_URL: ${{ secrets.CERTIFICATE_STORE_URL }}
+          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+          GIT_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          FASTLANE_APPLE_ID: ${{ secrets.FASTLANE_APPLE_ID }}
+          MATCH_USERNAME: ${{ secrets.FASTLANE_APPLE_ID }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          APP_STORE_CONNECT_TEAM_ID: ${{ secrets.APP_STORE_CONNECT_TEAM_ID }}
+          DEVELOPER_PORTAL_TEAM_ID: ${{ secrets.DEVELOPER_PORTAL_TEAM_ID }}
+        with:
+          lane: closed_beta
+      - name: Upload release bundle
+        uses: actions/upload-artifact@v2
+        with:
+          name: ios-release
+          path: ./App.ipa
+          retention-days: 60

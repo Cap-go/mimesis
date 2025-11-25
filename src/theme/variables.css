@@ -60,8 +60,7 @@ http://ionicframework.com/docs/theming/ */
 }
 
 .svg_icon {
-  filter: invert(57%) sepia(21%) saturate(1692%) hue-rotate(339deg)
-    brightness(99%) contrast(81%);
+  filter: invert(57%) sepia(21%) saturate(1692%) hue-rotate(339deg) brightness(99%) contrast(81%);
 }
 
 .no_bar {

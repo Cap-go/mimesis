@@ -2,13 +2,39 @@
 	"appId": "ee.forgr.mimesis",
 	"appName": "Mimesis",
 	"webDir": "dist",
-	"bundledWebRuntime": false,
 	"plugins": {
+		"PushNotifications": {
+			"presentationOptions": [
+				"badge",
+				"sound",
+				"alert"
+			]
+		},
 		"SplashScreen": {
-			"launchAutoHide": false
+			"launchAutoHide": false,
+			"androidScaleType": "CENTER_CROP"
 		},
 		"CapacitorUpdater": {
-			"autoUpdate": true
+			"autoSplashscreen": true,
+			"directUpdate": "atInstall",
+			"version": "2.7.13"
 		}
-	}
+	},
+	"android": {
+		"webContentsDebuggingEnabled": true
+	},
+	"packageClassList": [
+		"KeepAwakePlugin",
+		"AppPlugin",
+		"DevicePlugin",
+		"HapticsPlugin",
+		"KeyboardPlugin",
+		"PreferencesPlugin",
+		"SplashScreenPlugin",
+		"StatusBarPlugin",
+		"CapacitorUpdaterPlugin",
+		"NativeAudio",
+		"PurchasesPlugin",
+		"CapacitorRateAppPlugin"
+	]
 }

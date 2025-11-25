@@ -1,10 +1,10 @@
-import { beforeEach, describe, expect, test } from 'vitest'
-import { createPinia, setActivePinia } from 'pinia'
-import { mockRandom, resetMockRandom } from 'jest-mock-random'
-import { useGameStore } from '../../src/store/game'
-import { useMainStore } from '../../src/store/main'
 import type { GuessDb, LangMessage, LangMessages, Mode } from '../../src/services/database'
 import type { definitions } from './../../src/types/supabase'
+import { mockRandom, resetMockRandom } from 'jest-mock-random'
+import { createPinia, setActivePinia } from 'pinia'
+import { beforeEach, describe, expect, it } from 'vitest'
+import { useGameStore } from '../../src/store/game'
+import { useMainStore } from '../../src/store/main'
 
 const langs: LangMessages = {
   fr: {
@@ -19,7 +19,7 @@ const langs: LangMessages = {
   } as unknown as LangMessage,
 }
 
-const gGuess = (title: string) => {
+function gGuess(title: string) {
   return { lang: 1, id: Number(title), title }
 }
 
@@ -41,12 +41,12 @@ const guessDb: GuessDb = {
   '2_fr': [gGuess('10'), gGuess('20'), gGuess('30')],
 }
 
-describe('MainStore', () => {
+describe('mainStore', () => {
   beforeEach(() => {
     setActivePinia(createPinia())
   })
 
-  test('need update', () => {
+  it('need update', () => {
     const main = useMainStore()
     main.lastUpdate = new Date().toISOString()
     expect(main.needUpdate).toBe(false)
@@ -55,7 +55,7 @@ describe('MainStore', () => {
     expect(main.needUpdate).toBe(true)
   })
 
-  test('guess order', () => {
+  it('guess order', () => {
     const main = useMainStore()
     main.themes = themes
     main.guessDb = guessDb

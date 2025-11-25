@@ -1,43 +1,39 @@
-import { acceptHMRUpdate, defineStore } from 'pinia'
-import { computed, ref } from 'vue'
-import { v4 as uuidv4 } from 'uuid'
-import { faker } from '@faker-js/faker'
-import { randomSelect } from '../services/random'
 import type { Entity, Player, Team } from '../services/database'
+import { fakerFR as faker } from '@faker-js/faker'
+import { acceptHMRUpdate, defineStore } from 'pinia'
+import { v4 as uuidv4 } from 'uuid'
+import { computed, ref } from 'vue'
 import { useDb } from '../services/database'
+import { randomSelect } from '../services/random'
 
-faker.setLocale('fr')
-
-export const randomPlayer = (): Player => ({
-  score: 0,
-  name: faker.name.firstName(),
-  uuid: uuidv4(),
-})
+export function randomPlayer(): Player {
+  return {
+    score: 0,
+    name: faker.person.firstName(),
+    uuid: uuidv4(),
+  }
+}
 
 export const randomTeamName = (): string => faker.color.human()
 
-export const randomTeam = (): Team => ({
-  uuid: uuidv4(),
-  name: randomTeamName(),
-  players: [randomPlayer(), randomPlayer()],
-  pastPlayers: [],
-  score: 0,
-})
+export function randomTeam(): Team {
+  return {
+    uuid: uuidv4(),
+    name: randomTeamName(),
+    players: [randomPlayer(), randomPlayer()],
+    pastPlayers: [],
+    score: 0,
+  }
+}
 
 // function find by uuid in array
-const findByUUID = <Type extends Entity>(
-  list: Type[] | undefined,
-  uuid: string,
-): Type | undefined => {
+function findByUUID<Type extends Entity>(list: Type[] | undefined, uuid: string): Type | undefined {
   if (!list)
     return undefined
   return list.find(item => item.uuid === uuid)
 }
 
-const filterListByUUID = (
-  list: Player[] | Team[],
-  past: string[],
-): Player[] | Team[] => {
+function filterListByUUID(list: Player[] | Team[], past: string[]): Player[] | Team[] {
   const filtered = list.filter((n) => {
     const index
       = past.findIndex((b) => {

@@ -1,13 +1,12 @@
-import { CapacitorUpdater } from '@capgo/capacitor-updater'
-import { createApp } from 'vue'
-import { IonicVue, isPlatform, loadingController } from '@ionic/vue'
-import { createI18n } from 'vue-i18n'
 import { App as capApp } from '@capacitor/app'
 import { Device } from '@capacitor/device'
+import { CapacitorUpdater } from '@capgo/capacitor-updater'
+import { IonicVue, isPlatform } from '@ionic/vue'
+import { createApp } from 'vue'
+import { createI18n } from 'vue-i18n'
 import App from './App.vue'
 import router from './router'
-// import VueFeather from 'vue-feather';
-import { useMainStore } from './store/main'
+import { initCapacitor } from './services/capacitor'
 import {
   initCrisp,
   setDeviceInfo,
@@ -15,8 +14,9 @@ import {
   setVersion,
 } from './services/crips'
 import pinia from './services/pinia'
-import { initCapacitor } from './services/capacitor'
 import { initPlausible } from './services/plausible'
+// import VueFeather from 'vue-feather';
+import { useMainStore } from './store/main'
 
 import 'virtual:windi.css'
 import 'virtual:windi-devtools'
@@ -59,7 +59,7 @@ const messages = Object.fromEntries(
   }),
 )
 
-const initI18n = async () => {
+async function initI18n() {
   try {
     const i18n = createI18n({
       legacy: false,
@@ -75,7 +75,7 @@ const initI18n = async () => {
   }
 }
 
-const init = async (isRecall = false) => {
+async function init(isRecall = false) {
   console.log('init')
   CapacitorUpdater.notifyAppReady()
   // capApp.addListener('appStateChange', async (state: any) => {
@@ -124,12 +124,9 @@ const init = async (isRecall = false) => {
     //   initIap('goog_TqZUIbsisEecUcyOkqTPaHPKEVH')
 
     console.log('main.initialize')
-    const loading = await loadingController.create({
-      message: 'chargement...',
-    })
-    await loading.present()
+    main.loading = true
     await main.initialize()
-    await loading.dismiss()
+    main.loading = false
     console.log('initCapacitor')
     initCapacitor()
     // save currentPath
@@ -143,12 +140,14 @@ const init = async (isRecall = false) => {
     await router.isReady()
     console.log('mount')
     app.mount('#app')
+    // Hide initial loader and mark Vue as loaded
+    document.body.classList.add('vue-loaded')
     if (isPlatform('capacitor')) {
       const info = await Device.getId()
       const infoApp = await capApp.getInfo()
       const device = await Device.getInfo()
       // console.log('info', info)
-      setUserId(info.uuid)
+      setUserId(info.identifier)
       setDeviceInfo(
         device.model,
         device.platform,

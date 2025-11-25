@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
+import type { CreateTypes } from 'canvas-confetti'
+import type { StyleValue } from 'vue'
+import { KeepAwake } from '@capacitor-community/keep-awake'
+import {
+  ArrowLeftIcon,
+  CheckIcon,
+  ExclamationCircleIcon as ExclamationIcon,
+} from '@heroicons/vue/24/outline'
 import {
   IonContent,
   IonHeader,
@@ -8,8 +15,8 @@ import {
   IonToolbar,
   isPlatform,
 } from '@ionic/vue'
+import { create as createConfetti } from 'canvas-confetti'
 import { RateApp } from 'capacitor-rate-app'
-import type { StyleValue } from 'vue'
 import {
   computed,
   onBeforeUnmount,
@@ -17,19 +24,12 @@ import {
   reactive,
   watchEffect,
 } from 'vue'
-import type { CreateTypes } from 'canvas-confetti'
-import { create as createConfetti } from 'canvas-confetti'
-import { KeepAwake } from '@capacitor-community/keep-awake'
+import { useI18n } from 'vue-i18n'
 import { useTimer } from 'vue-timer-hook'
-import {
-  ArrowLeftIcon,
-  CheckIcon,
-  ExclamationIcon,
-} from '@heroicons/vue/outline'
-import { useMainStore } from '~/store/main'
-import { useGameStore } from '~/store/game'
 import Modal from '~/components/ModalComponent.vue'
 import { playSound } from '~/services/sound'
+import { useGameStore } from '~/store/game'
+import { useMainStore } from '~/store/main'
 
 const gameLenght = 60
 const { t } = useI18n()
@@ -44,11 +44,11 @@ const main = useMainStore()
 const timer = useTimer(gameLenght, false)
 let confetti: CreateTypes
 
-const pause = () => {
+function pause() {
   modals.pause = true
   timer.pause()
 }
-const resume = () => {
+function resume() {
   modals.pause = false
   timer.resume()
 }
@@ -68,23 +68,23 @@ const bgColor = computed<StyleValue[]>(
       },
     ] as StyleValue[],
 )
-const createTime = () => {
+function createTime() {
   const expiryTimestamp = new Date()
   expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + gameLenght)
   return expiryTimestamp.getTime()
 }
 
-const skipGuess = () => {
+function skipGuess() {
   main.nextGuess()
 }
 
-const nextRound = () => {
+function nextRound() {
   skipGuess()
   timer.restart(createTime())
   modals.changePlayer = false
 }
 
-const playConfetti = () => {
+function playConfetti() {
   return confetti({
     angle: 90,
     spread: 60,
@@ -93,12 +93,12 @@ const playConfetti = () => {
   })
 }
 
-const validGuess = () => {
+function validGuess() {
   main.nextGuess(true)
   game.addScore()
 }
 
-const setupCanvas = () => {
+function setupCanvas() {
   const options = {
     useWorker: true,
     resize: !isPlatform('android'),
@@ -106,7 +106,7 @@ const setupCanvas = () => {
   confetti = createConfetti(null as unknown as HTMLCanvasElement, options)
 }
 
-const initGameLoop = () => {
+function initGameLoop() {
   setTimeout(() => {
     game.reset()
     main.nextGuess()
@@ -190,7 +190,7 @@ onMounted(() => {
           <template #buttons>
             <button
               type="button"
-              class="px-6 py-3 mb-1 mr-1 text-xs font-bold uppercase transition-all duration-150 ease-linear border rounded shadow outline-none bg-rose-500 text-lavender-500 border-lavender-500 md:text-base hover:shadow-lg focus:outline-none"
+              class="px-6 py-3 text-base font-bold uppercase border-2 rounded-lg shadow-sm transition-all duration-150 bg-rose-500 text-lavender-500 border-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
               @click="nextRound()"
             >
               {{ t('go') }}
@@ -215,14 +215,15 @@ onMounted(() => {
               @click="initGameLoop() && (modals.pause = false)"
             >
               <button
-                class="px-6 py-3 mb-1 mr-1 text-xs font-bold uppercase transition-all duration-150 ease-linear border rounded shadow outline-none bg-lavender-500 text-rose-500 border-rose-500 md:text-base hover:shadow-lg focus:outline-none"
+                type="button"
+                class="px-6 py-3 text-base font-bold uppercase border-2 rounded-lg shadow-sm transition-all duration-150 bg-lavender-500 text-rose-500 border-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
               >
                 {{ t('backHome') }}
               </button>
             </router-link>
             <button
               type="button"
-              class="px-6 py-3 mb-1 mr-1 text-xs font-bold uppercase transition-all duration-150 ease-linear border rounded shadow outline-none bg-rose-500 text-lavender-500 border-lavender-500 md:text-base hover:shadow-lg focus:outline-none"
+              class="px-6 py-3 text-base font-bold uppercase border-2 rounded-lg shadow-sm transition-all duration-150 bg-rose-500 text-lavender-500 border-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
               @click="resume()"
             >
               {{ t('resume') }}
@@ -252,14 +253,15 @@ onMounted(() => {
           <template #buttons>
             <router-link to="/home" @click="initGameLoop()">
               <button
-                class="px-6 py-3 mb-1 mr-1 text-xs font-bold uppercase transition-all duration-150 ease-linear border rounded shadow outline-none bg-lavender-500 text-rose-500 border-rose-500 md:text-base hover:shadow-lg focus:outline-none"
+                type="button"
+                class="px-6 py-3 text-base font-bold uppercase border-2 rounded-lg shadow-sm transition-all duration-150 bg-lavender-500 text-rose-500 border-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
               >
                 {{ t('backHome') }}
               </button>
             </router-link>
             <button
               type="button"
-              class="px-6 py-3 mb-1 mr-1 text-xs font-bold uppercase transition-all duration-150 ease-linear border rounded shadow outline-none bg-rose-500 text-lavender-500 border-lavender-500 md:text-base hover:shadow-lg focus:outline-none"
+              class="px-6 py-3 text-base font-bold uppercase border-2 rounded-lg shadow-sm transition-all duration-150 bg-rose-500 text-lavender-500 border-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
               @click="initGameLoop()"
             >
               {{ t('restart') }}
@@ -267,69 +269,73 @@ onMounted(() => {
           </template>
         </Modal>
         <div class="flex items-center justify-between pt-3 md:pt-10 safe-pt">
-          <div class="p-2 bg-pizazz-500 rounded-xl">
-            <p class="text-md md:text-xl text-rose-500">
-              {{ t('team') }} :
+          <div class="px-4 py-2 bg-pizazz-500 border-2 border-rose-500 rounded-xl shadow-sm">
+            <p class="text-base md:text-lg text-rose-500 first-letter:uppercase">
+              {{ t('team') }}:
             </p>
             <h2 class="text-xl font-bold md:text-2xl text-rose-500">
               {{ game.teamName }}
             </h2>
           </div>
-          <div class="p-2 bg-pizazz-500 rounded-xl">
-            <p class="text-right text-md md:text-xl text-rose-500">
-              {{ t('player') }} :
+          <div class="px-4 py-2 bg-pizazz-500 border-2 border-rose-500 rounded-xl shadow-sm">
+            <p class="text-right text-base md:text-lg text-rose-500 first-letter:uppercase">
+              {{ t('player') }}:
             </p>
-            <h1 class="text-xl font-bold md:text-2xl text-rose-500">
+            <h2 class="text-xl font-bold md:text-2xl text-rose-500">
               {{ game.playerName }}
-            </h1>
+            </h2>
           </div>
         </div>
         <div class="flex flex-col items-center">
-          <h5
-            class="p-2 my-10 text-5xl font-bold text-center text-rose-500 bg-pizazz-500 rounded-xl"
+          <div
+            class="px-8 py-4 my-10 text-5xl font-bold text-center text-rose-500 bg-pizazz-500 border-2 border-rose-500 rounded-xl shadow-md"
           >
             {{ timer.seconds }}
-          </h5>
+          </div>
         </div>
         <div class="h-48">
           <div
-            class="flex flex-col items-center my-auto overflow-y-scroll text-3xl border text-rose-500 drop-shadow border-rose-500 bg-lavender-500 rounded-xl max-h-48"
+            class="flex flex-col items-center justify-center my-auto overflow-y-scroll text-3xl border-2 text-rose-500 border-rose-500 bg-lavender-500 rounded-xl shadow-md max-h-48"
           >
             <!-- <img v-if="main.guess.cover" :src="main.guess.cover"/> -->
-            <div class="p5 md:p-14 m-3">
-              <p v-if="main.guess.type" class="text-2xl">
+            <div class="px-5 py-3 md:px-14 md:py-5 text-center">
+              <p v-if="main.guess.type" class="text-xl md:text-2xl mb-2">
                 {{ main.guess.type }}
               </p>
-              <b>{{ main.guess.title }}</b>
-              <p v-if="main.guess.author" class="text-2xl">
+              <p class="text-2xl md:text-3xl font-bold">
+                {{ main.guess.title }}
+              </p>
+              <p v-if="main.guess.author" class="text-xl md:text-2xl mt-2">
                 de {{ main.guess.author }}
               </p>
             </div>
           </div>
         </div>
         <div class="w-full mb-5">
-          <div class="flex flex-col items-end">
-            <h3
-              class="p-2 text-3xl font-bold text-right md:text-center text-rose-500 bg-pizazz-500 rounded-xl"
+          <div class="flex flex-col items-end mb-6">
+            <div
+              class="px-6 py-3 text-2xl font-bold md:text-3xl text-rose-500 bg-pizazz-500 border-2 border-rose-500 rounded-xl shadow-sm"
             >
               {{ t('score') }}: {{ game.teamScore }}
-            </h3>
+            </div>
           </div>
           <div
-            class="flex justify-between mt-10 text-4xl md:justify-around md:text-5xl text-rose-500"
+            class="flex justify-between gap-4 mt-10 text-3xl md:justify-around md:text-4xl text-rose-500"
           >
-            <a
-              class="px-4 py-2 border-2 md:py-3 md:px-5 bg-lavender-500 border-rose-500 rounded-xl"
+            <button
+              type="button"
+              class="flex-1 px-6 py-3 text-3xl font-bold uppercase border-2 rounded-xl shadow-md transition-all duration-150 bg-lavender-500 border-rose-500 text-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400 md:text-4xl md:px-8 md:py-4"
               @click="skipGuess()"
             >
               {{ t('pass') }}
-            </a>
-            <a
-              class="px-4 py-2 border-2 md:py-3 md:px-5 bg-lavender-500 border-rose-500 rounded-xl"
+            </button>
+            <button
+              type="button"
+              class="flex-1 px-6 py-3 text-3xl font-bold uppercase border-2 rounded-xl shadow-md transition-all duration-150 bg-rose-500 border-rose-500 text-lavender-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400 md:text-4xl md:px-8 md:py-4"
               @click="validGuess()"
             >
               {{ t('validate') }}
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -339,6 +345,6 @@ onMounted(() => {
 
 <style scoped>
   ion-toolbar {
-    --border-style: none;
-  }
+  --border-style: none;
+}
 </style>
