@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { CreateTypes } from 'canvas-confetti'
 import type { StyleValue } from 'vue'
+import { InAppReview } from '@capacitor-community/in-app-review'
 import { KeepAwake } from '@capacitor-community/keep-awake'
 import {
   ArrowLeftIcon,
@@ -16,7 +17,6 @@ import {
   isPlatform,
 } from '@ionic/vue'
 import { create as createConfetti } from 'canvas-confetti'
-import { RateApp } from 'capacitor-rate-app'
 import {
   computed,
   onBeforeUnmount,
@@ -144,7 +144,7 @@ onMounted(() => {
       await playSound('tada')
       await game.save(main.lang)
       if (isPlatform('capacitor') && game.games > 2)
-        RateApp.requestReview()
+        InAppReview.requestReview()
     }
   })
   watchEffect(() => {

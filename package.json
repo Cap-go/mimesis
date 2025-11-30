@@ -21,6 +21,7 @@
     "lint:script": "eslint ."
   },
   "dependencies": {
+    "@capacitor-community/in-app-review": "^7.1.0",
     "@capacitor-community/keep-awake": "7.1.0",
     "@capacitor/app": "^7.1.0",
     "@capacitor/core": "^7.4.4",
@@ -41,7 +42,6 @@
     "@revenuecat/purchases-capacitor": "^11.2.15",
     "@supabase/supabase-js": "2.84.0",
     "canvas-confetti": "1.9.4",
-    "capacitor-rate-app": "^4.0.3",
     "dotenv": "^17.2.3",
     "pinia": "3.0.4",
     "plausible-tracker": "^0.3.9",

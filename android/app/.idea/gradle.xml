@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="CHOOSE_PER_TEST" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/capacitor-cordova-android-plugins" />
+            <option value="$PROJECT_DIR$/../node_modules/@capacitor/android/capacitor" />
+            <option value="$PROJECT_DIR$/../node_modules/@capacitor/app/android" />
+            <option value="$PROJECT_DIR$/../node_modules/@capacitor/browser/android" />
+            <option value="$PROJECT_DIR$/../node_modules/@capacitor/clipboard/android" />
+            <option value="$PROJECT_DIR$/../node_modules/@capacitor/device/android" />
+            <option value="$PROJECT_DIR$/../node_modules/@capacitor/haptics/android" />
+            <option value="$PROJECT_DIR$/../node_modules/@capacitor/keyboard/android" />
+            <option value="$PROJECT_DIR$/../node_modules/@capacitor/preferences/android" />
+            <option value="$PROJECT_DIR$/../node_modules/@capacitor/splash-screen/android" />
+            <option value="$PROJECT_DIR$/../node_modules/@capacitor/status-bar/android" />
+            <option value="$PROJECT_DIR$/../node_modules/@capgo/capacitor-updater/android" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

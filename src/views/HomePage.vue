@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { InAppReview } from '@capacitor-community/in-app-review'
 import {
   ChatBubbleLeftIcon as ChatIcon,
   ClipboardDocumentListIcon as ClipboardListIcon,
@@ -19,7 +20,6 @@ import {
   IonPage,
   isPlatform,
 } from '@ionic/vue'
-import { RateApp } from 'capacitor-rate-app'
 import { computed, reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
@@ -63,7 +63,7 @@ async function presentActionSheet() {
         text: t('rate'),
         handler: () => {
           if (isPlatform('capacitor'))
-            RateApp.requestReview()
+            InAppReview.requestReview()
         },
       },
       {
@@ -79,9 +79,6 @@ async function presentActionSheet() {
     ],
   })
   await actionSheet.present()
-
-  const { role } = await actionSheet.onDidDismiss()
-  console.log('onDidDismiss resolved with role', role)
 }
 </script>
 

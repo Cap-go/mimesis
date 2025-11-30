@@ -24,6 +24,7 @@
 		"webContentsDebuggingEnabled": true
 	},
 	"packageClassList": [
+		"InAppReviewPlugin",
 		"KeepAwakePlugin",
 		"AppPlugin",
 		"DevicePlugin",
@@ -34,7 +35,6 @@
 		"StatusBarPlugin",
 		"CapacitorUpdaterPlugin",
 		"NativeAudio",
-		"PurchasesPlugin",
-		"CapacitorRateAppPlugin"
+		"PurchasesPlugin"
 	]
 }
