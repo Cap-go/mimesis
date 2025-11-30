@@ -16,7 +16,7 @@
         "@capacitor/splash-screen": "^7.0.3",
         "@capacitor/status-bar": "^7.0.3",
         "@capgo/capacitor-updater": "7.29.0",
-        "@capgo/native-audio": "^7.9.9",
+        "@capgo/native-audio": "^7.9.10",
         "@faker-js/faker": "10.1.0",
         "@headlessui/vue": "1.7.23",
         "@heroicons/vue": "2.2.0",
@@ -116,7 +116,7 @@
 
     "@capgo/capacitor-updater": ["@capgo/capacitor-updater@7.29.0", "", { "peerDependencies": { "@capacitor/core": ">=7.0.0" } }, "sha512-pN7AjEBzEBizg/A5GR2eUSl/51cwLVGsCUKv6LonDEofABSEhPrXaGxSpN51b7EEchdZZNRBm0UolBJHJYqH/g=="],
 
-    "@capgo/native-audio": ["@capgo/native-audio@7.9.9", "", { "peerDependencies": { "@capacitor/core": ">=7.0.0" } }, "sha512-kqR/GQa/YMawCWToLwV9NMSLVEbfHR2TN5M77ay95FJPtJkkATEq+i9S1rshQueWQKasA3claGS6qS9KHwZaew=="],
+    "@capgo/native-audio": ["@capgo/native-audio@7.9.10", "", { "peerDependencies": { "@capacitor/core": ">=7.0.0" } }, "sha512-U00BKMwq4QRp/ZSeuQifC1HyVMWt3mmIqnKZs/clKJ6IZDU1TuZNJHEvULQk/8MLBAKgEyeAt8N5+KSAjmD0IQ=="],
 
     "@clack/core": ["@clack/core@0.5.0", "", { "dependencies": { "picocolors": "^1.0.0", "sisteransi": "^1.0.5" } }, "sha512-p3y0FIOwaYRUPRcMO7+dlmLh8PSRcrjuTndsiA0WAFbWES0mLZlrjVoBRZ9DzkPFJZG6KGkJmoEAY0ZcVWTkow=="],
 
