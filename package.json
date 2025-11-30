@@ -31,7 +31,7 @@
     "@capacitor/preferences": "^7.0.2",
     "@capacitor/splash-screen": "^7.0.3",
     "@capacitor/status-bar": "^7.0.3",
-    "@capgo/capacitor-updater": "10.0.0",
+    "@capgo/capacitor-updater": "7.29.0",
     "@capgo/native-audio": "^7.9.9",
     "@faker-js/faker": "10.1.0",
     "@headlessui/vue": "1.7.23",
