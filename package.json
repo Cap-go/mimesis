@@ -1,7 +1,7 @@
 {
   "name": "mimesis",
   "type": "module",
-  "version": "2.7.13",
+  "version": "3.0.0",
   "license": "AGPL-3.0-only",
   "scripts": {
     "dev": "BRANCH=development vite",
