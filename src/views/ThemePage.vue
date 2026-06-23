@@ -66,9 +66,9 @@ async function saveTheme(theme: (Database['public']['Tables']['mimesis_modes']['
       <IonToolbar color="secondary">
         <template #start>
           <IonButtons v-if="isIos()">
-            <IonButton @click="router.go(-1)">
+            <IonButton aria-label="Go back" @click="router.go(-1)">
               <template #start>
-                <ArrowLeftIcon class="w-10 md:w-15 text-rose-500" />
+                <ArrowLeftIcon class="w-10 md:w-15 text-rose-500" aria-hidden="true" />
               </template>
             </IonButton>
           </IonButtons>
@@ -84,31 +84,32 @@ async function saveTheme(theme: (Database['public']['Tables']['mimesis_modes']['
         </IonButtons> -->
       </IonToolbar>
     </IonHeader>
-    <IonContent :fullscreen="true" :scroll-y="false">
-      <div class="flex flex-col justify-start h-screen p-10 bg-pizazz-500">
+    <IonContent :fullscreen="true" :scroll-y="true">
+      <div class="flex min-h-screen flex-col justify-start bg-pizazz-500 px-4 py-6 xs:px-8 md:px-10">
         <h1
-          class="mb-6 text-5xl font-bold leading-tight text-center xs:mb-10 text-rose-500 first-letter:uppercase"
+          class="mb-6 text-4xl font-bold leading-tight text-center xs:mb-10 xs:text-5xl text-rose-900 first-letter:uppercase"
         >
           {{ t('themes') }}
         </h1>
         <div
           v-if="main.offline && main.themes.length > 0"
-          class="mx-5 mb-6 px-4 py-3 text-center text-base font-medium bg-yellow-200 text-rose-500 border-2 border-rose-500 rounded-lg shadow-sm first-letter:uppercase"
+          class="mb-6 px-4 py-3 text-center text-base font-medium bg-yellow-200 text-rose-500 border-2 border-rose-500 rounded-lg shadow-sm first-letter:uppercase md:mx-auto md:max-w-xl"
         >
           {{ t('noInternet') }}
         </div>
         <div
           v-if="main.offline && main.themes.length === 0"
-          class="mx-5 mb-6 px-4 py-3 text-center text-base font-medium bg-yellow-200 text-rose-500 border-2 border-rose-500 rounded-lg shadow-sm first-letter:uppercase"
+          class="mb-6 px-4 py-3 text-center text-base font-medium bg-yellow-200 text-rose-500 border-2 border-rose-500 rounded-lg shadow-sm first-letter:uppercase md:mx-auto md:max-w-xl"
         >
           {{ t('noInternetFirst') }}
         </div>
-        <div class="overflow-x-scroll no_bar md:w-1/2 md:mx-auto">
+        <div class="w-full max-w-xl mx-auto pb-6">
           <button
             v-for="theme in main.themes"
             :key="theme.id"
             type="button"
-            class="flex items-center w-full my-2 border-2 cursor-pointer transition-all duration-150 xs:my-3 md:my-4 border-rose-500 bg-lavender-500 rounded-xl shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
+            class="flex min-h-20 items-center w-full my-2 text-left border-2 cursor-pointer transition-all duration-150 xs:my-3 md:my-4 border-rose-500 bg-lavender-500 rounded-xl shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
+            :aria-label="`${t('themes')}: ${langName(theme)}`"
             @click="saveTheme(theme)"
           >
             <div
@@ -118,15 +119,16 @@ async function saveTheme(theme: (Database['public']['Tables']['mimesis_modes']['
                 v-if="theme.status === 'paid'"
                 class="absolute inset-0 z-10 flex items-center justify-center bg-black text-lavender-500 bg-opacity-50 rounded-l-xl"
               >
-                <LockClosedIcon class="w-10 h-10 xs:w-12 xs:h-12 text-lavender-500" />
+                <LockClosedIcon class="w-10 h-10 xs:w-12 xs:h-12 text-lavender-500" aria-hidden="true" />
               </div>
               <img
-                alt="Theme icon"
+                alt=""
+                aria-hidden="true"
                 class="w-full h-full p-2 fill-current stroke-current text-pizazz-500 svg_icon"
                 :src="theme.icon || ''"
               >
             </div>
-            <p class="text-lg font-medium xs:text-2xl text-rose-500">
+            <p class="flex-1 pr-4 text-lg font-medium leading-snug xs:text-2xl text-rose-500">
               {{ langName(theme) }}
             </p>
           </button>

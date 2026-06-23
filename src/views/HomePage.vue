@@ -84,17 +84,17 @@ async function presentActionSheet() {
 
 <template>
   <IonPage>
-    <IonContent :fullscreen="true" :scroll-y="false">
+    <IonContent :fullscreen="true" :scroll-y="true">
       <div
-        class="flex flex-col justify-center h-screen bg-pizazz-500 item-center"
+        class="flex min-h-screen flex-col justify-center overflow-hidden bg-pizazz-500 px-4 py-6 items-stretch"
       >
         <img
-          class="object-contain h-24 mx-auto mb-6 xsheight:h-32"
+          class="object-contain h-20 mx-auto mb-4 xsheight:h-28 md:h-32"
           src="/assets/icon/icon.png"
-          alt="logo"
+          alt="Mimesis"
         >
         <h1
-          class="mx-auto text-5xl font-bold leading-tight text-center text-gray-50 first-letter:uppercase"
+          class="mx-auto px-4 text-4xl font-bold leading-tight text-center text-rose-900 first-letter:uppercase xs:text-5xl"
         >
           {{ t('createTeam') }}
         </h1>
@@ -110,8 +110,10 @@ async function presentActionSheet() {
               <button
                 v-for="l in main.langs"
                 :key="`locale-${l}`"
-                class="p-2 my-2 font-medium rounded-lg"
-                :class="{ 'bg-rose-500': main.lang === l }"
+                type="button"
+                class="min-h-11 px-4 py-2 my-1 font-medium rounded-lg border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-rose-400"
+                :class="main.lang === l ? 'bg-rose-500 text-lavender-500 border-rose-500' : 'bg-lavender-500 text-rose-500 border-rose-500'"
+                :aria-pressed="main.lang === l"
                 @click="setLang(l)"
               >
                 {{ t(l) }}
@@ -184,79 +186,85 @@ async function presentActionSheet() {
           </template>
           <template #buttons>
             <button
+              type="button"
               class="px-6 py-3 text-base font-bold uppercase border-2 rounded-lg shadow-sm transition-all duration-150 bg-lavender-500 text-rose-500 border-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
               @click="modals.inequal = false"
             >
               {{ t('update') }} {{ t('team') }}
             </button>
-            <router-link to="/theme" @click="modals.inequal = false">
-              <button
-                class="px-6 py-3 text-base font-bold uppercase border-2 rounded-lg shadow-sm transition-all duration-150 bg-rose-500 text-lavender-500 border-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
-              >
-                {{ t('go') }}
-              </button>
+            <router-link
+              to="/theme"
+              class="px-6 py-3 text-base font-bold uppercase border-2 rounded-lg shadow-sm transition-all duration-150 bg-rose-500 text-lavender-500 border-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
+              @click="modals.inequal = false"
+            >
+              {{ t('go') }}
             </router-link>
           </template>
         </Modal>
-        <div class="flex overflow-x-scroll no_bar">
+        <div class="flex w-full overflow-x-auto no_bar pb-2">
           <div
             v-for="(team, index) in game.teams"
             :key="team.uuid"
-            class="flex-none w-10/12 md:w-5/12"
+            class="flex-none w-11/12 max-w-md sm:w-8/12 md:w-5/12"
             :class="{
-              'ml-8': index === 0,
+              'ml-2': index === 0,
             }"
           >
             <div
-              class="relative flex flex-col items-center pt-10 pb-4 px-4 mx-3 my-5 border-2 border-rose-500 bg-lavender-500 rounded-xl shadow-md"
+              class="relative flex flex-col items-center pt-12 pb-4 px-4 mx-2 my-4 border-2 border-rose-500 bg-lavender-500 rounded-xl shadow-md"
             >
               <p
-                class="absolute top-0 left-0 p-3 text-rose-500 first-letter:uppercase"
+                class="absolute top-0 left-0 p-3 text-base font-medium text-rose-500 first-letter:uppercase"
               >
                 {{ t('team') }} {{ index + 1 }}
               </p>
               <IonInput
-                class="w-2/3 mx-auto mb-6 text-4xl text-center font-bold border-b-2 bg-lavender-500 border-rose-500 text-rose-500 focus:outline-none"
+                class="w-3/4 min-h-11 mx-auto mb-6 text-3xl text-center font-bold border-b-2 bg-lavender-500 border-rose-500 text-rose-500 focus:outline-none xs:text-4xl"
                 :value="team.name"
+                :aria-label="`${t('team')} ${index + 1}`"
               />
-              <div class="mb-5 overflow-y-scroll no_bar h-28 xs:h-48 md:h-60">
+              <div class="w-full mb-5 overflow-y-auto no_bar max-h-44 xs:max-h-56 md:max-h-64">
                 <div class="px-3">
                   <div
                     v-for="(player, idx) in team.players"
                     :key="player.uuid"
-                    class="flex items-center"
+                    class="flex items-center gap-2"
                   >
                     <IonInput
                       v-model="player.name"
-                      class="my-1 px-3 py-2 text-lg text-center border-2 rounded-lg text-rose-500 bg-lavender-500 border-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-400"
+                      class="flex-1 min-h-11 my-1 px-3 py-2 text-lg text-center border-2 rounded-lg text-rose-500 bg-lavender-500 border-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-400"
+                      :aria-label="`${t('player')} ${idx + 1}`"
                     />
                     <button
                       v-if="team.players.length > 2"
-                      class="w-2/12 p-2 text-rose-500"
+                      class="flex h-11 w-11 flex-none items-center justify-center rounded-full text-rose-500 transition-colors hover:bg-rose-500 hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-rose-400"
                       type="button"
+                      aria-label="Remove player"
                       @click="team.players.splice(idx, 1)"
                     >
-                      <TrashIcon class="w-8 h-8" />
+                      <TrashIcon class="w-8 h-8" aria-hidden="true" />
                     </button>
                   </div>
                 </div>
                 <div class="flex flex-col items-end pr-3">
                   <button
-                    class="w-2/12 p-2 text-rose-500"
+                    class="flex h-11 w-11 items-center justify-center rounded-full text-rose-500 transition-colors hover:bg-rose-500 hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-rose-400"
                     type="button"
+                    aria-label="Add player"
                     @click="team.players.push(randomPlayer())"
                   >
-                    <PlusCircleIcon class="w-8 h-8" />
+                    <PlusCircleIcon class="w-8 h-8" aria-hidden="true" />
                   </button>
                 </div>
               </div>
               <button
                 v-if="game.teams.length > 2"
-                class="w-2/12 p-2 text-rose-500"
+                class="flex h-11 w-11 items-center justify-center rounded-full text-rose-500 transition-colors hover:bg-rose-500 hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-rose-400"
                 type="button"
+                aria-label="Remove team"
                 @click="game.teams.splice(index, 1)"
               >
-                <TrashIcon class="w-8 h-8" />
+                <TrashIcon class="w-8 h-8" aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -267,51 +275,57 @@ async function presentActionSheet() {
               <button
                 class="flex items-center justify-center w-14 h-14 rounded-full cursor-pointer bg-rose-500 hover:bg-rose-600 active:bg-pizazz-500 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-400"
                 aria-label="Add team"
+                type="button"
                 @click="game.teams.push(randomTeam())"
               >
-                <PlusIcon class="w-8 h-8 text-lavender-500" />
+                <PlusIcon class="w-8 h-8 text-lavender-500" aria-hidden="true" />
               </button>
             </div>
           </div>
         </div>
-        <div class="flex justify-center mt-6">
+        <div class="flex justify-center mt-4">
           <button
-            class="flex items-center justify-center gap-3 px-8 py-4 text-4xl font-bold border-2 xs:mt-2 md:w-1/3 bg-lavender-500 border-rose-500 text-rose-500 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-rose-400 first-letter:uppercase"
+            type="button"
+            class="flex min-h-14 items-center justify-center gap-3 px-8 py-4 text-3xl font-bold border-2 xs:mt-2 xs:text-4xl md:w-1/3 bg-lavender-500 border-rose-500 text-rose-500 rounded-xl shadow-md hover:shadow-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-rose-400 first-letter:uppercase"
             @click="saveTeam()"
           >
-            <PlayIcon class="w-10 h-10" />
+            <PlayIcon class="w-10 h-10" aria-hidden="true" />
             <span>{{ t('play') }}</span>
           </button>
         </div>
-        <div class="flex justify-center gap-4 mt-8">
+        <div class="flex justify-center gap-4 mt-6 safe-pb">
           <button
             v-if="lenghtLangs > 1"
             class="flex items-center justify-center w-14 h-14 rounded-full bg-lavender-500 text-rose-500 shadow-md hover:shadow-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-rose-400"
             aria-label="Change language"
+            type="button"
             @click="modals.lang = true"
           >
-            <FlagIcon class="w-8 h-8" />
+            <FlagIcon class="w-8 h-8" aria-hidden="true" />
           </button>
           <button
             class="flex items-center justify-center w-14 h-14 rounded-full bg-lavender-500 text-rose-500 shadow-md hover:shadow-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-rose-400"
             aria-label="View rules"
+            type="button"
             @click="modals.rules = true"
           >
-            <InformationCircleIcon class="w-8 h-8" />
+            <InformationCircleIcon class="w-8 h-8" aria-hidden="true" />
           </button>
           <button
             class="flex items-center justify-center w-14 h-14 rounded-full bg-lavender-500 text-rose-500 shadow-md hover:shadow-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-rose-400"
             aria-label="Open chat"
+            type="button"
             @click="openChat()"
           >
-            <ChatIcon class="w-8 h-8" />
+            <ChatIcon class="w-8 h-8" aria-hidden="true" />
           </button>
           <button
             class="flex items-center justify-center w-14 h-14 rounded-full bg-lavender-500 text-rose-500 shadow-md hover:shadow-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-rose-400"
             aria-label="More options"
+            type="button"
             @click="presentActionSheet()"
           >
-            <DotsVerticalIcon class="w-8 h-8" />
+            <DotsVerticalIcon class="w-8 h-8" aria-hidden="true" />
           </button>
         </div>
       </div>
