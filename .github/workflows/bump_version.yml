@@ -13,7 +13,7 @@ jobs:
     name: Bump version and create changelog with standard version
     steps:
       - name: Check out
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: '${{ secrets.PERSONAL_ACCESS_TOKEN }}'
@@ -21,12 +21,16 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
       - name: Create bump and changelog
         if: github.ref == 'refs/heads/main'
-        run: npx capacitor-standard-version
+        run: bunx capacitor-standard-version
       - name: Create bump and changelog
         if: github.ref != 'refs/heads/main'
-        run: npx capacitor-standard-version --prerelease alpha
+        run: bunx capacitor-standard-version --prerelease alpha
       - name: Push to origin
         run: |
           CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
@@ -38,9 +42,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Create global cache on main branch
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
       - name: Install dependencies
