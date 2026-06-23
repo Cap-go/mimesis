@@ -1,0 +1,252 @@
+:root {
+  color-scheme: light;
+  --primary: #b5244f;
+  --light: #f0d7f5;
+  --light-strong: #f7e9fa;
+  --text: #b5244f;
+  --max: 1180px;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--light);
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  color: var(--text);
+  background: var(--light);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.page-shell {
+  min-height: 100vh;
+  background: var(--light);
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: clamp(1rem, 6vw, 6rem);
+}
+
+.brand-mark img {
+  width: 50px;
+  height: 50px;
+  border-bottom-right-radius: 12px;
+}
+
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  min-width: min(50vw, 230px);
+  font-size: 1.125rem;
+}
+
+.hero {
+  min-height: calc(100vh - 50px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr);
+  align-items: center;
+  gap: 3rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(4rem, 9vw, 8rem) clamp(1rem, 6vw, 4rem);
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(3rem, 7vw, 3.75rem);
+  line-height: 1;
+  font-weight: 600;
+}
+
+h2 {
+  margin-top: 0.15rem;
+  font-size: clamp(2rem, 4vw, 2.25rem);
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.intro {
+  margin-top: 4rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.5rem);
+  line-height: 1.35;
+}
+
+.intro strong {
+  font-style: italic;
+}
+
+.store-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.5rem;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.store-links img {
+  object-fit: contain;
+}
+
+.hero-media {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-media img {
+  width: min(500px, 100%);
+}
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  color: var(--light);
+  background: var(--primary);
+}
+
+.site-footer img {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-around;
+  gap: clamp(2rem, 8vw, 5rem);
+  width: min(50%, 320px);
+}
+
+.privacy-content {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2.5rem clamp(1rem, 6vw, 4rem);
+  line-height: 1.55;
+}
+
+.privacy-content h1,
+.privacy-content h2,
+.privacy-content h3 {
+  padding: 1.25rem 0;
+  line-height: 1.2;
+}
+
+.privacy-content h1 {
+  font-size: 1.875rem;
+  font-weight: 500;
+}
+
+.privacy-content h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.privacy-content h3 {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.privacy-content p + p,
+.privacy-content li + li {
+  margin-top: 0.5rem;
+}
+
+.privacy-content ul {
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.privacy-content a {
+  text-decoration: underline;
+}
+
+@media (max-width: 860px) {
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    padding-top: 6rem;
+    text-align: left;
+  }
+
+  .hero-media {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-nav {
+    min-width: auto;
+    gap: 1.25rem;
+  }
+
+  .title-row {
+    align-items: flex-start;
+  }
+
+  .app-icon {
+    width: 76px;
+    height: 76px;
+  }
+
+  .intro,
+  .store-links {
+    margin-top: 2.5rem;
+  }
+
+  .footer-links {
+    width: 100%;
+  }
+}

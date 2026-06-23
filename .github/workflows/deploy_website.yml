@@ -1,0 +1,39 @@
+name: Deploy website to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'website/**'
+      - '.github/workflows/deploy_website.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Validate Cloudflare config
+        run: |
+          if [ -z "$CLOUDFLARE_PAGES_PROJECT_NAME" ]; then
+            echo "Set the CLOUDFLARE_PAGES_PROJECT_NAME repository variable."
+            exit 1
+          fi
+        env:
+          CLOUDFLARE_PAGES_PROJECT_NAME: ${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }}
+      - name: Deploy website
+        run: bunx wrangler@latest pages deploy website --project-name "$CLOUDFLARE_PAGES_PROJECT_NAME" --branch "$GITHUB_REF_NAME"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PAGES_PROJECT_NAME: ${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }}

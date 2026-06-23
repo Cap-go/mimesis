@@ -10,6 +10,7 @@ import {
   Purchases,
 } from '@revenuecat/purchases-capacitor'
 import { setPaidOldPlan, setPaidPlan } from './crips'
+import { trackEvent } from './plausible'
 
 export interface IAPProductCustom {
   status: 'paid' | 'free'
@@ -51,8 +52,12 @@ export async function purchase(p: PurchasesPackage): Promise<CustomerInfo | null
     })
     const purchaserInfo = data.customerInfo
     // console.log('listenBuy', purchaserInfo)
-    if (purchaserInfo.activeSubscriptions.includes(p.identifier))
+    if (purchaserInfo.activeSubscriptions.includes(p.identifier)) {
       setPaidPlan(p.identifier)
+      trackEvent('purchased', {
+        identifier: p.identifier,
+      })
+    }
     return purchaserInfo
   }
   catch (e) {
