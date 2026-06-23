@@ -14,7 +14,6 @@ import {
   setVersion,
 } from './services/crips'
 import pinia from './services/pinia'
-import { initPlausible } from './services/plausible'
 // import VueFeather from 'vue-feather';
 import { useMainStore } from './store/main'
 
@@ -40,8 +39,6 @@ import '@ionic/vue/css/display.css'
 /* Theme variables */
 import './theme/variables.css'
 // import { initIap } from './services/iap'
-
-initPlausible()
 
 const app = createApp(App).use(IonicVue).use(pinia())
 

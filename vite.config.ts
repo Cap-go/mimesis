@@ -42,7 +42,7 @@ export default defineConfig({
     setupFiles: ['./vitest.setup.ts'],
     server: {
       deps: {
-        inline: ['@vue', 'plausible', 'plausible-tracker', '@ionic/vue', '@ionic/core', '@stencil/core'],
+        inline: ['@vue', '@ionic/vue', '@ionic/core', '@stencil/core'],
       },
     },
   },
