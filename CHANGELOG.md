@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.1.4](https://github.com/Cap-go/mimesis/compare/3.1.3...3.1.4) (2026-10-07)
+
 ## [3.1.3](https://github.com/Cap-go/mimesis/compare/3.1.2...3.1.3) (2026-10-07)
 
 ## [3.1.2](https://github.com/Cap-go/mimesis/compare/3.1.1...3.1.2) (2026-10-07)
