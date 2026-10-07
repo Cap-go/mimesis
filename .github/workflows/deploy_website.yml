@@ -26,10 +26,16 @@ jobs:
       # (the site used to live on Vercel). Drop the Vercel ones so wrangler can attach the domains.
       - name: Remove legacy DNS records
         env:
-          CF_DNS_TOKEN: ${{ secrets.CLOUDFLARE_DNS_API_TOKEN }}
+          DNS_TOKENS: ${{ secrets.CLOUDFLARE_DNS_API_TOKEN }} ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
+          # Use the first token that can see the zone.
+          for CF_DNS_TOKEN in $DNS_TOKENS; do
+            ZONE_ID=$(curl -s -H "Authorization: Bearer $CF_DNS_TOKEN" "https://api.cloudflare.com/client/v4/zones?name=$ZONE_NAME" | jq -r '.result[0].id // empty')
+            [ -n "$ZONE_ID" ] && break
+          done
+          if [ -z "$ZONE_ID" ]; then echo "::error::No Cloudflare token can see zone $ZONE_NAME"; exit 1; fi
           api() { curl -sf -H "Authorization: Bearer $CF_DNS_TOKEN" -H "Content-Type: application/json" "$@"; }
-          ZONE_ID=$(api "https://api.cloudflare.com/client/v4/zones?name=$ZONE_NAME" | jq -r '.result[0].id')
+          api "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?per_page=100" | jq -r '.result[] | "  \(.type) \(.name) -> \(.content)"'
           for host in "$ZONE_NAME" "www.$ZONE_NAME"; do
             api "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?name=$host&per_page=50" \
               | jq -r '.result[] | select(.type == "A" or .type == "AAAA" or .type == "CNAME") | select(.content == "76.76.21.21" or (.content | test("vercel"; "i"))) | "\(.id) \(.type) \(.name) \(.content)"' \
