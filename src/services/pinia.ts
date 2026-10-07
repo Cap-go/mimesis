@@ -1,25 +1,27 @@
-import type { Pinia } from 'pinia'
+import type { Pinia, StateTree } from 'pinia'
 import { createPinia } from 'pinia'
 import { watch } from 'vue'
 import { getStorage, setStorage } from './storage'
 
+const PERSISTED = new Set(['settings', 'game'])
+const hydrating: Promise<void>[] = []
+
+// Resolves once every persisted store created so far has loaded its saved state.
+export function whenHydrated(): Promise<unknown> {
+  return Promise.all(hydrating)
+}
+
 export default (): Pinia => {
   const pinia = createPinia()
-  pinia.use(async (context) => {
-    // Set the whole store from Storage
-    const newState = await getStorage(
-      `p_state_${context.store.$id}`,
-      context.store.$state,
-    )
-    context.store.$patch(newState as never)
-    // Save the whole store to storage to persist app state
-    watch(
-      context.store.$state,
-      (state) => {
-        setStorage(`p_state_${context.store.$id}`, state)
-      },
-      { deep: true },
-    )
+  pinia.use(({ store }) => {
+    if (!PERSISTED.has(store.$id))
+      return
+    const key = `p_state_${store.$id}`
+    hydrating.push(getStorage<StateTree>(key).then((saved) => {
+      if (saved)
+        store.$patch(saved)
+      watch(() => store.$state, state => void setStorage(key, state), { deep: true })
+    }))
   })
   return pinia
 }

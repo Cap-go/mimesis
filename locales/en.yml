@@ -1,55 +1,73 @@
-accept: accept
-backHome: welcome
-beCarefull: Warning
-by: by
-close: close
-continue: Continue
-createTeam: Create the teams
-en: English
-fairRule: to make the game fair, the order of the players will be random.
-fr: French
-gameWin: The game is won
-go: begin
-id: Fr
-inequal: the teams are unequal.
-is: is
-langTitle: select your language
-leave: are you sure you want to leave the game?
-more: more
-noInternet: you are not connected to the internet, here is the list of available themes
-noInternetFirst: connect to the internet for the first time, to be able to play offline
-openSource: check out the open-source code
-pass: pass
-play: to play
-player: player
-rankWith: with
-rate: rate the app
-ready: ready
-replay: replay
-restart: restart
-restore: restore
-resume: to resume
-rule010: the first team reaching
-rule011: 10 dots
-rule012: win the game.
-rule020: a hard sleeve
-rule021: 45 seconds
-rule030: >-
-  the person performing the mimes keeps the phone in hand and does not show it
-  to anyone.
-rule040: >-
-  the person who performs the mimes must make the members of his team guess the
-  sentence written on the screen.
-rule050: reminder
-rule051: when you mimes, you do not have the right to speak, to sing or even to write.
-ruleTitle: rules of the game
+back: Back
+navigation: Navigation
+tabTeams: Teams
+tabRules: Rules
+tabSettings: Settings
+play: Play
+teamsSubtitle: At least 2 teams of 2 players.
+teamLabel: Team {n}
+teamNameLabel: Team {n} name
+playerName: Player name
+addPlayer: Add a player
+addTeam: New team
+removeTeam: Delete team
+removePlayer: Remove {name}
+unequalNotice: Teams are unequal, so the turn order will be random.
+chooseTheme: Choose a theme
+themes: Themes
+themesSubtitle: Pick the cards to mime.
+cardsCount: '{n} cards'
+loadError: Could not load the themes. Check your connection.
+retry: Try again
+handoffTitle: Up next
+handoffMimer: '{name} mimes'
+handoffHint: Hand the phone to {name} without showing the screen to the others.
+readyCta: Let's go!
+pause: Pause
+pass: Skip
+found: Got it!
 score: Score
-stop: Stop
-stopGame: stop the game
-team: crew
-themes: themes
-turnOf: it's the turn of
-update: edit
-validate: to validate
-win: won
-winner: won !
+timeUp: Time's up!
+roundFound: 'No card found | 1 card found | {n} cards found'
+nextTeam: Next team
+winnerTitle: '{team} wins!'
+points: '0 pts | 1 pt | {n} pts'
+playAgain: Play again
+backHome: Back to teams
+paused: Game paused
+pausedHint: The timer is stopped. Quitting clears the current game.
+resume: Resume
+quitGame: Quit game
+rulesSubtitle: One phone, friends, zero words.
+ruleGoalTitle: The goal
+ruleGoal: The first team to reach {score} points wins the game.
+ruleRoundTitle: Rounds
+ruleRound: A round lasts {seconds} seconds. Every card found scores one point for the team.
+ruleMimeTitle: The mime
+ruleMime: The mime holds the phone without showing it and makes their team guess the card.
+ruleSilenceTitle: Silence!
+ruleSilence: No talking, singing, writing or pointing at objects.
+rulePassTitle: Stuck?
+rulePass: Tap Skip to change card, no penalty.
+settingsGame: Game
+roundLength: Round length
+seconds: '{n} s'
+targetScore: Points to win
+sounds: Sounds
+language: Language
+contentLanguageNote: Game cards are in French.
+support: Help
+rate: Rate the app
+chat: Contact support
+openSource: Source code on GitHub
+version: Version {v}
+liveUpdates: Live updates by Capgo
+madeBy: Made by Martin Donadieu
+fun.mimesis.rebus: Rebus
+fun.mimesis.rebus_plus: Rebus Plus
+fun.mimesis.expression: Expressions
+fun.mimesis.expression_plus: Expressions Plus
+fun.mimesis.improbable: Improbable
+fun.mimesis.improbable_plus: Improbable Plus
+fun.mimesis.art: Art
+fun.mimesis.art_plus: Art Plus

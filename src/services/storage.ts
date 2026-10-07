@@ -9,10 +9,12 @@ export async function setStorage<Type>(key: string, value: Type): Promise<void> 
 
 export async function getStorage<Type>(key: string, defaultValue: Type | null = null): Promise<Type | null> {
   const res = await Preferences.get({ key })
+  if (!res.value)
+    return defaultValue
   try {
-    return res.value ? (JSON.parse(res.value) as Type) : defaultValue
+    return JSON.parse(res.value) as Type
   }
   catch {
-    return res.value ? (res.value as unknown as Type) : defaultValue
+    return res.value as unknown as Type
   }
 }

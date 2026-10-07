@@ -1,49 +1,41 @@
-/// <reference types="vitest" />
+/// <reference types="vitest/config" />
 
-import path, { resolve } from 'node:path'
+import { resolve } from 'node:path'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
+import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
-import EnvironmentPlugin from 'vite-plugin-environment'
-import WindiCSS from 'vite-plugin-windicss'
-import pack from './package.json'
-import { getRightKey } from './scripts/utils.mjs'
+import pack from './package.json' with { type: 'json' }
 
 export default defineConfig({
   resolve: {
     alias: {
-      '~': resolve(__dirname, 'src'),
+      '~': resolve(import.meta.dirname, 'src'),
     },
-    // Workaround to fix inline dependency of a dependency, which is the case in @ionic/react
-    mainFields: ['module'],
+  },
+  define: {
+    'import.meta.env.VITE_APP_VERSION': JSON.stringify(pack.version),
   },
   plugins: [
-    vue(),
-    WindiCSS(),
-    EnvironmentPlugin(
-      {
-        VITE_APP_VERSION: pack.version,
-        domain: 'mimesis.fun',
-        crisp: '1011b75e-c4f6-400c-a6ff-c5077adb9db3',
-        VITE_SUPABASE_ANON_KEY: getRightKey('supa_anon'),
-        VITE_SUPABASE_URL: getRightKey('supa_url'),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: tag => tag.startsWith('cap-'),
+        },
       },
-      { defineOn: 'import.meta.env' },
-    ),
+    }),
+    tailwindcss(),
     VueI18n({
       runtimeOnly: true,
       compositionOnly: true,
-      include: [path.resolve(__dirname, 'locales/**')],
+      include: [resolve(import.meta.dirname, 'locales/**')],
     }),
   ],
+  server: {
+    port: 3332,
+  },
   test: {
     include: ['tests/**/*.test.ts'],
     environment: 'jsdom',
-    setupFiles: ['./vitest.setup.ts'],
-    server: {
-      deps: {
-        inline: ['@vue', 'plausible', 'plausible-tracker', '@ionic/vue', '@ionic/core', '@stencil/core'],
-      },
-    },
   },
 })

@@ -1,56 +1,70 @@
-accept: accepter
-backHome: accueil
-beCarefull: attention
-by: par
-close: fermer
-continue: continuer
-createTeam: Crée les équipes
-en: Anglais
-fairRule: pour rendre le jeux équitable, l'ordre de passage des joueurs sera au hasard.
-fr: Français
-gameWin: La partie est remporté
-go: commencer
-id: fr
-inequal: les équipes sont inégales.
-is: est
-langTitle: sélectionner votre langue
-leave: es-tu sûr de vouloir quitter la partie ?
-more: plus
-noInternet: tu n'es pas connecté à internet, voici la liste des thèmes disponibles
-noInternetFirst: connecte toi une première fois à internet, pour pouvoir jouer sans connexion
-openSource: consulte le code open-source
-pass: passer
-play: jouer
-player: joueur
-rankWith: éme avec
-rate: note l'app
-ready: prêt
-replay: rejouer
-restart: recommencer
-restore: restorer
-resume: reprendre
-rule010: la première équipe atteignant
-rule011: 10 points
-rule012: gagne la partie.
-rule020: une manche dure
-rule021: 45 secondes
-rule030: la personne qui effectue les mîmes garde le téléphone en main et ne le montre à personne.
-rule040: la personne qui effectue les mîmes doit faire deviner la phrase inscrite à l'écran aux membres de son équipe.
-rule050: rappel
-rule051: lorsque tu mîmes, tu n'as pas le droit de parler, de chanter ou encore d'écrire.
-ruleTitle: règles du jeu
+back: Retour
+navigation: Navigation
+tabTeams: Équipes
+tabRules: Règles
+tabSettings: Réglages
+play: Jouer
+teamsSubtitle: Au moins 2 équipes de 2 joueurs.
+teamLabel: Équipe {n}
+teamNameLabel: Nom de l'équipe {n}
+playerName: Nom du joueur
+addPlayer: Ajouter un joueur
+addTeam: Nouvelle équipe
+removeTeam: Supprimer l'équipe
+removePlayer: Retirer {name}
+unequalNotice: Équipes inégales, l'ordre de passage sera tiré au hasard.
+chooseTheme: Choisir un thème
+themes: Thèmes
+themesSubtitle: Choisis les cartes à mimer.
+cardsCount: '{n} cartes'
+loadError: Impossible de charger les thèmes. Vérifie ta connexion.
+retry: Réessayer
+handoffTitle: Au tour de
+handoffMimer: '{name} mime'
+handoffHint: Passe le téléphone à {name} sans montrer l'écran aux autres.
+readyCta: C'est parti !
+pause: Pause
+pass: Passer
+found: Trouvé !
 score: Score
-stop: arrêter
-stopGame: arrêter la partie
-team: équipe
-themes: thèmes
-turnOf: c'est au tour de
-update: modifier
-validate: valider
-win: gagne
-winner: à gagné !
-fun.mimesis.rebus: Rebus
-fun.mimesis.rebus_plus: Rebus Plus
+timeUp: Temps écoulé !
+roundFound: 'Aucune carte trouvée | 1 carte trouvée | {n} cartes trouvées'
+nextTeam: Équipe suivante
+winnerTitle: '{team} gagne !'
+points: '0 pt | 1 pt | {n} pts'
+playAgain: Rejouer
+backHome: Retour aux équipes
+paused: Partie en pause
+pausedHint: Le chrono est arrêté. Quitter efface la partie en cours.
+resume: Reprendre
+quitGame: Quitter la partie
+rulesSubtitle: Un téléphone, des amis, zéro parole.
+ruleGoalTitle: Le but
+ruleGoal: La première équipe à {score} points remporte la partie.
+ruleRoundTitle: Les manches
+ruleRound: Une manche dure {seconds} secondes. Chaque carte trouvée rapporte un point à l'équipe.
+ruleMimeTitle: Le mime
+ruleMime: Le mimeur garde le téléphone en main sans le montrer, et fait deviner la carte à son équipe.
+ruleSilenceTitle: Silence !
+ruleSilence: Interdit de parler, de chanter, d'écrire ou de montrer un objet du doigt.
+rulePassTitle: Bloqué ?
+rulePass: Appuie sur Passer pour changer de carte, sans pénalité.
+settingsGame: Partie
+roundLength: Durée d'une manche
+seconds: '{n} s'
+targetScore: Points pour gagner
+sounds: Sons
+language: Langue
+contentLanguageNote: Les cartes du jeu sont en français.
+support: Aide
+rate: Noter l'app
+chat: Écrire au support
+openSource: Code source sur GitHub
+version: Version {v}
+liveUpdates: Mises à jour en direct par Capgo
+madeBy: Créé par Martin Donadieu
+fun.mimesis.rebus: Rébus
+fun.mimesis.rebus_plus: Rébus Plus
 fun.mimesis.expression: Expressions
 fun.mimesis.expression_plus: Expressions Plus
 fun.mimesis.improbable: Improbable

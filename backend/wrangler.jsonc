@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mimesis-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "account_id": "9ee3d7479a3c359681e3fab2c8cb22c0",
+  "observability": { "enabled": true },
+  "routes": [{ "pattern": "api.mimesis.fun", "custom_domain": true }],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mimesis",
+      "database_id": "67bfd1d2-a0bf-46f5-8958-6882cbf66db2",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [{ "binding": "IMAGES", "bucket_name": "mimesis-images" }]
+}

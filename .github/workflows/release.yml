@@ -1,0 +1,126 @@
+name: Release
+
+# Every push to main ships:
+#   1. capacitor-standard-version bumps the version (package.json + native projects) and tags it.
+#   2. The web bundle goes live to every compatible install through Capgo live updates.
+#   3. When native code changed, Capgo Cloud Build builds iOS and Android and submits both
+#      to App Store and Google Play review.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      native:
+        description: Force native store builds even if the bundle is compatible
+        type: boolean
+        default: false
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  APP_ID: ee.forgr.mimesis
+  CAPGO_TOKEN: ${{ secrets.CAPGO_TOKEN }}
+
+jobs:
+  version:
+    if: "!startsWith(github.event.head_commit.message, 'chore(release):')"
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.bump.outputs.version }}
+      sha: ${{ steps.bump.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+      - name: Bump version and changelog
+        id: bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          bunx capacitor-standard-version
+          git push origin HEAD:main --follow-tags
+          echo "version=$(jq -r .version package.json)" >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  live-update:
+    needs: version
+    runs-on: ubuntu-latest
+    outputs:
+      native: ${{ steps.compat.outputs.native }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ needs.version.outputs.sha }}
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run lint
+      - run: bun run test:run
+      - run: bun run build
+      - name: Check native compatibility with installed apps
+        id: compat
+        run: |
+          bunx @capgo/cli@latest bundle compatibility "$APP_ID" -c production --text 2>&1 | tee compat.log
+          if grep -q "incompatible with channel" compat.log; then
+            echo "native=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "native=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Publish live update
+        run: |
+          # --auto-min-update-version keeps bundles that need new native code away from older store builds.
+          EXTRA=""
+          if [ "${{ steps.compat.outputs.native }}" = "true" ]; then EXTRA="--accept-incompatible"; fi
+          bunx @capgo/cli@latest bundle upload "$APP_ID" \
+            --channel production \
+            --delta \
+            --auto-min-update-version \
+            --comment "${{ needs.version.outputs.version }} $(git log -1 --format=%h)" \
+            --link "${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ needs.version.outputs.version }}" \
+            $EXTRA
+
+  store:
+    needs: [version, live-update]
+    if: needs.live-update.outputs.native == 'true' || inputs.native
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [ios, android]
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ needs.version.outputs.sha }}
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run build && bunx cap sync ${{ matrix.platform }}
+      - name: Build in Capgo Cloud and submit for store review
+        env:
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+          APPLE_KEY_ID: ${{ secrets.APPLE_KEY_ID }}
+          APPLE_ISSUER_ID: ${{ secrets.APPLE_ISSUER_ID }}
+          APPLE_KEY_CONTENT: ${{ secrets.APPLE_KEY_CONTENT }}
+          APP_STORE_CONNECT_TEAM_ID: ${{ secrets.APP_STORE_CONNECT_TEAM_ID }}
+          CAPGO_IOS_PROVISIONING_MAP: ${{ secrets.CAPGO_IOS_PROVISIONING_MAP }}
+          ANDROID_KEYSTORE_FILE: ${{ secrets.ANDROID_KEYSTORE_FILE }}
+          KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
+          KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
+          KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
+          PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
+        run: |
+          SYNC="--sync-android-version"
+          if [ "${{ matrix.platform }}" = "ios" ]; then SYNC="--sync-ios-version --ios-automatic-release"; fi
+          bunx @capgo/cli@latest build request "$APP_ID" \
+            --platform ${{ matrix.platform }} \
+            --submit-to-store-review \
+            --store-release-name "${{ needs.version.outputs.version }}" \
+            --store-release-notes "$(cat store/release-notes/en-US.txt)" \
+            --store-release-notes-locale "fr-FR=$(cat store/release-notes/fr-FR.txt)" \
+            --ai-analytics \
+            $SYNC
