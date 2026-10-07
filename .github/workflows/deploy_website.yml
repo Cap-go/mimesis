@@ -33,7 +33,7 @@ jobs:
             ZONE_ID=$(curl -s -H "Authorization: Bearer $CF_DNS_TOKEN" "https://api.cloudflare.com/client/v4/zones?name=$ZONE_NAME" | jq -r '.result[0].id // empty')
             [ -n "$ZONE_ID" ] && break
           done
-          if [ -z "$ZONE_ID" ]; then echo "::error::No Cloudflare token can see zone $ZONE_NAME"; exit 1; fi
+          if [ -z "$ZONE_ID" ]; then echo "::warning::No token can edit $ZONE_NAME DNS, skipping cleanup"; exit 0; fi
           api() { curl -sf -H "Authorization: Bearer $CF_DNS_TOKEN" -H "Content-Type: application/json" "$@"; }
           api "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?per_page=100" | jq -r '.result[] | "  \(.type) \(.name) -> \(.content)"'
           for host in "$ZONE_NAME" "www.$ZONE_NAME"; do
