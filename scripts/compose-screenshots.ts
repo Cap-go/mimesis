@@ -2,6 +2,7 @@
 // Raw captures come from the simulators/emulator with a VITE_DEMO=<scene> build:
 //   bun scripts/compose-screenshots.ts <raw-dir>
 // where <raw-dir> holds iphone/, ipad/ and android/ folders of <scene>.png files.
+import { Buffer } from 'node:buffer'
 import { mkdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import process from 'node:process'

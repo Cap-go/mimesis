@@ -29,24 +29,14 @@ npm-debug.log*
 /platforms
 /plugins
 /www
-.gitsecret/keys/random_seed
-!*.secret
-seed_db/firebase_admin.json
-seed_db/art/base.csv
-seed_db/art/plus.csv
-seed_db/expression/base.csv
-seed_db/expression/plus.csv
-seed_db/improbable/base.csv
-seed_db/improbable/plus.csv
-seed_db/rebus/base.csv
-seed_db/rebus/plus.csv
-seed_db/tmp
 fastlane/.env
 fastlane/report.xml
 
-# wrangler files
+# wrangler / local env
 .wrangler
 .dev.vars*
 !.dev.vars.example
 .env*
 !.env.example
+
+.capgo-credentials.json

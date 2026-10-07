@@ -13,17 +13,17 @@ Mimesis is the reference app for the [Capgo](https://capgo.app) stack: a Vue web
 
 ## Stack
 
-| Layer | What |
-| --- | --- |
-| App | Vue 3, Pinia, Vue Router, Tailwind CSS 4, Vite |
-| Native shell | [Capacitor 8](https://capacitorjs.com) |
-| Native chrome | [`@capgo/capacitor-native-navigation`](https://github.com/Cap-go/capacitor-native-navigation): system tab bar (Liquid Glass on iOS 26+), navbar and safe-area insets |
-| Page transitions | [`@capgo/capacitor-transitions`](https://github.com/Cap-go/capacitor-transitions): iOS/Android page stack with swipe back |
-| Live updates | [`@capgo/capacitor-updater`](https://github.com/Cap-go/capacitor-updater) |
-| Native builds and store publishing | [Capgo Cloud Build](https://capgo.app/docs/cli/cloud-build/getting-started/) |
-| Other plugins | `@capgo/native-audio`, `@capgo/capacitor-crisp`, `@capacitor/haptics`, keep-awake, in-app review |
-| Backend | Cloudflare Worker + D1 + R2 in [`backend/`](backend), served at `api.mimesis.fun` |
-| Website | Static site in [`website/`](website) on Cloudflare Pages |
+| Layer                              | What                                                                                                                                                                 |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| App                                | Vue 3, Pinia, Vue Router, Tailwind CSS 4, Vite                                                                                                                       |
+| Native shell                       | [Capacitor 8](https://capacitorjs.com)                                                                                                                               |
+| Native chrome                      | [`@capgo/capacitor-native-navigation`](https://github.com/Cap-go/capacitor-native-navigation): system tab bar (Liquid Glass on iOS 26+), navbar and safe-area insets |
+| Page transitions                   | [`@capgo/capacitor-transitions`](https://github.com/Cap-go/capacitor-transitions): iOS/Android page stack with swipe back                                            |
+| Live updates                       | [`@capgo/capacitor-updater`](https://github.com/Cap-go/capacitor-updater)                                                                                            |
+| Native builds and store publishing | [Capgo Cloud Build](https://capgo.app/docs/cli/cloud-build/getting-started/)                                                                                         |
+| Other plugins                      | `@capgo/native-audio`, `@capgo/capacitor-crisp`, `@capacitor/haptics`, keep-awake, in-app review                                                                     |
+| Backend                            | Cloudflare Worker + D1 + R2 in [`backend/`](backend), served at `api.mimesis.fun`                                                                                    |
+| Website                            | Static site in [`website/`](website), a Cloudflare Worker with static assets                                                                                         |
 
 ## Release pipeline
 

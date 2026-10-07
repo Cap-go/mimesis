@@ -7,16 +7,15 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "sync": "bun run build && cap sync",
-    "preview": "bun run build && wrangler dev",
+    "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "screenshots": "bun run build && bun scripts/screenshots.ts",
+    "screenshots": "bun scripts/compose-screenshots.ts",
     "api:dev": "bun --cwd backend run dev",
-    "api:deploy": "bun --cwd backend run deploy",
-    "deploy": "bun run build && wrangler deploy"
+    "api:deploy": "bun --cwd backend run deploy"
   },
   "dependencies": {
     "@capacitor-community/in-app-review": "^8.0.0",
@@ -48,7 +47,6 @@
     "@capacitor/android": "^8.5.2",
     "@capacitor/cli": "^8.5.2",
     "@capacitor/ios": "^8.5.2",
-    "@cloudflare/vite-plugin": "^1.63.0",
     "@intlify/unplugin-vue-i18n": "^11.2.5",
     "@playwright/test": "^1.63.0",
     "@tailwindcss/vite": "^4.3.3",
@@ -62,7 +60,6 @@
     "typescript": "^6.0.3",
     "vite": "^8.3.3",
     "vitest": "^5.0.3",
-    "vue-tsc": "^3.3.12",
-    "wrangler": "^4.148.0"
+    "vue-tsc": "^3.3.12"
   }
 }
