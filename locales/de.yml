@@ -70,3 +70,15 @@ fun.mimesis.improbable: Absurd
 fun.mimesis.improbable_plus: Absurd Plus
 fun.mimesis.art: Kunst
 fun.mimesis.art_plus: Kunst Plus
+onbSkip: Überspringen
+onbNext: Weiter
+onbStart: "Los geht's!"
+onbReplay: Einführung noch mal ansehen
+onb1Title: Willkommen bei Mimesis
+onb1Body: 'Das Pantomime-Spiel für Freunde und Familie. Ein Handy, kein Wort, viel Gelächter.'
+onb2Title: Bildet Teams
+onb2Body: Mindestens 2 Teams mit je 2 Leuten. Trag die Namen deiner Freunde ein und wähl ein Thema.
+onb3Title: Stell die Karte dar
+onb3Body: 'Gib das Handy der Person, die dran ist. Sie liest die Karte heimlich und stellt sie für ihr Team pantomimisch dar. Sprechen verboten!'
+onb4Title: Sammle Punkte
+onb4Body: 'Tippe auf „{found}“ für jede erratene Karte und auf „{pass}“, wenn ihr feststeckt. Das erste Team mit {score} Punkten gewinnt.'

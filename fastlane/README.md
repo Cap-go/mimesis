@@ -15,10 +15,10 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios screenshots
+### ios listing
 
 ```sh
-[bundle exec] fastlane ios screenshots
+[bundle exec] fastlane ios listing
 ```
 
 
@@ -28,10 +28,10 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## Android
 
-### android screenshots
+### android listing
 
 ```sh
-[bundle exec] fastlane android screenshots
+[bundle exec] fastlane android listing
 ```
 
 

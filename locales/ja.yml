@@ -70,3 +70,15 @@ fun.mimesis.improbable: ありえない
 fun.mimesis.improbable_plus: ありえないプラス
 fun.mimesis.art: アート
 fun.mimesis.art_plus: アートプラス
+onbSkip: スキップ
+onbNext: 次へ
+onbStart: はじめよう！
+onbReplay: イントロをもう一度見る
+onb1Title: Mimesisへようこそ
+onb1Body: 友だちや家族と遊べるジェスチャーゲーム。スマホ1台、言葉はゼロ、笑いはたっぷり。
+onb2Title: チームを作ろう
+onb2Body: 2人以上のチームを2つ以上。友だちの名前を入れて、テーマを選ぼう。
+onb3Title: お題を演じよう
+onb3Body: 演じる人にスマホを渡そう。お題をこっそり見て、チームにジェスチャーで伝えます。しゃべるのは禁止！
+onb4Title: ポイントを取ろう
+onb4Body: '当たったら「{found}」、困ったら「{pass}」をタップ。先に{score}ポイント取ったチームの勝ち！'

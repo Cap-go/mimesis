@@ -70,3 +70,15 @@ fun.mimesis.improbable: Improbable
 fun.mimesis.improbable_plus: Improbable Plus
 fun.mimesis.art: Arte
 fun.mimesis.art_plus: Arte Plus
+onbSkip: Saltar
+onbNext: Siguiente
+onbStart: ¡A jugar!
+onbReplay: Ver la introducción otra vez
+onb1Title: ¡Bienvenido a Mimesis!
+onb1Body: 'El juego de mímica para amigos y familia. Un teléfono, cero palabras y muchas risas.'
+onb2Title: Arma tus equipos
+onb2Body: Mínimo 2 equipos de 2 jugadores. Añade los nombres de tus amigos y elige un tema.
+onb3Title: Haz la mímica
+onb3Body: Pasa el teléfono a quien hace la mímica. Lee la carta en secreto y la representa para su equipo. ¡Prohibido hablar!
+onb4Title: Suma puntos
+onb4Body: 'Toca «{found}» por cada carta adivinada y «{pass}» si te atascas. Gana el primer equipo que llegue a {score} puntos.'

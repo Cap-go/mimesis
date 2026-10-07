@@ -70,3 +70,15 @@ fun.mimesis.improbable: Improbable
 fun.mimesis.improbable_plus: Improbable Plus
 fun.mimesis.art: Art
 fun.mimesis.art_plus: Art Plus
+onbSkip: Passer
+onbNext: Suivant
+onbStart: "C'est parti !"
+onbReplay: "Revoir l'introduction"
+onb1Title: Bienvenue dans Mimesis
+onb1Body: 'Le jeu de mime entre amis ou en famille. Un téléphone, zéro parole, des fous rires.'
+onb2Title: Crée tes équipes
+onb2Body: 'Au moins 2 équipes de 2 joueurs. Ajoute les prénoms de tes amis, puis choisis un thème.'
+onb3Title: Mime la carte
+onb3Body: Passe le téléphone au mimeur. Il lit la carte en secret et la mime pour son équipe. Interdit de parler !
+onb4Title: Marque des points
+onb4Body: 'Appuie sur « {found} » pour chaque carte devinée, « {pass} » si tu bloques. La première équipe à {score} points gagne.'

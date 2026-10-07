@@ -70,3 +70,15 @@ fun.mimesis.improbable: 脑洞大开
 fun.mimesis.improbable_plus: 脑洞大开 Plus
 fun.mimesis.art: 艺术
 fun.mimesis.art_plus: 艺术 Plus
+onbSkip: 跳过
+onbNext: 下一步
+onbStart: 开始玩！
+onbReplay: 再看一次介绍
+onb1Title: 欢迎来到 Mimesis
+onb1Body: 和朋友家人一起玩的你比我猜。一部手机，不许说话，笑声不断。
+onb2Title: 组建队伍
+onb2Body: 至少 2 支队伍，每队 2 人。输入朋友的名字，再选一个主题。
+onb3Title: 比划卡片
+onb3Body: 把手机交给表演的人。他偷偷看卡片，然后比划给队友猜。不许说话！
+onb4Title: 赢得分数
+onb4Body: '猜中一张点“{found}”，卡住了点“{pass}”。最先拿到 {score} 分的队伍获胜！'

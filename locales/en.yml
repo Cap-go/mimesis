@@ -70,3 +70,15 @@ fun.mimesis.improbable: Improbable
 fun.mimesis.improbable_plus: Improbable Plus
 fun.mimesis.art: Art
 fun.mimesis.art_plus: Art Plus
+onbSkip: Skip
+onbNext: Next
+onbStart: "Let's play!"
+onbReplay: Watch the intro again
+onb1Title: Welcome to Mimesis
+onb1Body: 'The charades game for friends and family. One phone, zero words, lots of laughs.'
+onb2Title: Make your teams
+onb2Body: "At least 2 teams of 2 players. Add your friends' names, then pick a theme."
+onb3Title: Mime the card
+onb3Body: Pass the phone to the mime. They read the card in secret and act it out for their team. No talking!
+onb4Title: Score points
+onb4Body: "Tap “{found}” for every card guessed, “{pass}” if you're stuck. First team to {score} points wins."

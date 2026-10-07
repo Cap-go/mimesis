@@ -38,6 +38,7 @@ async function stage(router: Router, scene: string, lang: string): Promise<void>
   settings.targetScore = 10
   // The winner sound makes the iOS simulator show the Dynamic Island in captures.
   settings.sound = false
+  settings.onboarded = true
   const { firstNames, teamNames } = names()
   game.teams = [
     team(teamNames[0], firstNames.slice(0, 3), 7),
@@ -45,7 +46,7 @@ async function stage(router: Router, scene: string, lang: string): Promise<void>
   ]
   await catalog.load(lang)
   await router.isReady()
-  if (scene === 'rules' || scene === 'settings')
+  if (scene === 'rules' || scene === 'settings' || scene === 'welcome')
     return resetTo(`/${scene}`, 'none')
   resetTo('/teams', 'none')
   if (scene === 'teams')

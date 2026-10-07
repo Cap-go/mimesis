@@ -26,20 +26,32 @@ export const useCatalogStore = defineStore('catalog', () => {
   }
 
   // Show the cached catalog instantly, then refresh it from the API.
+  // Only the latest requested language may land, so a slow earlier load can't override a newer choice.
+  let requested = ''
   async function load(lang: string): Promise<void> {
-    if (catalog.value?.lang !== lang)
-      catalog.value = await getCachedCatalog(lang)
+    requested = lang
+    if (catalog.value?.lang !== lang) {
+      const cached = await getCachedCatalog(lang)
+      if (requested !== lang)
+        return
+      catalog.value = cached
+    }
     loading.value = !catalog.value
     try {
-      catalog.value = await fetchCatalog(lang)
+      const fresh = await fetchCatalog(lang)
+      if (requested !== lang)
+        return
+      catalog.value = fresh
       error.value = false
     }
     catch (err) {
       console.warn('catalog', err)
-      error.value = !catalog.value
+      if (requested === lang)
+        error.value = !catalog.value
     }
     finally {
-      loading.value = false
+      if (requested === lang)
+        loading.value = false
     }
   }
 

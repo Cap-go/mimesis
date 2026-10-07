@@ -4,6 +4,7 @@ import RulesPage from '~/views/RulesPage.vue'
 import SettingsPage from '~/views/SettingsPage.vue'
 import TeamsPage from '~/views/TeamsPage.vue'
 import ThemesPage from '~/views/ThemesPage.vue'
+import WelcomePage from '~/views/WelcomePage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,6 +16,7 @@ const router = createRouter({
     { path: '/settings', component: SettingsPage, meta: { chrome: 'tab', tab: 'settings', title: 'tabSettings' } },
     { path: '/themes', component: ThemesPage, meta: { chrome: 'push', title: 'themes' } },
     { path: '/game', component: GamePage, meta: { chrome: 'immersive', title: 'play' } },
+    { path: '/welcome', component: WelcomePage, meta: { chrome: 'immersive', title: 'onb1Title' } },
     { path: '/:pathMatch(.*)*', redirect: '/teams' },
   ],
 })

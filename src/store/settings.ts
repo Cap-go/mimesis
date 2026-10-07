@@ -11,8 +11,9 @@ export const useSettingsStore = defineStore('settings', () => {
   const roundSeconds = ref(60)
   const targetScore = ref(10)
   const sound = ref(true)
+  const onboarded = ref(false)
   const gamesPlayed = ref(0)
-  return { locale, roundSeconds, targetScore, sound, gamesPlayed }
+  return { locale, roundSeconds, targetScore, sound, gamesPlayed, onboarded }
 })
 
 if (import.meta.hot)
