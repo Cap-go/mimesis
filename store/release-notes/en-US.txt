@@ -1,0 +1,6 @@
+Mimesis got a makeover!
+- Brand new design, clearer and more fun
+- Native navigation with a tab bar
+- Pick the round length and the score to win
+- Hand-off screen between players
+- Haptics and animations for every card found
