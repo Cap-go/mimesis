@@ -41,10 +41,13 @@ jobs:
       - name: Bump version and changelog
         id: bump
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          bunx capacitor-standard-version
-          git push origin HEAD:main --follow-tags
+          # Manual runs re-ship the current version (e.g. retry a store build) without bumping.
+          if [ "${{ github.event_name }}" = "push" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            bunx capacitor-standard-version
+            git push origin HEAD:main --follow-tags
+          fi
           echo "version=$(jq -r .version package.json)" >> "$GITHUB_OUTPUT"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
@@ -72,6 +75,7 @@ jobs:
             echo "native=false" >> "$GITHUB_OUTPUT"
           fi
       - name: Publish live update
+        if: github.event_name == 'push'
         run: |
           # --auto-min-update-version keeps bundles that need new native code away from older store builds.
           EXTRA=""

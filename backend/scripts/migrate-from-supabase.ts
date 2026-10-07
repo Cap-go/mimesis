@@ -2,6 +2,8 @@
 // Usage:
 //   SUPABASE_URL=... SUPABASE_KEY=... bun scripts/migrate-from-supabase.ts sql
 //   CLOUDFLARE_API_TOKEN=... CLOUDFLARE_ACCOUNT_ID=... SUPABASE_URL=... SUPABASE_KEY=... bun scripts/migrate-from-supabase.ts images
+//   SUPABASE_URL=... SUPABASE_KEY=... bun scripts/migrate-from-supabase.ts delta <last legacy game id in D1>
+//   then: wrangler d1 execute mimesis --remote --file .migration/delta.sql
 import { mkdir, writeFile } from 'node:fs/promises'
 import process from 'node:process'
 
@@ -89,6 +91,21 @@ async function exportSql() {
   console.log(`langs=${langs.length} modes=${modes.length} guesses=${guesses.length} users=${users.length} games=${games.length}`)
 }
 
+// Old store builds keep writing to Supabase until they update; replay their games into D1.
+// D1 ids for new games start at 1,000,000, so legacy ids never collide.
+async function exportDelta(sinceId: number) {
+  const games = (await fetchAll('mimesis_games')).filter(g => Number(g.id) > sinceId)
+  const users = await fetchAll('mimesis_users')
+  const ids = new Set(games.map(g => g.user_id))
+  const parts = [
+    ...users.filter(u => ids.has(u.id)).map(u => `INSERT INTO users (id, created_at, games) VALUES (${sql(u.id)}, ${sql(u.created_at)}, ${sql(u.games)}) ON CONFLICT(id) DO UPDATE SET games = max(games, excluded.games);`),
+    inserts('games', ['id', 'created_at', 'user_id', 'lang', 'mode', 'teams', 'found_guess', 'skip_guess'], games.map(g => [g.id, g.created_at, g.user_id, g.lang, g.mode, JSON.stringify(g.team ?? []), JSON.stringify(g.found_guess ?? []), JSON.stringify(g.skip_guess ?? [])])).replaceAll('INSERT INTO', 'INSERT OR IGNORE INTO'),
+  ]
+  await mkdir(OUT_DIR, { recursive: true })
+  await writeFile(`${OUT_DIR}delta.sql`, `${parts.join('\n')}\n`)
+  console.log(`delta games=${games.length} since id ${sinceId}`)
+}
+
 async function copyImages() {
   const accountId = process.env.CLOUDFLARE_ACCOUNT_ID!
   const token = process.env.CLOUDFLARE_API_TOKEN!
@@ -133,5 +150,7 @@ if (step === 'sql')
   await exportSql()
 else if (step === 'images')
   await copyImages()
+else if (step === 'delta')
+  await exportDelta(Number(process.argv[3] ?? 0))
 else
-  throw new Error('usage: migrate-from-supabase.ts <sql|images>')
+  throw new Error('usage: migrate-from-supabase.ts <sql|images|delta <sinceId>>')
