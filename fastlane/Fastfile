@@ -1,5 +1,5 @@
 # Native builds and store submission run on Capgo Cloud Build (see .github/workflows/release.yml).
-# fastlane only pushes store screenshots from store/screenshots.
+# fastlane only pushes store screenshots (store/screenshots) and Play graphics (store/play).
 #
 #   APPLE_KEY_ID=... APPLE_ISSUER_ID=... APPLE_KEY_CONTENT=<base64 p8> fastlane ios screenshots version:3.1.0
 #   PLAY_CONFIG_JSON=<base64 service account json> fastlane android screenshots
@@ -50,6 +50,10 @@ platform :android do
     dest = File.join(dir, "fr-FR", "images", "phoneScreenshots")
     FileUtils.mkdir_p(dest)
     Dir[File.join(SCREENSHOTS, "android-phone", "*.jpg")].sort.each { |f| FileUtils.cp(f, dest) }
+    images = File.join(dir, "fr-FR", "images")
+    play = File.expand_path("../store/play", __dir__)
+    FileUtils.cp(File.join(play, "icon.png"), File.join(images, "icon.png"))
+    FileUtils.cp(File.join(play, "feature-graphic.png"), File.join(images, "featureGraphic.png"))
     upload_to_play_store(
       json_key_data: Base64.decode64(ENV.fetch("PLAY_CONFIG_JSON")),
       metadata_path: dir,
@@ -57,7 +61,7 @@ platform :android do
       skip_upload_aab: true,
       skip_upload_metadata: true,
       skip_upload_changelogs: true,
-      skip_upload_images: true,
+      skip_upload_images: false,
       skip_upload_screenshots: false,
     )
   end
