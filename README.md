@@ -58,6 +58,14 @@ bun scripts/compose-screenshots.ts <raw>
 
 `VITE_DEMO` only stages screens for captures; it is stripped from production builds.
 
+## App icon and splash
+
+Sources live in `assets/` (`icon.svg`, `icon-foreground.svg`, `icon-background.svg`, `splash.svg` and their PNG renders). Regenerate the native sets with:
+
+```bash
+bunx @capacitor/assets generate --ios --android --iconBackgroundColor '#f08442' --splashBackgroundColor '#f08442'
+```
+
 ## Backend
 
 `backend/` is a Hono Worker with:
