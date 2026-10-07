@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppPage from '~/components/AppPage.vue'
+import { push } from '~/services/navigation'
 import { useSettingsStore } from '~/store/settings'
 
 const { t } = useI18n()
@@ -33,5 +34,8 @@ const rules = computed(() => [
         </div>
       </li>
     </ol>
+    <button type="button" class="btn-ghost mx-auto mt-6" @click="push('/welcome')">
+      {{ t('onbReplay') }}
+    </button>
   </AppPage>
 </template>

@@ -1,0 +1,3670 @@
+{
+  "locale": "ja",
+  "name": "日本語",
+  "guesses": [
+    {
+      "src": 12249,
+      "mode": 1,
+      "title": "スガンさんのヤギ",
+      "author": "Alphonse Daudet",
+      "type": "本",
+      "cover": "art/0x2ucb7q1ipf"
+    },
+    {
+      "src": 12250,
+      "mode": 1,
+      "title": "レ・ミゼラブル",
+      "author": "Victor Hugo",
+      "type": "本",
+      "cover": "art/i24kryfk2d"
+    },
+    {
+      "src": 12251,
+      "mode": 1,
+      "title": "Tombé du ciel（空から落ちてきた）",
+      "author": "Jacques Higelin",
+      "type": "音楽",
+      "cover": "art/ig461q1jckb"
+    },
+    {
+      "src": 12252,
+      "mode": 1,
+      "title": "独裁者",
+      "author": "Charlie Chaplin",
+      "type": "映画",
+      "cover": "art/gre2hj5e40h"
+    },
+    {
+      "src": 12253,
+      "mode": 1,
+      "title": "La Groupie du pianiste（ピアニストの追っかけ）",
+      "author": "Michel Berger",
+      "type": "音楽",
+      "cover": "art/bo92nu0pu4"
+    },
+    {
+      "src": 12254,
+      "mode": 1,
+      "title": "草上の昼食",
+      "author": "Edouard Manet",
+      "type": "絵画",
+      "cover": "art/d7d3bnjmax"
+    },
+    {
+      "src": 12255,
+      "mode": 1,
+      "title": "奇人たちの晩餐会",
+      "author": "Francis Veber",
+      "type": "映画",
+      "cover": "art/u15tgqag99f"
+    },
+    {
+      "src": 12256,
+      "mode": 1,
+      "title": "雨に唄えば",
+      "author": "Gene Kelly et Stanley Donen",
+      "type": "映画",
+      "cover": "art/yphwjsrsuq"
+    },
+    {
+      "src": 12257,
+      "mode": 1,
+      "title": "ナイト ミュージアム",
+      "author": "Shawn Levy",
+      "type": "映画",
+      "cover": "art/xs4vluisnt"
+    },
+    {
+      "src": 12258,
+      "mode": 1,
+      "title": "ダイヤのエースを持ついかさま師",
+      "author": "Georges de La Tour",
+      "type": "絵画",
+      "cover": "art/ln9tb54ihy"
+    },
+    {
+      "src": 12259,
+      "mode": 1,
+      "title": "パリ警視庁：未成年保護特別部隊",
+      "author": "Mawenn",
+      "type": "映画",
+      "cover": "art/w31n83h761c"
+    },
+    {
+      "src": 12260,
+      "mode": 1,
+      "title": "蠅の王",
+      "author": "William Golding",
+      "type": "本",
+      "cover": "art/cgtt3m2w9hk"
+    },
+    {
+      "src": 12261,
+      "mode": 1,
+      "title": "カンフー・パンダ",
+      "author": "Mark Osborne et John Stevenson",
+      "type": "映画",
+      "cover": "art/6jo9szibnob"
+    },
+    {
+      "src": 12262,
+      "mode": 1,
+      "title": "不思議の国のアリス",
+      "author": "Lewis Carroll",
+      "type": "本",
+      "cover": "art/cvuh705dzpp"
+    },
+    {
+      "src": 12263,
+      "mode": 1,
+      "title": "ミリオンダラー・ベイビー",
+      "author": "Clint Eastwood",
+      "type": "映画",
+      "cover": "art/klvfsniqj1"
+    },
+    {
+      "src": 12264,
+      "mode": 1,
+      "title": "犀",
+      "author": "Eugène Ionesco",
+      "type": "戯曲",
+      "cover": "art/4onfcz1bdv4"
+    },
+    {
+      "src": 12265,
+      "mode": 1,
+      "title": "Un sac de billes（ビー玉の袋）",
+      "author": "Joseph Joffo",
+      "type": "本",
+      "cover": "art/gwr79jgetfv"
+    },
+    {
+      "src": 12266,
+      "mode": 1,
+      "title": "ダーティ・ダンシング",
+      "author": "Emile Ardolino",
+      "type": "映画",
+      "cover": "art/2te8o0gfd2z"
+    },
+    {
+      "src": 12267,
+      "mode": 1,
+      "title": "ひまわり",
+      "author": "Van Gogh",
+      "type": "絵画",
+      "cover": "art/8kg6v1vrcf4"
+    },
+    {
+      "src": 12268,
+      "mode": 1,
+      "title": "フラッシュダンス",
+      "author": "Adrian Lyne",
+      "type": "映画",
+      "cover": "art/67a9hfeflwt"
+    },
+    {
+      "src": 12269,
+      "mode": 1,
+      "title": "レミーのおいしいレストラン",
+      "author": "Brad Bird",
+      "type": "映画",
+      "cover": "art/jb4artzqbqh"
+    },
+    {
+      "src": 12270,
+      "mode": 1,
+      "title": "Formidable（フォーミダブル）",
+      "author": "Stromae",
+      "type": "音楽",
+      "cover": "art/iwhfz5q4oll"
+    },
+    {
+      "src": 12271,
+      "mode": 1,
+      "title": "アーサーとミニモイの不思議な国",
+      "author": "Luc Besson",
+      "type": "映画",
+      "cover": "art/tvxphvx9yd"
+    },
+    {
+      "src": 12272,
+      "mode": 1,
+      "title": "三銃士",
+      "author": "Alexandre Dumas",
+      "type": "本",
+      "cover": "art/0prbwdii46xq"
+    },
+    {
+      "src": 12273,
+      "mode": 1,
+      "title": "窓から逃げた100歳老人",
+      "author": "Jonas Jonasson",
+      "type": "本",
+      "cover": "art/o6qn1vt8j3j"
+    },
+    {
+      "src": 12274,
+      "mode": 1,
+      "title": "牛乳を注ぐ女",
+      "author": "Johannes Vermeer",
+      "type": "絵画",
+      "cover": null
+    },
+    {
+      "src": 12275,
+      "mode": 1,
+      "title": "Déjeuner en paix（平和なランチ）",
+      "author": "Stéphan Eicher",
+      "type": "音楽",
+      "cover": null
+    },
+    {
+      "src": 12276,
+      "mode": 1,
+      "title": "トイ・ストーリー",
+      "author": "John Lasseter",
+      "type": "映画",
+      "cover": "art/hbaoxwnv5ha"
+    },
+    {
+      "src": 12277,
+      "mode": 1,
+      "title": "アナザー・ブリック・イン・ザ・ウォール",
+      "author": "Pink Floyd",
+      "type": "音楽",
+      "cover": "art/rsjnia3k578"
+    },
+    {
+      "src": 12278,
+      "mode": 1,
+      "title": "ウォーク・ライク・アン・エジプシャン",
+      "author": "Bangles",
+      "type": "音楽",
+      "cover": "art/zxxras1zb9"
+    },
+    {
+      "src": 12279,
+      "mode": 1,
+      "title": "自由の女神",
+      "author": "Auguste Bartholdi",
+      "type": "モニュメント",
+      "cover": "art/g0ngk3yo2g"
+    },
+    {
+      "src": 12280,
+      "mode": 1,
+      "title": "ラプンツェル",
+      "author": "frères Grimm",
+      "type": "童話",
+      "cover": "art/8y7x60335cq"
+    },
+    {
+      "src": 12281,
+      "mode": 1,
+      "title": "シャンデリア",
+      "author": "Sia",
+      "type": "音楽",
+      "cover": "art/eddbpxiwgt"
+    },
+    {
+      "src": 12282,
+      "mode": 1,
+      "title": "コーラス",
+      "author": "Christophe Barratier",
+      "type": "映画",
+      "cover": "art/98wpoo3d2l"
+    },
+    {
+      "src": 12283,
+      "mode": 1,
+      "title": "ウサギとカメ",
+      "author": "Jean de La Fontaine",
+      "type": "童話",
+      "cover": "art/gb7865r0con"
+    },
+    {
+      "src": 12284,
+      "mode": 1,
+      "title": "アラバマ物語",
+      "author": "Harper Lee",
+      "type": "本",
+      "cover": "art/2fdt2n0oro4"
+    },
+    {
+      "src": 12285,
+      "mode": 1,
+      "title": "ジョーズ",
+      "author": "Steven Spielberg",
+      "type": "映画",
+      "cover": "art/xetw5wloibs"
+    },
+    {
+      "src": 12286,
+      "mode": 1,
+      "title": "ラ・ブーム",
+      "author": "Claude Pinoteau",
+      "type": "映画",
+      "cover": "art/lhb2vw4tnv"
+    },
+    {
+      "src": 12287,
+      "mode": 1,
+      "title": "ウルフ・オブ・ウォールストリート",
+      "author": "Martin scorsese",
+      "type": "映画",
+      "cover": "art/n5ibtvci4v"
+    },
+    {
+      "src": 12288,
+      "mode": 1,
+      "title": "Pourquoi j'ai mangé mon père（ぼくが父さんを食べたわけ）",
+      "author": "Roy Lewis",
+      "type": "本",
+      "cover": "art/fu9x0to9qih"
+    },
+    {
+      "src": 12289,
+      "mode": 1,
+      "title": "アーティスト",
+      "author": "Michel Hazanavicius",
+      "type": "映画",
+      "cover": "art/0b3g0n373158"
+    },
+    {
+      "src": 12290,
+      "mode": 1,
+      "title": "ウォーキング・オン・ザ・ムーン",
+      "author": "Police",
+      "type": "音楽",
+      "cover": null
+    },
+    {
+      "src": 12291,
+      "mode": 1,
+      "title": "ジュラシック・パーク",
+      "author": "Steven Spielberg",
+      "type": "映画",
+      "cover": "art/9bvn6fhcd6r"
+    },
+    {
+      "src": 12292,
+      "mode": 1,
+      "title": "ウォーリー",
+      "author": "Andrew Stanton",
+      "type": "映画",
+      "cover": "art/7brsbh5qvf6"
+    },
+    {
+      "src": 12293,
+      "mode": 1,
+      "title": "ザ・プリテンダー",
+      "author": "Steven Long mitchel et Craig Van sickel",
+      "type": "ドラマ",
+      "cover": "art/bhb9lyhr9ar"
+    },
+    {
+      "src": 12294,
+      "mode": 1,
+      "title": "バルスーズ",
+      "author": "Bertrand Blier",
+      "type": "映画",
+      "cover": "art/9ib5o7wrhno"
+    },
+    {
+      "src": 12295,
+      "mode": 1,
+      "title": "エディット・ピアフ～愛の讃歌～",
+      "author": "Olivier Dahan",
+      "type": "映画",
+      "cover": "art/v3fiq5x6qmf"
+    },
+    {
+      "src": 12296,
+      "mode": 1,
+      "title": "ゴーストバスターズ",
+      "author": "Ivan Reitman",
+      "type": "映画",
+      "cover": "art/m4w26dp1yd"
+    },
+    {
+      "src": 12297,
+      "mode": 1,
+      "title": "悪の華",
+      "author": "Charles Baudelaire",
+      "type": "詩集",
+      "cover": "art/p58jvebajkf"
+    },
+    {
+      "src": 12298,
+      "mode": 1,
+      "title": "おかしなおかしな訪問者",
+      "author": "Jean-Marie Point",
+      "type": "映画",
+      "cover": "art/t6qpmumdlmg"
+    },
+    {
+      "src": 12299,
+      "mode": 1,
+      "title": "Femme libérée（解放された女）",
+      "author": "Cookie Dingler",
+      "type": "音楽",
+      "cover": "art/f7phan4fy4"
+    },
+    {
+      "src": 12300,
+      "mode": 1,
+      "title": "リード・マイ・リップス",
+      "author": "Jacques Audiard",
+      "type": "映画",
+      "cover": "art/vzee2y2kng"
+    },
+    {
+      "src": 12301,
+      "mode": 1,
+      "title": "モナ・リザ",
+      "author": "Léonard de Vinci",
+      "type": "絵画",
+      "cover": "art/6kbee6t0bag"
+    },
+    {
+      "src": 12302,
+      "mode": 1,
+      "title": "サイコ",
+      "author": "Alfred Hitchcock",
+      "type": "映画",
+      "cover": "art/orxj9cmrul"
+    },
+    {
+      "src": 12303,
+      "mode": 1,
+      "title": "OSS 117 私を愛したカフェオーレ",
+      "author": "Michel Hazanavicius",
+      "type": "映画",
+      "cover": "art/hpzfdea1q0a"
+    },
+    {
+      "src": 12304,
+      "mode": 1,
+      "title": "続・夕陽のガンマン",
+      "author": "Sergio Leone",
+      "type": "映画",
+      "cover": "art/v32pvrc59te"
+    },
+    {
+      "src": 12305,
+      "mode": 1,
+      "title": "えんどう豆の上のお姫さま",
+      "author": "Hans Andersen",
+      "type": "童話",
+      "cover": "art/76r3akj65xg"
+    },
+    {
+      "src": 12306,
+      "mode": 1,
+      "title": "Le Chant des sirènes（セイレーンの歌）",
+      "author": "Fréro Delavega",
+      "type": "音楽",
+      "cover": "art/4vhqsms0vzn"
+    },
+    {
+      "src": 12307,
+      "mode": 1,
+      "title": "タイタニック",
+      "author": "James Cameron",
+      "type": "映画",
+      "cover": "art/v870jvdb3kq"
+    },
+    {
+      "mode": 3,
+      "title": "猫の手も借りたい",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "猫をかぶる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "猫に小判",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "豚に真珠",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "犬も歩けば棒に当たる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "猿も木から落ちる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "二兎を追う者は一兎をも得ず",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "鬼に金棒",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "泣きっ面に蜂",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "棚からぼたもち",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "花より団子",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "石の上にも三年",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "転ばぬ先の杖",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "七転び八起き",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "腹が立つ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "顔が広い",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "鼻が高い",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "耳が痛い",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "目が回る",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "手を焼く",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "足を洗う",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "首を長くして待つ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "腕を磨く",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "歯が立たない",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "舌を巻く",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "肩を並べる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "胸を張る",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "腰を抜かす",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "へそで茶を沸かす",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "手に汗握る",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "目から鱗が落ちる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "顔から火が出る",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "雀の涙",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "虫の居所が悪い",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "馬の耳に念仏",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "猫舌",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "狸寝入り",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "井の中の蛙大海を知らず",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "蛙の子は蛙",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "鶴の一声",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "袋のねずみ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "まな板の鯉",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "水を差す",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "油を売る",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "焼け石に水",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "寝耳に水",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "火に油を注ぐ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "雨降って地固まる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "急がば回れ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "塵も積もれば山となる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "一石二鳥",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "二階から目薬",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "のれんに腕押し",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "ぬかに釘",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "月とすっぽん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "さじを投げる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "白羽の矢が立つ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "釘を刺す",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "ごまをする",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "腹を割って話す",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "道草を食う",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "羽を伸ばす",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "尻に火がつく",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "尻尾を巻いて逃げる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "尻尾を出す",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "骨が折れる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "足が棒になる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "手のひらを返す",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "目を丸くする",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "口が滑る",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "耳を傾ける",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "頭を冷やす",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "海老で鯛を釣る",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "果報は寝て待て",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "笑う門には福来たる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "犬猿の仲",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "猫の額",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "借りてきた猫",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "足元を見る",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "足を引っ張る",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "手も足も出ない",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "青菜に塩",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "喉から手が出る",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "目に入れても痛くない",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "出る杭は打たれる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "早起きは三文の徳",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "灯台下暗し",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "覆水盆に返らず",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "能ある鷹は爪を隠す",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "鬼の居ぬ間に洗濯",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "藪をつついて蛇を出す",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "腕が鳴る",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "肩の荷が下りる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "目くじらを立てる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "お茶を濁す",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "首を突っ込む",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "頭隠して尻隠さず",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "虎の威を借る狐",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "蜂の巣をつついたよう",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "弘法も筆の誤り",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "橋の上をお散歩する腕時計",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "将棋で真剣勝負する鬼",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "座禅を組むおまわりさん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "パンツを後ろ前にはいたインディ・ジョーンズ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "温泉でおならをする",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "寝ぼけた綱渡り名人",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "キックボードに乗ったウサギ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "おなかをこわしたロビン・フッド",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "脱毛サロンに通うネコ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "高所恐怖症のキングコング",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ハンコを押すタコ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "フラフープをする招き猫",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "つま先立ちで歩くお相撲さん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ハイタッチするサル",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "笑いが止まらないニュースキャスター",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "二日酔いの牛",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "声が出なくなった腹話術師",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "太鼓でテニスをする",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "酔っぱらったドラキュラ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "口笛を吹きながらひげをそるお坊さん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "水着で富士山に登る",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "アカデミー賞の授賞式に出る大仏",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ガムをかむナマズ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "バレエを踊るゾウ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "盆踊りをするサメ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "スーツを着たカバ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "人質をとるカッパ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "タコを隠す泥棒たち",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "こたつで歌う雪男",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "カタツムリの結婚式",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ふにゃふにゃのクモ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "お姫さまをさらう宇宙人",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "クレープを食べる恐竜",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "侍に謝るトカゲ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ニワトリを運ぶ救急車",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "パトカーを追い越すニンジン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "巨大キノコを食べる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "レモンをかじって顔がしぼむゾンビ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ニワトリにメールを送る",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "竹やぶの中のスーパースター",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ロボットを助けるドラゴン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ダイバーと戦うアンドロイド",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "消防士になったアインシュタイン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ストライキ中の忍者",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ゾウにおじぎする指揮者",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "フルートを吹く三つ首の犬",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "総理大臣をほめちぎるバイキング",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "わきの下にウニ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "東京タワーをかすめて泳ぐクラゲ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ピアノをひく蚊",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "名探偵気取りのおバカたち",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ヒツジと大笑いするオオカミ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "美術館を見学するハゲワシ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "側転するランプの魔人",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "スーパーで買い物をするシャチ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ライオンに変装するカバ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "迷路で迷子のトカゲたち",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "凍った湖ですべって転ぶアリ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "世界の終わりにフラメンコ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "座礁した幽霊船",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "トイレに駆けこむ妖精",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "キュウリを演奏する酔っぱらい",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "クジラの背中に乗ったピンクのガチョウ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "宇宙を走るキャンピングカー",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "お城を守る魚たち",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "フェンシングをするイモムシ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "木に絵本を読み聞かせる牛",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ピエロを調教する猛獣",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "映画館でポップコーンを食べるイノシシ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "野菜をかじる忍者",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "パンツ一丁のユニコーン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ニンニクを食べるドラキュラ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "虹をストローで飲む妖精",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ガイコツの盆踊り",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ジムで汗だくのミツバチ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "砂嵐の中のニワトリ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "テレビを食べるライオン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "暗いのがこわいおばけ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "海の底の巨大なハチの巣",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "押し入れの中の氷山",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "宇宙で迷子のテントウムシ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "石器時代の国会討論",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "笑い転げるウサギ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "飛ぶのが嫌いなトンボ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ビーチで日焼けするヒツジ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "棒高跳びをするウニ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "海の底で起きた山火事",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "竹馬に乗った鳥",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "面接中に寝てしまう",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ツリーハウスで暮らす双子",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ハエにからむちっちゃな海賊",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "入れ歯をなくしたドラキュラ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "雨の中でぐっすり眠るウサギ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ネズミのマフィア",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "透明人間の侍たち",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "小人とおしゃべりするクマ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "満員電車でサーフィン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "優しすぎる海賊",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "恐竜を調教する人魚",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "寿司をにぎるゴリラ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "たこ焼きをひっくり返すタコ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "桃から出られない桃太郎",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "竜宮城で迷子の浦島太郎",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "カラオケで熱唱するゴジラ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "満員電車で座禅",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "こたつから出られないペンギン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ラーメンをすするキリン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "手招きしすぎて肩がこった招き猫",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "くしゃみをがまんする忍者",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "スキップするお地蔵さま",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "天狗とカッパの腕相撲",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "ラジオ体操をするカメ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "お花見で酔っぱらう侍",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "回転寿司のレーンに乗ったネコ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "自撮りをする大仏",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "パン食い競争に出るワニ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "そばを打つロボット",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "カエルの合唱を指揮するクマ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "改札で踊りだす駅員さん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "節分の豆をキャッチする鬼",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "空を飛ぶふとん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "金魚すくいで金魚に逃げられる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "綿あめにくっついたハチ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "スカイダイビングしながらパラシュートを編む忍者のおばあちゃん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "綱渡りをしながら納豆をかき混ぜる侍",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "満員電車でつり革につかまりながらバイオリンをひくゴリラ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "くしゃみをこらえながら爆弾を解体する忍者",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "寝ぼけて歯ブラシでひげをそり、カミソリで歯をみがくお父さん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "一輪車に乗りながらラーメンの出前を届けるタコ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "雪合戦の真っ最中に告白する雪だるま",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "溺れかけながら自撮りをするライフセーバー",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "ハチに追いかけられても盆踊りをやめない浴衣のクマ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "鏡の前でボクシングの練習をして鏡に負けるカンガルー",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "ジェットコースターに乗りながらメイクをする花嫁",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "お化け屋敷でお化けを驚かせてしまうおばあちゃん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "大縄跳びに入るタイミングがつかめないキリン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "熱々のおでんを食べながら熱湯風呂に入るペンギン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "赤ちゃんをあやしながらジャグリングするピエロ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "フライパンでテニスをしてチャーハンを打ち返す料理人",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "フクロウとにらめっこして先に笑ってしまう警察官",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "サーフィンしながらお茶を点てる茶道の先生",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "ゾンビにラジオ体操を教える体育の先生",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "宇宙遊泳中に鼻がかゆくなった宇宙飛行士",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "マラソン中に靴ひもがほどけ、カラスに靴を持っていかれるランナー",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "献血に来た吸血鬼が自分の血を見て気絶する",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "頭の皿の水をこぼさないようにスキップするカッパ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "チュチュを着て白鳥の湖を踊るお相撲さん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "掃除機でクモを吸おうとしたら掃除機が逃げ出す",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "交番で道を聞いて地図を逆さに持つ迷子のペンギン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "ボールの代わりにスイカを打って種まみれになるバッター",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "寝坊したサンタがトナカイの代わりに自転車をこぐ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "節分の豆アレルギーでくしゃみが止まらない鬼",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "髪を切りすぎて大急ぎでカツラを編む美容師",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "帽子からウサギを出そうとしてクマが出てくるマジシャン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "止まったエレベーターの中で盆踊り大会を始める会社員たち",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "ワニの歯をみがきながら手をかまれないように必死な歯医者さん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "ヘビにマフラーを編んでもらうおじいちゃん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "太鼓をなくしてフライパンで雷を鳴らす雷さま",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "生地を回しすぎて生地ごと空へ飛んでいくピザ職人",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "金魚すくいで逆に金魚にすくわれる子ども",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "8本の足で同時にネクタイを結ぼうとする酔っぱらいのタコ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "おわんの船でカヌーレースに出る一寸法師",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "月に帰るロケットを自分で組み立てるかぐや姫",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "鬼に囲まれてじゃんけんで勝負する桃太郎",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "ケーキ入刀をしたらケーキが爆発する結婚式",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "冷蔵庫で昼寝していたら扉が閉まって慌てるシロクマ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "自動ドアに無視され続けて窓から入る幽霊",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "ボウリングの球から指が抜けず、ピンと一緒に転がる",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "リレーのアンカーでバトンを落とすカメ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "4本の腕でドラムをたたき、残りの腕でラーメンを食べるタコ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "恋をしたロボットがネジが外れて踊りだす",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "ハチミツをなめていたらハチに囲まれ、ヨガのポーズで固まるクマ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "指揮棒の代わりにウナギを振りまわす指揮者",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "大仏がくしゃみをして周りのハトがいっせいに飛び立つ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "卵を温めながらスマホでゲームに夢中なニワトリ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "ホースで水をまいたら花が一気に咲いて驚く消防士",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "パットを打った瞬間にモグラにボールを取られるゴルファー",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "プレゼンの最中にズボンのゴムが切れる社長",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "のこぎりで箱を切ったら箱が逃げ出す手品師",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "水の上を走ろうとして泳げないことに気づく忍者",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "サウナで汗をかいてどんどん溶けていく雪男",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "お相撲さんをマッサージしていて下敷きになるマッサージ師",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "回し車を全力で回して町の停電を救うハムスター",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "子どもにこわがられないよう鏡の前で笑顔の練習をする鬼",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "バスを止めて道を渡るカルガモの親子を誘導する運転手",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "チェスのナイトの代わりに本物の馬に乗って登場するチャンピオン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "牛を連れ去ろうとして牛に引きずられる宇宙人",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "雨乞いダンスをしたら大雪が降って凍えるカエル",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "包帯を巻き直しながら踊っていたら全部ほどけるミイラ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "鼻でフラフープを回しながら一本下駄で歩く天狗",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "ハリネズミの散髪をして指を刺される床屋さん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "砂漠で見つけたオアシスに飛びこんだら蜃気楼だったラクダ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "レーザーをリンボーダンスでよけて進むスパイ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "夜中に起きだして冷蔵庫をあさるクマのぬいぐるみ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "婚活パーティーで握手したら手が取れてしまうゾンビ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "卵を高く投げすぎて卵が宇宙まで飛んでいくシェフ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "スケボーで坂を下りながら編み物をするおばあちゃん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "誓いのキスの直前に大きなくしゃみをする新郎",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "ヒッチハイクで地球に帰ろうとする迷子の宇宙飛行士",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "南の島のビーチでかき氷を売るペンギン",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "東京タワーを歯ブラシ代わりにして歯をみがくゴジラ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "綿あめを食べようとして顔じゅうベタベタになるヒツジ",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "ダンスバトルの途中でぎっくり腰になるブレイクダンサーのおじいちゃん",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かかし (蚊 / 菓子)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "はかま (歯 / 鎌)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "たまご (玉 / 碁)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "すいか (酢 / 胃 / 蚊)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "いるか (射る / 蚊)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "たいこ (鯛 / 子)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "タイヤ (鯛 / 矢)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "はなし (歯 / 梨)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かもめ (鴨 / 目)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "すずめ (鈴 / 目)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "つばめ (唾 / 目)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "はちまき (蜂 / 巻き)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "こめかみ (米 / 噛み)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "アシカ (足 / 蚊)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "しかく (鹿 / 書く)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "しかい (鹿 / 胃)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "くつした (靴 / 舌)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かきね (柿 / 根)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "はしご (箸 / 碁)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "みかん (実 / 缶)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "みかた (実 / 肩)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かかと (蚊 / 蚊 / 戸)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "はたけ (旗 / 毛)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かたち (肩 / 血)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "ゆかた (床 / 肩)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "まつたけ (松 / 竹)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "いちご (1 / 碁)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "シマウマ (島 / 馬)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かまくら (鎌 / 蔵)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "カミソリ (髪 / そり)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "えだ (絵 / 田)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "えき (絵 / 木)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "めいし (目 / 石)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "いけばな (池 / 花)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かぶと (カブ / 戸)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かぶき (カブ / 木)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "やかん (矢 / 缶)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "やね (矢 / 根)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "やさい (矢 / サイ)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "さかな (坂 / 菜)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "はなわ (鼻 / 輪)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "はかり (歯 / 狩り)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "ひかり (火 / 狩り)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "こたつ (子 / 立つ)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "ねまき (根 / 巻き)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "のりまき (乗り / 巻き)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "わかめ (輪 / 亀)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "たわし (田 / 鷲)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "いなか (稲 / 蚊)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "うちわ (打ち / 輪)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "せみ (背 / 実)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "ちくわ (血 / 鍬)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "とけい (戸 / 毛 / 胃)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "とかげ (戸 / 影)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "にわとり (2 / 輪 / 鳥)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "はくさい (履く / サイ)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "パンダ (パン / 田)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "ほたる (帆 / 樽)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "からて (殻 / 手)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "さいご (サイ / 碁)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "いたち (板 / 血)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "なみだ (波 / 田)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かもしか (鴨 / 鹿)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "にもつ (煮 / 持つ)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "ゆりかご (百合 / 籠)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "ふたご (蓋 / 碁)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "つるはし (鶴 / 箸)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "たいくつ (鯛 / 靴)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "いとこ (糸 / 子)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "あした (足 / 田)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かまど (鎌 / 戸)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かまきり (鎌 / 切り)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "サラダ (皿 / 田)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "テニス (手 / 2 / 酢)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "トマト (戸 / 的)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "タオル (田 / 織る)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "カカオ (蚊 / 顔)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "わたあめ (綿 / 雨)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "しおり (4 / 檻)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "いわし (岩 / 4)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かつお (勝つ / 尾)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "ひたい (火 / 鯛)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "やもり (矢 / 森)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "いもり (胃 / 森)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "こもり (子 / 森)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "くもり (9 / 森)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "たぬき (田 / 抜き)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "うめぼし (梅 / 星)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "はなや (鼻 / 矢)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かるた (刈る / 田)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "うみねこ (海 / 猫)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "しかけ (鹿 / 毛)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "はいく (歯 / 行く)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かんぱい (缶 / パイ)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "おやすみ (親 / 墨)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "こいびと (鯉 / 人)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "カラオケ (殻 / 桶)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "からす (殻 / 酢)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "はるまき (貼る / 巻き)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "はるさめ (貼る / 鮫)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かどまつ (角 / 松)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "おとしだま (落とし / 玉)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "ふくわらい (拭く / 笑い)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "たなばた (棚 / 旗)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "まいご (舞 / 碁)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "まいたけ (舞 / 竹)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "ちりとり (チリ / 鳥)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "ぞうきん (象 / 金)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "きりかぶ (切り / カブ)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "ごぼう (碁 / 棒)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "だいふく (台 / 服)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "さんすう (3 / 吸う)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "はくちょう (履く / 蝶)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "てんし (点 / 4)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "かきぞめ (柿 / 染め)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "くしかつ (櫛 / 勝つ)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "たいまつ (鯛 / 松)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "すいかわり (酢 / 胃 / 蚊 / 割り)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "かたかな (肩 / 蚊 / 菜)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "かぶとむし (カブ / 戸 / 虫)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "めんたいこ (面 / 鯛 / 子)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "かまいたち (鎌 / 板 / 血)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "はかまいり (歯 / 鎌 / 入り)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "かわせみ (川 / 背 / 実)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "てんとうむし (点 / 塔 / 虫)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "たぬきそば (田 / 抜き / 蕎麦)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "しおひがり (塩 / 火 / 狩り)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "たけのこ (竹 / 野 / 子)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "かきごおり (柿 / 碁 / 檻)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "ありがとう (蟻 / 蛾 / 塔)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "いただきます (板 / 抱き / 鱒)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "まいにち (舞 / 2 / 血)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "はなことば (鼻 / 琴 / 歯)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "たまごやき (玉 / 碁 / 焼き)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "かつおぶし (勝つ / 尾 / 武士)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "かいてんずし (貝 / 点 / 寿司)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "えのきだけ (絵 / 野 / 木 / 竹)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "すなどけい (砂 / 戸 / 毛 / 胃)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "かしわもち (菓子 / 輪 / 餅)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "おまわりさん (尾 / 回り / 3)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "けいさつかん (毛 / 胃 / 札 / 缶)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "かんごし (缶 / 碁 / 4)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "はいゆう (歯 / 胃 / 湯)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "せんすいかん (千 / 酢 / 胃 / 缶)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "ちかてつ (血 / 蚊 / 鉄)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "さかなつり (坂 / 菜 / 釣り)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "はなみずき (鼻 / 水 / 木)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "いちごだいふく (1 / 碁 / 台 / 服)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "いわしぐも (岩 / 4 / 雲)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "にわかあめ (2 / 輪 / 蚊 / 雨)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "わにがめ (輪 / 2 / 亀)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "かていか (蚊 / 手 / イカ)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "とけいだい (戸 / 毛 / 胃 / 台)",
+      "author": null,
+      "type": null,
+      "cover": null
+    }
+  ]
+}

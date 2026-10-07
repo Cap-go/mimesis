@@ -1,0 +1,3 @@
+"NSCameraUsageDescription" = "允许访问相机，以便向客服发送照片";
+"NSMicrophoneUsageDescription" = "允许访问麦克风，以便向客服发送视频";
+"NSPhotoLibraryUsageDescription" = "允许访问相册，以便向客服发送图片";

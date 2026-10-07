@@ -1,0 +1,3 @@
+"NSCameraUsageDescription" = "サポートに写真を送るためにカメラへのアクセスを許可してください";
+"NSMicrophoneUsageDescription" = "サポートに動画を送るためにマイクへのアクセスを許可してください";
+"NSPhotoLibraryUsageDescription" = "サポートに画像を送るために写真へのアクセスを許可してください";

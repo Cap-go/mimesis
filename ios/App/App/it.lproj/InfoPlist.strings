@@ -1,0 +1,3 @@
+"NSCameraUsageDescription" = "Consenti l'accesso alla fotocamera per inviare una foto al supporto";
+"NSMicrophoneUsageDescription" = "Consenti l'accesso al microfono per inviare un video al supporto";
+"NSPhotoLibraryUsageDescription" = "Consenti l'accesso alle foto per inviare un'immagine al supporto";

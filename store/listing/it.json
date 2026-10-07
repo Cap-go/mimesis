@@ -1,0 +1,44 @@
+{
+  "name": "Mimesis - Mimo e Sciarade",
+  "subtitle": "Il gioco da festa per gruppi",
+  "promotionalText": "Mima, fai indovinare, ridi a crepapelle! Oltre 500 carte in italiano tra modi di dire, rebus, film e scene assurde. Gratis, senza pubblicità e senza account.",
+  "description": "Mimesis è il gioco di mimo da fare con gli amici o in famiglia. Un telefono, due squadre e zero parole: mima la carta e fai indovinare la tua squadra prima che scada il tempo!\n\nCome si gioca? A turno, un giocatore prende il telefono, legge la carta in segreto e la mima alla sua squadra. Niente parole, niente suoni, niente dita puntate: solo gesti, facce buffe e tanta fantasia. Ogni carta indovinata vale un punto. Bloccato? Passa e prendi la carta successiva, senza penalità.\n\nQuattro temi per tutti i gusti:\n• Modi di dire: \"In bocca al lupo\", \"Avere le mani bucate\", \"Piove sul bagnato\"… prova a mimarli alla lettera!\n• Improbabile: scene assurde come un pinguino che ordina un cappuccino o una mucca che legge una favola a un albero.\n• Arte e cultura pop: film, canzoni, libri, dipinti e fiabe da far indovinare.\n• Rebus: parole da spezzare in pezzi da mimare, come sciarpa (sci / arpa) o focaccia (foca / caccia).\n\nOltre 500 carte in italiano, con le versioni Plus per chi vuole una sfida più tosta.\n\nTutto pensato per la serata:\n• Crea le squadre in pochi secondi, con nomi buffi già pronti\n• Scegli la durata del turno, da 30 a 90 secondi\n• Decidi quanti punti servono per vincere\n• Una schermata di passaggio ti dice a chi dare il telefono, senza spoiler\n• Vibrazioni e animazioni a ogni carta indovinata\n\nServono almeno 4 giocatori: 2 squadre da 2 o più. Perfetto per feste, cene, vacanze, compleanni, serate in famiglia o pomeriggi di pioggia.\n\nGratis, senza pubblicità e senza account. Dopo il primo avvio funziona anche offline, quindi puoi giocare ovunque: in montagna, al mare o in treno.\n\nMimesis è open source e fatto con passione da un piccolo sviluppatore indipendente.\n\nPronto? Prendi il telefono, zitto zitto, e che vinca la squadra migliore!",
+  "keywords": "indovinare,parole,amici,famiglia,serata,squadre,mimare,film,divertente,società,party,rebus,offline",
+  "whatsNew": "Mimesis ora parla italiano!\n• Tutta l'app tradotta in italiano\n• Oltre 500 carte nuove in italiano: modi di dire, rebus, scene improbabili, film e canzoni\n• Nomi di giocatori e squadre suggeriti in italiano",
+  "playTitle": "Mimesis - Mimo e Sciarade",
+  "playShortDescription": "Mima le carte e fai indovinare la tua squadra! Gratis e senza pubblicità.",
+  "playFullDescription": "Mimesis è il gioco di mimo e sciarade da fare con gli amici o in famiglia. Un telefono, due squadre e zero parole: mima la carta e fai indovinare la tua squadra prima che scada il tempo!\n\nCOME SI GIOCA\nA turno, un giocatore prende il telefono, legge la carta in segreto e la mima alla sua squadra. Niente parole, niente suoni, niente dita puntate: solo gesti, facce buffe e tanta fantasia. Ogni carta indovinata vale un punto. Bloccato? Passa alla carta successiva, senza penalità. La prima squadra che arriva al punteggio scelto vince!\n\nQUATTRO TEMI PER TUTTI I GUSTI\n• Modi di dire: \"In bocca al lupo\", \"Avere le mani bucate\", \"Piove sul bagnato\"… prova a mimarli alla lettera!\n• Improbabile: scene assurde come un pinguino che ordina un cappuccino o un gondoliere che rema nel deserto.\n• Arte e cultura pop: film, canzoni, libri, dipinti e fiabe da far indovinare.\n• Rebus: parole da spezzare in pezzi da mimare, come sciarpa (sci / arpa) o focaccia (foca / caccia).\n\nOltre 500 carte in italiano, con le versioni Plus per chi cerca una sfida più tosta.\n\nTUTTO PENSATO PER LA SERATA\n• Crea le squadre in pochi secondi, con nomi buffi già pronti\n• Scegli la durata del turno, da 30 a 90 secondi\n• Decidi quanti punti servono per vincere\n• Una schermata di passaggio ti dice a chi dare il telefono, senza spoiler\n• Vibrazioni e animazioni a ogni carta indovinata\n\nPER CHI È\nServono almeno 4 giocatori: 2 squadre da 2 o più. Perfetto per feste, cene tra amici, vacanze, compleanni, serate in famiglia o pomeriggi di pioggia. Le regole si spiegano in un minuto e si ride dal primo turno.\n\nSEMPLICE E RISPETTOSO\n• Gratis\n• Nessuna pubblicità\n• Nessun account da creare\n• Funziona offline dopo il primo avvio\n• Open source\n\nPronto? Prendi il telefono, zitto zitto, e che vinca la squadra migliore!",
+  "screenshots": [
+    {
+      "id": "playing",
+      "title": "Tu mimi, loro indovinano!",
+      "subtitle": "Centinaia di carte da mimare."
+    },
+    {
+      "id": "teams",
+      "title": "Squadre pronte in 10 secondi",
+      "subtitle": "Aggiungi gli amici, al resto pensiamo noi."
+    },
+    {
+      "id": "themes",
+      "title": "Scegli il tuo tema",
+      "subtitle": "Modi di dire, rebus, film, canzoni…"
+    },
+    {
+      "id": "handoff",
+      "title": "A chi tocca?",
+      "subtitle": "Il gioco sceglie il prossimo mimo."
+    },
+    {
+      "id": "winner",
+      "title": "Vinca la squadra migliore",
+      "subtitle": "Punti, timer e risate assicurate."
+    },
+    {
+      "id": "rules",
+      "title": "Regole semplicissime",
+      "subtitle": "Un telefono, gli amici, zero parole."
+    }
+  ],
+  "featureTagline": "Il gioco di mimo tra amici. Zero parole, risate assicurate."
+}

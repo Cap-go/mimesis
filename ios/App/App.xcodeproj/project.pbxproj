@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9CDF5723168F544B6A09DFDA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5759A16BE826CB40D84FD5DF /* InfoPlist.strings */; };
 		2FAD9763203C412B000D30F8 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2FAD9762203C412B000D30F8 /* config.xml */; };
 		4D22ABE92AF431CB00220026 /* CapApp-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 4D22ABE82AF431CB00220026 /* CapApp-SPM */; };
 		50379B232058CBB4000EE86E /* capacitor.config.json in Resources */ = {isa = PBXBuildFile; fileRef = 50379B222058CBB4000EE86E /* capacitor.config.json */; };
@@ -28,6 +29,14 @@
 		504EC3131FED79650016851F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50B271D01FEDC1A000F3C39B /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
 		958DCC722DB07C7200EA8C5F /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../debug.xcconfig; sourceTree = SOURCE_ROOT; };
+		14BE1A2D4414049E0DF9DDF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		76F22C7FF56BFEE4F73C05BF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		30BE1C91C46AF9BAA5254E20 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F7B9C19F3199074D2B25BD10 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt-BR; path = pt-BR.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D5F9FD52C15CFFA972092688 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		33C9931CE81CC2CA6FD3990F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D0A81D303FA2DE32A29C9B0E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6A034B8E434B29CE101AC697 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh-Hans; path = zh-Hans.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +77,7 @@
 				504EC30E1FED79650016851F /* Assets.xcassets */,
 				504EC3101FED79650016851F /* LaunchScreen.storyboard */,
 				504EC3131FED79650016851F /* Info.plist */,
+				5759A16BE826CB40D84FD5DF /* InfoPlist.strings */,
 				2FAD9762203C412B000D30F8 /* config.xml */,
 				50B271D01FEDC1A000F3C39B /* public */,
 			);
@@ -120,6 +130,13 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				es,
+				"pt-BR",
+				de,
+				it,
+				ja,
+				"zh-Hans",
 			);
 			mainGroup = 504EC2FB1FED79650016851F;
 			packageReferences = (
@@ -140,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				504EC3121FED79650016851F /* LaunchScreen.storyboard in Resources */,
+				9CDF5723168F544B6A09DFDA /* InfoPlist.strings in Resources */,
 				50B271D11FEDC1A000F3C39B /* public in Resources */,
 				504EC30F1FED79650016851F /* Assets.xcassets in Resources */,
 				50379B232058CBB4000EE86E /* capacitor.config.json in Resources */,
@@ -176,6 +194,21 @@
 				504EC3111FED79650016851F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5759A16BE826CB40D84FD5DF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14BE1A2D4414049E0DF9DDF0 /* en */,
+				76F22C7FF56BFEE4F73C05BF /* fr */,
+				30BE1C91C46AF9BAA5254E20 /* es */,
+				F7B9C19F3199074D2B25BD10 /* pt-BR */,
+				D5F9FD52C15CFFA972092688 /* de */,
+				33C9931CE81CC2CA6FD3990F /* it */,
+				D0A81D303FA2DE32A29C9B0E /* ja */,
+				6A034B8E434B29CE101AC697 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

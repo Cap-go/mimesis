@@ -10,6 +10,7 @@ import { availableLocales, setLocale } from '~/services/i18n'
 import { refreshChrome } from '~/services/navigation'
 import { isNative } from '~/services/platform'
 import { getBuildInfo } from '~/services/updater'
+import { useCatalogStore } from '~/store/catalog'
 import { ROUND_OPTIONS, SCORE_OPTIONS, useSettingsStore } from '~/store/settings'
 
 const { t, locale } = useI18n()
@@ -26,6 +27,7 @@ function changeLocale(event: Event) {
   settings.locale = value
   setLocale(value)
   refreshChrome()
+  void useCatalogStore().load(value)
 }
 
 function open(url: string) {
@@ -97,9 +99,6 @@ onMounted(async () => {
           </select>
         </label>
       </div>
-      <p v-if="locale !== 'fr'" class="mt-2 px-2 text-sm font-semibold text-plum-900/70">
-        {{ t('contentLanguageNote') }}
-      </p>
     </section>
 
     <section class="mb-6">

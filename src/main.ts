@@ -31,9 +31,14 @@ async function init() {
   // Restore saved teams and settings before the first frame.
   await whenHydrated()
   setLocale(settings.locale)
-  void useCatalogStore().load('fr')
+  void useCatalogStore().load(settings.locale)
 
   await router.isReady()
+  // First launch explains the game; people who already played skip it.
+  if (!settings.onboarded && settings.gamesPlayed > 0)
+    settings.onboarded = true
+  if (!settings.onboarded && !import.meta.env.VITE_DEMO)
+    await router.replace('/welcome')
   app.mount('#app')
   await initNavigation(router)
   if (import.meta.env.VITE_DEMO)

@@ -1,0 +1,3929 @@
+{
+  "locale": "de",
+  "name": "Deutsch",
+  "guesses": [
+    {
+      "src": 12249,
+      "mode": 1,
+      "title": "Die Ziege des Herrn Seguin",
+      "author": "Alphonse Daudet",
+      "type": "Buch",
+      "cover": "art/0x2ucb7q1ipf"
+    },
+    {
+      "src": 12250,
+      "mode": 1,
+      "title": "Les Misérables",
+      "author": "Victor Hugo",
+      "type": "Buch",
+      "cover": "art/i24kryfk2d"
+    },
+    {
+      "src": 12251,
+      "mode": 1,
+      "title": "Tombé du ciel",
+      "author": "Jacques Higelin",
+      "type": "Musik",
+      "cover": "art/ig461q1jckb"
+    },
+    {
+      "src": 12252,
+      "mode": 1,
+      "title": "Der große Diktator",
+      "author": "Charlie Chaplin",
+      "type": "Film",
+      "cover": "art/gre2hj5e40h"
+    },
+    {
+      "src": 12253,
+      "mode": 1,
+      "title": "La Groupie du pianiste",
+      "author": "Michel Berger",
+      "type": "Musik",
+      "cover": "art/bo92nu0pu4"
+    },
+    {
+      "src": 12254,
+      "mode": 1,
+      "title": "Das Frühstück im Grünen",
+      "author": "Edouard Manet",
+      "type": "Gemälde",
+      "cover": "art/d7d3bnjmax"
+    },
+    {
+      "src": 12255,
+      "mode": 1,
+      "title": "Dinner für Spinner",
+      "author": "Francis Veber",
+      "type": "Film",
+      "cover": "art/u15tgqag99f"
+    },
+    {
+      "src": 12256,
+      "mode": 1,
+      "title": "Singin' in the Rain",
+      "author": "Gene Kelly et Stanley Donen",
+      "type": "Film",
+      "cover": "art/yphwjsrsuq"
+    },
+    {
+      "src": 12257,
+      "mode": 1,
+      "title": "Nachts im Museum",
+      "author": "Shawn Levy",
+      "type": "Film",
+      "cover": "art/xs4vluisnt"
+    },
+    {
+      "src": 12258,
+      "mode": 1,
+      "title": "Der Falschspieler mit dem Karo-Ass",
+      "author": "Georges de La Tour",
+      "type": "Gemälde",
+      "cover": "art/ln9tb54ihy"
+    },
+    {
+      "src": 12259,
+      "mode": 1,
+      "title": "Poliezei",
+      "author": "Mawenn",
+      "type": "Film",
+      "cover": "art/w31n83h761c"
+    },
+    {
+      "src": 12260,
+      "mode": 1,
+      "title": "Herr der Fliegen",
+      "author": "William Golding",
+      "type": "Buch",
+      "cover": "art/cgtt3m2w9hk"
+    },
+    {
+      "src": 12261,
+      "mode": 1,
+      "title": "Kung Fu Panda",
+      "author": "Mark Osborne et John Stevenson",
+      "type": "Film",
+      "cover": "art/6jo9szibnob"
+    },
+    {
+      "src": 12262,
+      "mode": 1,
+      "title": "Alice im Wunderland",
+      "author": "Lewis Carroll",
+      "type": "Buch",
+      "cover": "art/cvuh705dzpp"
+    },
+    {
+      "src": 12263,
+      "mode": 1,
+      "title": "Million Dollar Baby",
+      "author": "Clint Eastwood",
+      "type": "Film",
+      "cover": "art/klvfsniqj1"
+    },
+    {
+      "src": 12264,
+      "mode": 1,
+      "title": "Die Nashörner",
+      "author": "Eugène Ionesco",
+      "type": "Theaterstück",
+      "cover": "art/4onfcz1bdv4"
+    },
+    {
+      "src": 12265,
+      "mode": 1,
+      "title": "Ein Sack voll Murmeln",
+      "author": "Joseph Joffo",
+      "type": "Buch",
+      "cover": "art/gwr79jgetfv"
+    },
+    {
+      "src": 12266,
+      "mode": 1,
+      "title": "Dirty Dancing",
+      "author": "Emile Ardolino",
+      "type": "Film",
+      "cover": "art/2te8o0gfd2z"
+    },
+    {
+      "src": 12267,
+      "mode": 1,
+      "title": "Sonnenblumen",
+      "author": "Van Gogh",
+      "type": "Gemälde",
+      "cover": "art/8kg6v1vrcf4"
+    },
+    {
+      "src": 12268,
+      "mode": 1,
+      "title": "Flashdance",
+      "author": "Adrian Lyne",
+      "type": "Film",
+      "cover": "art/67a9hfeflwt"
+    },
+    {
+      "src": 12269,
+      "mode": 1,
+      "title": "Ratatouille",
+      "author": "Brad Bird",
+      "type": "Film",
+      "cover": "art/jb4artzqbqh"
+    },
+    {
+      "src": 12270,
+      "mode": 1,
+      "title": "Formidable",
+      "author": "Stromae",
+      "type": "Musik",
+      "cover": "art/iwhfz5q4oll"
+    },
+    {
+      "src": 12271,
+      "mode": 1,
+      "title": "Arthur und die Minimoys",
+      "author": "Luc Besson",
+      "type": "Film",
+      "cover": "art/tvxphvx9yd"
+    },
+    {
+      "src": 12272,
+      "mode": 1,
+      "title": "Die drei Musketiere",
+      "author": "Alexandre Dumas",
+      "type": "Buch",
+      "cover": "art/0prbwdii46xq"
+    },
+    {
+      "src": 12273,
+      "mode": 1,
+      "title": "Der Hundertjährige, der aus dem Fenster stieg und verschwand",
+      "author": "Jonas Jonasson",
+      "type": "Buch",
+      "cover": "art/o6qn1vt8j3j"
+    },
+    {
+      "src": 12274,
+      "mode": 1,
+      "title": "Das Milchmädchen",
+      "author": "Johannes Vermeer",
+      "type": "Gemälde",
+      "cover": null
+    },
+    {
+      "src": 12275,
+      "mode": 1,
+      "title": "Déjeuner en paix",
+      "author": "Stéphan Eicher",
+      "type": "Musik",
+      "cover": null
+    },
+    {
+      "src": 12276,
+      "mode": 1,
+      "title": "Toy Story",
+      "author": "John Lasseter",
+      "type": "Film",
+      "cover": "art/hbaoxwnv5ha"
+    },
+    {
+      "src": 12277,
+      "mode": 1,
+      "title": "Another Brick in the Wall",
+      "author": "Pink Floyd",
+      "type": "Musik",
+      "cover": "art/rsjnia3k578"
+    },
+    {
+      "src": 12278,
+      "mode": 1,
+      "title": "Walk Like an Egyptian",
+      "author": "Bangles",
+      "type": "Musik",
+      "cover": "art/zxxras1zb9"
+    },
+    {
+      "src": 12279,
+      "mode": 1,
+      "title": "Freiheitsstatue",
+      "author": "Auguste Bartholdi",
+      "type": "Bauwerk",
+      "cover": "art/g0ngk3yo2g"
+    },
+    {
+      "src": 12280,
+      "mode": 1,
+      "title": "Rapunzel",
+      "author": "frères Grimm",
+      "type": "Märchen",
+      "cover": "art/8y7x60335cq"
+    },
+    {
+      "src": 12281,
+      "mode": 1,
+      "title": "Chandelier",
+      "author": "Sia",
+      "type": "Musik",
+      "cover": "art/eddbpxiwgt"
+    },
+    {
+      "src": 12282,
+      "mode": 1,
+      "title": "Die Kinder des Monsieur Mathieu",
+      "author": "Christophe Barratier",
+      "type": "Film",
+      "cover": "art/98wpoo3d2l"
+    },
+    {
+      "src": 12283,
+      "mode": 1,
+      "title": "Der Hase und die Schildkröte",
+      "author": "Jean de La Fontaine",
+      "type": "Märchen",
+      "cover": "art/gb7865r0con"
+    },
+    {
+      "src": 12284,
+      "mode": 1,
+      "title": "Wer die Nachtigall stört",
+      "author": "Harper Lee",
+      "type": "Buch",
+      "cover": "art/2fdt2n0oro4"
+    },
+    {
+      "src": 12285,
+      "mode": 1,
+      "title": "Der weiße Hai",
+      "author": "Steven Spielberg",
+      "type": "Film",
+      "cover": "art/xetw5wloibs"
+    },
+    {
+      "src": 12286,
+      "mode": 1,
+      "title": "La Boum – Die Fete",
+      "author": "Claude Pinoteau",
+      "type": "Film",
+      "cover": "art/lhb2vw4tnv"
+    },
+    {
+      "src": 12287,
+      "mode": 1,
+      "title": "The Wolf of Wall Street",
+      "author": "Martin scorsese",
+      "type": "Film",
+      "cover": "art/n5ibtvci4v"
+    },
+    {
+      "src": 12288,
+      "mode": 1,
+      "title": "Edward – Roman aus dem Pleistozän",
+      "author": "Roy Lewis",
+      "type": "Buch",
+      "cover": "art/fu9x0to9qih"
+    },
+    {
+      "src": 12289,
+      "mode": 1,
+      "title": "The Artist",
+      "author": "Michel Hazanavicius",
+      "type": "Film",
+      "cover": "art/0b3g0n373158"
+    },
+    {
+      "src": 12290,
+      "mode": 1,
+      "title": "Walking on the Moon",
+      "author": "Police",
+      "type": "Musik",
+      "cover": null
+    },
+    {
+      "src": 12291,
+      "mode": 1,
+      "title": "Jurassic Park",
+      "author": "Steven Spielberg",
+      "type": "Film",
+      "cover": "art/9bvn6fhcd6r"
+    },
+    {
+      "src": 12292,
+      "mode": 1,
+      "title": "WALL·E",
+      "author": "Andrew Stanton",
+      "type": "Film",
+      "cover": "art/7brsbh5qvf6"
+    },
+    {
+      "src": 12293,
+      "mode": 1,
+      "title": "Pretender",
+      "author": "Steven Long mitchel et Craig Van sickel",
+      "type": "Serie",
+      "cover": "art/bhb9lyhr9ar"
+    },
+    {
+      "src": 12294,
+      "mode": 1,
+      "title": "Die Ausgebufften",
+      "author": "Bertrand Blier",
+      "type": "Film",
+      "cover": "art/9ib5o7wrhno"
+    },
+    {
+      "src": 12295,
+      "mode": 1,
+      "title": "La vie en rose",
+      "author": "Olivier Dahan",
+      "type": "Film",
+      "cover": "art/v3fiq5x6qmf"
+    },
+    {
+      "src": 12296,
+      "mode": 1,
+      "title": "Ghostbusters",
+      "author": "Ivan Reitman",
+      "type": "Film",
+      "cover": "art/m4w26dp1yd"
+    },
+    {
+      "src": 12297,
+      "mode": 1,
+      "title": "Die Blumen des Bösen",
+      "author": "Charles Baudelaire",
+      "type": "Gedichtband",
+      "cover": "art/p58jvebajkf"
+    },
+    {
+      "src": 12298,
+      "mode": 1,
+      "title": "Die Besucher",
+      "author": "Jean-Marie Point",
+      "type": "Film",
+      "cover": "art/t6qpmumdlmg"
+    },
+    {
+      "src": 12299,
+      "mode": 1,
+      "title": "Femme libérée",
+      "author": "Cookie Dingler",
+      "type": "Musik",
+      "cover": "art/f7phan4fy4"
+    },
+    {
+      "src": 12300,
+      "mode": 1,
+      "title": "Lippenbekenntnisse",
+      "author": "Jacques Audiard",
+      "type": "Film",
+      "cover": "art/vzee2y2kng"
+    },
+    {
+      "src": 12301,
+      "mode": 1,
+      "title": "Mona Lisa",
+      "author": "Léonard de Vinci",
+      "type": "Gemälde",
+      "cover": "art/6kbee6t0bag"
+    },
+    {
+      "src": 12302,
+      "mode": 1,
+      "title": "Psycho",
+      "author": "Alfred Hitchcock",
+      "type": "Film",
+      "cover": "art/orxj9cmrul"
+    },
+    {
+      "src": 12303,
+      "mode": 1,
+      "title": "OSS 117 – Der Spion, der sich liebte",
+      "author": "Michel Hazanavicius",
+      "type": "Film",
+      "cover": "art/hpzfdea1q0a"
+    },
+    {
+      "src": 12304,
+      "mode": 1,
+      "title": "Zwei glorreiche Halunken",
+      "author": "Sergio Leone",
+      "type": "Film",
+      "cover": "art/v32pvrc59te"
+    },
+    {
+      "src": 12305,
+      "mode": 1,
+      "title": "Die Prinzessin auf der Erbse",
+      "author": "Hans Andersen",
+      "type": "Märchen",
+      "cover": "art/76r3akj65xg"
+    },
+    {
+      "src": 12306,
+      "mode": 1,
+      "title": "Le Chant des sirènes",
+      "author": "Fréro Delavega",
+      "type": "Musik",
+      "cover": "art/4vhqsms0vzn"
+    },
+    {
+      "src": 12307,
+      "mode": 1,
+      "title": "Titanic",
+      "author": "James Cameron",
+      "type": "Film",
+      "cover": "art/v870jvdb3kq"
+    },
+    {
+      "mode": 3,
+      "title": "Tomaten auf den Augen haben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Den Nagel auf den Kopf treffen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Ins Fettnäpfchen treten",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Die Katze aus dem Sack lassen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem einen Bären aufbinden",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Da steppt der Bär",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Ich glaub, mein Schwein pfeift",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Schwein gehabt",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Die Kirche im Dorf lassen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Den Kopf in den Sand stecken",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Auf dem Schlauch stehen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem auf den Keks gehen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Sich zum Affen machen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Den Teufel an die Wand malen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Um den heißen Brei herumreden",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Mit dem falschen Fuß aufstehen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem die Daumen drücken",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Die Ohren steif halten",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Ins Gras beißen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Den Löffel abgeben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Die Flinte ins Korn werfen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Das Handtuch werfen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Eine Extrawurst bekommen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Alles in Butter",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Das ist nicht mein Bier",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem den Kopf waschen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem die kalte Schulter zeigen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Etwas auf die lange Bank schieben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Die Hosen anhaben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Sich in die Hose machen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Auf großem Fuß leben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Kalte Füße bekommen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemanden auf den Arm nehmen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem unter die Arme greifen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Zwei Fliegen mit einer Klappe schlagen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Mit Kanonen auf Spatzen schießen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Perlen vor die Säue werfen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Den Wald vor lauter Bäumen nicht sehen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Aus einer Mücke einen Elefanten machen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Wie ein Elefant im Porzellanladen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Einen Vogel haben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Ein Brett vor dem Kopf haben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Nicht alle Tassen im Schrank haben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem reinen Wein einschenken",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Öl ins Feuer gießen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Mit dem Feuer spielen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Für jemanden die Hand ins Feuer legen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Die Beine in die Hand nehmen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Sich die Haare raufen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Haare auf den Zähnen haben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem auf der Nase herumtanzen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Die Nase voll haben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemanden an der Nase herumführen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Seinen Senf dazugeben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem Honig ums Maul schmieren",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Das Kind mit dem Bade ausschütten",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Den Gürtel enger schnallen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Das Herz auf der Zunge tragen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Mir fällt ein Stein vom Herzen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Auf Wolke sieben schweben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Wie auf glühenden Kohlen sitzen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Das Eis brechen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Mit dem Kopf durch die Wand wollen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Sich ein Bein ausreißen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem ein Bein stellen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem einen Korb geben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Den Braten riechen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Der Groschen ist gefallen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Ein Auge zudrücken",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Unter vier Augen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem Sand in die Augen streuen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Sich wie ein Fisch im Wasser fühlen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Die Zähne zusammenbeißen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "In den sauren Apfel beißen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Äpfel mit Birnen vergleichen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Wie ein begossener Pudel dastehen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Mit den Hühnern ins Bett gehen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Da beißt die Maus keinen Faden ab",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Hahn im Korb sein",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Die Kuh vom Eis holen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Den Stier bei den Hörnern packen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Einen Kater haben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem auf die Füße treten",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Sich auf die Socken machen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemandem aufs Dach steigen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Unter einer Decke stecken",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Nach jemandes Pfeife tanzen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Die Puppen tanzen lassen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Einen Frosch im Hals haben",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Auf der Bärenhaut liegen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jemanden über den Tisch ziehen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Etwas unter den Teppich kehren",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Einen Zahn zulegen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Ins kalte Wasser springen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Ins Schwarze treffen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Den Ball flach halten",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Jetzt geht's um die Wurst",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Leben wie die Made im Speck",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Wie Sand am Meer",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 3,
+      "title": "Klappe zu, Affe tot",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Uhr, die über eine Brücke läuft",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Fuchs auf der Flucht vor einer Treibjagd",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Oger, der Karten spielt",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Polizist im Lotussitz",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Indiana Jones mit Unterhose verkehrt herum",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Pupsen im Whirlpool",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein schlafwandelnder Seiltänzer",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Hase auf einem E-Roller",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Robin Hood mit Magen-Darm",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Katze beim Waxing",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "King Kong mit Höhenangst",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Tintenfisch unterschreibt einen Vertrag",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Gartenzwerg mit Hula-Hoop-Reifen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Sumoringer auf Zehenspitzen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Affe gibt High Five",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Nachrichtensprecher mit Lachanfall",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Kuh mit Kater",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein heiserer Bauchredner",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Tennisspieler mit einer Trommel als Schläger",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein betrunkener Vampir",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Wildschwein im Kino",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Mönch rasiert sich und pfeift dabei",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Bergsteigen in Badehose",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Wels kaut Kaugummi",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Dinosaurier isst Pfannkuchen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Krankenwagen transportiert ein Huhn",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Karotte überholt die Polizei",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Zombie lutscht Zitronen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Wikinger machen dem Bundeskanzler Komplimente",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Seeigel unter den Achseln",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Qualle kitzelt das Brandenburger Tor",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Pilz entführt ein Wildschweinbaby",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Mücken spielen Klavier",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Wölfe lachen mit Schafen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Geier besucht ein Museum",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Flaschengeist schlägt ein Rad",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Orca macht den Wocheneinkauf",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Nilpferd verkleidet sich als Löwin",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ameisen auf einem zugefrorenen See",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Geisterschiff läuft auf Grund",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Fee muss dringend aufs Klo",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein betrunkener Musiker spielt auf einer Zucchini",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine rosa Gans reitet auf einem Wal",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Wohnwagen im Weltall",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Raupe beim Fechten",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Kuh liest einem Baum eine Geschichte vor",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Yak dressiert Clowns",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Einhorn im Adamskostüm",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Vampir isst Knoblauch",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Skelett tanzt Macarena",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine schwitzende Biene im Fitnessstudio",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Huhn im Sandsturm",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Löwin frisst einen Fernseher",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Gespenster mit Angst im Dunkeln",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Eisberg im Keller",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Marienkäfer im Weltall",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Talkshow in der Steinzeit",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Hase lacht sich kaputt",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Libelle mit Flugangst",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Schafe sonnen sich am Strand",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Seeigel beim Stabhochsprung",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Waldbrand unter Wasser",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Vogel auf Stelzen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein winziger Pirat greift eine Fliege an",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Vampire mit Gedächtnislücken",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Hase schläft im Regen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Mäusemafia",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Unsichtbare Ritter",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Bär plaudert mit einem Kobold",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Supernette Piraten",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Meermann dressiert Dinosaurier",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Heidi Klum beim Holzhacken",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Dieter Bohlen singt ein Schlaflied",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Helene Fischer beim Schuhplattler",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Thomas Gottschalk füttert Bären mit Gummibärchen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Torwart fängt Schmetterlinge",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Beethoven mit Kopfhörern",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Goethe schreibt eine Sprachnachricht",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Gartenzwerg beim Bungee-Sprung",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Dackel auf dem Oktoberfest",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Brezel macht Yoga",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Pinguin im Freibad",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Astronaut hat seinen Schlüssel verloren",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Elch im Möbelhaus",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Rotkäppchen fährt Motorrad",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Der Weihnachtsmann im Sommerurlaub",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Der Osterhase verschläft Ostern",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Ritter in der Waschanlage",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Koch jongliert mit rohen Eiern",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Bauarbeiter beim Ballett",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Giraffe im Aufzug",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Kaktus will kuscheln",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Tiger beim Friseur",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Mammut in der U-Bahn",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Mumie wickelt sich aus",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Faultier läuft Marathon",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Krokodil beim Zahnarzt",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Oma beim Breakdance",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Krake spielt Schlagzeug",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Roboter verliebt sich in einen Toaster",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Schneemann in der Sauna",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Hai mit Schwimmflügeln",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Bodybuilder schleppt einen Grashalm",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Fakir auf einer Hüpfburg",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Clown beim Vorstellungsgespräch",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Zauberer verliert sein Kaninchen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Storch liefert eine Pizza",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Igel bläst Luftballons auf",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein seekranker Pirat",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Feuerwehrmann hat Angst vor Kerzen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Bär im Tutu",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Löwe benutzt Zahnseide",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Pinguin verkauft Kühlschränke",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Ninja mit Schluckauf",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Kuh im Kettenkarussell",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Hahn verschläft",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Taucher in der Badewanne",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Schaf beim Friseur",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Eine Ente fährt Wasserski",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Superheld bügelt sein Cape",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Hund führt sein Herrchen Gassi",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Albert Einstein bei der Feuerwehr",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Werwolf beim Waxing",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Pirat sucht seine Brille",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 5,
+      "title": "Ein Flamingo auf Schlittschuhen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Eine Ninja-Oma strickt im freien Fall einen Fallschirm",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Koch flambiert Pfannkuchen auf einem bockenden Rodeostier",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Pinguin bügelt Hemden auf einer treibenden Eisscholle",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Vampir sonnt sich am Strand und cremt einen Hai ein",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Astronaut versucht, in der Schwerelosigkeit Spaghetti zu essen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Dirigent leitet im Gewitter ein Orchester aus Hühnern",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Bär klaut Honig, wird von Bienen gejagt und springt in einen Pool",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Ritter in voller Rüstung versucht, sich am Rücken zu kratzen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Zahnarzt zieht einem Krokodil einen Zahn, während es niest",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Eine Mumie wickelt sich beim Tanzen aus und schämt sich",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Hochzeitspaar tanzt Walzer auf einem schwankenden Boot",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Gewichtheber stemmt die Hantel, als eine Fliege auf seiner Nase landet",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Kellner auf Rollschuhen balanciert eine Hochzeitstorte",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Zauberer zieht ein Kaninchen aus dem Hut, doch es ist ein Stinktier",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Schneemann schmilzt in der Sauna und baut sich wieder zusammen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Taucher wird von einem Kraken umarmt und macht ein Selfie",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Goldfisch flieht aus dem Glas und rollt auf einem Skateboard davon",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Eine Giraffe versucht, in ein winziges Auto einzusteigen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Feuerwehrmann rettet eine Katze, die am Ende ihn rettet",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Opa macht Yoga, bleibt verknotet stecken und ruft um Hilfe",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Torwart hält einen Elfmeter und wird von Tauben gefeiert",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Pirat mit Holzbein steppt im Sturm an Deck",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Hund führt sein Herrchen Gassi und kauft ihm ein Eis",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Sumoringer balanciert auf einem Seil und isst dabei Sushi",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Gespenst putzt sein Spukschloss und erschrickt vor einer Maus",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Cowboy reitet auf einer Schildkröte und hat es furchtbar eilig",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Superheld kommt nicht mehr aus seinem viel zu engen Kostüm",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Hamster rennt im Laufrad und versorgt ein ganzes Dorf mit Strom",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein T-Rex versucht, mit seinen kurzen Ärmchen das Bett zu machen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Eine Kuh macht Bungee-Jumping und wird dabei gemolken",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Rennfahrer steht im Stau und strickt einen Schal",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Bodybuilder kriegt ein Gurkenglas nicht auf und weint",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Clown jongliert mit Bowlingkegeln auf einem Einrad",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Der Weihnachtsmann steckt im Kamin fest und ein Rentier zieht ihn raus",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Der Osterhase verliert alle Eier auf der Achterbahn",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Detektiv mit Lupe verfolgt eine Ameise durch den Garten",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Löwe will beim Friseur Locken, bekommt aber eine Glatze",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Chirurg operiert einen Teddybär mit Kochlöffeln",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Eine Ballerina tanzt Schwanensee in Gummistiefeln im Schlamm",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Bergsteiger erreicht den Gipfel und dort steht schon ein Eiswagen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Saugroboter jagt eine Katze, die auf einem Hund reitet",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Tourist fotografiert alles, nur nicht den Bären hinter sich",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Mönch meditiert, während ihm eine Mücke ums Ohr summt",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Schlagersänger singt, bis sein Mikro sich in eine Banane verwandelt",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Elefant versteckt sich hinter einer Laterne vor einer Maus",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Chamäleon versucht, sich auf einem Schachbrett zu tarnen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Fakir legt sich aufs Nagelbrett und bekommt einen Juckreiz",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Faultier ist Feuerwehrmann und kommt drei Tage zu spät zum Brand",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Ninja schleicht sich an, aber seine Schuhe quietschen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Gartenzwerg haut aus dem Garten ab und trampt nach Italien",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Pilot steuert einen riesigen Papierflieger und verliert die Kontrolle",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Eine Oma fährt Motorrad und strickt dabei Socken",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Pinguin verirrt sich in die Wüste und baut einen Sandmann",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Bäcker wird von seinem eigenen Hefeteig verschluckt",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Zwei Ritter duellieren sich mit Baguettes auf einem Trampolin",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein König lässt seine Krone ins Klo fallen und angelt sie heraus",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Astronaut landet auf dem Mond und dort läuft schon eine Grillparty",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Tiger lernt Fahrradfahren mit Stützrädern",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Hai hat Angst vor einem Goldfisch und klettert auf einen Baum",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Bauarbeiter baut eine Mauer aus Torten und isst sie heimlich auf",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Eisbär verkauft Eis am Strand und schmilzt dabei fast",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Vogel brütet ein Ei aus und es schlüpft ein Krokodil",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Polizist regelt den Verkehr auf einer Kreuzung voller Schnecken",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Krake spielt gleichzeitig Schlagzeug, Gitarre und Trompete",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Zauberer zersägt seine Assistentin und vergisst den Trick",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Bräutigam verschläft die Hochzeit und rennt im Schlafanzug zur Kirche",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Eine Meerjungfrau versucht, mit ihrer Flosse Fahrrad zu fahren",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Imker wird von seinen Bienen hochgehoben und davongetragen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Schachspieler denkt so lange nach, dass ihm ein Bart wächst",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Roboter tanzt Breakdance und fällt in seine Einzelteile",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Kind baut eine Sandburg und ein Krebs zieht sofort ein",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Dackel fährt Skateboard und wird von Tauben verfolgt",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Wikinger rudert in einer Badewanne über einen See",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Rentner springt vom Zehner und landet in einem Planschbecken",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Spion versteckt sich hinter einer viel zu kleinen Zimmerpflanze",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Eine Kuh tanzt auf dem Oktoberfest Schuhplattler und stemmt eine Maß",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Bär wacht aus dem Winterschlaf auf und passt nicht mehr aus der Höhle",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Taxifahrer bringt einen Elefanten mit Koffer zum Flughafen",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Prinz küsst einen Frosch und wird selbst zum Frosch",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Fußballer jubelt über sein Tor und rutscht auf einer Bananenschale aus",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Hypnotiseur hypnotisiert sich aus Versehen selbst im Spiegel",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 6,
+      "title": "Ein Gespenst lernt Fahrradfahren und fällt immer durch den Sattel",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Kamel (Kamm / Mehl)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Nachtisch (Nacht / Tisch)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Kanal (Kahn / Aal)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Pokal (Po / kahl)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Eimer (Ei / Meer)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Kugel (Kuh / Gel)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Hering (Herr / Ring)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Torte (Tor / Tee)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Zweifel (zwei / Fell)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Weinberg (weinen / Berg)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Lebkuchen (leben / Kuchen)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Montag (Mond / Tag)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Osterhase (Auster / Hase)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Karate (Karre / Tee)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Löwenzahn (Löwe / Zahn)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Ohrwurm (Ohr / Wurm)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Handschuh (Hand / Schuh)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Fingerhut (Finger / Hut)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Muskelkater (Muskel / Kater)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Hexenschuss (Hexe / Schuss)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Zahnfleisch (Zahn / Fleisch)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Augapfel (Auge / Apfel)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Glühbirne (glühen / Birne)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Schildkröte (Schild / Kröte)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Nilpferd (Nil / Pferd)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Walross (Wal / Ross)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Maulwurf (Maul / Wurf)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Waschbär (waschen / Bär)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Faultier (faul / Tier)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Seestern (See / Stern)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Pfannkuchen (Pfanne / Kuchen)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Blumenkohl (Blume / Kohl)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Spiegelei (Spiegel / Ei)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Hosenträger (Hose / Träger)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Tintenfisch (Tinte / Fisch)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Wolkenkratzer (Wolke / Kratzer)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Leuchtturm (leuchten / Turm)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Sonnenbrille (Sonne / Brille)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Kissenschlacht (Kissen / Schlacht)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Eselsohr (Esel / Ohr)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Gänsehaut (Gans / Haut)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Hühnerauge (Huhn / Auge)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Hundemüde (Hund / müde)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Bärenhunger (Bär / Hunger)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Angsthase (Angst / Hase)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Bücherwurm (Bücher / Wurm)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Naschkatze (naschen / Katze)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Schlafmütze (schlafen / Mütze)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Purzelbaum (purzeln / Baum)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Ohrfeige (Ohr / Feige)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Eselsbrücke (Esel / Brücke)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Drahtesel (Draht / Esel)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Luftschloss (Luft / Schloss)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Zwickmühle (zwicken / Mühle)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Brillenschlange (Brille / Schlange)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Kaffeeklatsch (Kaffee / klatschen)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Schuhlöffel (Schuh / Löffel)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Hammerhai (Hammer / Hai)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Schwertfisch (Schwert / Fisch)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Krokodilstränen (Krokodil / Tränen)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Rucksack (Ruck / Sack)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Fußpilz (Fuß / Pilz)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Wasserhahn (Wasser / Hahn)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Fliegenpilz (Fliege / Pilz)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Erdbeere (Erde / Beere)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Fingernagel (Finger / Nagel)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Kniescheibe (Knie / Scheibe)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Regenbogen (Regen / Bogen)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Mondschein (Mond / Schein)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Kaugummi (kauen / Gummi)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Zuckerwatte (Zucker / Watte)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Zitronenfalter (Zitrone / falten)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Kuckucksuhr (Kuckuck / Uhr)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Kartenhaus (Karte / Haus)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Hängematte (hängen / Matte)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Wackelpudding (wackeln / Pudding)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Nasenbär (Nase / Bär)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Seelöwe (See / Löwe)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Seekuh (See / Kuh)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Hahnenkamm (Hahn / Kamm)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Steinbock (Stein / Bock)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Kopfnuss (Kopf / Nuss)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Zahnfee (Zahn / Fee)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Waschbecken (waschen / Becken)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Einhorn (ein / Horn)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Grashüpfer (Gras / hüpfen)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Heuschnupfen (Heu / Schnupfen)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Heuschrecke (Heu / Schreck)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Sanduhr (Sand / Uhr)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Bärlauch (Bär / Lauch)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Pusteblume (pusten / Blume)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Schneeglöckchen (Schnee / Glocke)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Apfelstrudel (Apfel / Strudel)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Bienenstich (Biene / Stich)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Sackhüpfen (Sack / hüpfen)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Topfschlagen (Topf / schlagen)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Schnitzeljagd (Schnitzel / Jagd)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Blindekuh (blind / Kuh)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Donnerstag (Donner / Tag)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Bierzelt (Bier / Zelt)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Lederhose (Leder / Hose)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Strandkorb (Strand / Korb)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Schweinsohr (Schwein / Ohr)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Katzenklo (Katze / Klo)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Hundekuchen (Hund / Kuchen)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Fliegenklatsche (Fliege / Klatsche)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Pferdeschwanz (Pferd / Schwanz)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Pferdekuss (Pferd / Kuss)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Katzenwäsche (Katze / Wäsche)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Zungenbrecher (Zunge / Brecher)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Glückspilz (Glück / Pilz)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Pechvogel (Pech / Vogel)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Nachteule (Nacht / Eule)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Leseratte (lesen / Ratte)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Wasserratte (Wasser / Ratte)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Stubenhocker (Stube / Hocker)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Dickkopf (dick / Kopf)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Frechdachs (frech / Dachs)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Bierbauch (Bier / Bauch)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Daumenkino (Daumen / Kino)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Wühlmaus (wühlen / Maus)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Hasenfuß (Hase / Fuß)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 7,
+      "title": "Bankräuber (Bank / Räuber)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Fußballschuh (Fuß / Ball / Schuh)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Handschuhfach (Hand / Schuh / Fach)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Schneeballschlacht (Schnee / Ball / Schlacht)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Feuerwehrmann (Feuer / Wehr / Mann)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Weihnachtsmann (Wein / Nacht / Mann)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Sonnenblumenkern (Sonne / Blume / Kern)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Erdbeermarmelade (Erde / Beere / Marmelade)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Hühneraugenpflaster (Huhn / Auge / Pflaster)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Schildkrötenpanzer (Schild / Kröte / Panzer)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Walrossbart (Wal / Ross / Bart)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Tintenfischring (Tinte / Fisch / Ring)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Leuchtturmwärter (leuchten / Turm / Wärter)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Blumenkohlsuppe (Blume / Kohl / Suppe)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Pfannkuchenteig (Pfanne / Kuchen / Teig)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Butterbrotdose (Butter / Brot / Dose)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Tischtennisschläger (Tisch / Tennis / Schläger)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Federballschläger (Feder / Ball / Schläger)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Schlafanzughose (Schlaf / Anzug / Hose)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Achterbahnfahrt (acht / Bahn / Fahrt)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Riesenradgondel (Riese / Rad / Gondel)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Dreiradfahrer (drei / Rad / Fahrer)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Elfmeterschießen (Elf / Meter / schießen)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Zweifelsfall (zwei / Fell / Fall)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Elfenbeinturm (Elfen / Bein / Turm)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Elfenbeinküste (Elfen / Bein / Küste)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Kugelschreiber (Kuh / Gel / Schreiber)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Kugelfisch (Kuh / Gel / Fisch)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Eimerkette (Ei / Meer / Kette)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Kanaldeckel (Kahn / Aal / Deckel)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Kamelhaar (Kamm / Mehl / Haar)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Heringssalat (Herr / Ring / Salat)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Pokalsieger (Po / kahl / Sieger)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Tortenheber (Tor / Tee / Heber)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Weinbergschnecke (weinen / Berg / Schnecke)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Flohmarktstand (Floh / Markt / Stand)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Gänseblümchenkette (Gans / Blume / Kette)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Teelichthalter (Tee / Licht / Halter)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Kopfhörerkabel (Kopf / Hörer / Kabel)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Rucksacktourist (Ruck / Sack / Tourist)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Nachttischlampe (Nacht / Tisch / Lampe)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Lebkuchenherz (leben / Kuchen / Herz)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Pfefferminztee (Pfeffer / Minze / Tee)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Bratwurststand (braten / Wurst / Stand)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Schwarzwälder Kirschtorte (schwarz / Wald / Kirsche / Torte)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Fingernagellack (Finger / Nagel / Lack)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Zahnputzbecher (Zahn / putzen / Becher)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Gummistiefelweitwurf (Gummi / Stiefel / weit / Wurf)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Regenbogenfisch (Regen / Bogen / Fisch)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Kaugummiblase (kauen / Gummi / Blase)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Weißwurstfrühstück (weiß / Wurst / Frühstück)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Sandkastenfreund (Sand / Kasten / Freund)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Wassermelonenkern (Wasser / Melone / Kern)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Ochsenschwanzsuppe (Ochse / Schwanz / Suppe)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Ostereiersuche (Auster / Eier / Suche)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Eisbärenfell (Eis / Bär / Fell)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Seeigelstachel (See / Igel / Stachel)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Glühweinstand (glühen / Wein / Stand)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Handtaschenräuber (Hand / Tasche / Räuber)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Mondscheinspaziergang (Mond / Schein / Spaziergang)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Kirschkernweitspucken (Kirsche / Kern / weit / spucken)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Wasserbombenschlacht (Wasser / Bombe / Schlacht)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Seifenkistenrennen (Seife / Kiste / Rennen)",
+      "author": null,
+      "type": null,
+      "cover": null
+    },
+    {
+      "mode": 8,
+      "title": "Zuckerwattemaschine (Zucker / Watte / Maschine)",
+      "author": null,
+      "type": null,
+      "cover": null
+    }
+  ]
+}

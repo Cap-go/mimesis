@@ -41,8 +41,11 @@ app.use('/v1/*', cors({ origin: '*', allowMethods: ['GET', 'POST', 'OPTIONS'] })
 
 app.get('/', c => c.json({ name: 'mimesis-api', ok: true }))
 
+// "pt-BR" -> "pt"; unknown languages get the English cards, then French.
 async function resolveLang(db: D1Database, locale: string) {
-  const row = await db.prepare('SELECT id FROM langs WHERE locale = ?').bind(locale).first<{ id: number }>()
+  const base = locale.toLowerCase().split(/[-_]/)[0]
+  const row = await db.prepare(`SELECT id FROM langs WHERE locale IN (?1, 'en', 'fr')
+    ORDER BY CASE locale WHEN ?1 THEN 0 WHEN 'en' THEN 1 ELSE 2 END LIMIT 1`).bind(base).first<{ id: number }>()
   return row?.id ?? 1
 }
 
@@ -50,7 +53,8 @@ async function resolveLang(db: D1Database, locale: string) {
 app.get('/v1/catalog', async (c) => {
   const locale = c.req.query('lang') ?? 'fr'
   const cache = caches.default
-  const cacheKey = new Request(new URL(`/v1/catalog?lang=${encodeURIComponent(locale)}`, c.req.url))
+  // Bump `v` when the catalog content changes to skip stale edge copies.
+  const cacheKey = new Request(new URL(`/v1/catalog?lang=${encodeURIComponent(locale)}&v=2`, c.req.url))
   const cached = await cache.match(cacheKey)
   if (cached)
     return cached

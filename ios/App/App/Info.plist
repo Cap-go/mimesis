@@ -8,6 +8,28 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
         <string>Mimesis</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>fr</string>
+		<string>es</string>
+		<string>pt-BR</string>
+		<string>de</string>
+		<string>it</string>
+		<string>ja</string>
+		<string>zh-Hans</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>ee.forgr.mimesis</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>mimesis</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

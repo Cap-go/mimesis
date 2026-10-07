@@ -28,7 +28,7 @@ export default defineConfig({
     VueI18n({
       runtimeOnly: true,
       compositionOnly: true,
-      include: [resolve(import.meta.dirname, 'locales/**')],
+      include: [resolve(import.meta.dirname, 'locales/*.yml')],
     }),
   ],
   server: {

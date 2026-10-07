@@ -1,0 +1,3 @@
+"NSCameraUsageDescription" = "Autorise l'appareil photo pour envoyer une photo au support";
+"NSMicrophoneUsageDescription" = "Autorise le micro pour envoyer une vidéo au support";
+"NSPhotoLibraryUsageDescription" = "Autorise la photothèque pour envoyer une photo au support";

@@ -1,6 +1,0 @@
-Mimesis fait peau neuve !
-- Nouveau design, plus lisible et plus fun
-- Navigation native avec barre d'onglets
-- Choisis la durée des manches et le score à atteindre
-- Écran de passage du téléphone entre joueurs
-- Vibrations et animations à chaque carte trouvée
