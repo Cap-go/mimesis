@@ -6,10 +6,9 @@
   "assets": {
     "directory": ".",
     "html_handling": "auto-trailing-slash"
-  }
-  // Enable once the old Vercel A/CNAME records for mimesis.fun are deleted in the Cloudflare dashboard:
-  // "routes": [
-  //   { "pattern": "mimesis.fun", "custom_domain": true },
-  //   { "pattern": "www.mimesis.fun", "custom_domain": true }
-  // ]
+  },
+  "routes": [
+    { "pattern": "mimesis.fun", "custom_domain": true },
+    { "pattern": "www.mimesis.fun", "custom_domain": true }
+  ]
 }
