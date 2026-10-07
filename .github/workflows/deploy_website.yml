@@ -29,7 +29,9 @@ jobs:
           CF_DNS_TOKEN: ${{ secrets.CLOUDFLARE_DNS_API_TOKEN }}
         run: |
           api() { curl -sf -H "Authorization: Bearer $CF_DNS_TOKEN" -H "Content-Type: application/json" "$@"; }
-          ZONE_ID=$(api "https://api.cloudflare.com/client/v4/zones?name=$ZONE_NAME" | jq -r '.result[0].id')
+          ZONE_ID=$(api "https://api.cloudflare.com/client/v4/zones?name=$ZONE_NAME" | jq -r '.result[0].id // empty')
+          if [ -z "$ZONE_ID" ]; then echo "::error::CLOUDFLARE_DNS_API_TOKEN cannot see zone $ZONE_NAME"; exit 1; fi
+          api "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?per_page=100" | jq -r '.result[] | "  \(.type) \(.name) -> \(.content)"'
           for host in "$ZONE_NAME" "www.$ZONE_NAME"; do
             api "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?name=$host&per_page=50" \
               | jq -r '.result[] | select(.type == "A" or .type == "AAAA" or .type == "CNAME") | select(.content == "76.76.21.21" or (.content | test("vercel"; "i"))) | "\(.id) \(.type) \(.name) \(.content)"' \
