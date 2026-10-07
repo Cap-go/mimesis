@@ -1,0 +1,72 @@
+back: Zurück
+navigation: Navigation
+tabTeams: Teams
+tabRules: Regeln
+tabSettings: Einstellungen
+play: Spielen
+teamsSubtitle: Mindestens 2 Teams mit je 2 Leuten.
+teamLabel: Team {n}
+teamNameLabel: Name von Team {n}
+playerName: Name
+addPlayer: Mitspieler hinzufügen
+addTeam: Neues Team
+removeTeam: Team löschen
+removePlayer: '{name} entfernen'
+unequalNotice: Die Teams sind ungleich groß, die Reihenfolge wird ausgelost.
+chooseTheme: Thema wählen
+themes: Themen
+themesSubtitle: Such dir die Karten zum Pantomimen aus.
+cardsCount: '{n} Karten'
+loadError: Themen konnten nicht geladen werden. Prüf deine Verbindung.
+retry: Nochmal versuchen
+handoffTitle: Als Nächstes
+handoffMimer: '{name} ist dran'
+handoffHint: Gib das Handy an {name}, ohne den anderen den Bildschirm zu zeigen.
+readyCta: Los geht's!
+pause: Pause
+pass: Weiter
+found: Erraten!
+score: Punkte
+timeUp: Zeit ist um!
+roundFound: 'Keine Karte erraten | 1 Karte erraten | {n} Karten erraten'
+nextTeam: Nächstes Team
+winnerTitle: 'Gewonnen: {team}!'
+points: '0 Pkt. | 1 Pkt. | {n} Pkt.'
+playAgain: Nochmal spielen
+backHome: Zurück zu den Teams
+paused: Spiel pausiert
+pausedHint: Die Zeit ist angehalten. Wenn du abbrichst, wird das Spiel gelöscht.
+resume: Weiterspielen
+quitGame: Spiel beenden
+rulesSubtitle: Ein Handy, Freunde, kein Wort.
+ruleGoalTitle: Das Ziel
+ruleGoal: Das erste Team mit {score} Punkten gewinnt.
+ruleRoundTitle: Runden
+ruleRound: Eine Runde dauert {seconds} Sekunden. Jede erratene Karte bringt deinem Team einen Punkt.
+ruleMimeTitle: Pantomime
+ruleMime: Wer dran ist, hält das Handy verdeckt und stellt die Karte für das eigene Team dar.
+ruleSilenceTitle: Psst!
+ruleSilence: 'Nicht reden, singen, schreiben und nicht auf Gegenstände zeigen.'
+rulePassTitle: Hängst du fest?
+rulePass: Tipp auf Weiter für eine neue Karte, ohne Strafe.
+settingsGame: Spiel
+roundLength: Rundendauer
+seconds: '{n} s'
+targetScore: Punkte zum Sieg
+sounds: Töne
+language: Sprache
+support: Hilfe
+rate: App bewerten
+chat: Support kontaktieren
+openSource: Quellcode auf GitHub
+version: Version {v}
+liveUpdates: Live-Updates von Capgo
+madeBy: Gemacht von Martin Donadieu
+fun.mimesis.rebus: Rebus
+fun.mimesis.rebus_plus: Rebus Plus
+fun.mimesis.expression: Redewendungen
+fun.mimesis.expression_plus: Redewendungen Plus
+fun.mimesis.improbable: Absurd
+fun.mimesis.improbable_plus: Absurd Plus
+fun.mimesis.art: Kunst
+fun.mimesis.art_plus: Kunst Plus

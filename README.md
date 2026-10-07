@@ -1,12 +1,12 @@
 # Mimesis
 
-The charades party game: one phone, friends, zero words. Live on the [App Store](https://apps.apple.com/app/id1559423136) and [Google Play](https://play.google.com/store/apps/details?id=ee.forgr.mimesis).
+The charades party game: one phone, friends, zero words. In English, French, Spanish, Portuguese, German, Italian, Japanese and Chinese. Live on the [App Store](https://apps.apple.com/app/id1559423136) and [Google Play](https://play.google.com/store/apps/details?id=ee.forgr.mimesis).
 
 <p>
-  <img src="store/screenshots/ios-6.9/01-playing.jpg" width="200" alt="Playing a card" />
-  <img src="store/screenshots/ios-6.9/02-teams.jpg" width="200" alt="Teams" />
-  <img src="store/screenshots/ios-6.9/03-themes.jpg" width="200" alt="Themes" />
-  <img src="store/screenshots/ios-6.9/05-winner.jpg" width="200" alt="Winner" />
+  <img src="store/screenshots/en-US/ios-6.9/01-playing.jpg" width="200" alt="Playing a card" />
+  <img src="store/screenshots/en-US/ios-6.9/02-teams.jpg" width="200" alt="Teams" />
+  <img src="store/screenshots/en-US/ios-6.9/03-themes.jpg" width="200" alt="Themes" />
+  <img src="store/screenshots/en-US/ios-6.9/05-winner.jpg" width="200" alt="Winner" />
 </p>
 
 Mimesis is the reference app for the [Capgo](https://capgo.app) stack: a Vue web app shipped as a native iOS and Android app with Capacitor, updated over the air, built in the cloud and published to both stores from one push to `main`.
@@ -48,12 +48,33 @@ bun run sync         # build and copy into the native projects
 bunx cap open ios    # or android
 ```
 
-## Store screenshots
+## Languages
 
-`store/screenshots/` holds the framed App Store (6.9" iPhone, 13" iPad) and Google Play captures. To refresh them, build each scene with `VITE_DEMO=<teams|themes|handoff|playing|winner|rules>`, capture it on a simulator or emulator into `<raw>/{iphone,ipad,android}/<scene>.png`, then run:
+The app follows the device language on first launch and can be switched in Settings.
+
+| What                                              | Where                                                                                                                                                          |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| App UI                                            | `locales/<code>.yml`                                                                                                                                           |
+| Random player and team names                      | `locales/names/<code>.json`                                                                                                                                    |
+| Cards                                             | `backend/content/<code>.json`, loaded into D1 by a migration built with `bun scripts/build-content-migration.ts migrations/<n>_<name>.sql` (run in `backend/`) |
+| Store listing, release notes, screenshot captions | `store/listing/<store-locale>.json`, mapped to App Store and Play locale codes in `store/locales.json`                                                         |
+
+Cards are written for each language, not translated: local idioms, rebus puns that work in that language, and the local titles of films and books.
+
+## Store listings and screenshots
+
+`store/screenshots/<store-locale>/` holds the framed App Store (6.9" iPhone, 13" iPad) and Google Play captures for every language. To refresh them, build once with `VITE_DEMO=teams`, install it on an iPhone 6.9" and an iPad 13" simulator and an Android emulator, then:
 
 ```bash
-bun scripts/compose-screenshots.ts <raw>
+bun scripts/capture-screenshots.ts <raw> iphone=<udid> ipad=<udid> android=<adb serial>
+bun scripts/compose-screenshots.ts <raw>   # also renders store/play/<store-locale>/feature-graphic.png
+```
+
+Push the listings (text, screenshots, Play graphics) for every language with fastlane:
+
+```bash
+fastlane ios listing version:<editable App Store version>
+fastlane android listing
 ```
 
 `VITE_DEMO` only stages screens for captures; it is stripped from production builds.
@@ -70,7 +91,7 @@ bunx @capacitor/assets generate --ios --android --iconBackgroundColor '#f08442' 
 
 `backend/` is a Hono Worker with:
 
-- `GET /v1/catalog?lang=fr`: themes and every card in one cached response, so the app plays offline after the first launch.
+- `GET /v1/catalog?lang=<code>`: themes and every card of that language in one cached response, so the app plays offline after the first launch. Unknown languages get English.
 - `POST /v1/games`: records finished games per device.
 - `GET /images/*`: card covers from R2.
 

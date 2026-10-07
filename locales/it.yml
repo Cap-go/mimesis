@@ -1,0 +1,72 @@
+back: Indietro
+navigation: Navigazione
+tabTeams: Squadre
+tabRules: Regole
+tabSettings: Impostazioni
+play: Gioca
+teamsSubtitle: Almeno 2 squadre da 2 giocatori.
+teamLabel: Squadra {n}
+teamNameLabel: Nome squadra {n}
+playerName: Nome giocatore
+addPlayer: Aggiungi giocatore
+addTeam: Nuova squadra
+removeTeam: Elimina squadra
+removePlayer: Rimuovi {name}
+unequalNotice: Le squadre non sono pari, quindi l'ordine dei turni sarà casuale.
+chooseTheme: Scegli un tema
+themes: Temi
+themesSubtitle: Scegli le carte da mimare.
+cardsCount: '{n} carte'
+loadError: Impossibile caricare i temi. Controlla la connessione.
+retry: Riprova
+handoffTitle: Tocca a…
+handoffMimer: '{name} mima'
+handoffHint: Passa il telefono a {name} senza far vedere lo schermo agli altri.
+readyCta: Via!
+pause: Pausa
+pass: Passo
+found: Indovinato!
+score: Punteggio
+timeUp: Tempo scaduto!
+roundFound: 'Nessuna carta indovinata | 1 carta indovinata | {n} carte indovinate'
+nextTeam: Prossima squadra
+winnerTitle: 'Vince {team}!'
+points: '0 punti | 1 punto | {n} punti'
+playAgain: Rigioca
+backHome: Torna alle squadre
+paused: Partita in pausa
+pausedHint: Il timer è fermo. Se esci, la partita in corso si cancella.
+resume: Riprendi
+quitGame: Esci dalla partita
+rulesSubtitle: Un telefono, gli amici, zero parole.
+ruleGoalTitle: L'obiettivo
+ruleGoal: La prima squadra che arriva a {score} punti vince la partita.
+ruleRoundTitle: I turni
+ruleRound: Un turno dura {seconds} secondi. Ogni carta indovinata vale un punto per la squadra.
+ruleMimeTitle: Il mimo
+ruleMime: Il mimo tiene il telefono senza mostrarlo e fa indovinare la carta alla sua squadra.
+ruleSilenceTitle: Silenzio!
+ruleSilence: Vietato parlare, cantare, scrivere o indicare oggetti.
+rulePassTitle: Bloccato?
+rulePass: Tocca Passo per cambiare carta, senza penalità.
+settingsGame: Partita
+roundLength: Durata del turno
+seconds: '{n} s'
+targetScore: Punti per vincere
+sounds: Suoni
+language: Lingua
+support: Aiuto
+rate: Valuta l'app
+chat: Contatta l'assistenza
+openSource: Codice sorgente su GitHub
+version: Versione {v}
+liveUpdates: Aggiornamenti live con Capgo
+madeBy: Creato da Martin Donadieu
+fun.mimesis.rebus: Rebus
+fun.mimesis.rebus_plus: Rebus Plus
+fun.mimesis.expression: Modi di dire
+fun.mimesis.expression_plus: Modi di dire Plus
+fun.mimesis.improbable: Improbabile
+fun.mimesis.improbable_plus: Improbabile Plus
+fun.mimesis.art: Arte
+fun.mimesis.art_plus: Arte Plus

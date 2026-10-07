@@ -11,7 +11,7 @@ import AppPage from '~/components/AppPage.vue'
 import BottomSheet from '~/components/BottomSheet.vue'
 import TimerRing from '~/components/TimerRing.vue'
 import { saveGame } from '~/services/api'
-import { demoScene } from '~/services/demo'
+import { demo, DEMO_COVER } from '~/services/demo'
 import { success, tap, warning } from '~/services/haptics'
 import { resetTo } from '~/services/navigation'
 import { isNative } from '~/services/platform'
@@ -153,15 +153,15 @@ function quit() {
 
 // Freeze a representative frame for store screenshots.
 function stageScene() {
-  if (demoScene === 'playing') {
+  if (demo.scene === 'playing') {
     startRound()
-    const showcase = pool.value.find(g => g.title === 'Titanic') ?? pool.value.find(g => g.cover)
+    const showcase = pool.value.find(g => g.cover?.endsWith(DEMO_COVER)) ?? pool.value.find(g => g.cover)
     if (showcase)
       game.guess = showcase
     stopClock()
     remaining.value = 42_000
   }
-  else if (demoScene === 'winner') {
+  else if (demo.scene === 'winner') {
     game.teams[0].score = settings.targetScore
     void finish()
   }

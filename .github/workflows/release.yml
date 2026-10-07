@@ -129,11 +129,18 @@ jobs:
         run: |
           SYNC="--sync-android-version"
           if [ "${{ matrix.platform }}" = "ios" ]; then SYNC="--sync-ios-version --ios-automatic-release"; fi
+          # "What's new" for every store locale, from store/listing/<locale>.json (mapped by store/locales.json).
+          STORE_KEY=play
+          if [ "${{ matrix.platform }}" = "ios" ]; then STORE_KEY=ios; fi
+          NOTES=()
+          while read -r code listing; do
+            NOTES+=(--store-release-notes-locale "$code=$(jq -r .whatsNew "store/listing/$listing.json")")
+          done < <(jq -r --arg k "$STORE_KEY" 'to_entries[] | .key as $l | .value[$k][] | "\(.) \($l)"' store/locales.json)
           bunx @capgo/cli@latest build request "$APP_ID" \
             --platform ${{ matrix.platform }} \
             --submit-to-store-review \
             --store-release-name "${{ needs.version.outputs.version }}" \
-            --store-release-notes "$(cat store/release-notes/en-US.txt)" \
-            --store-release-notes-locale "fr-FR=$(cat store/release-notes/fr-FR.txt)" \
+            --store-release-notes "$(jq -r .whatsNew store/listing/en-US.json)" \
+            "${NOTES[@]}" \
             --ai-analytics \
             $SYNC

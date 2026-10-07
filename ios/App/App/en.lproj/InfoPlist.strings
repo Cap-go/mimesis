@@ -1,0 +1,3 @@
+"NSCameraUsageDescription" = "Allow camera access to send a picture to support";
+"NSMicrophoneUsageDescription" = "Allow microphone access to send a video to support";
+"NSPhotoLibraryUsageDescription" = "Allow photo library access to send a picture to support";

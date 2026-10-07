@@ -31,7 +31,7 @@ async function init() {
   // Restore saved teams and settings before the first frame.
   await whenHydrated()
   setLocale(settings.locale)
-  void useCatalogStore().load('fr')
+  void useCatalogStore().load(settings.locale)
 
   await router.isReady()
   app.mount('#app')

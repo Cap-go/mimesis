@@ -1,0 +1,44 @@
+{
+  "name": "Mimesis: Jogo de Mímica",
+  "subtitle": "Adivinhe sem dizer nada!",
+  "promotionalText": "Um celular, os amigos e nenhuma palavra! Faça seu time adivinhar expressões, cenas absurdas, filmes e rébus. Grátis, sem anúncios e sem cadastro.",
+  "description": "Mimesis é o jogo de mímica para animar qualquer festa, churrasco ou noite em família. Pegue o celular, leia a carta em segredo e faça seu time adivinhar… sem falar nada!\n\nCOMO FUNCIONA\nMonte pelo menos 2 times com 2 jogadores ou mais. Na sua vez, você segura o celular sem mostrar a tela e faz a mímica da carta. Cada carta acertada vale um ponto. Travou? Pule para a próxima, sem perder pontos. O primeiro time a chegar à pontuação escolhida vence!\n\nQUATRO TEMAS PARA TODOS OS GOSTOS\n• Expressões: mais de 100 ditados brasileiros para levar ao pé da letra, como \"Pagar o pato\" ou \"Enfiar o pé na jaca\"\n• Improvável: mais de 200 cenas absurdas, de um ogro jogando truco ao Saci jogando amarelinha\n• Arte e cultura pop: filmes, músicas, livros e quadros famosos\n• Rébus: mais de 140 palavras para quebrar em pedacinhos, como girassol (gira / sol)\n\nFEITO PARA JOGAR JUNTO\n• Escolha a duração da rodada, de 30 a 90 segundos\n• Defina quantos pontos são necessários para vencer\n• Tela de passagem: o jogo avisa quem faz a próxima mímica, sem ninguém espiar a carta\n• Vibrações e animações a cada carta acertada\n• Placar e cronômetro sempre à vista\n\nSIMPLES E SEM ENROLAÇÃO\n• 100% grátis e sem anúncios\n• Sem conta e sem cadastro\n• Funciona offline depois da primeira abertura\n• A partir de 4 jogadores\n• Código aberto\n\nPerfeito para festas, viagens, encontros de família, aniversários e qualquer momento em que a turma estiver reunida. É só abrir o app, montar os times e deixar o corpo falar.\n\nAs regras são simples: nada de falar, cantar, escrever ou apontar para objetos. O resto é criatividade e muita risada.\n\nBaixe o Mimesis e descubra quem é o rei da mímica da sua turma!",
+  "keywords": "charadas,turma,festa,gestos,brincadeira,grupo,rébus,expressões,filmes,offline,adivinhação",
+  "whatsNew": "O Mimesis agora fala português!\n• Interface toda em português do Brasil\n• Cartas novas criadas em português: ditados brasileiros, cenas improváveis, rébus e cultura pop\n• Mais de 500 cartas para jogar com a turma",
+  "playTitle": "Mimesis: Jogo de Mímica",
+  "playShortDescription": "Jogo de mímica para festas: faça seu time adivinhar sem dizer uma palavra!",
+  "playFullDescription": "Mimesis é o jogo de mímica para animar qualquer festa, churrasco ou noite em família. Pegue o celular, leia a carta em segredo e faça seu time adivinhar… sem falar nada!\n\nCOMO FUNCIONA\nMonte pelo menos 2 times com 2 jogadores ou mais. Na sua vez, você segura o celular sem mostrar a tela e faz a mímica da carta. Cada carta acertada vale um ponto. Travou? Pule para a próxima, sem perder pontos. O primeiro time a chegar à pontuação escolhida vence!\n\nQUATRO TEMAS PARA TODOS OS GOSTOS\n• Expressões: mais de 100 ditados brasileiros para levar ao pé da letra, como \"Pagar o pato\", \"Chutar o balde\" ou \"Enfiar o pé na jaca\"\n• Improvável: mais de 200 cenas absurdas, de um ogro jogando truco ao Saci jogando amarelinha\n• Arte e cultura pop: filmes, músicas, livros e quadros famosos\n• Rébus: mais de 140 palavras para quebrar em pedacinhos, como girassol (gira / sol) ou furacão (fura / cão)\n\nFEITO PARA JOGAR JUNTO\n• Escolha a duração da rodada, de 30 a 90 segundos\n• Defina quantos pontos são necessários para vencer\n• Tela de passagem: o jogo avisa quem faz a próxima mímica, sem ninguém espiar a carta\n• Vibrações e animações a cada carta acertada\n• Placar e cronômetro sempre à vista\n\nSIMPLES E SEM ENROLAÇÃO\n• 100% grátis e sem anúncios\n• Sem conta e sem cadastro\n• Funciona offline depois da primeira abertura\n• A partir de 4 jogadores\n• Código aberto\n\nPerfeito para festas, viagens, encontros de família, aniversários, festa do pijama e qualquer momento em que a turma estiver reunida. É só abrir o app, montar os times e deixar o corpo falar.\n\nAs regras são simples: nada de falar, cantar, escrever ou apontar para objetos. O resto é criatividade, mímica e muita risada.\n\nBaixe o Mimesis e descubra quem é o rei da mímica da sua turma!",
+  "screenshots": [
+    {
+      "id": "playing",
+      "title": "Faça mímica, eles adivinham!",
+      "subtitle": "Centenas de cartas para a turma."
+    },
+    {
+      "id": "teams",
+      "title": "Times prontos em 10 segundos",
+      "subtitle": "Adicione os amigos, o resto é com a gente."
+    },
+    {
+      "id": "themes",
+      "title": "Escolha seu tema",
+      "subtitle": "Expressões, rébus, filmes, músicas…"
+    },
+    {
+      "id": "handoff",
+      "title": "De quem é a vez?",
+      "subtitle": "O jogo escolhe quem faz a próxima mímica."
+    },
+    {
+      "id": "winner",
+      "title": "Que vença o melhor time",
+      "subtitle": "Placar, cronômetro e muita risada."
+    },
+    {
+      "id": "rules",
+      "title": "Regras simples",
+      "subtitle": "Um celular, os amigos e nenhuma palavra."
+    }
+  ],
+  "featureTagline": "O jogo de mímica com os amigos. Zero palavras, risada garantida."
+}

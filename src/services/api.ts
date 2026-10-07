@@ -25,10 +25,13 @@ export interface Catalog {
   guesses: Guess[]
 }
 
-const CATALOG_KEY = 'catalog_v2'
+function catalogKey(lang: string): string {
+  // French kept the original key so existing installs reuse their offline copy.
+  return lang === 'fr' ? 'catalog_v2' : `catalog_v2_${lang}`
+}
 
-export async function getCachedCatalog(): Promise<Catalog | null> {
-  return getStorage<Catalog>(CATALOG_KEY)
+export async function getCachedCatalog(lang: string): Promise<Catalog | null> {
+  return getStorage<Catalog>(catalogKey(lang))
 }
 
 export async function fetchCatalog(lang: string): Promise<Catalog> {
@@ -36,7 +39,7 @@ export async function fetchCatalog(lang: string): Promise<Catalog> {
   if (!res.ok)
     throw new Error(`catalog ${res.status}`)
   const catalog = await res.json() as Catalog
-  await setStorage(CATALOG_KEY, catalog)
+  await setStorage(catalogKey(lang), catalog)
   return catalog
 }
 

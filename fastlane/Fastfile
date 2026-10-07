@@ -1,41 +1,72 @@
 # Native builds and store submission run on Capgo Cloud Build (see .github/workflows/release.yml).
-# fastlane only pushes store screenshots (store/screenshots) and Play graphics (store/play).
+# fastlane only pushes the store listings: text from store/listing/<locale>.json, screenshots from
+# store/screenshots/<locale>, Play graphics from store/play. store/locales.json maps each listing
+# to the App Store and Google Play locale codes.
 #
-#   APPLE_KEY_ID=... APPLE_ISSUER_ID=... APPLE_KEY_CONTENT=<base64 p8> fastlane ios screenshots version:3.1.0
-#   PLAY_CONFIG_JSON=<base64 service account json> fastlane android screenshots
+#   APPLE_KEY_ID=... APPLE_ISSUER_ID=... APPLE_KEY_CONTENT=<base64 p8> fastlane ios listing version:3.4.0
+#   PLAY_CONFIG_JSON=<base64 service account json> fastlane android listing
 
 require "base64"
 require "fileutils"
+require "json"
 require "tmpdir"
 
-SCREENSHOTS = File.expand_path("../store/screenshots", __dir__)
+STORE = File.expand_path("../store", __dir__)
+LOCALES = JSON.parse(File.read(File.join(STORE, "locales.json")))
 
-def stage(locale, mapping)
-  dir = Dir.mktmpdir("mimesis-shots")
-  mapping.each do |source, target|
-    dest = File.join(dir, locale, target)
-    FileUtils.mkdir_p(dest)
-    Dir[File.join(SCREENSHOTS, source, "*.jpg")].sort.each { |f| FileUtils.cp(f, File.join(dest, "#{source}-#{File.basename(f)}")) }
-  end
-  dir
+def listing(locale)
+  JSON.parse(File.read(File.join(STORE, "listing", "#{locale}.json")))
+end
+
+def write(dir, files)
+  FileUtils.mkdir_p(dir)
+  files.each { |name, value| File.write(File.join(dir, "#{name}.txt"), value.to_s) }
+end
+
+def copy_screens(source, dest)
+  FileUtils.mkdir_p(dest)
+  Dir[File.join(source, "*.jpg")].sort.each { |f| FileUtils.cp(f, dest) }
 end
 
 platform :ios do
-  lane :screenshots do |options|
+  lane :listing do |options|
     api_key = app_store_connect_api_key(
       key_id: ENV.fetch("APPLE_KEY_ID"),
       issuer_id: ENV.fetch("APPLE_ISSUER_ID"),
       key_content: ENV.fetch("APPLE_KEY_CONTENT"),
       is_key_content_base64: true,
     )
-    dir = stage("fr-FR", { "ios-6.9" => "", "ipad-13" => "" })
+    metadata = Dir.mktmpdir("mimesis-meta")
+    screenshots = Dir.mktmpdir("mimesis-shots")
+    LOCALES.each do |locale, map|
+      text = listing(locale)
+      map["ios"].each do |code|
+        write(File.join(metadata, code), {
+          "name" => text["name"],
+          "subtitle" => text["subtitle"],
+          "description" => text["description"],
+          "keywords" => text["keywords"],
+          "promotional_text" => text["promotionalText"],
+          "release_notes" => text["whatsNew"],
+          "privacy_url" => "https://mimesis.fun/privacy",
+          "support_url" => "https://mimesis.fun",
+          "marketing_url" => "https://mimesis.fun",
+        })
+        %w[ios-6.9 ipad-13].each do |device|
+          Dir[File.join(STORE, "screenshots", locale, device, "*.jpg")].sort.each do |f|
+            FileUtils.mkdir_p(File.join(screenshots, code))
+            FileUtils.cp(f, File.join(screenshots, code, "#{device}-#{File.basename(f)}"))
+          end
+        end
+      end
+    end
     deliver(
       api_key: api_key,
       app_version: options[:version],
-      screenshots_path: dir,
+      metadata_path: metadata,
+      screenshots_path: screenshots,
       overwrite_screenshots: true,
       skip_binary_upload: true,
-      skip_metadata: true,
       skip_app_version_update: false,
       submit_for_review: false,
       run_precheck_before_submit: false,
@@ -45,21 +76,29 @@ platform :ios do
 end
 
 platform :android do
-  lane :screenshots do
+  lane :listing do
     dir = Dir.mktmpdir("mimesis-play")
-    dest = File.join(dir, "fr-FR", "images", "phoneScreenshots")
-    FileUtils.mkdir_p(dest)
-    Dir[File.join(SCREENSHOTS, "android-phone", "*.jpg")].sort.each { |f| FileUtils.cp(f, dest) }
-    images = File.join(dir, "fr-FR", "images")
-    play = File.expand_path("../store/play", __dir__)
-    FileUtils.cp(File.join(play, "icon.png"), File.join(images, "icon.png"))
-    FileUtils.cp(File.join(play, "feature-graphic.png"), File.join(images, "featureGraphic.png"))
+    LOCALES.each do |locale, map|
+      text = listing(locale)
+      map["play"].each do |code|
+        write(File.join(dir, code), {
+          "title" => text["playTitle"],
+          "short_description" => text["playShortDescription"],
+          "full_description" => text["playFullDescription"],
+        })
+        images = File.join(dir, code, "images")
+        copy_screens(File.join(STORE, "screenshots", locale, "android-phone"), File.join(images, "phoneScreenshots"))
+        FileUtils.cp(File.join(STORE, "play", "icon.png"), File.join(images, "icon.png"))
+        feature = File.join(STORE, "play", locale, "feature-graphic.png")
+        FileUtils.cp(feature, File.join(images, "featureGraphic.png")) if File.exist?(feature)
+      end
+    end
     upload_to_play_store(
       json_key_data: Base64.decode64(ENV.fetch("PLAY_CONFIG_JSON")),
       metadata_path: dir,
       skip_upload_apk: true,
       skip_upload_aab: true,
-      skip_upload_metadata: true,
+      skip_upload_metadata: false,
       skip_upload_changelogs: true,
       skip_upload_images: false,
       skip_upload_screenshots: false,

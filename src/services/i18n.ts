@@ -8,10 +8,20 @@ export const messages = Object.fromEntries(
 
 export const availableLocales = Object.keys(messages).sort()
 
+// Pick the first device language the app supports, e.g. "pt-BR" -> "pt", "zh-Hans-CN" -> "zh".
+export function detectLocale(preferred: readonly string[] = navigator.languages ?? [navigator.language]): string {
+  for (const tag of preferred) {
+    const base = tag.toLowerCase().split(/[-_]/)[0]
+    if (availableLocales.includes(base))
+      return base
+  }
+  return 'en'
+}
+
 export const i18n = createI18n({
   legacy: false,
   globalInjection: false,
-  locale: 'fr',
+  locale: detectLocale(),
   fallbackLocale: ['en', 'fr'],
   messages,
 })

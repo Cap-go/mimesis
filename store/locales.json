@@ -1,0 +1,10 @@
+{
+  "fr-FR": { "app": "fr", "ios": ["fr-FR"], "play": ["fr-FR"] },
+  "en-US": { "app": "en", "ios": ["en-US", "en-GB", "en-AU", "en-CA"], "play": ["en-US", "en-GB"] },
+  "es-ES": { "app": "es", "ios": ["es-ES", "es-MX"], "play": ["es-ES", "es-419"] },
+  "pt-BR": { "app": "pt", "ios": ["pt-BR"], "play": ["pt-BR"] },
+  "de-DE": { "app": "de", "ios": ["de-DE"], "play": ["de-DE"] },
+  "it": { "app": "it", "ios": ["it"], "play": ["it-IT"] },
+  "ja": { "app": "ja", "ios": ["ja"], "play": ["ja-JP"] },
+  "zh-Hans": { "app": "zh", "ios": ["zh-Hans"], "play": ["zh-CN"] }
+}

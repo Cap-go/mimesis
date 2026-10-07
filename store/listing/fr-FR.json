@@ -1,0 +1,44 @@
+{
+  "name": "Mimesis - Jeu de mime",
+  "subtitle": "Mimes entre amis en soirée",
+  "description": "Mimesis, c'est le jeu de mime pour tes soirées entre amis ou en famille. Un téléphone suffit : chacun son tour, un joueur lit la carte en secret et la mime à son équipe. Pas un mot, pas un bruit… et des fous rires garantis !\n\nComment jouer\n• Crée au moins 2 équipes de 2 joueurs\n• Choisis un thème\n• Passe le téléphone au mimeur sans montrer l'écran\n• Fais deviner un maximum de cartes avant la fin du chrono\n• La première équipe qui atteint le score gagne\n\nDes centaines de cartes\n• Expressions : des expressions françaises à mimer au pied de la lettre\n• Improbable : des scènes absurdes, comme une mafia de souris\n• Art et pop culture : films, chansons, livres et tableaux célèbres\n• Rébus et Rébus Plus : des mots à découper en sons à mimer\n\nPensé pour jouer ensemble\n• Durée des manches au choix (30 à 90 secondes) et score à atteindre\n• Écran de passage pour savoir à qui c'est le tour\n• Vibrations et animations à chaque carte trouvée\n• Gratuit, sans pub et sans compte\n• Joue hors ligne après le premier lancement\n• Disponible en 8 langues\n\nMimesis est open source et construit avec Capgo.",
+  "keywords": "mimer,pantomime,famille,devinette,charades,équipe,fête,apéro,jeu de société,expression,rébus",
+  "promotionalText": "Un téléphone, des amis, zéro parole : mime des expressions, des films et des scènes improbables. Gratuit, sans pub, sans compte.",
+  "whatsNew": "Mimesis parle maintenant 8 langues !\n• L'app et les cartes en anglais, espagnol, portugais, allemand, italien, japonais et chinois\n• La langue de ton téléphone est choisie automatiquement\n• Nouveau thème Rébus Plus",
+  "screenshots": [
+    {
+      "id": "playing",
+      "title": "Mime, ils devinent !",
+      "subtitle": "Des centaines de cartes à mimer."
+    },
+    {
+      "id": "teams",
+      "title": "Tes équipes en 10 secondes",
+      "subtitle": "Ajoute tes amis, on s’occupe du reste."
+    },
+    {
+      "id": "themes",
+      "title": "Choisis ton thème",
+      "subtitle": "Expressions, rébus, films, chansons…"
+    },
+    {
+      "id": "handoff",
+      "title": "À qui le tour ?",
+      "subtitle": "Le jeu désigne le prochain mimeur."
+    },
+    {
+      "id": "winner",
+      "title": "Que la meilleure équipe gagne",
+      "subtitle": "Scores, chrono et fous rires garantis."
+    },
+    {
+      "id": "rules",
+      "title": "Des règles simples",
+      "subtitle": "Un téléphone, des amis, zéro parole."
+    }
+  ],
+  "featureTagline": "Le jeu de mime entre amis. Zéro parole, fous rires garantis.",
+  "playTitle": "Mimesis - Jeu de mime",
+  "playShortDescription": "Le jeu de mime entre amis : un téléphone, zéro parole, fous rires garantis !",
+  "playFullDescription": "Mimesis, c'est le jeu de mime pour tes soirées entre amis ou en famille. Un téléphone suffit : chacun son tour, un joueur lit la carte en secret et la mime à son équipe. Pas un mot, pas un bruit… et des fous rires garantis !\n\nComment jouer\n• Crée au moins 2 équipes de 2 joueurs\n• Choisis un thème\n• Passe le téléphone au mimeur sans montrer l'écran\n• Fais deviner un maximum de cartes avant la fin du chrono\n• La première équipe qui atteint le score gagne\n\nDes centaines de cartes\n• Expressions : des expressions françaises à mimer au pied de la lettre\n• Improbable : des scènes absurdes, comme une mafia de souris\n• Art et pop culture : films, chansons, livres et tableaux célèbres\n• Rébus et Rébus Plus : des mots à découper en sons à mimer\n\nPensé pour jouer ensemble\n• Durée des manches au choix (30 à 90 secondes) et score à atteindre\n• Écran de passage pour savoir à qui c'est le tour\n• Vibrations et animations à chaque carte trouvée\n• Gratuit, sans pub et sans compte\n• Joue hors ligne après le premier lancement\n• Disponible en 8 langues\n\nMimesis est open source et construit avec Capgo."
+}
