@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.1.1](https://github.com/Cap-go/mimesis/compare/3.1.0...3.1.1) (2026-10-07)
+
+
+### Bug Fixes
+
+* unblock store release ([f118a6e](https://github.com/Cap-go/mimesis/commit/f118a6ef0434b2f450b4e6dfc4475c7419ce6f3d))
+
 ## 3.1.0 (2026-10-07)
 
 
