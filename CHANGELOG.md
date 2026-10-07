@@ -1,6 +1,29 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## 3.1.0 (2026-10-07)
+
+
+### Features
+
+* rebuild app on Capgo native navigation, transitions and Cloudflare backend ([7da81d8](https://github.com/Cap-go/mimesis/commit/7da81d860719d4caa1d985ff80e1ba682ef5d0f3))
+* Refactor HomePage and ThemePage components for improved UI and functionality ([bca0bd7](https://github.com/Cap-go/mimesis/commit/bca0bd75fd14bea11523803e0d7ef1d8cd8c02c2))
+
+
+### Bug Fixes
+
+* add --delta flag to Capgo bundle upload commands for alpha and production releases ([bc7fd6a](https://github.com/Cap-go/mimesis/commit/bc7fd6a368bbd280de4ac7eb173626ec7a1756c0))
+* add static mimesis website ([016eea1](https://github.com/Cap-go/mimesis/commit/016eea1204439830fee2a5bcd7b377d70e44d452))
+* downgrade @capgo/capacitor-updater to version 7.29.0 in bun.lock and package.json ([2fc1fda](https://github.com/Cap-go/mimesis/commit/2fc1fda8e8d5d58dca756184f5ab323490d7b722))
+* drop wrangler's injected vite plugin and fix lint ([d43a211](https://github.com/Cap-go/mimesis/commit/d43a2112f42e56b1584792884ef30501cbe1587d))
+* polish page accessibility and responsive UI ([a00dbf6](https://github.com/Cap-go/mimesis/commit/a00dbf676fab9dc9a5edacfccfff46accc1612b0))
+* Update Capgo CLI commands to use 'bundle upload' for alpha and production releases ([0f53187](https://github.com/Cap-go/mimesis/commit/0f531874800b46f9327149ab3cf918e29000ba46))
+* Update marketing version to 3.0.1 and CapacitorUpdater version to 3.0.0 ([08b1ca6](https://github.com/Cap-go/mimesis/commit/08b1ca6592d68b8f3ce444b89f4358a7431b132a))
+* update version code and name to 3.0.0 in build.gradle and package.json; upgrade @capgo/native-audio to version 7.9.11 in bun.lock ([62bf746](https://github.com/Cap-go/mimesis/commit/62bf746592abaa38e3e1f19af419413aa3ec3d1c))
+* Update version number in package.json to 3.0.0 ([4f55ef8](https://github.com/Cap-go/mimesis/commit/4f55ef823eb2a713b6409f99ed40e3abda8d0ac0))
+* use verified cloudflare pages target ([0096def](https://github.com/Cap-go/mimesis/commit/0096def51629fc592bc08b587780088c51049577))
+* validate cloudflare deploy secret ([bc684b7](https://github.com/Cap-go/mimesis/commit/bc684b7d702c4b7c57e8f6e50f504fae85a04c00))
 
 ### [2.7.13](https://github.com/Forgr-ee/Mimesis/compare/2.7.12...2.7.13) (2022-11-01)
 
