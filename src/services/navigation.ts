@@ -92,7 +92,9 @@ async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
     // iOS: a chevron item renders as a glass back button. Android: the Toolbar's own up arrow.
     backButton: { visible: chrome === 'push' && platform === 'android', title: t('back') },
     leftItems: chrome === 'push' && platform === 'ios' ? [{ id: 'back', title: t('back'), icon: backIcon }] : [],
-    colors,
+    // Android has no system glass: blur the orange page behind the bar instead of the default white surface.
+    colors: platform === 'android' ? { ...colors, background: '#F39A55' } : colors,
+    glass: platform === 'android' ? { effect: 'liquidGlass', surfaceAlpha: 0.55 } : undefined,
     animated: true,
   })
   await NativeNavigation.setTabbar({
