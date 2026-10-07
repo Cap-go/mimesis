@@ -3,56 +3,111 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mimesis</title>
-    <meta name="description" content="Mimesis, le jeu de mimes pour jouer en famille ou entre amis." />
+    <title>Mimesis · Le jeu de mime entre amis</title>
+    <meta name="description" content="Mimesis, le jeu de mime pour jouer en famille ou entre amis. Un téléphone, des équipes, zéro parole." />
+    <meta name="theme-color" content="#e67f3c" />
+    <meta property="og:title" content="Mimesis · Le jeu de mime entre amis" />
+    <meta property="og:description" content="Un téléphone, des équipes, zéro parole. Fous rires garantis." />
+    <meta property="og:image" content="https://mimesis.fun/img/og.png" />
+    <meta property="og:url" content="https://mimesis.fun/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="apple-itunes-app" content="app-id=1559423136" />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/styles.css" />
     <script defer data-website-id="dfid_zkP2b7EROoZs2gVFqOLAA" data-domain="mimesis.fun" src="https://datafa.st/js/script.js"></script>
   </head>
   <body>
-    <div class="page-shell">
-
-    <header class="site-header">
-      <a class="brand-mark" href="/" aria-label="Mimesis accueil">
-        <img src="/logo-mimesis.png" width="50" height="50" alt="" />
-      </a>
-      <nav class="site-nav" aria-label="Navigation principale">
-        <a href="/">Accueil</a>
-        <a href="/privacy/">Privacy</a>
-      </nav>
-    </header>
-      <main class="hero">
-        <section class="hero-copy" aria-labelledby="home-title">
-          <div class="title-row">
-            <img class="app-icon" src="/splash.png" width="100" height="100" alt="logo mimesis" />
-            <div>
-              <h1 id="home-title">Mimesis</h1>
-              <h2>Jeu de mîmes</h2>
-            </div>
-          </div>
-          <p class="intro">En famille ou entre amis, en pleine après-midi ou en soirée, avec <strong>Mimesis</strong> c'est la grande marrade assurée !</p>
-          <div class="store-links" aria-label="Télécharger Mimesis">
-            <a href="https://apps.apple.com/fr/app/mimesis-jeu-de-m%C3%AEmes/id1559423136?l=en" target="_blank" rel="noopener noreferrer">
-              <img src="/app-store.svg" width="175" height="70" alt="Télécharger dans l'App Store" />
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=ee.forgr.mimesis" target="_blank" rel="noopener noreferrer">
-              <img src="/google-play.png" width="200" height="80" alt="Disponible sur Google Play" />
-            </a>
-          </div>
-        </section>
-        <section class="hero-media" aria-label="Aperçu de l'application Mimesis">
-          <img src="/mockups.png" width="500" height="500" alt="Mockup de l'application Mimesis" />
-        </section>
-      </main>
-
-    <footer class="site-footer">
-      <img src="/logo-mimesis.png" width="50" height="50" alt="logo mimesis" />
-      <div class="footer-links">
-        <a href="mailto:contact@mimesis.fun">Contact</a>
-        <a href="/privacy/">Privacy</a>
+    <header class="site-header container">
+      <div class="bar">
+        <a class="brand" href="/" aria-label="Mimesis, accueil">
+          <img src="/img/icon.webp" width="38" height="38" alt="" />
+          Mimesis
+        </a>
+        <nav class="site-nav" aria-label="Navigation principale">
+          <a href="#comment-jouer">Comment jouer</a>
+          <a href="#capgo">Open source</a>
+          <a class="cta" href="#telecharger">Télécharger</a>
+        </nav>
       </div>
-      <p>© 2021 Mimesis. All Rights Reserved</p>
+    </header>
+
+    <main class="container">
+      <section class="hero" id="telecharger" aria-labelledby="hero-title">
+        <div>
+          <img class="hero-icon" src="/img/icon.webp" width="96" height="96" alt="" />
+          <h1 id="hero-title">Mime, ils devinent&nbsp;!</h1>
+          <p class="lead">Le jeu de mime pour les soirées entre amis et en famille. Un téléphone, des équipes, zéro parole et des fous rires garantis.</p>
+          <div class="stores">
+            <a class="store" href="https://apps.apple.com/fr/app/mimesis-jeu-de-m%C3%AEmes/id1559423136" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.19-1.72-1.36-.14-2.65.8-3.34.8-.7 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.1 8.79.73 1.06 1.6 2.25 2.74 2.2 1.1-.04 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.08 2.65-2.14.84-1.23 1.18-2.42 1.2-2.48-.03-.01-2.3-.88-2.32-3.5zM14.18 6.13c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.31-.56.65-1.05 1.68-.92 2.67.97.08 1.96-.49 2.56-1.22z" /></svg>
+              <span><small>Télécharger dans</small><strong>l'App Store</strong></span>
+            </a>
+            <a class="store" href="https://play.google.com/store/apps/details?id=ee.forgr.mimesis" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 2.3 13.4 12l-9.8 9.7a1.6 1.6 0 0 1-.6-1.3V3.6c0-.5.2-1 .6-1.3z" /><path fill="#FBBC04" d="m17 8.4-3.6 3.6 3.6 3.6 4.1-2.3c1.2-.7 1.2-1.9 0-2.6z" /><path fill="#EA4335" d="M3.6 21.7c.4.4 1 .4 1.7 0L17 15.6 13.4 12z" /><path fill="#4285F4" d="M5.3 2.3c-.7-.4-1.3-.4-1.7 0L13.4 12 17 8.4z" /></svg>
+              <span><small>Disponible sur</small><strong>Google Play</strong></span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-phones" aria-hidden="true">
+          <div class="phone"><img src="/img/teams.webp" width="660" height="1434" alt="" /></div>
+          <div class="phone"><img src="/img/handoff.webp" width="660" height="1434" alt="" /></div>
+        </div>
+      </section>
+
+      <section id="comment-jouer" aria-labelledby="how-title">
+        <h2 class="section-title" id="how-title">Comment jouer</h2>
+        <p class="section-lead">Pas de plateau, pas de cartes à mélanger. Mimesis s'occupe des équipes, du chrono et des scores.</p>
+        <div class="cards">
+          <article class="card">
+            <span class="badge">1</span>
+            <h3>Crée les équipes</h3>
+            <p>Au moins deux équipes de deux joueurs. Mimesis désigne le prochain mimeur à chaque tour.</p>
+          </article>
+          <article class="card">
+            <span class="badge">2</span>
+            <h3>Choisis un thème</h3>
+            <p>Expressions, rébus, art, situations improbables… des centaines de cartes à faire deviner.</p>
+          </article>
+          <article class="card">
+            <span class="badge">3</span>
+            <h3>Mime sans un mot</h3>
+            <p>Interdit de parler, de chanter ou d'écrire. Chaque carte trouvée rapporte un point à ton équipe.</p>
+          </article>
+        </div>
+        <div class="gallery" aria-label="Captures d'écran de Mimesis">
+          <div class="phone"><img src="/img/themes.webp" width="660" height="1434" alt="Choix du thème" loading="lazy" /></div>
+          <div class="phone"><img src="/img/handoff.webp" width="660" height="1434" alt="Au tour de l'équipe suivante" loading="lazy" /></div>
+          <div class="phone"><img src="/img/winner.webp" width="660" height="1434" alt="Écran de victoire" loading="lazy" /></div>
+          <div class="phone"><img src="/img/rules.webp" width="660" height="1434" alt="Règles du jeu" loading="lazy" /></div>
+          <div class="phone"><img src="/img/teams.webp" width="660" height="1434" alt="Création des équipes" loading="lazy" /></div>
+        </div>
+      </section>
+
+      <section id="capgo" aria-labelledby="capgo-title">
+        <div class="built">
+          <div>
+            <h2 id="capgo-title">Open source, construit avec Capgo</h2>
+            <p>Mimesis est l'app de référence de Capgo : une app Vue publiée sur iOS et Android avec Capacitor, mise à jour en direct et publiée sur les stores à chaque commit.</p>
+            <a class="link" href="https://github.com/Cap-go/mimesis" target="_blank" rel="noopener">Voir le code sur GitHub</a>
+          </div>
+          <ul>
+            <li><strong>Mises à jour en direct</strong> : chaque nouvelle version arrive sur ton téléphone sans attendre les stores.</li>
+            <li><strong>Navigation native</strong> : barre d'onglets Liquid Glass sur iOS et Material sur Android.</li>
+            <li><strong>Hors ligne</strong> : les cartes restent sur le téléphone, joue même sans réseau.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <a class="brand" href="/"><img src="/img/icon.webp" width="38" height="38" alt="" />Mimesis</a>
+      <nav aria-label="Liens">
+        <a href="mailto:contact@mimesis.fun">Contact</a>
+        <a href="/privacy/">Confidentialité</a>
+        <a href="https://capgo.app/?ref=mimesis" target="_blank" rel="noopener">Capgo</a>
+      </nav>
+      <p>© 2021–2026 Mimesis</p>
     </footer>
-    </div>
   </body>
 </html>
