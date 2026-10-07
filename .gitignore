@@ -43,3 +43,10 @@ seed_db/rebus/plus.csv
 seed_db/tmp
 fastlane/.env
 fastlane/report.xml
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example

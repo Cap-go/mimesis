@@ -1,4 +1,4 @@
-name: Deploy website to Cloudflare Pages
+name: Deploy website to Cloudflare
 
 on:
   push:
@@ -17,27 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Check out
-        uses: actions/checkout@v4
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-      - name: Validate Cloudflare token
-        run: |
-          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
-            echo "Set the CLOUDFLARE_API_TOKEN repository secret."
-            exit 1
-          fi
+      - uses: actions/checkout@v5
+      - uses: oven-sh/setup-bun@v2
+      - name: Deploy static site as a Worker
+        working-directory: website
+        run: bunx wrangler@latest deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      - name: Ensure Pages project
-        run: bunx wrangler@latest pages project create mimesis --production-branch main || true
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: 9ee3d7479a3c359681e3fab2c8cb22c0
-      - name: Deploy website
-        run: bunx wrangler@latest pages deploy website --project-name mimesis --branch "$GITHUB_REF_NAME"
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: 9ee3d7479a3c359681e3fab2c8cb22c0
