@@ -10,11 +10,15 @@
 			"androidScaleType": "CENTER_CROP"
 		},
 		"CapacitorUpdater": {
-			"version": "3.1.0",
+			"version": "3.0.2",
 			"autoUpdate": true,
 			"autoSplashscreen": true,
 			"directUpdate": "atInstall",
 			"defaultChannel": "production"
+		},
+		"SystemBars": {
+			"insetsHandling": "css",
+			"style": "LIGHT"
 		},
 		"Keyboard": {
 			"resizeOnFullScreen": true
