@@ -1,357 +1,349 @@
 <script setup lang="ts">
 import type { CreateTypes } from 'canvas-confetti'
-import type { StyleValue } from 'vue'
 import { InAppReview } from '@capacitor-community/in-app-review'
 import { KeepAwake } from '@capacitor-community/keep-awake'
-import {
-  ArrowLeftIcon,
-  CheckIcon,
-  ExclamationCircleIcon as ExclamationIcon,
-} from '@heroicons/vue/24/outline'
-import {
-  IonButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-  isPlatform,
-} from '@ionic/vue'
+import { App } from '@capacitor/app'
+import { Device } from '@capacitor/device'
 import { create as createConfetti } from 'canvas-confetti'
-import {
-  computed,
-  onBeforeUnmount,
-  onMounted,
-  reactive,
-  watchEffect,
-} from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useTimer } from 'vue-timer-hook'
-import Modal from '~/components/ModalComponent.vue'
+import AppPage from '~/components/AppPage.vue'
+import BottomSheet from '~/components/BottomSheet.vue'
+import TimerRing from '~/components/TimerRing.vue'
+import { saveGame } from '~/services/api'
+import { demoScene } from '~/services/demo'
+import { success, tap, warning } from '~/services/haptics'
+import { resetTo } from '~/services/navigation'
+import { isNative } from '~/services/platform'
 import { playSound } from '~/services/sound'
-import { useGameStore } from '~/store/game'
-import { useMainStore } from '~/store/main'
+import { useCatalogStore } from '~/store/catalog'
+import { TEAM_COLORS, useGameStore } from '~/store/game'
+import { useSettingsStore } from '~/store/settings'
 
-const gameLenght = 60
+type Phase = 'handoff' | 'playing' | 'timeup' | 'winner'
+
 const { t } = useI18n()
-
-const modals = reactive({
-  changePlayer: true,
-  winner: false,
-  pause: false,
-})
 const game = useGameStore()
-const main = useMainStore()
-const timer = useTimer(gameLenght, false)
-let confetti: CreateTypes
+const catalog = useCatalogStore()
+const settings = useSettingsStore()
+
+const phase = ref<Phase>('handoff')
+const paused = ref(false)
+const remaining = ref(settings.roundSeconds * 1000)
+const roundFound = ref(0)
+const canvas = ref<HTMLCanvasElement | null>(null)
+let deadline = 0
+let frame = 0
+let confetti: CreateTypes | null = null
+const listeners: { remove: () => Promise<void> }[] = []
+
+const pool = computed(() => catalog.guessesFor(game.theme))
+function colorOf(uuid: string) {
+  const index = game.teams.findIndex(team => team.uuid === uuid)
+  return TEAM_COLORS[Math.max(index, 0) % TEAM_COLORS.length]
+}
+const teamColor = computed(() => colorOf(game.teamUUID))
+
+function sound(name: 'horn' | 'tada') {
+  if (settings.sound)
+    void playSound(name)
+}
+
+function tick() {
+  remaining.value = Math.max(0, deadline - Date.now())
+  if (remaining.value === 0)
+    return timeUp()
+  frame = requestAnimationFrame(tick)
+}
+
+function startClock(ms: number) {
+  deadline = Date.now() + ms
+  cancelAnimationFrame(frame)
+  frame = requestAnimationFrame(tick)
+}
+
+function stopClock() {
+  cancelAnimationFrame(frame)
+}
+
+function startRound() {
+  tap()
+  roundFound.value = 0
+  game.nextGuess(pool.value)
+  remaining.value = settings.roundSeconds * 1000
+  phase.value = 'playing'
+  startClock(remaining.value)
+}
+
+function timeUp() {
+  stopClock()
+  warning()
+  sound('horn')
+  phase.value = 'timeup'
+}
+
+function nextTurn() {
+  tap()
+  game.nextTeam()
+  phase.value = 'handoff'
+}
+
+function skip() {
+  tap()
+  game.nextGuess(pool.value)
+}
+
+function found() {
+  success()
+  roundFound.value++
+  game.addScore(settings.targetScore)
+  game.nextGuess(pool.value, true)
+  if (game.winned)
+    void finish()
+}
+
+async function finish() {
+  stopClock()
+  phase.value = 'winner'
+  sound('tada')
+  confetti?.({ angle: 90, spread: 70, particleCount: 260, origin: { y: 0.9 }, colors: ['#B5244F', '#E67F3C', '#FFFAF5', '#3B0A1F'] })
+  if (import.meta.env.VITE_DEMO)
+    return
+  settings.gamesPlayed++
+  const { identifier } = await Device.getId()
+  void saveGame({
+    deviceId: identifier,
+    lang: settings.locale,
+    mode: game.theme,
+    teams: game.teams,
+    foundGuess: game.foundGuess,
+    skipGuess: game.skipGuess,
+  })
+  if (isNative && settings.gamesPlayed > 2)
+    void InAppReview.requestReview()
+}
 
 function pause() {
-  modals.pause = true
-  timer.pause()
+  if (phase.value !== 'playing' || paused.value)
+    return
+  tap()
+  stopClock()
+  paused.value = true
 }
+
 function resume() {
-  modals.pause = false
-  timer.resume()
+  tap()
+  paused.value = false
+  startClock(remaining.value)
 }
 
-const bgColor = computed<StyleValue[]>(
-  () =>
-    [
-      {
-        backgroundImage: main.guess.cover
-          ? `url('${main.guess.cover}')`
-          : 'none',
-        // backgroundBlendMode: 'screen',
-        backgroundBlendMode: 'multiply',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-      },
-    ] as StyleValue[],
-)
-function createTime() {
-  const expiryTimestamp = new Date()
-  expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + gameLenght)
-  return expiryTimestamp.getTime()
+function playAgain() {
+  tap()
+  game.reset()
+  game.nextTeam()
+  phase.value = 'handoff'
 }
 
-function skipGuess() {
-  main.nextGuess()
+function quit() {
+  stopClock()
+  paused.value = false
+  game.reset()
+  resetTo('/teams', 'back')
 }
 
-function nextRound() {
-  skipGuess()
-  timer.restart(createTime())
-  modals.changePlayer = false
-}
-
-function playConfetti() {
-  return confetti({
-    angle: 90,
-    spread: 60,
-    particleCount: 350,
-    ticks: 400,
-  })
-}
-
-function validGuess() {
-  main.nextGuess(true)
-  game.addScore()
-}
-
-function setupCanvas() {
-  const options = {
-    useWorker: true,
-    resize: !isPlatform('android'),
+// Freeze a representative frame for store screenshots.
+function stageScene() {
+  if (demoScene === 'playing') {
+    startRound()
+    const showcase = pool.value.find(g => g.title === 'Titanic') ?? pool.value.find(g => g.cover)
+    if (showcase)
+      game.guess = showcase
+    stopClock()
+    remaining.value = 42_000
   }
-  confetti = createConfetti(null as unknown as HTMLCanvasElement, options)
+  else if (demoScene === 'winner') {
+    game.teams[0].score = settings.targetScore
+    void finish()
+  }
 }
 
-function initGameLoop() {
-  setTimeout(() => {
-    game.reset()
-    main.nextGuess()
-    game.nextTeam()
-    modals.changePlayer = true
-    modals.winner = false
-  }, 10)
-  return true
+function onHardwareBack() {
+  if (phase.value === 'playing')
+    pause()
+  else if (!paused.value)
+    quit()
 }
+
+onMounted(async () => {
+  if (!pool.value.length || game.teamUUID === '-1')
+    return resetTo('/teams', 'none')
+  if (canvas.value)
+    confetti = createConfetti(canvas.value, { resize: true, useWorker: true })
+  window.addEventListener('mimesis:hardware-back', onHardwareBack)
+  if (import.meta.env.VITE_DEMO)
+    stageScene()
+  if (isNative) {
+    void KeepAwake.keepAwake()
+    listeners.push(await App.addListener('appStateChange', ({ isActive }) => {
+      if (!isActive)
+        pause()
+    }))
+  }
+})
 
 onBeforeUnmount(() => {
-  modals.changePlayer = true
-  if (timer.isRunning)
-    timer.pause()
-  if (isPlatform('capacitor'))
-    KeepAwake.allowSleep()
-})
-onMounted(() => {
-  if (isPlatform('capacitor'))
-    KeepAwake.keepAwake()
-
-  watchEffect(async () => {
-    if (timer.isExpired.value) {
-      await playSound('horn')
-      await game.nextTeam()
-      modals.changePlayer = true
-    }
-  })
-  watchEffect(async () => {
-    if (game.winned) {
-      playConfetti()
-      if (timer.isRunning)
-        timer.pause()
-      modals.winner = true
-      await playSound('tada')
-      await game.save(main.lang)
-      if (isPlatform('capacitor') && game.games > 2)
-        InAppReview.requestReview()
-    }
-  })
-  watchEffect(() => {
-    if (!main.isActive && timer.isRunning)
-      timer.pause()
-  })
-  setupCanvas()
+  stopClock()
+  confetti?.reset()
+  window.removeEventListener('mimesis:hardware-back', onHardwareBack)
+  listeners.forEach(listener => void listener.remove())
+  if (isNative)
+    void KeepAwake.allowSleep()
 })
 </script>
 
 <template>
-  <IonPage>
-    <IonHeader mode="ios">
-      <IonToolbar color="secondary">
-        <template #start>
-          <IonButtons>
-            <IonButton aria-label="Pause game" @click="pause()">
-              <template #start>
-                <ArrowLeftIcon class="w-8 h-8 text-rose-500" aria-hidden="true" />
-              </template>
-            </IonButton>
-          </IonButtons>
-        </template>
-        <IonTitle>
-          <img class="h-10 mx-auto" src="/assets/icon/icon.png" alt="Mimesis">
-        </IonTitle>
-      </IonToolbar>
-    </IonHeader>
-    <IonContent :fullscreen="true" :scroll-y="true">
-      <div
-        class="relative flex min-h-full flex-col justify-between px-4 pb-6 xs:px-8 md:px-10 bg-pizazz-500 safe-pb"
-        :style="bgColor"
-      >
-        <Modal :open="main.currentPath === '/game' && modals.changePlayer">
-          <template #icon>
-            <CheckIcon class="w-6 h-6 text-green-600" aria-hidden="true" />
-          </template>
-          <template #title>
-            {{ t('ready') }} ?
-          </template>
-          <template #content>
-            <p
-              class="px-5 mt-4 mb-2 text-xl leading-relaxed text-center md:text-2xl"
-            >
-              {{ t('team') }} <strong>{{ game.teamName }}</strong>
-            </p>
-            <p class="mb-4 text-xl leading-relaxed xs:px-5 md:text-2xl">
-              {{ t('turnOf') }} <strong>{{ game.playerName }}</strong>
-            </p>
-          </template>
-          <template #buttons>
-            <button
-              type="button"
-              class="px-6 py-3 text-base font-bold uppercase border-2 rounded-lg shadow-sm transition-all duration-150 bg-rose-500 text-lavender-500 border-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
-              @click="nextRound()"
-            >
-              {{ t('go') }}
-            </button>
-          </template>
-        </Modal>
-        <Modal :open="modals.pause">
-          <template #icon>
-            <ExclamationIcon class="w-6 h-6 text-red-600" aria-hidden="true" />
-          </template>
-          <template #title>
-            {{ t('beCarefull') }}
-          </template>
-          <template #content>
-            <p class="py-10 md:text-2xl">
-              {{ t('leave') }}
-            </p>
-          </template>
-          <template #buttons>
-            <router-link
-              to="/home"
-              class="px-6 py-3 text-base font-bold uppercase border-2 rounded-lg shadow-sm transition-all duration-150 bg-lavender-500 text-rose-500 border-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
-              @click="initGameLoop() && (modals.pause = false)"
-            >
-              {{ t('backHome') }}
-            </router-link>
-            <button
-              type="button"
-              class="px-6 py-3 text-base font-bold uppercase border-2 rounded-lg shadow-sm transition-all duration-150 bg-rose-500 text-lavender-500 border-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
-              @click="resume()"
-            >
-              {{ t('resume') }}
-            </button>
-          </template>
-        </Modal>
-        <Modal :open="modals.winner">
-          <template #icon>
-            <CheckIcon class="w-6 h-6 text-red-600" aria-hidden="true" />
-          </template>
-          <template #title>
-            {{ t('gameWin') }}
-          </template>
-          <template #content>
-            <div
-              v-for="(w, index) in game.ladder"
-              :key="index"
-              class="py-2 md:text-3xl first-letter:uppercase"
-            >
-              {{ t('team') }} {{ w.name }}
-              <strong v-if="index === 0">{{ t('win') }}</strong>
-              <strong v-else>{{ t('is') }} {{ index + 1 }} {{ t('rankWith') }}
-                {{ w.score }} !</strong>
-              !
-            </div>
-          </template>
-          <template #buttons>
-            <router-link
-              to="/home"
-              class="px-6 py-3 text-base font-bold uppercase border-2 rounded-lg shadow-sm transition-all duration-150 bg-lavender-500 text-rose-500 border-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
-              @click="initGameLoop()"
-            >
-              {{ t('backHome') }}
-            </router-link>
-            <button
-              type="button"
-              class="px-6 py-3 text-base font-bold uppercase border-2 rounded-lg shadow-sm transition-all duration-150 bg-rose-500 text-lavender-500 border-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
-              @click="initGameLoop()"
-            >
-              {{ t('restart') }}
-            </button>
-          </template>
-        </Modal>
-        <div class="flex flex-col gap-3 pt-3 md:flex-row md:items-center md:justify-between md:pt-10 safe-pt">
-          <div class="min-w-0 px-4 py-2 bg-lavender-500 border-2 border-rose-500 rounded-xl shadow-sm">
-            <p class="text-base md:text-lg text-rose-500 first-letter:uppercase">
-              {{ t('team') }}:
-            </p>
-            <h2 class="break-words text-xl font-bold md:text-2xl text-rose-500">
-              {{ game.teamName }}
-            </h2>
-          </div>
-          <div class="min-w-0 px-4 py-2 bg-lavender-500 border-2 border-rose-500 rounded-xl shadow-sm md:text-right">
-            <p class="text-right text-base md:text-lg text-rose-500 first-letter:uppercase">
-              {{ t('player') }}:
-            </p>
-            <h2 class="break-words text-xl font-bold md:text-2xl text-rose-500">
-              {{ game.playerName }}
-            </h2>
-          </div>
-        </div>
-        <div class="flex flex-col items-center">
-          <div
-            class="px-8 py-3 my-6 text-5xl font-bold text-center text-rose-500 bg-lavender-500 border-2 border-rose-500 rounded-xl shadow-md xs:my-8"
-            aria-live="polite"
+  <AppPage>
+    <!-- Handoff: pass the phone to the next mime. -->
+    <section v-if="phase === 'handoff'" class="flex flex-1 flex-col pt-4">
+      <div class="flex items-center justify-between">
+        <button type="button" class="btn-ghost -ml-3 text-plum-900" @click="quit()">
+          <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
+          <span class="sr-only">{{ t('quitGame') }}</span>
+        </button>
+        <ul class="flex gap-2" :aria-label="t('score')">
+          <li
+            v-for="team in game.teams" :key="team.uuid"
+            class="flex min-w-10 items-center justify-center rounded-full px-3 py-1 text-sm font-extrabold tabular-nums text-white transition"
+            :class="team.uuid === game.teamUUID ? 'scale-110 ring-4 ring-white/70' : 'opacity-60'"
+            :style="{ backgroundColor: colorOf(team.uuid) }"
           >
-            {{ timer.seconds }}
-          </div>
-        </div>
-        <div class="min-h-44">
-          <div
-            class="flex flex-col items-center justify-center my-auto overflow-y-auto text-3xl border-2 text-rose-500 border-rose-500 bg-lavender-500 rounded-xl shadow-md max-h-48"
-          >
-            <!-- <img v-if="main.guess.cover" :src="main.guess.cover"/> -->
-            <div class="px-5 py-3 md:px-14 md:py-5 text-center">
-              <p v-if="main.guess.type" class="text-xl md:text-2xl mb-2">
-                {{ main.guess.type }}
-              </p>
-              <p class="text-2xl md:text-3xl font-bold">
-                {{ main.guess.title }}
-              </p>
-              <p v-if="main.guess.author" class="text-xl md:text-2xl mt-2">
-                de {{ main.guess.author }}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="w-full mb-3">
-          <div class="flex flex-col items-end mb-6">
-            <div
-              class="px-6 py-3 text-2xl font-bold md:text-3xl text-rose-500 bg-lavender-500 border-2 border-rose-500 rounded-xl shadow-sm"
-              aria-live="polite"
-            >
-              {{ t('score') }}: {{ game.teamScore }}
-            </div>
-          </div>
-          <div
-            class="flex justify-between gap-3 mt-8 text-2xl xs:text-3xl md:justify-around md:text-4xl text-rose-500"
-          >
-            <button
-              type="button"
-              class="min-h-14 flex-1 px-4 py-3 text-2xl font-bold uppercase leading-tight border-2 rounded-xl shadow-md transition-all duration-150 bg-lavender-500 border-rose-500 text-rose-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400 xs:text-3xl md:text-4xl md:px-8 md:py-4"
-              @click="skipGuess()"
-            >
-              {{ t('pass') }}
-            </button>
-            <button
-              type="button"
-              class="min-h-14 flex-1 px-4 py-3 text-2xl font-bold uppercase leading-tight border-2 rounded-xl shadow-md transition-all duration-150 bg-rose-500 border-rose-500 text-lavender-500 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400 xs:text-3xl md:text-4xl md:px-8 md:py-4"
-              @click="validGuess()"
-            >
-              {{ t('validate') }}
-            </button>
-          </div>
+            {{ team.score }}
+          </li>
+        </ul>
+      </div>
+      <div class="flex flex-1 flex-col items-center justify-center py-8 text-center">
+        <p class="text-lg font-bold uppercase tracking-widest text-plum-700/70">
+          {{ t('handoffTitle') }}
+        </p>
+        <h1 class="mt-2 text-5xl font-extrabold capitalize leading-none text-plum-900 sm:text-6xl">
+          {{ game.teamName }}
+        </h1>
+        <div class="card mt-10 flex w-full max-w-sm flex-col items-center gap-3 px-6 py-8">
+          <span class="flex size-20 items-center justify-center rounded-full font-display text-4xl font-extrabold text-white" :style="{ backgroundColor: teamColor }" aria-hidden="true">
+            {{ game.playerName.charAt(0).toUpperCase() }}
+          </span>
+          <p class="font-display text-3xl font-extrabold text-plum-900">
+            {{ t('handoffMimer', { name: game.playerName }) }}
+          </p>
+          <p class="text-base font-semibold text-plum-500">
+            {{ t('handoffHint', { name: game.playerName }) }}
+          </p>
         </div>
       </div>
-    </IonContent>
-  </IonPage>
-</template>
+      <button type="button" class="btn-primary mb-4 w-full text-xl" @click="startRound()">
+        {{ t('readyCta') }}
+      </button>
+    </section>
 
-<style scoped>
-  ion-toolbar {
-  --border-style: none;
-}
-</style>
+    <!-- Playing: the mime reads the card, the team guesses. -->
+    <section v-else-if="phase === 'playing' && game.guess" class="flex flex-1 flex-col gap-4 pt-3">
+      <div class="flex items-center justify-between">
+        <button type="button" class="flex size-12 items-center justify-center rounded-full bg-cream/90 text-plum-900 shadow-pop-soft active:translate-y-0.5" :aria-label="t('pause')" @click="pause()">
+          <svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1" /><rect x="14" y="4" width="4" height="16" rx="1" /></svg>
+        </button>
+        <TimerRing :remaining="remaining" :total="settings.roundSeconds" />
+        <div class="flex min-w-12 flex-col items-center rounded-2xl bg-cream/90 px-3 py-1.5 shadow-pop-soft">
+          <span class="font-display text-2xl font-extrabold tabular-nums text-plum-900">{{ game.teamScore }}</span>
+          <span class="text-[0.65rem] font-extrabold uppercase text-plum-500">/ {{ settings.targetScore }}</span>
+        </div>
+      </div>
+      <Transition mode="out-in" enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 translate-x-8 rotate-2" leave-active-class="duration-150 ease-in" leave-to-class="opacity-0 -translate-x-8 -rotate-2">
+        <article :key="game.guess.id" class="card flex flex-1 flex-col items-center justify-center overflow-hidden text-center" aria-live="polite">
+          <img v-if="game.guess.cover" :src="game.guess.cover" alt="" class="max-h-[34vh] w-full object-cover" aria-hidden="true">
+          <div class="flex flex-1 flex-col items-center justify-center gap-2 px-6 py-6">
+            <p v-if="game.guess.type" class="rounded-full bg-pizazz-100 px-3 py-1 text-sm font-extrabold uppercase tracking-wide text-pizazz-600">
+              {{ game.guess.type }}
+            </p>
+            <h2 class="text-4xl font-extrabold leading-tight text-plum-900 sm:text-5xl">
+              {{ game.guess.title }}
+            </h2>
+            <p v-if="game.guess.author" class="text-xl font-semibold text-plum-500">
+              {{ game.guess.author }}
+            </p>
+          </div>
+        </article>
+      </Transition>
+      <div class="grid grid-cols-2 gap-3 pb-4">
+        <button type="button" class="btn-secondary min-h-20 text-2xl" @click="skip()">
+          {{ t('pass') }}
+        </button>
+        <button type="button" class="btn-primary min-h-20 text-2xl" @click="found()">
+          {{ t('found') }}
+        </button>
+      </div>
+    </section>
+
+    <!-- Time is up: show the round result. -->
+    <section v-else-if="phase === 'timeup'" class="flex flex-1 flex-col items-center justify-center gap-6 text-center">
+      <p class="text-7xl" aria-hidden="true">
+        ⏰
+      </p>
+      <h1 class="text-5xl font-extrabold text-plum-900">
+        {{ t('timeUp') }}
+      </h1>
+      <p class="text-xl font-bold text-plum-700">
+        {{ t('roundFound', roundFound) }}
+      </p>
+      <button type="button" class="btn-primary mt-6 w-full max-w-sm text-xl" @click="nextTurn()">
+        {{ t('nextTeam') }}
+      </button>
+    </section>
+
+    <!-- Winner: leaderboard. -->
+    <section v-else-if="phase === 'winner'" class="flex flex-1 flex-col pt-10">
+      <div class="text-center">
+        <p class="text-7xl" aria-hidden="true">
+          🏆
+        </p>
+        <h1 class="mt-4 text-5xl font-extrabold leading-none text-plum-900">
+          {{ t('winnerTitle', { team: game.ladder[0]?.name }) }}
+        </h1>
+      </div>
+      <ol class="card mt-8 divide-y divide-plum-900/10 px-5">
+        <li v-for="(team, index) in game.ladder" :key="team.uuid" class="flex items-center gap-4 py-4">
+          <span class="w-8 font-display text-2xl font-extrabold text-plum-500">{{ index + 1 }}</span>
+          <span class="flex-1 font-display text-xl font-bold capitalize text-plum-900">{{ team.name }}</span>
+          <span class="font-display text-xl font-extrabold tabular-nums text-rose-500">{{ t('points', team.score) }}</span>
+        </li>
+      </ol>
+      <div class="mt-auto grid gap-3 pb-4 pt-8">
+        <button type="button" class="btn-primary text-xl" @click="playAgain()">
+          {{ t('playAgain') }}
+        </button>
+        <button type="button" class="btn-secondary" @click="quit()">
+          {{ t('backHome') }}
+        </button>
+      </div>
+    </section>
+
+    <template #overlay>
+      <canvas ref="canvas" class="pointer-events-none fixed inset-0 z-40 size-full" aria-hidden="true" />
+      <BottomSheet :open="paused" @close="resume()">
+        <h2 class="text-center text-3xl font-extrabold text-plum-900">
+          {{ t('paused') }}
+        </h2>
+        <p class="mt-2 text-center font-semibold text-plum-500">
+          {{ t('pausedHint') }}
+        </p>
+        <div class="mt-6 grid gap-3">
+          <button type="button" class="btn-primary text-xl" @click="resume()">
+            {{ t('resume') }}
+          </button>
+          <button type="button" class="btn-secondary" @click="quit()">
+            {{ t('quitGame') }}
+          </button>
+        </div>
+      </BottomSheet>
+    </template>
+  </AppPage>
+</template>

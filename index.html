@@ -1,85 +1,34 @@
 <!doctype html>
-<html lang="en" data-theme="mimesis">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <title>Mimesis</title>
-
     <base href="/" />
-
-    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Mimesis, le jeu de mime entre amis." />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#e67f3c" />
     <meta
       name="viewport"
       content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-
-    <link rel="shortcut icon" type="image/png" href="/assets/icon/favicon.png" />
-
-    <!-- add to homescreen for ios -->
+    <link rel="icon" type="image/png" href="/assets/icon/icon.png" />
+    <link rel="apple-touch-icon" href="/assets/icon/icon.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Mimesis" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
+    <script
+      defer
+      data-website-id="dfid_zkP2b7EROoZs2gVFqOLAA"
+      data-domain="mimesis.fun"
+      src="https://datafa.st/js/script.js"
+    ></script>
     <style>
-      /* Initial loader styles - matches design system */
-      #initial-loader {
-        position: fixed;
-        inset: 0;
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #e67f3c; /* pizazz-500 */
-      }
-
-      #initial-loader-content {
-        display: inline-block;
-        padding: 2rem;
-        background-color: #e67f3c; /* pizazz-500 */
-        border: 2px solid #b5244f; /* border-rose-500 */
-        border-radius: 12px; /* rounded-xl */
-        box-shadow:
-          0 20px 25px -5px rgb(0 0 0 / 0.1),
-          0 8px 10px -6px rgb(0 0 0 / 0.1); /* shadow-xl */
-      }
-
-      #initial-loader-spinner {
-        width: 96px;
-        height: 96px;
-        color: #b5244f; /* rose-500 */
-        animation: spin 1s linear infinite;
-      }
-
-      @keyframes spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      /* Hide loader when Vue loads */
-      .vue-loaded #initial-loader {
-        display: none;
+      html {
+        background: #e67f3c;
       }
     </style>
   </head>
-
   <body>
-    <div id="initial-loader">
-      <div id="initial-loader-content">
-        <svg id="initial-loader-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle style="opacity: 0.25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path
-            style="opacity: 0.75"
-            fill="currentColor"
-            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-          ></path>
-        </svg>
-      </div>
-    </div>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>

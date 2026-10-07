@@ -1,0 +1,128 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/nunito';
+
+@theme {
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Nunito Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand: rose for actions, pizazz orange for the stage, plum for ink. */
+  --color-rose-50: #fdf0f4;
+  --color-rose-100: #fbdce6;
+  --color-rose-200: #f5b3c8;
+  --color-rose-300: #ea7c9f;
+  --color-rose-400: #d44a76;
+  --color-rose-500: #b5244f;
+  --color-rose-600: #9c1c43;
+  --color-rose-700: #7e1636;
+  --color-pizazz-50: #fff6ee;
+  --color-pizazz-100: #ffe9d6;
+  --color-pizazz-200: #ffd0a8;
+  --color-pizazz-300: #fbb079;
+  --color-pizazz-400: #f39a55;
+  --color-pizazz-500: #e67f3c;
+  --color-pizazz-600: #cc6626;
+  --color-lavender-100: #faf0fc;
+  --color-lavender-300: #f0d7f5;
+  --color-plum-900: #3b0a1f;
+  --color-plum-700: #5c1a35;
+  --color-plum-500: #8a4a63;
+  --color-cream: #fffaf5;
+
+  --radius-card: 1.75rem;
+  --shadow-card: 0 1px 0 rgb(59 10 31 / 0.04), 0 10px 30px -12px rgb(59 10 31 / 0.35);
+  --shadow-pop: 0 6px 0 var(--color-rose-700);
+  --shadow-pop-soft: 0 6px 0 rgb(59 10 31 / 0.18);
+}
+
+@layer base {
+  :root {
+    --inset-top: var(--safe-area-inset-top, env(safe-area-inset-top));
+    --inset-bottom: var(--safe-area-inset-bottom, env(safe-area-inset-bottom));
+    --safe-top: max(var(--cap-native-navigation-top, 0px), var(--inset-top));
+    --safe-bottom: max(var(--cap-native-navigation-bottom, 0px), var(--inset-bottom));
+    color-scheme: light;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body,
+  #app {
+    height: 100%;
+    overscroll-behavior: none;
+  }
+
+  body {
+    @apply bg-pizazz-500 font-sans text-plum-900 antialiased;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  input {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  button,
+  a {
+    touch-action: manipulation;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+}
+
+@utility stage {
+  background:
+    radial-gradient(120% 60% at 50% -10%, var(--color-pizazz-300) 0%, transparent 60%),
+    linear-gradient(180deg, var(--color-pizazz-400) 0%, var(--color-pizazz-500) 55%, var(--color-pizazz-600) 100%);
+}
+
+@utility card {
+  @apply rounded-card bg-cream shadow-card;
+}
+
+@utility btn {
+  @apply inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl px-6 font-display text-lg font-bold transition duration-150 select-none focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-plum-900/30 active:translate-y-1 disabled:opacity-50;
+}
+
+@utility btn-primary {
+  @apply btn bg-rose-500 text-white shadow-pop active:shadow-none;
+}
+
+@utility btn-secondary {
+  @apply btn bg-cream text-rose-600 shadow-pop-soft active:shadow-none;
+}
+
+@utility btn-ghost {
+  @apply btn min-h-11 bg-transparent px-3 text-rose-600 active:translate-y-0 active:bg-rose-500/10;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+cap-router-outlet {
+  height: 100%;
+}
+
+cap-page {
+  @apply stage;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,223 +1,188 @@
-import type { Entity, Player, Team } from '../services/database'
-import { fakerFR as faker } from '@faker-js/faker'
+import type { Guess } from '~/services/api'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
 import { computed, ref } from 'vue'
-import { useDb } from '../services/database'
-import { randomSelect } from '../services/random'
+import { randomFirstName, randomTeamName } from '~/services/names'
+import { randomSelect } from '~/services/random'
 
-export function randomPlayer(): Player {
-  return {
-    score: 0,
-    name: faker.person.firstName(),
-    uuid: uuidv4(),
-  }
+export interface Player {
+  uuid: string
+  score: number
+  name: string
 }
 
-export const randomTeamName = (): string => faker.color.human()
+export interface Team {
+  uuid: string
+  score: number
+  name: string
+  players: Player[]
+  pastPlayers: string[]
+}
 
-export function randomTeam(): Team {
+export const TEAM_COLORS = ['#B5244F', '#2563EB', '#059669', '#7C3AED', '#D97706', '#0891B2', '#DB2777', '#4D7C0F']
+
+export function randomPlayer(): Player {
+  return { score: 0, name: randomFirstName(), uuid: uuidv4() }
+}
+
+export function randomTeam(taken: string[] = []): Team {
   return {
     uuid: uuidv4(),
-    name: randomTeamName(),
+    name: randomTeamName(taken),
     players: [randomPlayer(), randomPlayer()],
     pastPlayers: [],
     score: 0,
   }
 }
 
-// function find by uuid in array
-function findByUUID<Type extends Entity>(list: Type[] | undefined, uuid: string): Type | undefined {
-  if (!list)
-    return undefined
-  return list.find(item => item.uuid === uuid)
+function notIn<T extends { uuid: string }>(list: T[], past: string[]): T[] {
+  return list.filter(item => !past.includes(item.uuid))
 }
 
-function filterListByUUID(list: Player[] | Team[], past: string[]): Player[] | Team[] {
-  const filtered = list.filter((n) => {
-    const index
-      = past.findIndex((b) => {
-        return b === n.uuid
-      }) === -1
-    return index
-  })
-  return filtered
-}
 export const useGameStore = defineStore('game', () => {
-  const winned = ref(false)
-  const games = ref(0)
-  const loading = ref(true)
-  const uuid = ref(uuidv4())
-  const createdAt = ref(new Date().toISOString())
+  const first = randomTeam()
+  const teams = ref<Team[]>([first, randomTeam([first.name])])
   const theme = ref(0)
-  const teams = ref([randomTeam(), randomTeam()] as Team[])
   const teamUUID = ref('-1')
   const playerUUID = ref('-1')
-  const pastTeams = ref([] as string[])
-  const skipGuess = ref([] as number[])
-  const foundGuess = ref([] as number[])
+  const pastTeams = ref<string[]>([])
+  const skipGuess = ref<number[]>([])
+  const foundGuess = ref<number[]>([])
+  const guess = ref<Guess | null>(null)
+  const winned = ref(false)
 
-  const ready = computed((): boolean => {
-    return teamUUID.value !== '-1'
+  // Unequal teams make the turn order random to stay fair.
+  const mode = computed(() => {
+    const size = teams.value[0]?.players.length ?? 0
+    return teams.value.some(t => t.players.length !== size) ? 1 : 0
   })
+  const team = computed(() => teams.value.find(t => t.uuid === teamUUID.value))
+  const player = computed(() => team.value?.players.find(p => p.uuid === playerUUID.value))
+  const teamName = computed(() => team.value?.name ?? '')
+  const playerName = computed(() => player.value?.name ?? '')
+  const teamScore = computed(() => team.value?.score ?? 0)
+  const pastGuess = computed(() => [...skipGuess.value, ...foundGuess.value])
+  const ladder = computed(() => [...teams.value].sort((a, b) => b.score - a.score))
+  const canStart = computed(() => teams.value.length >= 2 && teams.value.every(t => t.players.length >= 2))
+
   const nextTeams = computed(() => {
     if (teams.value.length === pastTeams.value.length)
-      return filterListByUUID(teams.value, [teamUUID.value]) as Team[]
-    return filterListByUUID(teams.value, pastTeams.value) as Team[]
-  })
-  const ladder = computed(() => {
-    const sorted = teams.value.sort((a: Team, b: Team) => {
-      return a.score > b.score ? -1 : 1
-    })
-    return sorted
-  })
-  const team = computed(() => {
-    return findByUUID(teams.value, teamUUID.value)
+      return notIn(teams.value, [teamUUID.value])
+    return notIn(teams.value, pastTeams.value)
   })
   const nextPlayers = computed(() => {
     if (!team.value)
       return []
-    if (team.value.players.length === team.value.pastPlayers.length) {
-      return filterListByUUID(team.value.players, [
-        playerUUID.value,
-      ]) as Player[]
-    }
-    return filterListByUUID(
-      team.value.players,
-      team.value.pastPlayers,
-    ) as Player[]
+    if (team.value.players.length === team.value.pastPlayers.length)
+      return notIn(team.value.players, [playerUUID.value])
+    return notIn(team.value.players, team.value.pastPlayers)
   })
-  const player = computed(() => {
-    return findByUUID(team.value?.players, playerUUID.value)
-  })
-  const pastGuess = computed(() => {
-    return [...skipGuess.value, ...foundGuess.value]
-  })
-  const teamScore = computed(() => {
-    return team.value ? team.value.score : 0
-  })
-  const teamName = computed(() => {
-    return team.value ? team.value.name : ''
-  })
-  const mode = computed(() => {
-    const teamLength = teams.value[0].players.length
-    let inequal = false
-    teams.value.forEach((t: Team) => {
-      inequal = !!(inequal || teamLength !== t.players.length)
-    })
-    return inequal ? 1 : 0
-  })
-  const playerName = computed(() => {
-    return player.value ? player.value.name : ''
-  })
-  const nextPlayer = (setLoading = true) => {
+
+  function addTeam() {
+    teams.value.push(randomTeam(teams.value.map(t => t.name)))
+  }
+  function removeTeam(uuid: string) {
+    if (teams.value.length > 2)
+      teams.value = teams.value.filter(t => t.uuid !== uuid)
+  }
+  function addPlayer(t: Team) {
+    t.players.push(randomPlayer())
+  }
+  function removePlayer(t: Team, uuid: string) {
+    if (t.players.length > 2)
+      t.players = t.players.filter(p => p.uuid !== uuid)
+  }
+
+  function nextPlayer() {
     if (!team.value)
       return
-    loading.value = setLoading ? true : loading.value
-    let plr
-    if (mode.value === 1)
-      plr = randomSelect<Player>(nextPlayers.value)
-    else
-      plr = nextPlayers.value.pop() as Player
-    playerUUID.value = plr.uuid
+    const candidates = nextPlayers.value
+    const next = mode.value === 1 ? randomSelect(candidates) : candidates[candidates.length - 1]
+    playerUUID.value = next.uuid
     if (team.value.players.length === team.value.pastPlayers.length)
       team.value.pastPlayers.length = 0
-    team.value.pastPlayers.push(plr.uuid)
-    loading.value = setLoading ? false : loading.value
+    team.value.pastPlayers.push(next.uuid)
   }
-  const addScore = () => {
-    if (team.value && player.value && team.value.score < 10) {
-      team.value.score += 1
-      player.value.score++
-      if (team.value.score >= 10)
-        winned.value = true
-    }
-  }
-  const nextTeam = () => {
-    loading.value = true
-    let newTeam: Team
-    if (mode.value === 1)
-      newTeam = randomSelect<Team>(nextTeams.value)
-    else
-      newTeam = nextTeams.value.pop() as Team
-    teamUUID.value = newTeam.uuid
+
+  function nextTeam() {
+    const candidates = nextTeams.value
+    const next = mode.value === 1 ? randomSelect(candidates) : candidates[candidates.length - 1]
+    teamUUID.value = next.uuid
     if (pastTeams.value.length === teams.value.length)
       pastTeams.value.length = 0
-    pastTeams.value.push(teamUUID.value)
-    nextPlayer(false)
-    loading.value = false
+    pastTeams.value.push(next.uuid)
+    nextPlayer()
   }
-  const resetScore = () => {
-    teams.value.forEach((t: Team) => {
+
+  function nextGuess(pool: Guess[], found = false) {
+    if (guess.value)
+      (found ? foundGuess : skipGuess).value.push(guess.value.id)
+    // Once every card was seen, recycle skipped cards but never repeat the last one.
+    if (pastGuess.value.length >= pool.length)
+      skipGuess.value = skipGuess.value.slice(-1)
+    const remaining = pool.filter(g => !pastGuess.value.includes(g.id))
+    guess.value = randomSelect(remaining.length ? remaining : pool) ?? null
+  }
+
+  function addScore(target: number) {
+    if (!team.value || !player.value || team.value.score >= target)
+      return
+    team.value.score++
+    player.value.score++
+    if (team.value.score >= target)
+      winned.value = true
+  }
+
+  function resetScore() {
+    for (const t of teams.value) {
       t.score = 0
-    })
+      for (const p of t.players)
+        p.score = 0
+    }
     winned.value = false
   }
-  const resetHistory = () => {
-    teams.value.forEach((t: Team) => {
+
+  function reset() {
+    resetScore()
+    for (const t of teams.value)
       t.pastPlayers = []
-    })
     pastTeams.value = []
     skipGuess.value = []
     foundGuess.value = []
-  }
-  const resetIndex = () => {
+    guess.value = null
     playerUUID.value = '-1'
     teamUUID.value = '-1'
   }
-  const reset = () => {
-    resetScore()
-    resetHistory()
-    resetIndex()
-  }
-  const save = async (lang: string) => {
-    try {
-      const { addGame } = useDb()
-      games.value = await addGame(
-        lang,
-        foundGuess.value,
-        skipGuess.value,
-        teams.value,
-        theme.value,
-      )
-    }
-    catch (e) {
-      console.error('Error adding document: ', e)
-    }
-  }
 
   return {
-    loading,
-    uuid,
-    createdAt,
-    theme,
     teams,
+    theme,
     teamUUID,
     playerUUID,
     pastTeams,
     skipGuess,
     foundGuess,
+    guess,
     winned,
-    games,
-    ready,
-    nextTeams,
-    nextTeam,
-    ladder,
-    nextPlayers,
+    mode,
     team,
     player,
-    pastGuess,
-    teamScore,
     teamName,
-    mode,
     playerName,
+    teamScore,
+    pastGuess,
+    ladder,
+    canStart,
+    addTeam,
+    removeTeam,
+    addPlayer,
+    removePlayer,
+    nextTeam,
     nextPlayer,
+    nextGuess,
     addScore,
     resetScore,
-    resetHistory,
-    resetIndex,
     reset,
-    save,
   }
 })
 

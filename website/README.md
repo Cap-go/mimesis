@@ -8,4 +8,4 @@ Required GitHub setting for `.github/workflows/deploy_website.yml`:
 
 The workflow targets Cloudflare account `9ee3d7479a3c359681e3fab2c8cb22c0` and creates the `mimesis` Pages project if it does not already exist.
 
-The site keeps the Plausible script for `mimesis.fun`.
+Analytics use DataFast for `mimesis.fun`.

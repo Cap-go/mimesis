@@ -1,49 +1,22 @@
 {
-  "originHash" : "030a10f7c6949a13624e51817f89734dffab58a52f677f0718a06cd15fff2fa8",
+  "originHash" : "6a4c53b38073b0deca18de5a8f1f9dbe4b8c5acf91758353a41f6edd977026a8",
   "pins" : [
-    {
-      "identity" : "alamofire",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Alamofire/Alamofire.git",
-      "state" : {
-        "revision" : "513364f870f6bfc468f9d2ff0a95caccc10044c5",
-        "version" : "5.10.2"
-      }
-    },
-    {
-      "identity" : "bigint",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/attaswift/BigInt.git",
-      "state" : {
-        "revision" : "e07e00fa1fd435143a2dcf8b7eec9a7710b2fdfe",
-        "version" : "5.7.0"
-      }
-    },
     {
       "identity" : "capacitor-swift-pm",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ionic-team/capacitor-swift-pm.git",
       "state" : {
-        "revision" : "145cf37b8e3b240efef3d2d8a7262e621f08bb6f",
-        "version" : "7.4.4"
+        "revision" : "0b6882e9a3288342aacf36348e5a94e4f1dd7b13",
+        "version" : "8.5.2"
       }
     },
     {
-      "identity" : "version",
+      "identity" : "crisp-sdk-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mrackwitz/Version.git",
+      "location" : "https://github.com/crisp-im/crisp-sdk-ios.git",
       "state" : {
-        "revision" : "fd4b0eb5756aa7f1c33977fb626cf37d2140a3a0",
-        "version" : "0.8.0"
-      }
-    },
-    {
-      "identity" : "ziparchive",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ZipArchive/ZipArchive.git",
-      "state" : {
-        "revision" : "38e0ce0598e06b034271f296a8e15b149c91aa19",
-        "version" : "2.4.3"
+        "revision" : "61e11393f22812e3b3fc6ab98a2d22a4eaef0102",
+        "version" : "2.13.0"
       }
     }
   ],
