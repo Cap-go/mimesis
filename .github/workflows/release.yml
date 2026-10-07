@@ -8,6 +8,15 @@ name: Release
 on:
   push:
     branches: [main]
+    # Website, API and store assets ship through their own workflows.
+    paths-ignore:
+      - 'website/**'
+      - 'backend/**'
+      - 'store/**'
+      - 'fastlane/**'
+      - '**/*.md'
+      - '.github/workflows/deploy_*.yml'
+      - .github/workflows/ci.yml
   workflow_dispatch:
     inputs:
       native:
