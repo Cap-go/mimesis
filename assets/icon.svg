@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb26b"/>
+      <stop offset="0.55" stop-color="#f08442"/>
+      <stop offset="1" stop-color="#d9622b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.3" cy="0.12" r="0.75">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <rect width="1024" height="1024" fill="url(#glow)"/>
+  <defs>
+    <linearGradient id="mouth" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c8285a"/>
+      <stop offset="1" stop-color="#8c1236"/>
+    </linearGradient>
+    <linearGradient id="eye" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c8285a"/>
+      <stop offset="1" stop-color="#9c1840"/>
+    </linearGradient>
+    <linearGradient id="tongue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff8aa6"/>
+      <stop offset="1" stop-color="#ef5a82"/>
+    </linearGradient>
+    <clipPath id="mouthClip"><path d="M236 532 Q512 610 788 532 Q780 840 512 862 Q244 840 236 532 Z"/></clipPath>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#6e1408" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <g transform="rotate(-6 512 560)">
+    <g filter="url(#soft)">
+      <path d="M282 360 Q358 262 434 360" fill="none" stroke="url(#eye)" stroke-width="68" stroke-linecap="round"/>
+      <path d="M590 360 Q666 262 742 360" fill="none" stroke="url(#eye)" stroke-width="68" stroke-linecap="round"/>
+      <path d="M236 532 Q512 610 788 532 Q780 840 512 862 Q244 840 236 532 Z" fill="url(#mouth)"/>
+    </g>
+    <g clip-path="url(#mouthClip)">
+      <ellipse cx="512" cy="880" rx="190" ry="128" fill="url(#tongue)"/>
+      <path d="M236 532 Q512 610 788 532 L788 548 Q512 626 236 548 Z" fill="#fff" opacity="0.18"/>
+    </g>
+  </g>
+</svg>
