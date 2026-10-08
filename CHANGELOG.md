@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.5.0](https://github.com/Cap-go/mimesis/compare/3.4.2...3.5.0) (2026-10-08)
+
+
+### Features
+
+* credit Capgo in Settings like BeWise ([#15](https://github.com/Cap-go/mimesis/issues/15)) ([1bd5edd](https://github.com/Cap-go/mimesis/commit/1bd5edd5f6c08a854b2c394d3778284529f9731a))
+
 ## [3.4.2](https://github.com/Cap-go/mimesis/compare/3.4.1...3.4.2) (2026-10-08)
 
 
