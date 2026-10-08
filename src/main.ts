@@ -10,6 +10,7 @@ import router from './router'
 import { initCrisp } from './services/crisp'
 import { stageDemo } from './services/demo'
 import { i18n, setLocale } from './services/i18n'
+import { getInstallId } from './services/install-id'
 import { initNavigation } from './services/navigation'
 import pinia, { whenHydrated } from './services/pinia'
 import { isNative } from './services/platform'
@@ -48,7 +49,7 @@ async function init() {
     void StatusBar.setStyle({ style: Style.Light })
     void initSound()
     await SplashScreen.hide()
-    const [{ identifier }, device, info] = await Promise.all([Device.getId(), Device.getInfo(), CapApp.getInfo()])
+    const [identifier, device, info] = await Promise.all([getInstallId(), Device.getInfo(), CapApp.getInfo()])
     void initCrisp({
       'user-uuid': identifier,
       'model': device.model,
