@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.4.2](https://github.com/Cap-go/mimesis/compare/3.4.1...3.4.2) (2026-10-08)
+
+
+### Bug Fixes
+
+* use a random install id instead of the device id ([#14](https://github.com/Cap-go/mimesis/issues/14)) ([4f5ab0d](https://github.com/Cap-go/mimesis/commit/4f5ab0d9f1425e709c26f7b74f55a2c0ac40d853))
+
 ## [3.4.1](https://github.com/Cap-go/mimesis/compare/3.4.0...3.4.1) (2026-10-07)
 
 
