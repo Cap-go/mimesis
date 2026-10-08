@@ -60,7 +60,8 @@ rate: 给应用评分
 chat: 联系客服
 openSource: GitHub 上的源代码
 version: '版本 {v}'
-liveUpdates: 由 Capgo 提供实时更新
+builtWith: 开源应用，使用 Capacitor 构建，通过 Capgo 实时更新。
+madeWith: 由 Capgo 打造
 madeBy: Martin Donadieu 出品
 fun.mimesis.rebus: 谐音猜词
 fun.mimesis.rebus_plus: 谐音猜词 Plus

@@ -60,7 +60,8 @@ rate: アプリを評価する
 chat: サポートに連絡
 openSource: GitHubでソースコードを見る
 version: 'バージョン {v}'
-liveUpdates: Capgoによるライブアップデート
+builtWith: オープンソース。Capacitorで開発し、Capgoのライブアップデートで配信しています。
+madeWith: Capgoで開発
 madeBy: 制作 Martin Donadieu
 fun.mimesis.rebus: ことば分解
 fun.mimesis.rebus_plus: ことば分解プラス

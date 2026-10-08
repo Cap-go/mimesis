@@ -125,10 +125,18 @@ onMounted(async () => {
           · {{ build.bundle }}
         </template>
       </p>
-      <button type="button" class="underline decoration-dotted underline-offset-4" @click="open('https://capgo.app/?ref=mimesis')">
-        {{ t('liveUpdates') }}
-      </button>
       <p>{{ t('madeBy') }}</p>
+      <p class="max-w-xs text-xs leading-relaxed text-plum-900/60">
+        {{ t('builtWith') }}
+      </p>
+      <button
+        type="button"
+        class="mt-3 flex min-h-11 items-center gap-2 rounded-full border border-plum-900/10 bg-white/60 py-1.5 pl-1.5 pr-4 text-sm font-bold text-plum-900 shadow-card active:scale-95"
+        @click="open('https://capgo.app/?ref=mimesis')"
+      >
+        <img src="/assets/capgo.svg" alt="" class="size-7 rounded-full">
+        {{ t('madeWith') }}
+      </button>
     </footer>
   </AppPage>
 </template>
