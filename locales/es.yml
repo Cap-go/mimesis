@@ -60,7 +60,8 @@ rate: Valorar la app
 chat: Contactar con soporte
 openSource: Código fuente en GitHub
 version: Versión {v}
-liveUpdates: Actualizaciones en vivo por Capgo
+builtWith: Código abierto, hecho con Capacitor y actualizado en vivo con Capgo.
+madeWith: Hecho con Capgo
 madeBy: Hecho por Martin Donadieu
 fun.mimesis.rebus: Jeroglíficos
 fun.mimesis.rebus_plus: Jeroglíficos Plus
