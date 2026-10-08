@@ -3,7 +3,6 @@ import type { CreateTypes } from 'canvas-confetti'
 import { InAppReview } from '@capacitor-community/in-app-review'
 import { KeepAwake } from '@capacitor-community/keep-awake'
 import { App } from '@capacitor/app'
-import { Device } from '@capacitor/device'
 import { create as createConfetti } from 'canvas-confetti'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -13,6 +12,7 @@ import TimerRing from '~/components/TimerRing.vue'
 import { saveGame } from '~/services/api'
 import { demo, DEMO_COVER } from '~/services/demo'
 import { success, tap, warning } from '~/services/haptics'
+import { getInstallId } from '~/services/install-id'
 import { resetTo } from '~/services/navigation'
 import { isNative } from '~/services/platform'
 import { playSound } from '~/services/sound'
@@ -110,9 +110,8 @@ async function finish() {
   if (import.meta.env.VITE_DEMO)
     return
   settings.gamesPlayed++
-  const { identifier } = await Device.getId()
   void saveGame({
-    deviceId: identifier,
+    deviceId: await getInstallId(),
     lang: settings.locale,
     mode: game.theme,
     teams: game.teams,
