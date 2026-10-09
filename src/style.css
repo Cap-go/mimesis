@@ -126,3 +126,9 @@ cap-page {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Pressed look for buttons tapped by the scripted demo reel. */
+.demo-press {
+  transform: translateY(4px) scale(0.97);
+  box-shadow: none !important;
+}
