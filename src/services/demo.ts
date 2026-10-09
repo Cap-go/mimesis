@@ -31,8 +31,7 @@ async function stage(router: Router, scene: string, lang: string): Promise<void>
   const game = useGameStore()
   const settings = useSettingsStore()
   const catalog = useCatalogStore()
-  settings.locale = lang
-  setLocale(lang)
+  await setLocale(lang)
   refreshChrome()
   settings.roundSeconds = 60
   settings.targetScore = 10

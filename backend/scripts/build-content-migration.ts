@@ -1,5 +1,5 @@
-// Builds a D1 migration that (re)loads the cards of every content/<locale>.json except French,
-// which stays as migrated from Supabase.
+// Builds a D1 migration that (re)loads the English cards from content/en.json.
+// Other languages are translated on demand by the translation worker (translate/).
 //   bun scripts/build-content-migration.ts migrations/0002_i18n.sql
 import { readdir } from 'node:fs/promises'
 import process from 'node:process'

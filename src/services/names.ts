@@ -1,18 +1,9 @@
-import { i18n } from './i18n'
+import type { NameList } from './i18n'
+import { names as localized } from './i18n'
 import { randomSelect } from './random'
 
-interface NameList {
-  firstNames: string[]
-  teamNames: string[]
-}
-
-const lists = Object.fromEntries(
-  Object.entries(import.meta.glob<{ default: NameList }>('../../locales/names/*.json', { eager: true }))
-    .map(([path, mod]) => [path.split('/').pop()!.replace('.json', ''), mod.default]),
-)
-
 export function names(): NameList {
-  return lists[i18n.global.locale.value] ?? lists.en ?? lists.fr
+  return localized.value
 }
 
 export function randomFirstName(): string {

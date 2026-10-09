@@ -3,7 +3,8 @@ import type { RouteLocationNormalized, Router } from 'vue-router'
 import { App } from '@capacitor/app'
 import { NativeNavigation } from '@capgo/capacitor-native-navigation'
 import { setDirection, setNavigation } from '@capgo/capacitor-transitions/vue'
-import { i18n } from './i18n'
+import { watch } from 'vue'
+import { i18n, messagesVersion } from './i18n'
 import { isNative, platform } from './platform'
 
 export type TabId = 'teams' | 'rules' | 'settings'
@@ -117,6 +118,7 @@ export async function initNavigation(appRouter: Router): Promise<void> {
   router = appRouter
   if (!isNative)
     return
+  watch(messagesVersion, refreshChrome)
   await NativeNavigation.configure({
     contentInsetMode: 'css',
     animationDuration: 320,

@@ -11,6 +11,8 @@ export default antfu(
       'public/**',
       'backend/.wrangler/**',
       'backend/.migration/**',
+      'translate/.wrangler/**',
+      'translate/.seed/**',
       'store/**',
       'CHANGELOG.md',
     ],

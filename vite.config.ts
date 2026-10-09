@@ -26,9 +26,10 @@ export default defineConfig({
     }),
     tailwindcss(),
     VueI18n({
-      runtimeOnly: true,
+      // Translations for other languages are fetched and compiled at runtime.
+      runtimeOnly: false,
       compositionOnly: true,
-      include: [resolve(import.meta.dirname, 'locales/*.yml')],
+      include: [resolve(import.meta.dirname, 'locales/en.json')],
     }),
   ],
   server: {

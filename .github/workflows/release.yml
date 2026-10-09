@@ -12,6 +12,7 @@ on:
     paths-ignore:
       - 'website/**'
       - 'backend/**'
+      - 'translate/**'
       - 'store/**'
       - 'fastlane/**'
       - '**/*.md'
