@@ -103,6 +103,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      # One build at a time: the Capgo plan caps concurrent native builds per organization.
+      max-parallel: 1
       matrix:
         platform: [ios, android]
     steps:
