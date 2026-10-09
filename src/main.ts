@@ -9,7 +9,7 @@ import App from './App.vue'
 import router from './router'
 import { initCrisp } from './services/crisp'
 import { stageDemo } from './services/demo'
-import { i18n, setLocale } from './services/i18n'
+import { detectLocale, i18n, setLocale } from './services/i18n'
 import { getInstallId } from './services/install-id'
 import { initNavigation } from './services/navigation'
 import pinia, { whenHydrated } from './services/pinia'
@@ -31,6 +31,9 @@ async function init() {
   useGameStore()
   // Restore saved teams and settings before the first frame.
   await whenHydrated()
+  // Older builds saved 'fr' as default even on English phones; only a picked language sticks.
+  if (!settings.localeChosen)
+    settings.locale = detectLocale()
   setLocale(settings.locale)
   void useCatalogStore().load(settings.locale)
 

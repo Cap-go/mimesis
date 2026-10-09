@@ -25,6 +25,7 @@ function languageName(code: string) {
 function changeLocale(event: Event) {
   const value = (event.target as HTMLSelectElement).value
   settings.locale = value
+  settings.localeChosen = true
   setLocale(value)
   refreshChrome()
   void useCatalogStore().load(value)

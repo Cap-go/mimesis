@@ -6,14 +6,15 @@ export const ROUND_OPTIONS = [30, 45, 60, 90] as const
 export const SCORE_OPTIONS = [5, 10, 15, 20] as const
 
 export const useSettingsStore = defineStore('settings', () => {
-  // First launch follows the device language; afterwards the saved choice wins.
+  // Follows the device language until the player picks one in Settings.
   const locale = ref(detectLocale())
+  const localeChosen = ref(false)
   const roundSeconds = ref(60)
   const targetScore = ref(10)
   const sound = ref(true)
   const onboarded = ref(false)
   const gamesPlayed = ref(0)
-  return { locale, roundSeconds, targetScore, sound, gamesPlayed, onboarded }
+  return { locale, localeChosen, roundSeconds, targetScore, sound, gamesPlayed, onboarded }
 })
 
 if (import.meta.hot)
