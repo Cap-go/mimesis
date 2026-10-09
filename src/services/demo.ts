@@ -88,18 +88,16 @@ export async function stageDemo(router: Router): Promise<void> {
 
 const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
-function button(label: string, last = false): HTMLButtonElement | undefined {
-  const all = [...document.querySelectorAll<HTMLButtonElement>('button')]
-    .filter(b => b.textContent?.trim().includes(label) && b.offsetParent)
-  return last ? all.at(-1) : all[0]
-}
-
-async function press(label: string, last = false): Promise<void> {
-  const target = button(label, last)
-  target?.classList.add('demo-press')
+// A missing button means the reel is off script, so stop instead of recording a broken take.
+async function press(label: string): Promise<void> {
+  const target = [...document.querySelectorAll<HTMLButtonElement>('button')]
+    .find(b => b.textContent?.trim().includes(label) && b.offsetParent)
+  if (!target)
+    throw new Error(`demo reel: button not found: ${label}`)
+  target.classList.add('demo-press')
   await wait(140)
-  target?.classList.remove('demo-press')
-  target?.click()
+  target.classList.remove('demo-press')
+  target.click()
 }
 
 async function type(input: HTMLInputElement, text: string): Promise<void> {
