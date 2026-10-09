@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.6.0](https://github.com/Cap-go/mimesis/compare/3.5.2...3.6.0) (2026-10-09)
+
+
+### Features
+
+* translate the app into any phone language ([#18](https://github.com/Cap-go/mimesis/issues/18)) ([b056c20](https://github.com/Cap-go/mimesis/commit/b056c205dd61c25aadfe63b6c67f7bc7d25e4aba))
+
 ## [3.5.2](https://github.com/Cap-go/mimesis/compare/3.5.1...3.5.2) (2026-10-09)
 
 
