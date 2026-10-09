@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.5.2](https://github.com/Cap-go/mimesis/compare/3.5.1...3.5.2) (2026-10-09)
+
+
+### Bug Fixes
+
+* follow device language until the player picks one ([#17](https://github.com/Cap-go/mimesis/issues/17)) ([18947ed](https://github.com/Cap-go/mimesis/commit/18947ed41b6728f4b77383ca2be412d0cf6c24fa))
+
 ## [3.5.1](https://github.com/Cap-go/mimesis/compare/3.5.0...3.5.1) (2026-10-08)
 
 ## [3.5.0](https://github.com/Cap-go/mimesis/compare/3.4.2...3.5.0) (2026-10-08)
