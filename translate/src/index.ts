@@ -256,7 +256,15 @@ async function translateLanguage(env: Env, lang: string): Promise<void> {
 }
 
 export default {
-  fetch: handle,
+  async fetch(request, env, ctx) {
+    try {
+      return await handle(request, env, ctx)
+    }
+    catch (err) {
+      console.error('request failed', err)
+      return json({ error: 'upstream' }, false, 502)
+    }
+  },
   async queue(batch: MessageBatch<Job>, env: Env): Promise<void> {
     for (const message of batch.messages) {
       await translateLanguage(env, message.body.lang)
