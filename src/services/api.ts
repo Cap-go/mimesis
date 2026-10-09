@@ -1,3 +1,4 @@
+import { TRANSLATE_URL } from './i18n'
 import { getStorage, setStorage } from './storage'
 
 export const API_URL = import.meta.env.VITE_API_URL ?? 'https://api.mimesis.fun'
@@ -23,11 +24,12 @@ export interface Catalog {
   lang: string
   themes: Theme[]
   guesses: Guess[]
+  // False while the translation worker is still translating some cards (they stay in English).
+  complete?: boolean
 }
 
 function catalogKey(lang: string): string {
-  // French kept the original key so existing installs reuse their offline copy.
-  return lang === 'fr' ? 'catalog_v2' : `catalog_v2_${lang}`
+  return `catalog_v3_${lang}`
 }
 
 export async function getCachedCatalog(lang: string): Promise<Catalog | null> {
@@ -35,7 +37,9 @@ export async function getCachedCatalog(lang: string): Promise<Catalog | null> {
 }
 
 export async function fetchCatalog(lang: string): Promise<Catalog> {
-  const res = await fetch(`${API_URL}/v1/catalog?lang=${encodeURIComponent(lang)}`)
+  // English cards come straight from the API; other languages through the translation worker.
+  const base = lang === 'en' ? API_URL : TRANSLATE_URL
+  const res = await fetch(`${base}/v1/catalog?lang=${encodeURIComponent(lang)}`)
   if (!res.ok)
     throw new Error(`catalog ${res.status}`)
   const catalog = await res.json() as Catalog

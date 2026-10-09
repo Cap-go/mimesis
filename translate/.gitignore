@@ -1,0 +1,3 @@
+.seed/
+node_modules/
+.wrangler/

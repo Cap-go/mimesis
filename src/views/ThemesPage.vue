@@ -3,15 +3,14 @@ import type { Theme } from '~/services/api'
 import { useI18n } from 'vue-i18n'
 import AppPage from '~/components/AppPage.vue'
 import { tap } from '~/services/haptics'
+import { currentLocale } from '~/services/i18n'
 import { push } from '~/services/navigation'
 import { useCatalogStore } from '~/store/catalog'
 import { useGameStore } from '~/store/game'
-import { useSettingsStore } from '~/store/settings'
 
 const { t } = useI18n()
 const catalog = useCatalogStore()
 const game = useGameStore()
-const settings = useSettingsStore()
 
 function start(theme: Theme) {
   tap()
@@ -32,7 +31,7 @@ function start(theme: Theme) {
       <p class="text-lg font-semibold">
         {{ t('loadError') }}
       </p>
-      <button type="button" class="btn-primary" @click="catalog.load(settings.locale)">
+      <button type="button" class="btn-primary" @click="catalog.load(currentLocale())">
         {{ t('retry') }}
       </button>
     </div>

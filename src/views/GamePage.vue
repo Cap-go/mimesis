@@ -12,6 +12,7 @@ import TimerRing from '~/components/TimerRing.vue'
 import { saveGame } from '~/services/api'
 import { demo, DEMO_COVER } from '~/services/demo'
 import { success, tap, warning } from '~/services/haptics'
+import { currentLocale } from '~/services/i18n'
 import { getInstallId } from '~/services/install-id'
 import { resetTo } from '~/services/navigation'
 import { isNative } from '~/services/platform'
@@ -112,7 +113,7 @@ async function finish() {
   settings.gamesPlayed++
   void saveGame({
     deviceId: await getInstallId(),
-    lang: settings.locale,
+    lang: currentLocale(),
     mode: game.theme,
     teams: game.teams,
     foundGuess: game.foundGuess,

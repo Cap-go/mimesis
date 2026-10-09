@@ -28,8 +28,10 @@ export const useCatalogStore = defineStore('catalog', () => {
   // Show the cached catalog instantly, then refresh it from the API.
   // Only the latest requested language may land, so a slow earlier load can't override a newer choice.
   let requested = ''
-  async function load(lang: string): Promise<void> {
+  let retry: ReturnType<typeof setTimeout> | undefined
+  async function load(lang: string, attempt = 0): Promise<void> {
     requested = lang
+    clearTimeout(retry)
     if (catalog.value?.lang !== lang) {
       const cached = await getCachedCatalog(lang)
       if (requested !== lang)
@@ -43,6 +45,9 @@ export const useCatalogStore = defineStore('catalog', () => {
         return
       catalog.value = fresh
       error.value = false
+      // A new language is translated on the fly; pick up the rest of the cards when ready.
+      if (fresh.complete === false && attempt < 15)
+        retry = setTimeout(() => void load(lang, attempt + 1), 20_000)
     }
     catch (err) {
       console.warn('catalog', err)

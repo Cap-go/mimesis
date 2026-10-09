@@ -41,26 +41,26 @@ app.use('/v1/*', cors({ origin: '*', allowMethods: ['GET', 'POST', 'OPTIONS'] })
 
 app.get('/', c => c.json({ name: 'mimesis-api', ok: true }))
 
-// "pt-BR" -> "pt"; unknown languages get the English cards, then French.
+// "pt-BR" -> "pt"; languages without their own row are recorded as English.
 async function resolveLang(db: D1Database, locale: string) {
   const base = locale.toLowerCase().split(/[-_]/)[0]
-  const row = await db.prepare(`SELECT id FROM langs WHERE locale IN (?1, 'en', 'fr')
-    ORDER BY CASE locale WHEN ?1 THEN 0 WHEN 'en' THEN 1 ELSE 2 END LIMIT 1`).bind(base).first<{ id: number }>()
+  const row = await db.prepare(`SELECT id FROM langs WHERE locale IN (?1, 'en')
+    ORDER BY CASE locale WHEN ?1 THEN 0 ELSE 1 END LIMIT 1`).bind(base).first<{ id: number }>()
   return row?.id ?? 1
 }
 
-// One request gives the app everything it needs to play offline.
+// One request gives the app everything it needs to play offline. Cards are English only;
+// the translation worker (i18n.mimesis.fun) serves them in other languages.
 app.get('/v1/catalog', async (c) => {
-  const locale = c.req.query('lang') ?? 'fr'
   const cache = caches.default
   // Bump `v` when the catalog content changes to skip stale edge copies.
-  const cacheKey = new Request(new URL(`/v1/catalog?lang=${encodeURIComponent(locale)}&v=2`, c.req.url))
+  const cacheKey = new Request(new URL('/v1/catalog?lang=en&v=3', c.req.url))
   const cached = await cache.match(cacheKey)
   if (cached)
     return cached
 
   const db = c.env.DB
-  const langId = await resolveLang(db, locale)
+  const langId = await resolveLang(db, 'en')
   const imageBase = new URL('/images/', c.req.url).toString()
   const [modes, guesses] = await db.batch([
     db.prepare('SELECT id, name, icon, sort_order, status FROM modes WHERE active = 1 ORDER BY sort_order, id'),
@@ -68,7 +68,7 @@ app.get('/v1/catalog', async (c) => {
   ])
 
   const res = c.json({
-    lang: locale,
+    lang: 'en',
     themes: (modes.results as unknown as ModeRow[]).map(m => ({
       id: m.id,
       name: m.name,
@@ -98,7 +98,7 @@ app.post('/v1/games', async (c) => {
   if (!body)
     return c.json({ error: 'invalid_json' }, 400)
   const { deviceId, mode, teams, foundGuess, skipGuess } = body
-  const locale = typeof body.lang === 'string' ? body.lang : 'fr'
+  const locale = typeof body.lang === 'string' ? body.lang : 'en'
   if (typeof deviceId !== 'string' || deviceId.length < 4 || deviceId.length > 128)
     return c.json({ error: 'invalid_device' }, 400)
   if (!Number.isInteger(mode))

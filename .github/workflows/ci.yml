@@ -30,3 +30,14 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       - run: bun run typecheck
+
+  translate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: translate
+    steps:
+      - uses: actions/checkout@v5
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run typecheck

@@ -33,7 +33,7 @@ Every push to `main` runs [`release.yml`](.github/workflows/release.yml):
 2. The web build is uploaded to the Capgo `production` channel with `--delta`. Every installed app with compatible native code gets it on next launch, no store review.
 3. `capgo bundle compatibility` compares the native plugins with what is in the stores. When native code changed, Capgo Cloud Build compiles iOS and Android and runs `--submit-to-store-review`, so both builds go to App Store and Google Play review automatically. `--auto-min-update-version` keeps the new bundle away from older store builds until they update.
 
-Other workflows: [`ci.yml`](.github/workflows/ci.yml) (lint, types, tests, build), [`deploy_api.yml`](.github/workflows/deploy_api.yml) (Worker + D1 migrations) and [`deploy_website.yml`](.github/workflows/deploy_website.yml).
+Other workflows: [`ci.yml`](.github/workflows/ci.yml) (lint, types, tests, build), [`deploy_api.yml`](.github/workflows/deploy_api.yml) (Worker + D1 migrations), [`deploy_translate.yml`](.github/workflows/deploy_translate.yml) (translation Worker) and [`deploy_website.yml`](.github/workflows/deploy_website.yml).
 
 Required secrets: `CAPGO_TOKEN`, `CLOUDFLARE_API_TOKEN`, plus the Capgo build credentials (`BUILD_CERTIFICATE_BASE64`, `P12_PASSWORD`, `APPLE_KEY_ID`, `APPLE_ISSUER_ID`, `APPLE_KEY_CONTENT`, `APP_STORE_CONNECT_TEAM_ID`, `CAPGO_IOS_PROVISIONING_MAP`, `ANDROID_KEYSTORE_FILE`, `KEYSTORE_KEY_ALIAS`, `KEYSTORE_KEY_PASSWORD`, `KEYSTORE_STORE_PASSWORD`, `PLAY_CONFIG_JSON`).
 
@@ -50,16 +50,23 @@ bunx cap open ios    # or android
 
 ## Languages
 
-The app follows the device language on first launch and can be switched in Settings.
+Only English is stored. The app speaks the phone's language, whatever it is: UI strings, random names and cards come from the translation worker (`translate/`, served on `i18n.mimesis.fun`), the same approach as the Capgo website.
 
-| What                                              | Where                                                                                                                                                          |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| App UI                                            | `locales/<code>.yml`                                                                                                                                           |
-| Random player and team names                      | `locales/names/<code>.json`                                                                                                                                    |
-| Cards                                             | `backend/content/<code>.json`, loaded into D1 by a migration built with `bun scripts/build-content-migration.ts migrations/<n>_<name>.sql` (run in `backend/`) |
-| Store listing, release notes, screenshot captions | `store/listing/<store-locale>.json`, mapped to App Store and Play locale codes in `store/locales.json`                                                         |
+| What                                              | Where                                                                                                                                                      |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| App UI                                            | `locales/en.json`                                                                                                                                          |
+| Random player and team names                      | `locales/names.json`                                                                                                                                       |
+| Cards                                             | `backend/content/en.json`, loaded into D1 by a migration built with `bun scripts/build-content-migration.ts migrations/<n>_<name>.sql` (run in `backend/`) |
+| Store listing, release notes, screenshot captions | `store/listing/<store-locale>.json`, mapped to App Store and Play locale codes in `store/locales.json`                                                     |
 
-Cards are written for each language, not translated: local idioms, rebus puns that work in that language, and the local titles of films and books.
+How translation works:
+
+- The worker keeps one dictionary per language in R2 (`dict/<lang>.json`, English text to translation). Requests only read it; anything missing is returned in English with `complete: false` and queued.
+- A queue consumer translates the missing strings with Workers AI (`gpt-oss-120b`), UI first, then cards theme by theme. Artworks get their official local title, idioms become a local idiom, rebuses are re-invented as puns that work in that language.
+- The app shows its last saved copy instantly (offline too) and refetches every 20 s while a language is still being translated.
+- Editing an English string only translates that string again; the rest stays cached.
+
+`translate/scripts/seed.ts` loaded the hand-made translations the app used to ship (de, es, fr, it, ja, pt, zh) into those dictionaries.
 
 ## Store listings and screenshots
 
@@ -91,7 +98,7 @@ bunx @capacitor/assets generate --ios --android --iconBackgroundColor '#f08442' 
 
 `backend/` is a Hono Worker with:
 
-- `GET /v1/catalog?lang=<code>`: themes and every card of that language in one cached response, so the app plays offline after the first launch. Unknown languages get English.
+- `GET /v1/catalog`: themes and every English card in one cached response, so the app plays offline after the first launch. `translate/` serves the same shape in any language.
 - `POST /v1/games`: records finished games per device.
 - `GET /images/*`: card covers from R2.
 

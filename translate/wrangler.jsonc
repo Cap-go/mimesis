@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mimesis-translate",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "account_id": "9ee3d7479a3c359681e3fab2c8cb22c0",
+  "observability": { "enabled": true },
+  "workers_dev": false,
+  "routes": [{ "pattern": "i18n.mimesis.fun", "custom_domain": true }],
+  "ai": { "binding": "AI" },
+  // One dictionary per language: dict/<lang>.json maps "<kind>:<english text>" to its translation.
+  "r2_buckets": [{ "binding": "CACHE", "bucket_name": "mimesis-translations" }],
+  // English cards come from the API worker.
+  "services": [{ "binding": "API", "service": "mimesis-api" }],
+  "queues": {
+    "producers": [{ "binding": "QUEUE", "queue": "mimesis-translate" }],
+    // One language at a time, so dictionary writes never race.
+    "consumers": [{ "queue": "mimesis-translate", "max_batch_size": 1, "max_batch_timeout": 1, "max_retries": 3, "retry_delay": 60, "max_concurrency": 1 }]
+  },
+  "vars": { "MODEL": "@cf/openai/gpt-oss-120b" }
+}
