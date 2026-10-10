@@ -46,6 +46,9 @@ const targets = [
   { id: 'ios-6.9', raw: 'iphone', width: 1320, height: 2868, radius: 90, deviceWidth: 0.86 },
   { id: 'ipad-13', raw: 'ipad', width: 2064, height: 2752, radius: 50, deviceWidth: 0.86 },
   { id: 'android-phone', raw: 'android', width: 1080, height: 1920, radius: 44, deviceWidth: 0.86 },
+  // iPhone Duo: outer (closed) and inner (open) displays, from scripts/capture-duo-screenshots.ts.
+  { id: 'iphone-duo-outer', raw: 'duo-outer', width: 1398, height: 2034, radius: 70, deviceWidth: 0.82 },
+  { id: 'iphone-duo-inner', raw: 'duo-inner', width: 2007, height: 2853, radius: 80, deviceWidth: 0.84 },
 ]
 
 function html(scene: Scene, target: typeof targets[number], image: string) {

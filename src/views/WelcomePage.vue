@@ -69,21 +69,21 @@ onBeforeUnmount(() => window.removeEventListener('mimesis:hardware-back', onHard
 
 <template>
   <AppPage>
-    <div class="flex flex-1 flex-col">
-      <div class="flex justify-end pt-2">
+    <div class="flex min-h-0 flex-1 flex-col">
+      <div class="flex shrink-0 justify-end pt-2 short:pt-0">
         <button v-if="!last" type="button" class="btn-ghost -mr-3 text-plum-700" @click="finish()">
           {{ t('onbSkip') }}
         </button>
         <span v-else class="min-h-11" aria-hidden="true" />
       </div>
 
-      <div ref="track" class="no-scrollbar -mx-5 flex flex-1 snap-x snap-mandatory overflow-x-auto" @scroll.passive="onScroll">
+      <div ref="track" class="no-scrollbar -mx-5 flex min-h-0 flex-1 snap-x snap-mandatory overflow-x-auto" @scroll.passive="onScroll">
         <section
           v-for="(step, i) in steps" :key="step"
-          class="flex w-full shrink-0 snap-center flex-col items-center justify-center px-5 pb-6 text-center"
+          class="flex w-full shrink-0 snap-center flex-col items-center justify-center px-5 pb-6 text-center short:flex-row short:gap-10 short:pb-2 short:text-left"
           :aria-hidden="i !== index"
         >
-          <div class="flex h-72 w-full max-w-sm items-center justify-center" aria-hidden="true">
+          <div class="flex h-72 w-full max-w-sm shrink-0 items-center justify-center short:h-48 short:w-72 short:scale-75" aria-hidden="true">
             <img v-if="step === 'welcome'" src="/assets/icon/icon.png" alt="" class="size-44 -rotate-6 rounded-[2.75rem] shadow-card">
 
             <div v-else-if="step === 'teams'" class="flex w-full flex-col gap-3">
@@ -117,16 +117,18 @@ onBeforeUnmount(() => window.removeEventListener('mimesis:hardware-back', onHard
             </div>
           </div>
 
-          <h1 class="mt-6 text-4xl font-extrabold leading-tight text-plum-900">
-            {{ t(`onb${i + 1}Title`) }}
-          </h1>
-          <p class="mt-3 max-w-sm text-lg font-semibold leading-relaxed text-plum-700">
-            {{ t(`onb${i + 1}Body`, { found: t('found'), pass: t('pass'), score: settings.targetScore }) }}
-          </p>
+          <div>
+            <h1 class="mt-6 text-4xl font-extrabold leading-tight text-plum-900 short:mt-0 short:text-3xl">
+              {{ t(`onb${i + 1}Title`) }}
+            </h1>
+            <p class="mt-3 max-w-sm text-lg font-semibold leading-relaxed text-plum-700 short:text-base">
+              {{ t(`onb${i + 1}Body`, { found: t('found'), pass: t('pass'), score: settings.targetScore }) }}
+            </p>
+          </div>
         </section>
       </div>
 
-      <div class="flex justify-center gap-2 py-4" role="tablist">
+      <div class="flex shrink-0 justify-center gap-2 py-4 short:py-2" role="tablist">
         <button
           v-for="(step, i) in steps" :key="step"
           type="button" role="tab" :aria-selected="i === index" :aria-label="t(`onb${i + 1}Title`)"
@@ -135,7 +137,7 @@ onBeforeUnmount(() => window.removeEventListener('mimesis:hardware-back', onHard
           @click="goTo(i)"
         />
       </div>
-      <button type="button" class="btn-primary mb-4 w-full text-xl" @click="next()">
+      <button type="button" class="btn-primary mb-4 w-full shrink-0 text-xl short:mb-2" @click="next()">
         {{ last ? t('onbStart') : t('onbNext') }}
       </button>
     </div>

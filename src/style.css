@@ -2,6 +2,9 @@
 @import '@fontsource-variable/bricolage-grotesque';
 @import '@fontsource-variable/nunito';
 
+/* Short viewports: phones in landscape, iPhone Duo's outer display on its side. */
+@custom-variant short (@media (max-height: 560px));
+
 @theme {
   --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
   --font-sans: 'Nunito Variable', ui-sans-serif, system-ui, sans-serif;

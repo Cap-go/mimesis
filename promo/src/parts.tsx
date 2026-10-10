@@ -7,7 +7,8 @@ import { color, font, FPS, REEL } from './theme'
 export const REEL_RATIO = 2868 / 1320
 
 // Warm stage gradient with slowly drifting cards, like the app background.
-export function Stage({ children }: { children?: ReactNode }) {
+// `loop` makes the drift repeat every `loop` frames, for assets that play on a loop.
+export function Stage({ children, loop }: { children?: ReactNode, loop?: number }) {
   const frame = useCurrentFrame()
   const { width, height } = useVideoConfig()
   const cards = [
@@ -21,7 +22,8 @@ export function Stage({ children }: { children?: ReactNode }) {
   return (
     <AbsoluteFill style={{ background: `radial-gradient(120% 90% at 30% 10%, ${color.pizazzLight} 0%, ${color.pizazz} 55%, #d4642c 100%)`, overflow: 'hidden' }}>
       {cards.map((card, i) => {
-        const drift = Math.sin((frame + card.d) / 45) * 14
+        const phase = loop ? (frame / loop) * Math.PI * 2 : frame / 45
+        const drift = Math.sin(phase + card.d / 45) * 14
         return (
           <div
             key={i}
@@ -34,7 +36,7 @@ export function Stage({ children }: { children?: ReactNode }) {
               borderRadius: unit * 0.16,
               background: 'rgba(255, 250, 245, 0.16)',
               border: '3px solid rgba(255, 250, 245, 0.28)',
-              transform: `rotate(${card.r + Math.sin((frame + card.d) / 60) * 4}deg)`,
+              transform: `rotate(${card.r + Math.sin(phase * (loop ? 1 : 0.75) + card.d / 60) * 4}deg)`,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

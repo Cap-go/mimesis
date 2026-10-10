@@ -62,7 +62,7 @@
       "src": 12256,
       "mode": 1,
       "title": "Singin' in the Rain",
-      "author": "Gene Kelly et Stanley Donen",
+      "author": "Gene Kelly and Stanley Donen",
       "type": "Movie",
       "cover": "art/yphwjsrsuq"
     },
@@ -86,7 +86,7 @@
       "src": 12259,
       "mode": 1,
       "title": "Polisse",
-      "author": "Mawenn",
+      "author": "Maïwenn",
       "type": "Movie",
       "cover": "art/w31n83h761c"
     },
@@ -102,7 +102,7 @@
       "src": 12261,
       "mode": 1,
       "title": "Kung Fu Panda",
-      "author": "Mark Osborne et John Stevenson",
+      "author": "Mark Osborne and John Stevenson",
       "type": "Movie",
       "cover": "art/6jo9szibnob"
     },
@@ -254,7 +254,7 @@
       "src": 12280,
       "mode": 1,
       "title": "Rapunzel",
-      "author": "frères Grimm",
+      "author": "Brothers Grimm",
       "type": "Tale",
       "cover": "art/8y7x60335cq"
     },
@@ -310,7 +310,7 @@
       "src": 12287,
       "mode": 1,
       "title": "The Wolf of Wall Street",
-      "author": "Martin scorsese",
+      "author": "Martin Scorsese",
       "type": "Movie",
       "cover": "art/n5ibtvci4v"
     },
@@ -334,7 +334,7 @@
       "src": 12290,
       "mode": 1,
       "title": "Walking on the Moon",
-      "author": "Police",
+      "author": "The Police",
       "type": "Song",
       "cover": null
     },
@@ -358,7 +358,7 @@
       "src": 12293,
       "mode": 1,
       "title": "The Pretender",
-      "author": "Steven Long mitchel et Craig Van sickel",
+      "author": "Steven Long Mitchell and Craig W. Van Sickle",
       "type": "TV show",
       "cover": "art/bhb9lyhr9ar"
     },
@@ -422,7 +422,7 @@
       "src": 12301,
       "mode": 1,
       "title": "Mona Lisa",
-      "author": "Léonard de Vinci",
+      "author": "Leonardo da Vinci",
       "type": "Painting",
       "cover": "art/6kbee6t0bag"
     },
@@ -454,7 +454,7 @@
       "src": 12305,
       "mode": 1,
       "title": "The Princess and the Pea",
-      "author": "Hans Andersen",
+      "author": "Hans Christian Andersen",
       "type": "Tale",
       "cover": "art/76r3akj65xg"
     },
