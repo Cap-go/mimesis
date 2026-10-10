@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.7.0](https://github.com/Cap-go/mimesis/compare/3.6.0...3.7.0) (2026-10-10)
+
+
+### Features
+
+* promo videos for the App Store and the website ([#19](https://github.com/Cap-go/mimesis/issues/19)) ([cc86ab8](https://github.com/Cap-go/mimesis/commit/cc86ab89c49d3ae184c6b0c32ec275328351c909))
+
 ## [3.6.0](https://github.com/Cap-go/mimesis/compare/3.5.2...3.6.0) (2026-10-09)
 
 
