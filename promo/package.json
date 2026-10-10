@@ -1,0 +1,23 @@
+{
+  "name": "mimesis-promo",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.tsx",
+    "render": "bun scripts/render.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource-variable/nunito": "^5.3.0",
+    "@remotion/cli": "^4.0.534",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "^4.0.534"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.2",
+    "@types/react": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}

@@ -250,6 +250,17 @@ section {
   color: var(--plum-soft);
 }
 
+.promo {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+  margin: 40px auto 0;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px -24px rgb(59 10 31 / 0.45);
+  background: #e67f3c;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -13,6 +13,7 @@ export default antfu(
       'backend/.migration/**',
       'translate/.wrangler/**',
       'translate/.seed/**',
+      'promo/out/**',
       'store/**',
       'CHANGELOG.md',
     ],

@@ -86,6 +86,25 @@ fastlane android listing
 
 `VITE_DEMO` only stages screens for captures; it is stripped from production builds.
 
+## Promo videos
+
+`promo/` is a [Remotion](https://www.remotion.dev) project that turns a real game, recorded on the iOS simulator, into:
+
+- `store/preview/<locale>/app-preview.mp4`: App Store app previews (886×1920, 30 fps, en-US and fr-FR).
+- `website/video/mimesis-<lang>.mp4` + `poster-<lang>.webp`: the website video (1920×1080).
+
+The game is the `reel` demo scene (`src/services/demo.ts`): it plays through the real buttons, from adding a player to the winning confetti. To refresh the videos:
+
+```bash
+VITE_DEMO=reel bun run build && bunx cap sync ios   # then build and install on an iPhone 6.9" simulator
+xcrun simctl spawn <udid> defaults write ee.forgr.mimesis CapacitorStorage.demo "reel en"
+xcrun simctl io <udid> recordVideo --codec=h264 reel-en.mp4   # launch the app, stop after the confetti
+ffmpeg -ss 3.5 -to 22.9 -i reel-en.mp4 -vf fps=30,scale=1080:-2 -an promo/public/reel-en.mp4   # same for fr
+cd promo && bun install && bun run render   # bun run studio to preview and tweak
+```
+
+Tap times and captions live in `promo/src/theme.ts`.
+
 ## App icon and splash
 
 Sources live in `assets/` (`icon.svg`, `icon-foreground.svg`, `icon-background.svg`, `splash.svg` and their PNG renders). Regenerate the native sets with:
