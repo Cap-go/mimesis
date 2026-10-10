@@ -29,7 +29,7 @@
     "@capacitor/splash-screen": "^8.0.2",
     "@capacitor/status-bar": "^8.0.4",
     "@capgo/capacitor-crisp": "^8.2.6",
-    "@capgo/capacitor-native-navigation": "^8.6.0",
+    "@capgo/capacitor-native-navigation": "^8.6.2",
     "@capgo/capacitor-transitions": "^8.3.1",
     "@capgo/capacitor-updater": "^8.52.1",
     "@capgo/native-audio": "^8.4.2",

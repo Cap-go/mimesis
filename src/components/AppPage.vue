@@ -33,8 +33,8 @@ onUnmounted(() => cleanup?.())
   <cap-page ref="pageRef">
     <cap-content slot="content" fullscreen>
       <div
-        class="relative mx-auto flex min-h-full w-full max-w-2xl flex-col px-5"
-        :class="chrome === 'immersive' ? '' : 'pb-8'"
+        class="relative mx-auto flex w-full max-w-2xl flex-col px-5"
+        :class="chrome === 'immersive' ? 'h-full' : 'min-h-full pb-8'"
         :style="{
           paddingTop: chrome === 'immersive' ? 'var(--safe-top)' : 'calc(var(--safe-top) + 0.5rem)',
           paddingBottom: chrome === 'tab' && !isNative ? 'calc(var(--inset-bottom) + 6rem)' : chrome === 'immersive' ? 'var(--safe-bottom)' : 'calc(var(--safe-bottom) + 1rem)',

@@ -204,7 +204,7 @@ onBeforeUnmount(() => {
 <template>
   <AppPage>
     <!-- Handoff: pass the phone to the next mime. -->
-    <section v-if="phase === 'handoff'" class="flex flex-1 flex-col pt-4">
+    <section v-if="phase === 'handoff'" class="flex min-h-0 flex-1 flex-col pt-4 short:pt-1">
       <div class="flex items-center justify-between">
         <button type="button" class="btn-ghost -ml-3 text-plum-900" @click="quit()">
           <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>
@@ -221,33 +221,37 @@ onBeforeUnmount(() => {
           </li>
         </ul>
       </div>
-      <div class="flex flex-1 flex-col items-center justify-center py-8 text-center">
-        <p class="text-lg font-bold uppercase tracking-widest text-plum-700/70">
-          {{ t('handoffTitle') }}
-        </p>
-        <h1 class="mt-2 text-5xl font-extrabold capitalize leading-none text-plum-900 sm:text-6xl">
-          {{ game.teamName }}
-        </h1>
-        <div class="card mt-10 flex w-full max-w-sm flex-col items-center gap-3 px-6 py-8">
-          <span class="flex size-20 items-center justify-center rounded-full font-display text-4xl font-extrabold text-white" :style="{ backgroundColor: teamColor }" aria-hidden="true">
-            {{ game.playerName.charAt(0).toUpperCase() }}
-          </span>
-          <p class="font-display text-3xl font-extrabold text-plum-900">
-            {{ t('handoffMimer', { name: game.playerName }) }}
-          </p>
-          <p class="text-base font-semibold text-plum-500">
-            {{ t('handoffHint', { name: game.playerName }) }}
-          </p>
+      <div class="flex min-h-0 flex-1 overflow-y-auto">
+        <div class="m-auto flex w-full flex-col items-center py-8 text-center short:flex-row short:justify-center short:gap-8 short:py-2">
+          <div>
+            <p class="text-lg font-bold uppercase tracking-widest text-plum-700/70">
+              {{ t('handoffTitle') }}
+            </p>
+            <h1 class="mt-2 text-5xl font-extrabold capitalize leading-none text-plum-900 sm:text-6xl short:text-4xl">
+              {{ game.teamName }}
+            </h1>
+          </div>
+          <div class="card mt-10 flex w-full max-w-sm flex-col items-center gap-3 px-6 py-8 short:mt-0 short:py-5">
+            <span class="flex size-20 items-center justify-center rounded-full font-display text-4xl font-extrabold text-white short:size-14 short:text-3xl" :style="{ backgroundColor: teamColor }" aria-hidden="true">
+              {{ game.playerName.charAt(0).toUpperCase() }}
+            </span>
+            <p class="font-display text-3xl font-extrabold text-plum-900 short:text-2xl">
+              {{ t('handoffMimer', { name: game.playerName }) }}
+            </p>
+            <p class="text-base font-semibold text-plum-500">
+              {{ t('handoffHint', { name: game.playerName }) }}
+            </p>
+          </div>
         </div>
       </div>
-      <button type="button" class="btn-primary mb-4 w-full text-xl" @click="startRound()">
+      <button type="button" class="btn-primary mb-4 w-full shrink-0 text-xl short:mb-2" @click="startRound()">
         {{ t('readyCta') }}
       </button>
     </section>
 
     <!-- Playing: the mime reads the card, the team guesses. -->
-    <section v-else-if="phase === 'playing' && game.guess" class="flex flex-1 flex-col gap-4 pt-3">
-      <div class="flex items-center justify-between">
+    <section v-else-if="phase === 'playing' && game.guess" class="flex min-h-0 flex-1 flex-col gap-4 pt-3 short:gap-2 short:pt-1">
+      <div class="flex shrink-0 items-center justify-between">
         <button type="button" class="flex size-12 items-center justify-center rounded-full bg-cream/90 text-plum-900 shadow-pop-soft active:translate-y-0.5" :aria-label="t('pause')" @click="pause()">
           <svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1" /><rect x="14" y="4" width="4" height="16" rx="1" /></svg>
         </button>
@@ -257,35 +261,41 @@ onBeforeUnmount(() => {
           <span class="text-[0.65rem] font-extrabold uppercase text-plum-500">/ {{ settings.targetScore }}</span>
         </div>
       </div>
-      <Transition mode="out-in" enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 translate-x-8 rotate-2" leave-active-class="duration-150 ease-in" leave-to-class="opacity-0 -translate-x-8 -rotate-2">
-        <article :key="game.guess.id" class="card flex flex-1 flex-col items-center justify-center overflow-hidden text-center" aria-live="polite">
-          <img v-if="game.guess.cover" :src="game.guess.cover" alt="" class="max-h-[34vh] w-full object-cover" aria-hidden="true">
-          <div class="flex flex-1 flex-col items-center justify-center gap-2 px-6 py-6">
-            <p v-if="game.guess.type" class="rounded-full bg-pizazz-100 px-3 py-1 text-sm font-extrabold uppercase tracking-wide text-pizazz-600">
-              {{ game.guess.type }}
-            </p>
-            <h2 class="text-4xl font-extrabold leading-tight text-plum-900 sm:text-5xl">
-              {{ game.guess.title }}
-            </h2>
-            <p v-if="game.guess.author" class="text-xl font-semibold text-plum-500">
-              {{ game.guess.author }}
-            </p>
-          </div>
-        </article>
-      </Transition>
-      <div class="grid grid-cols-2 gap-3 pb-4">
-        <button type="button" class="btn-secondary min-h-20 text-2xl" @click="skip()">
-          {{ t('pass') }}
-        </button>
-        <button type="button" class="btn-primary min-h-20 text-2xl" @click="found()">
-          {{ t('found') }}
-        </button>
+      <div class="flex min-h-0 flex-1 flex-col gap-4 short:flex-row short:gap-3">
+        <Transition mode="out-in" enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 translate-x-8 rotate-2" leave-active-class="duration-150 ease-in" leave-to-class="opacity-0 -translate-x-8 -rotate-2">
+          <article :key="game.guess.id" class="card flex min-h-0 flex-1 flex-col overflow-hidden text-center short:flex-row" aria-live="polite">
+            <!-- The whole artwork stays visible on any screen shape, over a blurred fill. -->
+            <div v-if="game.guess.cover" class="relative min-h-0 min-w-0 flex-1 basis-0 overflow-hidden bg-plum-900" aria-hidden="true">
+              <img :src="game.guess.cover" alt="" class="absolute inset-0 size-full scale-125 object-cover opacity-50 blur-2xl">
+              <img :src="game.guess.cover" alt="" class="absolute inset-0 size-full object-contain">
+            </div>
+            <div class="flex flex-col items-center justify-center gap-2 px-6 py-6 short:flex-1 short:py-3" :class="game.guess.cover ? 'shrink-0' : 'flex-1'">
+              <p v-if="game.guess.type" class="rounded-full bg-pizazz-100 px-3 py-1 text-sm font-extrabold uppercase tracking-wide text-pizazz-600">
+                {{ game.guess.type }}
+              </p>
+              <h2 class="text-4xl font-extrabold leading-tight text-plum-900 sm:text-5xl short:text-3xl">
+                {{ game.guess.title }}
+              </h2>
+              <p v-if="game.guess.author" class="text-xl font-semibold text-plum-500 short:text-lg">
+                {{ game.guess.author }}
+              </p>
+            </div>
+          </article>
+        </Transition>
+        <div class="grid shrink-0 grid-cols-2 gap-3 pb-4 short:w-48 short:grid-cols-1 short:content-end short:pb-2">
+          <button type="button" class="btn-secondary min-h-20 text-2xl short:min-h-16" @click="skip()">
+            {{ t('pass') }}
+          </button>
+          <button type="button" class="btn-primary min-h-20 text-2xl short:min-h-16" @click="found()">
+            {{ t('found') }}
+          </button>
+        </div>
       </div>
     </section>
 
     <!-- Time is up: show the round result. -->
-    <section v-else-if="phase === 'timeup'" class="flex flex-1 flex-col items-center justify-center gap-6 text-center">
-      <p class="text-7xl" aria-hidden="true">
+    <section v-else-if="phase === 'timeup'" class="flex min-h-0 flex-1 flex-col items-center justify-center gap-6 text-center short:gap-2">
+      <p class="text-7xl short:text-5xl" aria-hidden="true">
         ⏰
       </p>
       <h1 class="text-5xl font-extrabold text-plum-900">
@@ -294,29 +304,29 @@ onBeforeUnmount(() => {
       <p class="text-xl font-bold text-plum-700">
         {{ t('roundFound', roundFound) }}
       </p>
-      <button type="button" class="btn-primary mt-6 w-full max-w-sm text-xl" @click="nextTurn()">
+      <button type="button" class="btn-primary mt-6 w-full max-w-sm text-xl short:mt-2" @click="nextTurn()">
         {{ t('nextTeam') }}
       </button>
     </section>
 
     <!-- Winner: leaderboard. -->
-    <section v-else-if="phase === 'winner'" class="flex flex-1 flex-col pt-10">
-      <div class="text-center">
-        <p class="text-7xl" aria-hidden="true">
+    <section v-else-if="phase === 'winner'" class="flex min-h-0 flex-1 flex-col pt-10 short:pt-2">
+      <div class="shrink-0 text-center short:flex short:items-center short:justify-center short:gap-4">
+        <p class="text-7xl short:text-4xl" aria-hidden="true">
           🏆
         </p>
-        <h1 class="mt-4 text-5xl font-extrabold leading-none text-plum-900">
+        <h1 class="mt-4 text-5xl font-extrabold leading-none text-plum-900 short:mt-0 short:text-3xl">
           {{ t('winnerTitle', { team: game.ladder[0]?.name }) }}
         </h1>
       </div>
-      <ol class="card mt-8 divide-y divide-plum-900/10 px-5">
-        <li v-for="(team, index) in game.ladder" :key="team.uuid" class="flex items-center gap-4 py-4">
+      <ol class="card mt-8 min-h-0 shrink divide-y divide-plum-900/10 overflow-y-auto px-5 short:mt-3">
+        <li v-for="(team, index) in game.ladder" :key="team.uuid" class="flex items-center gap-4 py-4 short:py-2.5">
           <span class="w-8 font-display text-2xl font-extrabold text-plum-500">{{ index + 1 }}</span>
           <span class="flex-1 font-display text-xl font-bold capitalize text-plum-900">{{ team.name }}</span>
           <span class="font-display text-xl font-extrabold tabular-nums text-rose-500">{{ t('points', team.score) }}</span>
         </li>
       </ol>
-      <div class="mt-auto grid gap-3 pb-4 pt-8">
+      <div class="mt-auto grid shrink-0 gap-3 pb-4 pt-8 short:grid-cols-2 short:pb-2 short:pt-3">
         <button type="button" class="btn-primary text-xl" @click="playAgain()">
           {{ t('playAgain') }}
         </button>

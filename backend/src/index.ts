@@ -54,7 +54,7 @@ async function resolveLang(db: D1Database, locale: string) {
 app.get('/v1/catalog', async (c) => {
   const cache = caches.default
   // Bump `v` when the catalog content changes to skip stale edge copies.
-  const cacheKey = new Request(new URL('/v1/catalog?lang=en&v=3', c.req.url))
+  const cacheKey = new Request(new URL('/v1/catalog?lang=en&v=4', c.req.url))
   const cached = await cache.match(cacheKey)
   if (cached)
     return cached
