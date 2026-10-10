@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.7.1](https://github.com/Cap-go/mimesis/compare/3.7.0...3.7.1) (2026-10-10)
+
+
+### Bug Fixes
+
+* keep game actions on screen on iPhone Duo and in landscape ([#20](https://github.com/Cap-go/mimesis/issues/20)) ([595d92c](https://github.com/Cap-go/mimesis/commit/595d92ce9a1db3ff1c05a6ad25a69195bc0c8bc7))
+
 ## [3.7.0](https://github.com/Cap-go/mimesis/compare/3.6.0...3.7.0) (2026-10-10)
 
 
