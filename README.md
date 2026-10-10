@@ -105,6 +105,15 @@ cd promo && bun install && bun run render   # bun run studio to preview and twea
 
 Tap times and captions live in `promo/src/theme.ts`.
 
+The same render also writes the iOS 27 App Store creative assets to `store/creative/<locale>/`: `header.mp4` / `header.png` (product page header, 21:9, 3840×1646), `search.mp4` (search results, 3:2, 2880×1920) and `universal.png` (16:9, 5244×2950, works for both). They autoplay muted and loop, so they carry no sound and little text.
+
+iPhone Duo screenshots (outer 1398×2034, inner 2007×2853) come from the demo web build at the Duo's point sizes, since the Duo simulator can't switch poses from the command line:
+
+```bash
+VITE_DEMO=teams bunx vite --port 3334
+bun scripts/capture-duo-screenshots.ts store/raw && bun scripts/compose-screenshots.ts store/raw
+```
+
 ## App icon and splash
 
 Sources live in `assets/` (`icon.svg`, `icon-foreground.svg`, `icon-background.svg`, `splash.svg` and their PNG renders). Regenerate the native sets with:
