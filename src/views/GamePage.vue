@@ -265,7 +265,7 @@ onBeforeUnmount(() => {
         <Transition mode="out-in" enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 translate-x-8 rotate-2" leave-active-class="duration-150 ease-in" leave-to-class="opacity-0 -translate-x-8 -rotate-2">
           <article :key="game.guess.id" class="card flex min-h-0 flex-1 flex-col overflow-hidden text-center short:flex-row" aria-live="polite">
             <!-- The whole artwork stays visible on any screen shape, over a blurred fill. -->
-            <div v-if="game.guess.cover" class="relative min-h-0 flex-1 basis-0 overflow-hidden bg-plum-900" aria-hidden="true">
+            <div v-if="game.guess.cover" class="relative min-h-0 min-w-0 flex-1 basis-0 overflow-hidden bg-plum-900" aria-hidden="true">
               <img :src="game.guess.cover" alt="" class="absolute inset-0 size-full scale-125 object-cover opacity-50 blur-2xl">
               <img :src="game.guess.cover" alt="" class="absolute inset-0 size-full object-contain">
             </div>

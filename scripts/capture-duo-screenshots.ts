@@ -17,6 +17,8 @@ const displays = { 'duo-outer': { width: 466, height: 678 }, 'duo-inner': { widt
 
 const browser = await chromium.launch()
 for (const [locale, { app }] of Object.entries(locales)) {
+  if (!app)
+    throw new Error(`store/locales.json: ${locale} has no app language`)
   for (const [name, viewport] of Object.entries(displays)) {
     const context = await browser.newContext({ viewport, deviceScaleFactor: 3, isMobile: true, hasTouch: true, locale: app })
     await mkdir(`${rawDir}/${locale}/${name}`, { recursive: true })
@@ -24,8 +26,9 @@ for (const [locale, { app }] of Object.entries(locales)) {
       const page = await context.newPage()
       await page.addInitScript(value => localStorage.setItem('CapacitorStorage.demo', value), `${scene} ${app}`)
       await page.goto(url)
-      // Let translations, covers and entrance animations settle.
-      await page.waitForTimeout(3500)
+      // Wait for translations, fonts and covers, then let entrance animations settle.
+      await page.waitForFunction(() => document.documentElement.lang !== '' && document.fonts.status === 'loaded' && [...document.images].every(img => img.complete))
+      await page.waitForTimeout(1500)
       await page.screenshot({ path: `${rawDir}/${locale}/${name}/${scene}.png` })
       await page.close()
     }
