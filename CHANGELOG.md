@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.10.0](https://github.com/Cap-go/mimesis/compare/3.9.1...3.10.0) (2026-10-11)
+
+
+### Features
+
+* 2-player mode with role-based scoring ([#27](https://github.com/Cap-go/mimesis/issues/27)) ([496ee8b](https://github.com/Cap-go/mimesis/commit/496ee8b0ff0b35d99f3c061fdd4cb993b9c395bd))
+
 ## [3.9.1](https://github.com/Cap-go/mimesis/compare/3.9.0...3.9.1) (2026-10-11)
 
 
