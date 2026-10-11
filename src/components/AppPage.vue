@@ -24,7 +24,7 @@ const showTitle = props.title && !isNative
 // collapse never makes it jump.
 const top = chrome === 'immersive'
   ? 'var(--safe-top)'
-  : chrome === 'tab' && platform === 'ios' ? 'calc(var(--inset-top) + 96px)' : 'calc(var(--safe-top) + 0.5rem)'
+  : chrome === 'tab' && platform === 'ios' ? 'calc(var(--inset-top) + 96px + 0.5rem)' : 'calc(var(--safe-top) + 0.5rem)'
 const scrolled = ref(false)
 let cleanup: (() => void) | undefined
 
