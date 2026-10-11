@@ -83,4 +83,49 @@ describe('game store', () => {
     expect(game.teams[0].players).toHaveLength(2)
     expect(game.canStart).toBe(true)
   })
+
+  it('scores both players in 2-player mode, the mime more', () => {
+    const game = useGameStore()
+    game.duo = true
+    expect(game.playing).toHaveLength(2)
+    expect(game.canStart).toBe(true)
+    game.nextTeam()
+    const mime = game.teamUUID
+    expect(game.guesser?.uuid).not.toBe(mime)
+    game.addScore(10)
+    expect(game.playing.find(t => t.uuid === mime)?.score).toBe(2)
+    expect(game.guesser?.score).toBe(1)
+    // Roles swap on the next turn.
+    game.nextTeam()
+    expect(game.teamUUID).not.toBe(mime)
+    expect(game.guesser?.uuid).toBe(mime)
+  })
+
+  it('ends a 2-player game when a player reaches the target', () => {
+    const game = useGameStore()
+    game.duo = true
+    game.nextTeam()
+    for (let i = 0; i < 2; i++)
+      game.addScore(5)
+    expect(game.winned).toBe(false)
+    game.addScore(5)
+    expect(game.winned).toBe(true)
+    expect(game.ladder[0].uuid).toBe(game.teamUUID)
+    expect(game.ladder[0].score).toBe(6)
+    game.addScore(5)
+    expect(game.ladder[0].score).toBe(6)
+  })
+
+  it('needs both names to start a 2-player game and keeps team mode untouched', () => {
+    const game = useGameStore()
+    const teams = game.teams.map(t => t.uuid)
+    game.duo = true
+    game.renameSolo(game.duoTeams[1], '  ')
+    expect(game.canStart).toBe(false)
+    game.renameSolo(game.duoTeams[1], 'Zoe')
+    expect(game.duoTeams[1].players[0].name).toBe('Zoe')
+    expect(game.canStart).toBe(true)
+    game.duo = false
+    expect(game.playing.map(t => t.uuid)).toEqual(teams)
+  })
 })

@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppPage from '~/components/AppPage.vue'
 import { push } from '~/services/navigation'
+import { DUO_GUESSER_POINTS, DUO_MIME_POINTS } from '~/store/game'
 import { useSettingsStore } from '~/store/settings'
 
 const { t } = useI18n()
@@ -14,6 +15,7 @@ const rules = computed(() => [
   { title: t('ruleMimeTitle'), body: t('ruleMime') },
   { title: t('ruleSilenceTitle'), body: t('ruleSilence') },
   { title: t('rulePassTitle'), body: t('rulePass') },
+  { title: t('ruleDuoTitle'), body: t('ruleDuo', { mime: DUO_MIME_POINTS, guesser: DUO_GUESSER_POINTS }) },
 ])
 </script>
 

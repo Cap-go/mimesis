@@ -19,6 +19,10 @@ export interface Team {
   pastPlayers: string[]
 }
 
+// 2-player mode: each player is their own side, and a found card scores for both.
+export const DUO_MIME_POINTS = 2
+export const DUO_GUESSER_POINTS = 1
+
 export const TEAM_COLORS = ['#B5244F', '#2563EB', '#059669', '#7C3AED', '#D97706', '#0891B2', '#DB2777', '#4D7C0F']
 
 export function randomPlayer(): Player {
@@ -35,6 +39,13 @@ export function randomTeam(taken: string[] = []): Team {
   }
 }
 
+function soloTeam(taken: string[] = []): Team {
+  const player = randomPlayer()
+  for (let tries = 0; tries < 10 && taken.includes(player.name); tries++)
+    player.name = randomFirstName()
+  return { uuid: uuidv4(), name: player.name, players: [player], pastPlayers: [], score: 0 }
+}
+
 function notIn<T extends { uuid: string }>(list: T[], past: string[]): T[] {
   return list.filter(item => !past.includes(item.uuid))
 }
@@ -42,6 +53,11 @@ function notIn<T extends { uuid: string }>(list: T[], past: string[]): T[] {
 export const useGameStore = defineStore('game', () => {
   const first = randomTeam()
   const teams = ref<Team[]>([first, randomTeam([first.name])])
+  // 2 players: two one-player sides that take turns miming for each other.
+  const duo = ref(false)
+  const soloA = soloTeam()
+  const duoTeams = ref<Team[]>([soloA, soloTeam([soloA.name])])
+  const playing = computed(() => (duo.value ? duoTeams.value : teams.value))
   const theme = ref(0)
   const teamUUID = ref('-1')
   const playerUUID = ref('-1')
@@ -53,22 +69,24 @@ export const useGameStore = defineStore('game', () => {
 
   // Unequal teams make the turn order random to stay fair.
   const mode = computed(() => {
-    const size = teams.value[0]?.players.length ?? 0
-    return teams.value.some(t => t.players.length !== size) ? 1 : 0
+    const size = playing.value[0]?.players.length ?? 0
+    return playing.value.some(t => t.players.length !== size) ? 1 : 0
   })
-  const team = computed(() => teams.value.find(t => t.uuid === teamUUID.value))
+  const team = computed(() => playing.value.find(t => t.uuid === teamUUID.value))
   const player = computed(() => team.value?.players.find(p => p.uuid === playerUUID.value))
   const teamName = computed(() => team.value?.name ?? '')
   const playerName = computed(() => player.value?.name ?? '')
   const teamScore = computed(() => team.value?.score ?? 0)
   const pastGuess = computed(() => [...skipGuess.value, ...foundGuess.value])
-  const ladder = computed(() => [...teams.value].sort((a, b) => b.score - a.score))
-  const canStart = computed(() => teams.value.length >= 2 && teams.value.every(t => t.players.length >= 2))
+  const ladder = computed(() => [...playing.value].sort((a, b) => b.score - a.score))
+  const canStart = computed(() => duo.value
+    ? duoTeams.value.every(t => t.players[0]?.name.trim())
+    : teams.value.length >= 2 && teams.value.every(t => t.players.length >= 2))
 
   const nextTeams = computed(() => {
-    if (teams.value.length === pastTeams.value.length)
-      return notIn(teams.value, [teamUUID.value])
-    return notIn(teams.value, pastTeams.value)
+    if (playing.value.length === pastTeams.value.length)
+      return notIn(playing.value, [teamUUID.value])
+    return notIn(playing.value, pastTeams.value)
   })
   const nextPlayers = computed(() => {
     if (!team.value)
@@ -108,7 +126,7 @@ export const useGameStore = defineStore('game', () => {
     const candidates = nextTeams.value
     const next = mode.value === 1 ? randomSelect(candidates) : candidates[candidates.length - 1]
     teamUUID.value = next.uuid
-    if (pastTeams.value.length === teams.value.length)
+    if (pastTeams.value.length === playing.value.length)
       pastTeams.value.length = 0
     pastTeams.value.push(next.uuid)
     nextPlayer()
@@ -125,16 +143,34 @@ export const useGameStore = defineStore('game', () => {
   }
 
   function addScore(target: number) {
-    if (!team.value || !player.value || team.value.score >= target)
+    if (!team.value || !player.value || winned.value)
       return
+    if (duo.value) {
+      // The mime's side scores more than the guesser's; first to the target wins.
+      for (const side of duoTeams.value) {
+        const points = side.uuid === team.value.uuid ? DUO_MIME_POINTS : DUO_GUESSER_POINTS
+        side.score += points
+        side.players[0].score += points
+      }
+      winned.value = duoTeams.value.some(side => side.score >= target)
+      return
+    }
     team.value.score++
     player.value.score++
     if (team.value.score >= target)
       winned.value = true
   }
 
+  // In 2-player mode, the side guessing this turn.
+  const guesser = computed(() => duo.value ? duoTeams.value.find(t => t.uuid !== teamUUID.value) : undefined)
+
+  function renameSolo(side: Team, name: string) {
+    side.name = name
+    side.players[0].name = name
+  }
+
   function resetScore() {
-    for (const t of teams.value) {
+    for (const t of playing.value) {
       t.score = 0
       for (const p of t.players)
         p.score = 0
@@ -144,7 +180,7 @@ export const useGameStore = defineStore('game', () => {
 
   function reset() {
     resetScore()
-    for (const t of teams.value)
+    for (const t of playing.value)
       t.pastPlayers = []
     pastTeams.value = []
     skipGuess.value = []
@@ -156,6 +192,11 @@ export const useGameStore = defineStore('game', () => {
 
   return {
     teams,
+    duo,
+    duoTeams,
+    playing,
+    guesser,
+    renameSolo,
     theme,
     teamUUID,
     playerUUID,
