@@ -104,10 +104,22 @@ function navbarOptions(route: RouteLocationNormalized) {
   }
 }
 
+// Re-sending an identical header makes UIKit drop the large title, so only send changes.
+let lastNavbar = ''
+
+async function setNavbar(route: RouteLocationNormalized): Promise<void> {
+  const options = navbarOptions(route)
+  const key = JSON.stringify(options)
+  if (key === lastNavbar)
+    return
+  lastNavbar = key
+  await NativeNavigation.setNavbar(options)
+}
+
 async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
   const t = i18n.global.t
   const { chrome, tab } = route.meta
-  await NativeNavigation.setNavbar(navbarOptions(route))
+  await setNavbar(route)
   await NativeNavigation.setTabbar({
     hidden: chrome !== 'tab',
     selectedId: tab ?? 'teams',
@@ -129,7 +141,7 @@ export function setTitleCollapsed(collapsed: boolean): void {
   if (!isNative || platform !== 'ios' || !router || collapsed === titleCollapsed)
     return
   titleCollapsed = collapsed
-  void NativeNavigation.setNavbar(navbarOptions(router.currentRoute.value))
+  void setNavbar(router.currentRoute.value)
 }
 
 export async function initNavigation(appRouter: Router): Promise<void> {

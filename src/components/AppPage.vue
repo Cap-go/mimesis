@@ -28,7 +28,12 @@ const top = chrome === 'immersive'
 const scrolled = ref(false)
 let cleanup: (() => void) | undefined
 
+// Cached pages stay in the DOM and can still fire scroll events; only the visible one drives the bar.
+let active = true
+
 function syncScroll(y: number) {
+  if (!active)
+    return
   scrolled.value = y > 4
   if (chrome === 'tab')
     setTitleCollapsed(y > 36)
@@ -41,6 +46,12 @@ function onScroll(event: Event) {
 onMounted(() => {
   if (pageRef.value) {
     cleanup = setupPage(pageRef.value, {
+      onWillEnter: () => {
+        active = true
+      },
+      onWillLeave: () => {
+        active = false
+      },
       onDidEnter: () => {
         // Cached pages come back with their scroll position: match the title to it.
         syncScroll(pageRef.value?.querySelector('cap-content')?.scrollTop ?? 0)
@@ -56,10 +67,12 @@ onUnmounted(() => cleanup?.())
   <cap-page ref="pageRef">
     <cap-content slot="content" fullscreen @scroll.passive="onScroll">
       <div
-        class="relative mx-auto flex w-full max-w-2xl flex-col px-5"
+        class="relative mx-auto flex w-full max-w-2xl flex-col"
         :class="chrome === 'immersive' ? 'h-full' : 'min-h-full pb-8'"
         :style="{
           paddingTop: top,
+          paddingLeft: 'calc(var(--inset-left) + 1.25rem)',
+          paddingRight: 'calc(var(--inset-right) + 1.25rem)',
           paddingBottom: chrome === 'tab' && !isNative ? 'calc(var(--inset-bottom) + 6rem)' : chrome === 'immersive' ? 'var(--safe-bottom)' : 'calc(var(--safe-bottom) + 1rem)',
         }"
       >

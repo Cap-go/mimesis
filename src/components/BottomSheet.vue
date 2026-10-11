@@ -23,8 +23,8 @@ const emit = defineEmits<{ close: [] }>()
         v-if="open"
         role="dialog"
         aria-modal="true"
-        class="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-lg rounded-t-[2rem] bg-cream px-6 pt-3 shadow-2xl sm:bottom-6 sm:rounded-[2rem]"
-        :style="{ paddingBottom: 'max(1.5rem, var(--inset-bottom))' }"
+        class="fixed bottom-0 z-50 mx-auto max-w-lg rounded-t-[2rem] bg-cream px-6 pt-3 shadow-2xl sm:bottom-6 sm:rounded-[2rem]"
+        :style="{ left: 'var(--inset-left)', right: 'var(--inset-right)', paddingBottom: 'max(1.5rem, var(--inset-bottom))' }"
       >
         <div class="mx-auto mb-4 h-1.5 w-12 rounded-full bg-plum-900/15" aria-hidden="true" />
         <slot />
