@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.9.0](https://github.com/Cap-go/mimesis/compare/3.8.2...3.9.0) (2026-10-11)
+
+
+### Features
+
+* link the author name in Settings to the X profile ([#25](https://github.com/Cap-go/mimesis/issues/25)) ([4acfb72](https://github.com/Cap-go/mimesis/commit/4acfb720621b8ef37b7b8666b60a8ae7c012e97a))
+
 ## [3.8.2](https://github.com/Cap-go/mimesis/compare/3.8.1...3.8.2) (2026-10-11)
 
 
