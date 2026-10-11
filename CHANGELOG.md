@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.8.2](https://github.com/Cap-go/mimesis/compare/3.8.1...3.8.2) (2026-10-11)
+
+
+### Bug Fixes
+
+* breathing room under iOS large titles ([#24](https://github.com/Cap-go/mimesis/issues/24)) ([56eae0b](https://github.com/Cap-go/mimesis/commit/56eae0bbab4876b0053fdbae317610c3da082e08))
+
 ## [3.8.1](https://github.com/Cap-go/mimesis/compare/3.8.0...3.8.1) (2026-10-11)
 
 
