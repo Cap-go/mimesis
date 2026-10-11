@@ -82,22 +82,32 @@ export function back(fallback = '/teams'): void {
     void router.replace(fallback)
 }
 
-async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
+// iOS large titles collapse to an inline title once the page scrolls, like system apps.
+let titleCollapsed = false
+
+function navbarOptions(route: RouteLocationNormalized) {
   const t = i18n.global.t
-  const { chrome, tab, title } = route.meta
-  await NativeNavigation.setNavbar({
-    // Tab pages draw their own brand title; the native bar is for pushed pages.
-    hidden: chrome !== 'push',
+  const { chrome, title } = route.meta
+  return {
+    // Tab and pushed pages use the native header; the game and onboarding stay full screen.
+    hidden: chrome === 'immersive',
     title: t(title),
+    large: chrome === 'tab' && !titleCollapsed,
     transparent: true,
     // iOS: a chevron item renders as a glass back button. Android: the Toolbar's own up arrow.
     backButton: { visible: chrome === 'push' && platform === 'android', title: t('back') },
     leftItems: chrome === 'push' && platform === 'ios' ? [{ id: 'back', title: t('back'), icon: backIcon }] : [],
     // Android has no system glass: blur the orange page behind the bar instead of the default white surface.
     colors: platform === 'android' ? { ...colors, background: '#F39A55' } : colors,
-    glass: platform === 'android' ? { effect: 'liquidGlass', surfaceAlpha: 0.55 } : undefined,
+    glass: platform === 'android' ? { effect: 'liquidGlass' as const, surfaceAlpha: 0.55 } : undefined,
     animated: true,
-  })
+  }
+}
+
+async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
+  const t = i18n.global.t
+  const { chrome, tab } = route.meta
+  await NativeNavigation.setNavbar(navbarOptions(route))
   await NativeNavigation.setTabbar({
     hidden: chrome !== 'tab',
     selectedId: tab ?? 'teams',
@@ -114,6 +124,14 @@ async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
   })
 }
 
+// Called by pages as they scroll: swaps the large title for the inline one past the top.
+export function setTitleCollapsed(collapsed: boolean): void {
+  if (!isNative || platform !== 'ios' || !router || collapsed === titleCollapsed)
+    return
+  titleCollapsed = collapsed
+  void NativeNavigation.setNavbar(navbarOptions(router.currentRoute.value))
+}
+
 export async function initNavigation(appRouter: Router): Promise<void> {
   router = appRouter
   if (!isNative)
@@ -124,7 +142,10 @@ export async function initNavigation(appRouter: Router): Promise<void> {
     animationDuration: 320,
     colors,
   })
-  router.afterEach(to => syncNativeChrome(to))
+  router.afterEach((to) => {
+    titleCollapsed = false
+    return syncNativeChrome(to)
+  })
   await syncNativeChrome(router.currentRoute.value)
   await NativeNavigation.addListener('tabSelect', ({ id }) => {
     const target = tabs.find(item => item.id === id)

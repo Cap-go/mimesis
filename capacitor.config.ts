@@ -30,6 +30,8 @@ const config: CapacitorConfig = {
   },
   ios: {
     contentInset: 'never',
+    // Only page content scrolls; the web view itself never bounces like a website.
+    scrollEnabled: false,
   },
 }
 

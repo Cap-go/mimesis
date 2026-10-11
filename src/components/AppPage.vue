@@ -3,8 +3,8 @@ import { setupPage } from '@capgo/capacitor-transitions/vue'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
-import { back } from '~/services/navigation'
-import { isNative } from '~/services/platform'
+import { back, setTitleCollapsed } from '~/services/navigation'
+import { isNative, platform } from '~/services/platform'
 
 const props = defineProps<{
   title?: string
@@ -17,26 +17,49 @@ const { t } = useI18n()
 const route = useRoute()
 const pageRef = ref<HTMLElement | null>(null)
 const chrome = route.meta.chrome
-// Native chrome draws the bars; the browser build draws its own.
+// Native chrome draws the bars and titles; the browser build draws its own.
 const webHeader = !isNative && chrome !== 'immersive'
-const showTitle = props.title && (!isNative || chrome === 'tab')
+const showTitle = props.title && !isNative
+// iOS large titles shrink as the page scrolls; keep the content offset at the large size so the
+// collapse never makes it jump.
+const top = chrome === 'immersive'
+  ? 'var(--safe-top)'
+  : chrome === 'tab' && platform === 'ios' ? 'calc(var(--inset-top) + 96px)' : 'calc(var(--safe-top) + 0.5rem)'
+const scrolled = ref(false)
 let cleanup: (() => void) | undefined
 
+function syncScroll(y: number) {
+  scrolled.value = y > 4
+  if (chrome === 'tab')
+    setTitleCollapsed(y > 36)
+}
+
+function onScroll(event: Event) {
+  syncScroll((event.target as HTMLElement).scrollTop)
+}
+
 onMounted(() => {
-  if (pageRef.value)
-    cleanup = setupPage(pageRef.value, { onDidEnter: () => emit('enter') })
+  if (pageRef.value) {
+    cleanup = setupPage(pageRef.value, {
+      onDidEnter: () => {
+        // Cached pages come back with their scroll position: match the title to it.
+        syncScroll(pageRef.value?.querySelector('cap-content')?.scrollTop ?? 0)
+        emit('enter')
+      },
+    })
+  }
 })
 onUnmounted(() => cleanup?.())
 </script>
 
 <template>
   <cap-page ref="pageRef">
-    <cap-content slot="content" fullscreen>
+    <cap-content slot="content" fullscreen @scroll.passive="onScroll">
       <div
         class="relative mx-auto flex w-full max-w-2xl flex-col px-5"
         :class="chrome === 'immersive' ? 'h-full' : 'min-h-full pb-8'"
         :style="{
-          paddingTop: chrome === 'immersive' ? 'var(--safe-top)' : 'calc(var(--safe-top) + 0.5rem)',
+          paddingTop: top,
           paddingBottom: chrome === 'tab' && !isNative ? 'calc(var(--inset-bottom) + 6rem)' : chrome === 'immersive' ? 'var(--safe-bottom)' : 'calc(var(--safe-bottom) + 1rem)',
         }"
       >
@@ -46,7 +69,7 @@ onUnmounted(() => cleanup?.())
             {{ t('back') }}
           </button>
         </div>
-        <header v-if="showTitle || subtitle" class="pb-5 pt-3">
+        <header v-if="showTitle || subtitle" class="pb-5" :class="showTitle ? 'pt-3' : 'pt-1'">
           <h1 v-if="showTitle" class="text-4xl font-extrabold leading-none tracking-tight text-plum-900 sm:text-5xl">
             {{ title }}
           </h1>
@@ -57,6 +80,13 @@ onUnmounted(() => cleanup?.())
         <slot />
       </div>
     </cap-content>
+    <!-- Scroll edge: content fading under the native bar, like system apps. -->
+    <div
+      v-if="isNative && chrome !== 'immersive'"
+      class="scroll-edge pointer-events-none absolute inset-x-0 top-0 z-10 transition-opacity duration-200"
+      :class="scrolled ? 'opacity-100' : 'opacity-0'"
+      aria-hidden="true"
+    />
     <slot name="overlay" />
   </cap-page>
 </template>
