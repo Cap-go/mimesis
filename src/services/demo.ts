@@ -13,6 +13,8 @@ import { getStorage } from './storage'
 
 export const demo = { scene: import.meta.env.VITE_DEMO as string | undefined }
 
+const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+
 // Public-domain artwork shown on the "playing" screenshot.
 export const DEMO_COVER = 'art/6kbee6t0bag'
 // Public-domain artworks for the reel: Mona Lisa, Sunflowers, Statue of Liberty, Luncheon on the Grass,
@@ -80,13 +82,17 @@ export async function stageDemo(router: Router): Promise<void> {
     if (host === 'demo')
       void stage(router, searchParams.get('scene') ?? 'teams', searchParams.get('lang') ?? 'fr')
   })
-  const [scene, lang] = (await getStorage<string>('demo'))?.split(' ') ?? [demo.scene, 'fr']
+  const [scene, lang, scroll] = (await getStorage<string>('demo'))?.split(' ') ?? [demo.scene, 'fr']
   await stage(router, scene, lang)
+  // "<scene> <lang> <px>" scrolls the page, to capture collapsed headers.
+  if (scroll) {
+    await wait(1200)
+    const content = [...document.querySelectorAll<HTMLElement>('cap-content')].at(-1)
+    content?.scrollTo({ top: Number(scroll) })
+  }
 }
 
 // ── Reel: a scripted game played through the real buttons, recorded for the promo videos ──
-
-const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
 // A missing button means the reel is off script, so stop instead of recording a broken take.
 async function press(label: string): Promise<void> {

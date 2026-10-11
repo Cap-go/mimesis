@@ -25,7 +25,8 @@
 		}
 	},
 	"ios": {
-		"contentInset": "never"
+		"contentInset": "never",
+		"scrollEnabled": false
 	},
 	"packageClassList": [
 		"InAppReviewPlugin",
