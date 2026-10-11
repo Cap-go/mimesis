@@ -21,7 +21,22 @@ import { useSettingsStore } from './store/settings'
 import '@capgo/capacitor-transitions'
 import './style.css'
 
+// The iOS web view keeps the keyboard open until the field loses focus, so close it on the return
+// key and when tapping anywhere outside a text field, like native apps do.
+function dismissKeyboardLikeNative(): void {
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && event.target instanceof HTMLInputElement)
+      event.target.blur()
+  })
+  document.addEventListener('pointerdown', (event) => {
+    const field = document.activeElement
+    if ((field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) && !(event.target as Element).closest('input, textarea'))
+      field.blur()
+  }, true)
+}
+
 async function init() {
+  dismissKeyboardLikeNative()
   if (isNative)
     void CapacitorUpdater.notifyAppReady()
   initTransitions({ platform: 'auto' })
