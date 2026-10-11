@@ -44,6 +44,12 @@
     --inset-bottom: var(--safe-area-inset-bottom, env(safe-area-inset-bottom));
     --safe-top: max(var(--cap-native-navigation-top, 0px), var(--inset-top));
     --safe-bottom: max(var(--cap-native-navigation-bottom, 0px), var(--inset-bottom));
+    /* Side insets: iPhone Duo moves the status bar and, with native bars, the tab bar to a side rail. */
+    --inset-left: max(var(--cap-native-navigation-left, 0px), var(--safe-area-inset-left, env(safe-area-inset-left)));
+    --inset-right: max(
+      var(--cap-native-navigation-right, 0px),
+      var(--safe-area-inset-right, env(safe-area-inset-right))
+    );
     color-scheme: light;
     -webkit-tap-highlight-color: transparent;
   }
