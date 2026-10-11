@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.9.1](https://github.com/Cap-go/mimesis/compare/3.9.0...3.9.1) (2026-10-11)
+
+
+### Bug Fixes
+
+* close the keyboard like a native app and swap headers without animation ([#26](https://github.com/Cap-go/mimesis/issues/26)) ([8a6137d](https://github.com/Cap-go/mimesis/commit/8a6137d56435b3a13ba9d1a653bb71a14a667f1d))
+
 ## [3.9.0](https://github.com/Cap-go/mimesis/compare/3.8.2...3.9.0) (2026-10-11)
 
 
