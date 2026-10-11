@@ -87,7 +87,9 @@ export async function stageDemo(router: Router): Promise<void> {
   // "<scene> <lang> <px>" scrolls the page, to capture collapsed headers.
   if (scroll) {
     await wait(1200)
-    const content = [...document.querySelectorAll<HTMLElement>('cap-content')].at(-1)
+    // Cached pages stay in the DOM; scroll the one on screen.
+    const content = [...document.querySelectorAll<HTMLElement>('cap-content')]
+      .find(el => el.getClientRects().length > 0 && Math.abs(el.getBoundingClientRect().left) < 1)
     content?.scrollTo({ top: Number(scroll) })
   }
 }

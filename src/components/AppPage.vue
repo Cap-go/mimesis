@@ -28,16 +28,26 @@ const top = chrome === 'immersive'
 const scrolled = ref(false)
 let cleanup: (() => void) | undefined
 
-function onScroll(event: Event) {
-  const y = (event.target as HTMLElement).scrollTop
+function syncScroll(y: number) {
   scrolled.value = y > 4
   if (chrome === 'tab')
     setTitleCollapsed(y > 36)
 }
 
+function onScroll(event: Event) {
+  syncScroll((event.target as HTMLElement).scrollTop)
+}
+
 onMounted(() => {
-  if (pageRef.value)
-    cleanup = setupPage(pageRef.value, { onDidEnter: () => emit('enter') })
+  if (pageRef.value) {
+    cleanup = setupPage(pageRef.value, {
+      onDidEnter: () => {
+        // Cached pages come back with their scroll position: match the title to it.
+        syncScroll(pageRef.value?.querySelector('cap-content')?.scrollTop ?? 0)
+        emit('enter')
+      },
+    })
+  }
 })
 onUnmounted(() => cleanup?.())
 </script>
