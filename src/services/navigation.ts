@@ -100,7 +100,9 @@ function navbarOptions(route: RouteLocationNormalized) {
     // Android has no system glass: blur the orange page behind the bar instead of the default white surface.
     colors: platform === 'android' ? { ...colors, background: '#F39A55' } : colors,
     glass: platform === 'android' ? { effect: 'liquidGlass' as const, surfaceAlpha: 0.55 } : undefined,
-    animated: true,
+    // The page transition already animates; animating the bar swap (back button ↔ large title) can
+    // leave the previous page's bar on screen on some iOS versions.
+    animated: false,
   }
 }
 
