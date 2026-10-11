@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.8.1](https://github.com/Cap-go/mimesis/compare/3.8.0...3.8.1) (2026-10-11)
+
+
+### Bug Fixes
+
+* iPhone Duo side insets and stable large titles ([#23](https://github.com/Cap-go/mimesis/issues/23)) ([583e8d3](https://github.com/Cap-go/mimesis/commit/583e8d3017d815313c1a342e6be86883faa534f1))
+
 ## [3.8.0](https://github.com/Cap-go/mimesis/compare/3.7.1...3.8.0) (2026-10-11)
 
 
