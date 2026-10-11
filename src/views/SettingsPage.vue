@@ -101,7 +101,13 @@ onMounted(async () => {
           · {{ build.bundle }}
         </template>
       </p>
-      <p>{{ t('madeBy') }}</p>
+      <i18n-t keypath="madeBy" tag="p">
+        <template #name>
+          <button type="button" class="-my-2 py-2 font-bold text-rose-600 underline decoration-rose-600/30 underline-offset-2 active:opacity-60" @click="open('https://x.com/martindonadieu')">
+            Martin Donadieu
+          </button>
+        </template>
+      </i18n-t>
       <p class="max-w-xs text-xs leading-relaxed text-plum-900/60">
         {{ t('builtWith') }}
       </p>
