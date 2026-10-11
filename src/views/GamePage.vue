@@ -40,7 +40,7 @@ const listeners: { remove: () => Promise<void> }[] = []
 
 const pool = computed(() => catalog.guessesFor(game.theme))
 function colorOf(uuid: string) {
-  const index = game.teams.findIndex(team => team.uuid === uuid)
+  const index = game.playing.findIndex(team => team.uuid === uuid)
   return TEAM_COLORS[Math.max(index, 0) % TEAM_COLORS.length]
 }
 const teamColor = computed(() => colorOf(game.teamUUID))
@@ -115,7 +115,7 @@ async function finish() {
     deviceId: await getInstallId(),
     lang: currentLocale(),
     mode: game.theme,
-    teams: game.teams,
+    teams: game.playing,
     foundGuess: game.foundGuess,
     skipGuess: game.skipGuess,
   })
@@ -162,7 +162,7 @@ function stageScene() {
     remaining.value = 42_000
   }
   else if (demo.scene === 'winner') {
-    game.teams[0].score = settings.targetScore
+    game.playing[0].score = settings.targetScore
     void finish()
   }
 }
@@ -212,7 +212,7 @@ onBeforeUnmount(() => {
         </button>
         <ul class="flex gap-2" :aria-label="t('score')">
           <li
-            v-for="team in game.teams" :key="team.uuid"
+            v-for="team in game.playing" :key="team.uuid"
             class="flex min-w-10 items-center justify-center rounded-full px-3 py-1 text-sm font-extrabold tabular-nums text-white transition"
             :class="team.uuid === game.teamUUID ? 'scale-110 ring-4 ring-white/70' : 'opacity-60'"
             :style="{ backgroundColor: colorOf(team.uuid) }"
@@ -239,7 +239,7 @@ onBeforeUnmount(() => {
               {{ t('handoffMimer', { name: game.playerName }) }}
             </p>
             <p class="text-base font-semibold text-plum-500">
-              {{ t('handoffHint', { name: game.playerName }) }}
+              {{ game.guesser ? t('duoHandoffHint', { name: game.playerName, guesser: game.guesser.name }) : t('handoffHint', { name: game.playerName }) }}
             </p>
           </div>
         </div>
