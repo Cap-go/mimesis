@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.8.0](https://github.com/Cap-go/mimesis/compare/3.7.1...3.8.0) (2026-10-11)
+
+
+### Features
+
+* iPhone Duo screenshots and App Store creative assets ([#21](https://github.com/Cap-go/mimesis/issues/21)) ([49b6f8c](https://github.com/Cap-go/mimesis/commit/49b6f8c7069e78e1ee412eb42f499faa23dd11db))
+* native headers and app-like scrolling ([#22](https://github.com/Cap-go/mimesis/issues/22)) ([7205fbb](https://github.com/Cap-go/mimesis/commit/7205fbb0b9884b65414eb0df10761efdd4a59a66))
+
 ## [3.7.1](https://github.com/Cap-go/mimesis/compare/3.7.0...3.7.1) (2026-10-10)
 
 
