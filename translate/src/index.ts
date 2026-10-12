@@ -18,12 +18,16 @@ interface Env {
 
 interface Job {
   lang: string
+  // 'quick' covers the UI, names and artwork titles; 'full' then does every card.
+  phase?: 'quick' | 'full'
 }
 
 type Dict = Record<string, string>
 
 const API_URL = 'https://api.mimesis.fun'
-const PENDING_MS = 10 * 60 * 1000
+const PENDING_MS = 30 * 60 * 1000
+const MODEL_TIMEOUT_MS = 120_000
+const FULL_DELAY_SECONDS = 15 * 60
 const COMPLETE_TTL = 60 * 60
 const BATCH_SIZE = 20
 // Names are generated as one list so they don't repeat.
@@ -92,7 +96,7 @@ async function requestTranslation(env: Env, lang: string): Promise<void> {
   if (pending && Date.now() - pending.uploaded.getTime() < PENDING_MS)
     return
   await env.CACHE.put(marker, '')
-  await env.QUEUE.send({ lang })
+  await env.QUEUE.send({ lang, phase: 'quick' })
 }
 
 function json(body: unknown, complete: boolean, status = 200): Response {
@@ -183,12 +187,16 @@ async function runModel(env: Env, language: string, kind: Kind, items: Item[]): 
   const system = `Target language: ${language}.\n${INSTRUCTIONS[kind].replaceAll('LANGUAGE', language)}\nAnswer with JSON {"translations": [...]}: exactly one string per input item, in the same order.`
   const input = items.map(item => (item.hint ? { text: item.text, hint: item.hint } : { text: item.text }))
   const ai = env.AI as unknown as { run: (model: string, inputs: object) => Promise<ModelResult> }
-  const result = await ai.run(env.MODEL, {
-    messages: [{ role: 'system', content: system }, { role: 'user', content: JSON.stringify({ items: input }) }],
-    response_format: { type: 'json_schema', json_schema: SCHEMA },
-    max_tokens: 16_384,
-    temperature: 0.3,
-  })
+  // A stuck model call must not hold the job until the queue's wall-clock limit.
+  const result = await Promise.race([
+    ai.run(env.MODEL, {
+      messages: [{ role: 'system', content: system }, { role: 'user', content: JSON.stringify({ items: input }) }],
+      response_format: { type: 'json_schema', json_schema: SCHEMA },
+      max_tokens: 16_384,
+      temperature: 0.3,
+    }),
+    new Promise<never>((_, reject) => setTimeout(() => reject(new Error('model timeout')), MODEL_TIMEOUT_MS)),
+  ])
   // Chat models answer in `response`, OpenAI-style ones in `choices`.
   let response = result.response ?? result.choices?.[0]?.message?.content
   if (typeof response === 'string')
@@ -219,7 +227,10 @@ async function translateBatch(env: Env, language: string, kind: Kind, items: Ite
   return true
 }
 
-async function translateLanguage(env: Env, lang: string): Promise<void> {
+const QUICK_KINDS: Kind[] = ['ui', 'first', 'team', 'category', 'work']
+const FULL_KINDS: Kind[] = [...QUICK_KINDS, 'idiom', 'scene', 'rebus']
+
+async function translateLanguage(env: Env, lang: string, phase: 'quick' | 'full'): Promise<void> {
   const language = languageName(lang)
   if (!language || lang === 'en')
     return
@@ -238,7 +249,7 @@ async function translateLanguage(env: Env, lang: string): Promise<void> {
     todo.set(item.kind, [...todo.get(item.kind) ?? [], item])
   }
   const batches: [Kind, Item[]][] = []
-  for (const kind of ['ui', 'first', 'team', 'category', 'work', 'idiom', 'scene', 'rebus'] as Kind[]) {
+  for (const kind of phase === 'quick' ? QUICK_KINDS : FULL_KINDS) {
     const list = todo.get(kind) ?? []
     const size = LIST_KINDS.has(kind) ? list.length : BATCH_SIZE
     for (let i = 0; i < list.length; i += size)
@@ -250,9 +261,13 @@ async function translateLanguage(env: Env, lang: string): Promise<void> {
     failed ||= results.includes(false)
     await save()
   }
-  await env.CACHE.delete(`pending/${lang}`)
   if (failed)
     throw new Error(`translation of ${lang} incomplete`)
+  // Every language gets its quick pass before any full pass starts.
+  if (phase === 'quick')
+    await env.QUEUE.send({ lang, phase: 'full' }, { delaySeconds: FULL_DELAY_SECONDS })
+  else
+    await env.CACHE.delete(`pending/${lang}`)
 }
 
 export default {
@@ -267,7 +282,7 @@ export default {
   },
   async queue(batch: MessageBatch<Job>, env: Env): Promise<void> {
     for (const message of batch.messages) {
-      await translateLanguage(env, message.body.lang)
+      await translateLanguage(env, message.body.lang, message.body.phase ?? 'full')
       message.ack()
     }
   },

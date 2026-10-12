@@ -39,10 +39,13 @@ export function deviceLocale(): string {
   return normalizeLocale(navigator.languages?.[0] ?? navigator.language)
 }
 
+const RTL = new Set(['ar', 'he', 'fa', 'ur'])
+
 function apply(translation: Translation): void {
   i18n.global.setLocaleMessage(translation.lang, translation.messages)
   i18n.global.locale.value = translation.lang
   document.documentElement.lang = translation.lang
+  document.documentElement.dir = RTL.has(translation.lang) ? 'rtl' : 'ltr'
   names.value = translation.names
   messagesVersion.value++
 }
