@@ -48,12 +48,15 @@ async function stage(router: Router, scene: string, lang: string): Promise<void>
     team(teamNames[0], firstNames.slice(0, 3), 7),
     team(teamNames[1], firstNames.slice(3, 6), 5),
   ]
+  // "duo" shows the 2-player setup; every other scene is a team game.
+  game.duo = scene === 'duo'
+  game.duoTeams.forEach((side, i) => game.renameSolo(side, firstNames[i * 3]))
   await catalog.load(lang)
   await router.isReady()
   if (scene === 'rules' || scene === 'settings' || scene === 'welcome')
     return resetTo(`/${scene}`, 'none')
   resetTo('/teams', 'none')
-  if (scene === 'teams')
+  if (scene === 'teams' || scene === 'duo')
     return
   if (scene === 'reel') {
     for (const t of game.teams) {

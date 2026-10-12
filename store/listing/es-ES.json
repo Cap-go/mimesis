@@ -1,42 +1,47 @@
 {
   "name": "Mimesis: juego de mímica",
   "subtitle": "Adivina con gestos, sin hablar",
-  "promotionalText": "Un teléfono, tus amigos y cero palabras. Más de 500 cartas para hacer mímica en equipo: refranes, jeroglíficos, películas y escenas absurdas. Gratis y sin anuncios.",
-  "description": "Mimesis es el juego de mímica para fiestas, cenas con amigos y reuniones familiares. Un jugador lee una carta en secreto y la representa sin decir ni una palabra. Su equipo tiene que adivinarla antes de que se acabe el tiempo. ¿Quién dijo que hablar era necesario?\n\nCÓMO SE JUEGA\n• Forma al menos 2 equipos de 2 jugadores (a partir de 4 personas).\n• Elige un tema y pásale el teléfono a quien hace la mímica.\n• Haz adivinar todas las cartas que puedas antes de que suene el tiempo.\n• Cada carta adivinada suma un punto. ¡El primer equipo en llegar a la meta gana!\n\nMÁS DE 500 CARTAS EN ESPAÑOL\n• Expresiones: más de 100 refranes y frases hechas, como «Tomar el pelo» o «Llover a cántaros», para representarlas al pie de la letra.\n• Improbable: más de 200 escenas absurdas, como un pulpo firmando un cheque o un vampiro comiendo ajo.\n• Arte y cultura pop: películas, canciones, libros, cuadros y cuentos famosos.\n• Jeroglíficos: más de 130 palabras que se adivinan por partes. Caracol = cara + col.\n\nTÚ PONES LAS REGLAS\n• Elige la duración de cada ronda, de 30 a 90 segundos.\n• Decide cuántos puntos hacen falta para ganar.\n• ¿Una carta imposible? Pásala sin penalización.\n\nPENSADO PARA JUGAR EN GRUPO\n• Pantalla de relevo entre jugadores: el teléfono cambia de manos sin que nadie vea la carta.\n• Vibraciones y animaciones cada vez que tu equipo acierta.\n• Nombres de equipo divertidos y sugerencias de nombres para ir más rápido.\n• Interfaz clara y grande, fácil de leer en plena partida.\n\nSIN COMPLICACIONES\n• Gratis y sin anuncios.\n• Sin cuentas ni registros.\n• Funciona sin conexión después del primer inicio.\n• Código abierto.\n\nPerfecto para cumpleaños, noches de juegos, viajes, vacaciones o cualquier momento en que haya amigos y ganas de reír. Saca el teléfono, forma los equipos y que empiece la mímica.",
-  "keywords": "charadas,mimo,fiesta,amigos,familia,equipos,adivinanzas,películas,refranes,cartas,reunión,grupo",
-  "whatsNew": "¡Mimesis ya habla español!\n• Toda la app traducida al español\n• Más de 500 cartas nuevas pensadas en español: refranes, jeroglíficos, escenas improbables y cultura pop\n• Sugerencias de nombres para jugadores y equipos\n• Elige la duración de las rondas y la puntuación para ganar",
+  "promotionalText": "¡Nuevo modo 2 jugadores! ¿Solo vosotros dos? Haced mímica por turnos: 2 puntos para quien actúa, 1 para quien adivina. Gratis, sin anuncios y sin cuenta.",
+  "description": "Mimesis es el juego de mímica para tus fiestas con amigos, en familia o en pareja. Un teléfono y cero palabras: representa la carta, tu equipo grita la respuesta y el reloj no se detiene.\n\nNUEVO: MODO 2 JUGADORES\n¿Solo vosotros dos? Haced mímica por turnos. Cada carta acertada da puntos a ambos: 2 a quien actúa y 1 a quien adivina. Gana el primero en llegar a la puntuación objetivo. Ideal en pareja, entre hermanos o para una partida rápida en el sofá.\n\nCÓMO SE JUEGA\nFormad equipos (o elegid 2 jugadores). En tu turno, esconde la pantalla, lee la carta y represéntala sin hablar. Tu equipo debe adivinar todas las que pueda antes de que acabe el tiempo. Gana el primer equipo en llegar a la puntuación objetivo.\n\n4 TEMAS, MÁS DE 500 CARTAS\n• Expresiones: refranes y frases hechas para representar al pie de la letra\n• Improbable: escenas absurdas, como un ogro jugando al póker\n• Arte y cultura pop: películas, canciones, libros y cuadros famosos\n• Jeroglíficos: palabras divididas en sonidos que se pueden representar\nCada tema tiene una versión Plus más difícil para jugadores expertos.\n\nHECHO PARA FIESTAS\n• 2 jugadores o tantos equipos como queráis\n• Crea equipos y jugadores en segundos, con ideas de nombres al azar\n• Rondas de 30 a 90 segundos y puntuación para ganar a elegir\n• Una pantalla de cambio de turno indica a quién le toca, sin trampas\n• ¿Atascado con una carta? Pásala, sin penalización\n• Vibración y confeti en cada acierto\n\nEN TU IDIOMA\nMimesis sigue automáticamente el idioma de tu teléfono: cartas, expresiones e incluso jeroglíficos se adaptan.\n\nSIN COMPROMISO\n• Gratis y sin anuncios\n• Sin cuenta ni registro\n• Funciona sin conexión tras el primer inicio\n• Código abierto\n\nPerfecto para cumpleaños, Navidad, reuniones familiares, fiestas de pijamas o una tarde de lluvia. Fácil para los niños y lo bastante absurdo para hacer llorar de risa a los adultos.\n\nLas reglas caben en una frase: prohibido hablar, cantar, escribir o señalar cosas. Lo demás depende de tu talento como actor.\n\n¡Coge un teléfono, reúne a tus amigos y que empiece el espectáculo!",
+  "keywords": "charadas,mimo,fiesta,amigos,familia,equipos,pareja,dos,jugadores,películas,refranes,niños,grupo",
+  "whatsNew": "• Nuevo modo 2 jugadores: cada uno con su puntuación, 2 puntos para quien actúa y 1 para quien adivina\n• La app habla el idioma de tu teléfono, sea cual sea\n• Aspecto nativo: títulos de iOS reales, desplazamiento más fluido y el teclado se cierra como debe\n• Perfecto en iPhone Duo, abierto o cerrado",
   "playTitle": "Mimesis: juego de mímica",
-  "playShortDescription": "Mímica en equipo con más de 500 cartas. Gratis, sin anuncios y sin conexión.",
-  "playFullDescription": "Mimesis es el juego de mímica para fiestas, cenas con amigos y reuniones familiares. Un jugador lee una carta en secreto y la representa sin decir ni una palabra. Su equipo tiene que adivinarla antes de que se acabe el tiempo.\n\nCÓMO SE JUEGA\n• Forma al menos 2 equipos de 2 jugadores (a partir de 4 personas).\n• Elige un tema y pásale el teléfono a quien hace la mímica.\n• Haz adivinar todas las cartas que puedas antes de que se acabe el tiempo.\n• Cada carta adivinada suma un punto. ¡El primer equipo en llegar a la meta gana!\n\nMÁS DE 500 CARTAS EN ESPAÑOL\n• Expresiones: más de 100 refranes y frases hechas para representar al pie de la letra, como «Meter la pata» o «Estar en las nubes».\n• Improbable: más de 200 escenas absurdas, desde un gato depilándose hasta un pingüino camarero que se resbala con la bandeja llena.\n• Arte y cultura pop: películas, canciones, libros, cuadros y cuentos famosos.\n• Jeroglíficos: más de 130 palabras que se adivinan por partes. Pantalón = pan + talón.\n\nTÚ PONES LAS REGLAS\n• Rondas de 30 a 90 segundos.\n• Elige cuántos puntos hacen falta para ganar.\n• ¿Te atascas? Pasa de carta sin penalización.\n\nPENSADO PARA JUGAR EN GRUPO\n• Pantalla de relevo: el teléfono cambia de manos sin que nadie vea la carta.\n• Vibraciones y animaciones cada vez que tu equipo acierta.\n• Sugerencias de nombres para jugadores y equipos.\n• Textos grandes y claros, fáciles de leer en plena partida.\n\nSIN COMPLICACIONES\n• Gratis y sin anuncios.\n• Sin cuentas ni registros.\n• Funciona sin conexión después del primer inicio.\n• Código abierto.\n\nIdeal para cumpleaños, noches de juegos de mesa, viajes en grupo o reuniones familiares. Mimesis convierte cualquier sala en un escenario: forma los equipos, pasa el teléfono y prepárate para reír sin parar.",
+  "playShortDescription": "Juego de mímica y charadas con amigos, en familia o a 2. Gratis y sin anuncios.",
+  "playFullDescription": "Mimesis es el juego de mímica para tus fiestas con amigos, en familia o en pareja. Un teléfono y cero palabras: representa la carta, tu equipo grita la respuesta y el reloj no se detiene.\n\nNUEVO: MODO 2 JUGADORES\n¿Solo vosotros dos? Haced mímica por turnos. Cada carta acertada da puntos a ambos: 2 a quien actúa y 1 a quien adivina. Gana el primero en llegar a la puntuación objetivo. Ideal en pareja, entre hermanos o para una partida rápida en el sofá.\n\nCÓMO SE JUEGA\nFormad equipos (o elegid 2 jugadores). En tu turno, esconde la pantalla, lee la carta y represéntala sin hablar. Tu equipo debe adivinar todas las que pueda antes de que acabe el tiempo. Gana el primer equipo en llegar a la puntuación objetivo.\n\n4 TEMAS, MÁS DE 500 CARTAS\n• Expresiones: refranes y frases hechas para representar al pie de la letra\n• Improbable: escenas absurdas, como un ogro jugando al póker\n• Arte y cultura pop: películas, canciones, libros y cuadros famosos\n• Jeroglíficos: palabras divididas en sonidos que se pueden representar\nCada tema tiene una versión Plus más difícil para jugadores expertos.\n\nHECHO PARA FIESTAS\n• 2 jugadores o tantos equipos como queráis\n• Crea equipos y jugadores en segundos, con ideas de nombres al azar\n• Rondas de 30 a 90 segundos y puntuación para ganar a elegir\n• Una pantalla de cambio de turno indica a quién le toca, sin trampas\n• ¿Atascado con una carta? Pásala, sin penalización\n• Vibración y confeti en cada acierto\n\nEN TU IDIOMA\nMimesis sigue automáticamente el idioma de tu teléfono: cartas, expresiones e incluso jeroglíficos se adaptan.\n\nSIN COMPROMISO\n• Gratis y sin anuncios\n• Sin cuenta ni registro\n• Funciona sin conexión tras el primer inicio\n• Código abierto\n\nPerfecto para cumpleaños, Navidad, reuniones familiares, fiestas de pijamas o una tarde de lluvia. Fácil para los niños y lo bastante absurdo para hacer llorar de risa a los adultos.\n\nLas reglas caben en una frase: prohibido hablar, cantar, escribir o señalar cosas. Lo demás depende de tu talento como actor.\n\n¡Coge un teléfono, reúne a tus amigos y que empiece el espectáculo!",
   "screenshots": [
     {
       "id": "playing",
-      "title": "¡Tú actúas, ellos adivinan!",
-      "subtitle": "Cientos de cartas para hacer mímica."
+      "title": "Tú actúas, ellos adivinan",
+      "subtitle": "Más de 500 cartas para representar."
+    },
+    {
+      "id": "duo",
+      "title": "¿Solo vosotros dos?",
+      "subtitle": "Modo 2 jugadores: 2 puntos para quien actúa, 1 para quien adivina."
     },
     {
       "id": "teams",
-      "title": "Tus equipos en 10 segundos",
-      "subtitle": "Añade a tus amigos y listo."
+      "title": "Equipos en 10 segundos",
+      "subtitle": "Añade a tus amigos, nosotros hacemos el resto."
     },
     {
       "id": "themes",
-      "title": "Elige tu tema",
-      "subtitle": "Refranes, jeroglíficos, películas…"
+      "title": "Elige un tema",
+      "subtitle": "Expresiones, películas, canciones…"
     },
     {
       "id": "handoff",
       "title": "¿A quién le toca?",
-      "subtitle": "El juego elige quién hace la mímica."
+      "subtitle": "El juego elige al siguiente actor."
     },
     {
       "id": "winner",
-      "title": "¡Que gane el mejor equipo!",
-      "subtitle": "Puntos, cronómetro y risas aseguradas."
+      "title": "Que gane el mejor equipo",
+      "subtitle": "Puntos, reloj y risas aseguradas."
     },
     {
       "id": "rules",
-      "title": "Reglas muy sencillas",
+      "title": "Reglas sencillas",
       "subtitle": "Un teléfono, amigos y cero palabras."
     }
   ],
