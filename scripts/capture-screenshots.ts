@@ -15,7 +15,7 @@ const rawDir = resolve(rawArg ?? 'store/raw')
 const devices = Object.fromEntries(deviceArgs.map(arg => arg.split('=') as [string, string]))
 const only = process.env.LOCALES?.split(',')
 const locales = await Bun.file(resolve(import.meta.dir, '../store/locales.json')).json() as Record<string, { app: string }>
-const scenes = ['playing', 'teams', 'themes', 'handoff', 'winner', 'rules']
+const scenes = ['playing', 'duo', 'teams', 'themes', 'handoff', 'winner', 'rules']
 const wait = (ms: number) => new Promise(r => setTimeout(r, ms))
 
 for (const [kind, id] of Object.entries(devices)) {

@@ -62,7 +62,8 @@ async function init() {
   // Follow a language change made in the phone settings while the app was in the background.
   void CapApp.addListener('resume', () => {
     const lang = deviceLocale()
-    if (lang === currentLocale())
+    // Demo builds pick their language per scene (store screenshots), not from the device.
+    if (import.meta.env.VITE_DEMO || lang === currentLocale())
       return
     void setLocale(lang)
     void useCatalogStore().load(lang)
