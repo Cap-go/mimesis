@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.11.0](https://github.com/Cap-go/mimesis/compare/3.10.0...3.11.0) (2026-10-12)
+
+
+### Features
+
+* **store:** ASO refresh and screenshots with the 2-player mode ([#28](https://github.com/Cap-go/mimesis/issues/28)) ([e71973d](https://github.com/Cap-go/mimesis/commit/e71973de7a6a587aa46333b8a92d4b2b3023fbed))
+
 ## [3.10.0](https://github.com/Cap-go/mimesis/compare/3.9.1...3.10.0) (2026-10-11)
 
 
