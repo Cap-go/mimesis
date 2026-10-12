@@ -1,10 +1,615 @@
 {
-  "fr-FR": { "app": "fr", "ios": ["fr-FR"], "play": ["fr-FR"] },
-  "en-US": { "app": "en", "ios": ["en-US", "en-GB", "en-AU", "en-CA"], "play": ["en-US", "en-GB"] },
-  "es-ES": { "app": "es", "ios": ["es-ES", "es-MX"], "play": ["es-ES", "es-419"] },
-  "pt-BR": { "app": "pt", "ios": ["pt-BR"], "play": ["pt-BR"] },
-  "de-DE": { "app": "de", "ios": ["de-DE"], "play": ["de-DE"] },
-  "it": { "app": "it", "ios": ["it"], "play": ["it-IT"] },
-  "ja": { "app": "ja", "ios": ["ja"], "play": ["ja-JP"] },
-  "zh-Hans": { "app": "zh", "ios": ["zh-Hans"], "play": ["zh-CN"] }
+  "fr-FR": {
+    "app": "fr",
+    "ios": [
+      "fr-CA",
+      "fr-FR"
+    ],
+    "play": [
+      "fr-CA",
+      "fr-FR"
+    ]
+  },
+  "en-US": {
+    "app": "en",
+    "ios": [
+      "en-US",
+      "en-GB",
+      "en-AU",
+      "en-CA"
+    ],
+    "play": [
+      "en-AU",
+      "en-CA",
+      "en-GB",
+      "en-IN",
+      "en-SG",
+      "en-US",
+      "en-ZA"
+    ]
+  },
+  "es-ES": {
+    "app": "es",
+    "ios": [
+      "es-ES",
+      "es-MX"
+    ],
+    "play": [
+      "es-419",
+      "es-ES",
+      "es-US"
+    ]
+  },
+  "pt-BR": {
+    "app": "pt",
+    "ios": [
+      "pt-BR"
+    ],
+    "play": [
+      "pt-BR"
+    ]
+  },
+  "de-DE": {
+    "app": "de",
+    "ios": [
+      "de-DE"
+    ],
+    "play": [
+      "de-DE"
+    ]
+  },
+  "it": {
+    "app": "it",
+    "ios": [
+      "it"
+    ],
+    "play": [
+      "it-IT"
+    ]
+  },
+  "ja": {
+    "app": "ja",
+    "ios": [
+      "ja"
+    ],
+    "play": [
+      "ja-JP"
+    ]
+  },
+  "zh-Hans": {
+    "app": "zh",
+    "ios": [
+      "zh-Hans"
+    ],
+    "play": [
+      "zh-CN"
+    ]
+  },
+  "ar": {
+    "app": "ar",
+    "ios": [
+      "ar-SA"
+    ],
+    "play": [
+      "ar"
+    ]
+  },
+  "bn": {
+    "app": "bn",
+    "ios": [
+      "bn-BD"
+    ],
+    "play": [
+      "bn-BD"
+    ]
+  },
+  "ca": {
+    "app": "ca",
+    "ios": [
+      "ca"
+    ],
+    "play": [
+      "ca"
+    ]
+  },
+  "cs": {
+    "app": "cs",
+    "ios": [
+      "cs"
+    ],
+    "play": [
+      "cs-CZ"
+    ]
+  },
+  "da": {
+    "app": "da",
+    "ios": [
+      "da"
+    ],
+    "play": [
+      "da-DK"
+    ]
+  },
+  "el": {
+    "app": "el",
+    "ios": [
+      "el"
+    ],
+    "play": [
+      "el-GR"
+    ]
+  },
+  "fi": {
+    "app": "fi",
+    "ios": [
+      "fi"
+    ],
+    "play": [
+      "fi-FI"
+    ]
+  },
+  "gu": {
+    "app": "gu",
+    "ios": [
+      "gu-IN"
+    ],
+    "play": [
+      "gu"
+    ]
+  },
+  "he": {
+    "app": "he",
+    "ios": [
+      "he"
+    ],
+    "play": [
+      "iw-IL"
+    ]
+  },
+  "hi": {
+    "app": "hi",
+    "ios": [
+      "hi"
+    ],
+    "play": [
+      "hi-IN"
+    ]
+  },
+  "hr": {
+    "app": "hr",
+    "ios": [
+      "hr"
+    ],
+    "play": [
+      "hr"
+    ]
+  },
+  "hu": {
+    "app": "hu",
+    "ios": [
+      "hu"
+    ],
+    "play": [
+      "hu-HU"
+    ]
+  },
+  "id": {
+    "app": "id",
+    "ios": [
+      "id"
+    ],
+    "play": [
+      "id"
+    ]
+  },
+  "kn": {
+    "app": "kn",
+    "ios": [
+      "kn-IN"
+    ],
+    "play": [
+      "kn-IN"
+    ]
+  },
+  "ko": {
+    "app": "ko",
+    "ios": [
+      "ko"
+    ],
+    "play": [
+      "ko-KR"
+    ]
+  },
+  "ml": {
+    "app": "ml",
+    "ios": [
+      "ml-IN"
+    ],
+    "play": [
+      "ml-IN"
+    ]
+  },
+  "mr": {
+    "app": "mr",
+    "ios": [
+      "mr-IN"
+    ],
+    "play": [
+      "mr-IN"
+    ]
+  },
+  "ms": {
+    "app": "ms",
+    "ios": [
+      "ms"
+    ],
+    "play": [
+      "ms",
+      "ms-MY"
+    ]
+  },
+  "nl-NL": {
+    "app": "nl",
+    "ios": [
+      "nl-NL"
+    ],
+    "play": [
+      "nl-NL"
+    ]
+  },
+  "no": {
+    "app": "no",
+    "ios": [
+      "no"
+    ],
+    "play": [
+      "no-NO"
+    ]
+  },
+  "or": {
+    "app": "or",
+    "ios": [
+      "or-IN"
+    ],
+    "play": []
+  },
+  "pa": {
+    "app": "pa",
+    "ios": [
+      "pa-IN"
+    ],
+    "play": []
+  },
+  "pl": {
+    "app": "pl",
+    "ios": [
+      "pl"
+    ],
+    "play": [
+      "pl-PL"
+    ]
+  },
+  "pt-PT": {
+    "app": "pt",
+    "ios": [
+      "pt-PT"
+    ],
+    "play": [
+      "pt-PT"
+    ]
+  },
+  "ro": {
+    "app": "ro",
+    "ios": [
+      "ro"
+    ],
+    "play": [
+      "ro"
+    ]
+  },
+  "ru": {
+    "app": "ru",
+    "ios": [
+      "ru"
+    ],
+    "play": [
+      "ru-RU"
+    ]
+  },
+  "sk": {
+    "app": "sk",
+    "ios": [
+      "sk"
+    ],
+    "play": [
+      "sk"
+    ]
+  },
+  "sl": {
+    "app": "sl",
+    "ios": [
+      "sl-SI"
+    ],
+    "play": [
+      "sl"
+    ]
+  },
+  "sv": {
+    "app": "sv",
+    "ios": [
+      "sv"
+    ],
+    "play": [
+      "sv-SE"
+    ]
+  },
+  "ta": {
+    "app": "ta",
+    "ios": [
+      "ta-IN"
+    ],
+    "play": [
+      "ta-IN"
+    ]
+  },
+  "te": {
+    "app": "te",
+    "ios": [
+      "te-IN"
+    ],
+    "play": [
+      "te-IN"
+    ]
+  },
+  "th": {
+    "app": "th",
+    "ios": [
+      "th"
+    ],
+    "play": [
+      "th"
+    ]
+  },
+  "tr": {
+    "app": "tr",
+    "ios": [
+      "tr"
+    ],
+    "play": [
+      "tr-TR"
+    ]
+  },
+  "uk": {
+    "app": "uk",
+    "ios": [
+      "uk"
+    ],
+    "play": [
+      "uk"
+    ]
+  },
+  "ur": {
+    "app": "ur",
+    "ios": [
+      "ur-PK"
+    ],
+    "play": [
+      "ur"
+    ]
+  },
+  "vi": {
+    "app": "vi",
+    "ios": [
+      "vi"
+    ],
+    "play": [
+      "vi"
+    ]
+  },
+  "zh-Hant": {
+    "app": "zh-hant",
+    "ios": [
+      "zh-Hant"
+    ],
+    "play": [
+      "zh-TW",
+      "zh-HK"
+    ]
+  },
+  "af": {
+    "app": "af",
+    "ios": [],
+    "play": [
+      "af"
+    ]
+  },
+  "am": {
+    "app": "am",
+    "ios": [],
+    "play": [
+      "am"
+    ]
+  },
+  "az": {
+    "app": "az",
+    "ios": [],
+    "play": [
+      "az-AZ"
+    ]
+  },
+  "be": {
+    "app": "be",
+    "ios": [],
+    "play": [
+      "be"
+    ]
+  },
+  "bg": {
+    "app": "bg",
+    "ios": [],
+    "play": [
+      "bg"
+    ]
+  },
+  "et": {
+    "app": "et",
+    "ios": [],
+    "play": [
+      "et"
+    ]
+  },
+  "eu": {
+    "app": "eu",
+    "ios": [],
+    "play": [
+      "eu-ES"
+    ]
+  },
+  "fa": {
+    "app": "fa",
+    "ios": [],
+    "play": [
+      "fa"
+    ]
+  },
+  "fil": {
+    "app": "fil",
+    "ios": [],
+    "play": [
+      "fil"
+    ]
+  },
+  "gl": {
+    "app": "gl",
+    "ios": [],
+    "play": [
+      "gl-ES"
+    ]
+  },
+  "hy": {
+    "app": "hy",
+    "ios": [],
+    "play": [
+      "hy-AM"
+    ]
+  },
+  "is": {
+    "app": "is",
+    "ios": [],
+    "play": [
+      "is-IS"
+    ]
+  },
+  "ka": {
+    "app": "ka",
+    "ios": [],
+    "play": [
+      "ka-GE"
+    ]
+  },
+  "kk": {
+    "app": "kk",
+    "ios": [],
+    "play": [
+      "kk"
+    ]
+  },
+  "km": {
+    "app": "km",
+    "ios": [],
+    "play": [
+      "km-KH"
+    ]
+  },
+  "ky": {
+    "app": "ky",
+    "ios": [],
+    "play": [
+      "ky-KG"
+    ]
+  },
+  "lo": {
+    "app": "lo",
+    "ios": [],
+    "play": [
+      "lo-LA"
+    ]
+  },
+  "lt": {
+    "app": "lt",
+    "ios": [],
+    "play": [
+      "lt"
+    ]
+  },
+  "lv": {
+    "app": "lv",
+    "ios": [],
+    "play": [
+      "lv"
+    ]
+  },
+  "mk": {
+    "app": "mk",
+    "ios": [],
+    "play": [
+      "mk-MK"
+    ]
+  },
+  "mn": {
+    "app": "mn",
+    "ios": [],
+    "play": [
+      "mn-MN"
+    ]
+  },
+  "my": {
+    "app": "my",
+    "ios": [],
+    "play": [
+      "my-MM"
+    ]
+  },
+  "ne": {
+    "app": "ne",
+    "ios": [],
+    "play": [
+      "ne-NP"
+    ]
+  },
+  "si": {
+    "app": "si",
+    "ios": [],
+    "play": [
+      "si-LK"
+    ]
+  },
+  "sq": {
+    "app": "sq",
+    "ios": [],
+    "play": [
+      "sq"
+    ]
+  },
+  "sr": {
+    "app": "sr",
+    "ios": [],
+    "play": [
+      "sr"
+    ]
+  },
+  "sw": {
+    "app": "sw",
+    "ios": [],
+    "play": [
+      "sw"
+    ]
+  },
+  "zu": {
+    "app": "zu",
+    "ios": [],
+    "play": [
+      "zu"
+    ]
+  }
 }

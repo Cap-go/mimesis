@@ -14,8 +14,8 @@
   "services": [{ "binding": "API", "service": "mimesis-api" }],
   "queues": {
     "producers": [{ "binding": "QUEUE", "queue": "mimesis-translate" }],
-    // One language at a time, so dictionary writes never race.
-    "consumers": [{ "queue": "mimesis-translate", "max_batch_size": 1, "max_batch_timeout": 1, "max_retries": 3, "retry_delay": 60, "max_concurrency": 1 }]
+    // Each language is its own dictionary; a pending marker keeps one job per language.
+    "consumers": [{ "queue": "mimesis-translate", "max_batch_size": 1, "max_batch_timeout": 1, "max_retries": 3, "retry_delay": 60, "max_concurrency": 12 }]
   },
   "vars": { "MODEL": "@cf/openai/gpt-oss-120b" }
 }

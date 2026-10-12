@@ -12,11 +12,14 @@ import { chromium } from '@playwright/test'
 const rawDir = resolve(process.argv[2] ?? 'store/raw')
 const url = process.env.DEMO_URL ?? 'http://localhost:3334/'
 const locales = await Bun.file(resolve(import.meta.dir, '../store/locales.json')).json() as Record<string, { app: string }>
+const only = process.env.LOCALES?.split(',')
 const scenes = ['playing', 'duo', 'teams', 'themes', 'handoff', 'winner', 'rules']
 const displays = { 'duo-outer': { width: 466, height: 678 }, 'duo-inner': { width: 669, height: 951 } }
 
 const browser = await chromium.launch()
 for (const [locale, { app }] of Object.entries(locales)) {
+  if (only && !only.includes(locale))
+    continue
   if (!app)
     throw new Error(`store/locales.json: ${locale} has no app language`)
   for (const [name, viewport] of Object.entries(displays)) {
