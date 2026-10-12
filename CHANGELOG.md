@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.12.0](https://github.com/Cap-go/mimesis/compare/3.11.0...3.12.0) (2026-10-12)
+
+
+### Features
+
+* **store:** listings in every App Store and Google Play language ([#29](https://github.com/Cap-go/mimesis/issues/29)) ([cc1dac8](https://github.com/Cap-go/mimesis/commit/cc1dac812b569795f431adac6f2e006314552da2))
+
 ## [3.11.0](https://github.com/Cap-go/mimesis/compare/3.10.0...3.11.0) (2026-10-12)
 
 
