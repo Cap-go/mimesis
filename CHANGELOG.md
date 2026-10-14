@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.13.0](https://github.com/Cap-go/mimesis/compare/3.12.0...3.13.0) (2026-10-14)
+
+
+### Features
+
+* **settings:** say Made by Capgo, allow store uploads without review ([#30](https://github.com/Cap-go/mimesis/issues/30)) ([49f1871](https://github.com/Cap-go/mimesis/commit/49f187190d35fee9536e0fc2f916851e9a14f02b))
+
 ## [3.12.0](https://github.com/Cap-go/mimesis/compare/3.11.0...3.12.0) (2026-10-12)
 
 
