@@ -4,7 +4,7 @@ name: Release
 #   1. capacitor-standard-version bumps the version (package.json + native projects) and tags it.
 #   2. The web bundle goes live to every compatible install through Capgo live updates.
 #   3. When native code changed, Capgo Cloud Build builds iOS and Android and submits both
-#      to App Store and Google Play review.
+#      to App Store and Google Play review (a manual run can upload without submitting).
 on:
   push:
     branches: [main]
@@ -24,6 +24,10 @@ on:
         description: Force native store builds even if the bundle is compatible
         type: boolean
         default: false
+      review:
+        description: Submit the store builds for review (off leaves them ready for the next review)
+        type: boolean
+        default: true
 
 concurrency:
   group: release
@@ -115,7 +119,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       - run: bun run build && bunx cap sync ${{ matrix.platform }}
-      - name: Build in Capgo Cloud and submit for store review
+      - name: Build in Capgo Cloud and upload to the stores
         env:
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
           P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
@@ -132,6 +136,13 @@ jobs:
         run: |
           SYNC="--sync-android-version"
           if [ "${{ matrix.platform }}" = "ios" ]; then SYNC="--sync-ios-version --ios-automatic-release"; fi
+          # Pushes always submit. A manual run with review off uploads only: a TestFlight build on iOS,
+          # a production draft on Google Play, both left for the next review.
+          REVIEW="--submit-to-store-review"
+          if [ "${{ inputs.review }}" = "false" ]; then
+            REVIEW=""
+            if [ "${{ matrix.platform }}" = "android" ]; then REVIEW="--android-track production --android-release-status draft"; fi
+          fi
           # "What's new" for every store locale, from store/listing/<locale>.json (mapped by store/locales.json).
           STORE_KEY=play
           if [ "${{ matrix.platform }}" = "ios" ]; then STORE_KEY=ios; fi
@@ -141,9 +152,8 @@ jobs:
           done < <(jq -r --arg k "$STORE_KEY" 'to_entries[] | .key as $l | .value[$k][] | "\(.) \($l)"' store/locales.json)
           bunx @capgo/cli@latest build request "$APP_ID" \
             --platform ${{ matrix.platform }} \
-            --submit-to-store-review \
             --store-release-name "${{ needs.version.outputs.version }}" \
             --store-release-notes "$(jq -r .whatsNew store/listing/en-US.json)" \
             "${NOTES[@]}" \
             --ai-analytics \
-            $SYNC
+            $REVIEW $SYNC
