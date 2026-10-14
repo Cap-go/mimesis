@@ -72,7 +72,7 @@
   "openSource": "Source code on GitHub",
   "version": "Version {v}",
   "builtWith": "Open source, built with Capacitor and shipped with Capgo live updates.",
-  "madeWith": "Made with Capgo",
+  "madeWith": "Made by Capgo",
   "madeBy": "Made by {name}",
   "fun.mimesis.rebus": "Rebus",
   "fun.mimesis.rebus_plus": "Rebus Plus",
