@@ -1,7 +1,7 @@
 // App Store app preview (886×1920 portrait, ~22 s): the real app, captioned step by step.
 import type { Lang } from './theme'
 import { AbsoluteFill, Audio, interpolate, Sequence, staticFile, useCurrentFrame } from 'remotion'
-import { Icon, Reel, Stage, usePop } from './parts'
+import { Icon, Music, Reel, Stage, usePop } from './parts'
 import { color, COPY, font, FPS, REEL, STEPS } from './theme'
 
 const INTRO = 30
@@ -64,6 +64,7 @@ export function AppPreview({ lang }: { lang: Lang }) {
   const leave = interpolate(frame, [INTRO + REEL_FRAMES - 6, INTRO + REEL_FRAMES + 12], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })
   return (
     <Stage>
+      <Music />
       <Sequence durationInFrames={INTRO + 8}>
         <Intro lang={lang} />
       </Sequence>

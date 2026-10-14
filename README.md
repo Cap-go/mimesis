@@ -103,7 +103,7 @@ ffmpeg -ss 3.5 -to 22.9 -i reel-en.mp4 -vf fps=30,scale=1080:-2 -an promo/public
 cd promo && bun install && bun run render   # bun run studio to preview and tweak
 ```
 
-Tap times and captions live in `promo/src/theme.ts`.
+Tap times and captions live in `promo/src/theme.ts`. The background music (`promo/public/music.mp3`) is the tail of an instrumental generated with ChatCut, lined up so the song ends with each video.
 
 The same render also writes the iOS 27 App Store creative assets to `store/creative/<locale>/`: `header.mp4` / `header.png` (product page header, 21:9, 3840×1646), `search.mp4` (search results, 3:2, 2880×1920) and `universal.png` (16:9, 5244×2950, works for both). They autoplay muted and loop, so they carry no sound and little text.
 
