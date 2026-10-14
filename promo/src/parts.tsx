@@ -1,10 +1,26 @@
 import type { CSSProperties, ReactNode } from 'react'
 import type { Lang } from './theme'
-import { AbsoluteFill, Img, interpolate, OffthreadVideo, spring, staticFile, useCurrentFrame, useVideoConfig } from 'remotion'
+import { AbsoluteFill, Audio, Img, interpolate, OffthreadVideo, spring, staticFile, useCurrentFrame, useVideoConfig } from 'remotion'
 import { color, font, FPS, REEL } from './theme'
 
 // Height / width of the simulator recording (1320×2868).
 export const REEL_RATIO = 2868 / 1320
+
+// public/music.mp3 is the last 28 s of an instrumental generated with ChatCut (Mureka); the song
+// ends on its own at MUSIC_END, so it is lined up to finish with the video.
+const MUSIC_END = 28 * FPS
+
+// Background music under the sound effects, ending with the video.
+export function Music() {
+  const { durationInFrames } = useVideoConfig()
+  return (
+    <Audio
+      src={staticFile('music.mp3')}
+      trimBefore={Math.max(0, MUSIC_END - durationInFrames)}
+      volume={f => interpolate(f, [0, 12], [0, 0.5], { extrapolateRight: 'clamp' })}
+    />
+  )
+}
 
 // Warm stage gradient with slowly drifting cards, like the app background.
 // `loop` makes the drift repeat every `loop` frames, for assets that play on a loop.

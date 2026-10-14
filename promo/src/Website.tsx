@@ -1,7 +1,7 @@
 // Website promo (1920×1080, ~24 s): headline steps on the left, the real app in a phone on the right.
 import type { Lang } from './theme'
 import { AbsoluteFill, Audio, Img, interpolate, Sequence, staticFile, useCurrentFrame } from 'remotion'
-import { Icon, Reel, REEL_RATIO, Stage, usePop } from './parts'
+import { Icon, Music, Reel, REEL_RATIO, Stage, usePop } from './parts'
 import { color, COPY, font, FPS, REEL, STEPS } from './theme'
 
 const INTRO = 45
@@ -97,6 +97,7 @@ export function Website({ lang }: { lang: Lang }) {
   const sway = Math.sin(frame / 50) * 1.5
   return (
     <Stage>
+      <Music />
       <Sequence durationInFrames={INTRO + 8}>
         <Hero lang={lang} />
       </Sequence>
