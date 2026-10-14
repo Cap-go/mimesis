@@ -60,6 +60,8 @@ const colors = {
   indicator: '#FBDCE6',
 }
 
+const androidNoGlass = { effect: 'none' as const, surfaceAlpha: 0.95 }
+
 let router: Router
 
 // Push a page on the stack with a forward slide.
@@ -97,9 +99,10 @@ function navbarOptions(route: RouteLocationNormalized) {
     // iOS: a chevron item renders as a glass back button. Android: the Toolbar's own up arrow.
     backButton: { visible: chrome === 'push' && platform === 'android', title: t('back') },
     leftItems: chrome === 'push' && platform === 'ios' ? [{ id: 'back', title: t('back'), icon: backIcon }] : [],
-    // Android has no system glass: blur the orange page behind the bar instead of the default white surface.
+    // Android: a solid orange bar instead of the default white surface. The plugin's liquidGlass
+    // redraws the whole WebView into the bar while scrolling, which blanks the page for a frame.
     colors: platform === 'android' ? { ...colors, background: '#F39A55' } : colors,
-    glass: platform === 'android' ? { effect: 'liquidGlass' as const, surfaceAlpha: 0.55 } : undefined,
+    glass: platform === 'android' ? androidNoGlass : undefined,
     // The page transition already animates; animating the bar swap (back button ↔ large title) can
     // leave the previous page's bar on screen on some iOS versions.
     animated: false,
@@ -128,6 +131,8 @@ async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
     labelVisibilityMode: 'labeled',
     colors: { ...colors, background: '#FFFAF5' },
     indicatorColor: colors.indicator,
+    // The floating tab bar defaults to liquidGlass on Android 12+: same flashing as the top bar.
+    glass: platform === 'android' ? androidNoGlass : undefined,
     tabs: tabs.map<NativeNavigationTab>(item => ({
       id: item.id,
       title: t(item.title),
