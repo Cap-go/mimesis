@@ -60,6 +60,11 @@ const colors = {
   indicator: '#FBDCE6',
 }
 
+// Android draws no native glass: the plugin's liquidGlass renders the WebView in software to blur
+// it, which flashes the page (8.8.2 and older) or swallows the next fling (8.8.3). The blur comes
+// from CSS instead: .scroll-edge under the navbar, .tabbar-blur under the tab bar (App.vue).
+const androidNoGlass = { effect: 'none' as const }
+
 let router: Router
 
 // Push a page on the stack with a forward slide.
@@ -97,9 +102,9 @@ function navbarOptions(route: RouteLocationNormalized) {
     // iOS: a chevron item renders as a glass back button. Android: the Toolbar's own up arrow.
     backButton: { visible: chrome === 'push' && platform === 'android', title: t('back') },
     leftItems: chrome === 'push' && platform === 'ios' ? [{ id: 'back', title: t('back'), icon: backIcon }] : [],
-    // Android has no system glass: blur the orange page behind the bar instead of the default white surface.
-    colors: platform === 'android' ? { ...colors, background: '#F39A55' } : colors,
-    glass: platform === 'android' ? { effect: 'liquidGlass' as const, surfaceAlpha: 0.55 } : undefined,
+    // Android: a see-through bar like iOS; the page's .scroll-edge blur sits under the title.
+    colors: platform === 'android' ? { ...colors, background: '#00000000' } : colors,
+    glass: platform === 'android' ? androidNoGlass : undefined,
     // The page transition already animates; animating the bar swap (back button ↔ large title) can
     // leave the previous page's bar on screen on some iOS versions.
     animated: false,
@@ -118,23 +123,32 @@ async function setNavbar(route: RouteLocationNormalized): Promise<void> {
   await NativeNavigation.setNavbar(options)
 }
 
+// Animate the tab bar only when it appears or disappears: plugin 8.8.3 and older replay the
+// Android slide-in on every animated update, so the bar blinked on each tab tap.
+let tabbarHidden: boolean | undefined
+
 async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
   const t = i18n.global.t
   const { chrome, tab } = route.meta
+  const hidden = chrome !== 'tab'
+  const animated = tabbarHidden !== undefined && hidden !== tabbarHidden
+  tabbarHidden = hidden
   await setNavbar(route)
   await NativeNavigation.setTabbar({
-    hidden: chrome !== 'tab',
+    hidden,
     selectedId: tab ?? 'teams',
     labelVisibilityMode: 'labeled',
-    colors: { ...colors, background: '#FFFAF5' },
+    // Android parses #AARRGGBB: a 70% cream surface over the CSS blur.
+    colors: { ...colors, background: platform === 'android' ? '#B3FFFAF5' : '#FFFAF5' },
     indicatorColor: colors.indicator,
+    glass: platform === 'android' ? androidNoGlass : undefined,
     tabs: tabs.map<NativeNavigationTab>(item => ({
       id: item.id,
       title: t(item.title),
       icon: item.icon,
       selectedIcon: item.selectedIcon,
     })),
-    animated: true,
+    animated,
   })
 }
 
