@@ -105,9 +105,10 @@ function navbarOptions(route: RouteLocationNormalized) {
     // iOS: a chevron item renders as a glass back button. Android: the Toolbar's own up arrow.
     backButton: { visible: chrome === 'push' && platform === 'android', title: t('back') },
     leftItems: chrome === 'push' && platform === 'ios' ? [{ id: 'back', title: t('back'), icon: backIcon }] : [],
-    // Old Android plugin: a solid orange bar instead of the flashing glass.
-    colors: androidGlassFlashes ? { ...colors, background: '#F39A55' } : colors,
-    glass: androidGlassFlashes ? androidNoGlass : undefined,
+    // Android: a see-through bar like iOS; the page's .scroll-edge blur sits under the title.
+    // (The plugin's glass would paint a 62% white surface here.)
+    colors: platform === 'android' ? { ...colors, background: '#00000000' } : colors,
+    glass: platform === 'android' ? androidNoGlass : undefined,
     // The page transition already animates; animating the bar swap (back button ↔ large title) can
     // leave the previous page's bar on screen on some iOS versions.
     animated: false,
