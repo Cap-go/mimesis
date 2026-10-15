@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.13.2](https://github.com/Cap-go/mimesis/compare/3.13.1...3.13.2) (2026-10-15)
+
+
+### Bug Fixes
+
+* **android:** smooth scrolling, CSS blur bars, no tab bar blink ([#32](https://github.com/Cap-go/mimesis/issues/32)) ([0de6d0b](https://github.com/Cap-go/mimesis/commit/0de6d0bd09c787a91b64dc2da60460b1d691633b))
+
 ## [3.13.1](https://github.com/Cap-go/mimesis/compare/3.13.0...3.13.1) (2026-10-14)
 
 ## [3.13.0](https://github.com/Cap-go/mimesis/compare/3.12.0...3.13.0) (2026-10-14)
