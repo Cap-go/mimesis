@@ -126,12 +126,19 @@ async function setNavbar(route: RouteLocationNormalized): Promise<void> {
   await NativeNavigation.setNavbar(options)
 }
 
+// Animate the tab bar only when it appears or disappears: plugin 8.8.3 and older replay the
+// Android slide-in on every animated update, so the bar blinked on each tab tap.
+let tabbarHidden: boolean | undefined
+
 async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
   const t = i18n.global.t
   const { chrome, tab } = route.meta
+  const hidden = chrome !== 'tab'
+  const animated = tabbarHidden !== undefined && hidden !== tabbarHidden
+  tabbarHidden = hidden
   await setNavbar(route)
   await NativeNavigation.setTabbar({
-    hidden: chrome !== 'tab',
+    hidden,
     selectedId: tab ?? 'teams',
     labelVisibilityMode: 'labeled',
     colors: { ...colors, background: '#FFFAF5' },
@@ -144,7 +151,7 @@ async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
       icon: item.icon,
       selectedIcon: item.selectedIcon,
     })),
-    animated: true,
+    animated,
   })
 }
 
