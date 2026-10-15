@@ -149,6 +149,20 @@ cap-page {
 }
 
 /* Content fades out under the native bar while scrolled, like UIKit's scroll edge effect. */
+/* Matches the plugin's default floating tab bar: 64px tall, 24px side margins, at most 430px wide,
+   10px above the system navigation bar. */
+.tabbar-blur {
+  position: fixed;
+  left: max(24px, calc((100vw - 430px) / 2));
+  right: max(24px, calc((100vw - 430px) / 2));
+  bottom: calc(var(--inset-bottom) + 10px);
+  height: 64px;
+  border-radius: 32px;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
 .scroll-edge {
   height: calc(var(--safe-top) + 12px);
   background: linear-gradient(to bottom, rgb(243 154 85 / 0.92) 0%, rgb(243 154 85 / 0.75) 70%, transparent 100%);

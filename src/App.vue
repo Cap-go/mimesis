@@ -3,7 +3,7 @@ import { setupRouterOutlet } from '@capgo/capacitor-transitions/vue'
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import WebTabBar from '~/components/WebTabBar.vue'
-import { isNative } from '~/services/platform'
+import { isNative, platform } from '~/services/platform'
 
 const route = useRoute()
 const outletRef = ref<HTMLElement | null>(null)
@@ -24,4 +24,6 @@ onMounted(() => {
   >
     <WebTabBar v-if="!isNative && route.meta.chrome === 'tab'" />
   </Transition>
+  <!-- Android: the blur behind the translucent native tab bar (see services/navigation.ts). -->
+  <div v-if="isNative && platform === 'android' && route.meta.chrome === 'tab'" class="tabbar-blur" />
 </template>

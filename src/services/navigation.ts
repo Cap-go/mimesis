@@ -60,13 +60,10 @@ const colors = {
   indicator: '#FBDCE6',
 }
 
-const androidNoGlass = { effect: 'none' as const, surfaceAlpha: 0.95 }
-
-// Before native-navigation 8.8.3 the Android liquidGlass redrew the WebView into the bars while
-// scrolling, blanking the page for a frame. Live updates still reach binaries built with the old
-// plugin (Android versionCode 31301999 / 3.13.1 and below), so those keep solid bars.
-const LAST_ANDROID_BUILD_WITH_FLASHING_GLASS = 31301999
-let androidGlassFlashes = platform === 'android'
+// Android draws no native glass: the plugin's liquidGlass renders the WebView in software to blur
+// it, which flashes the page (8.8.2 and older) or swallows the next fling (8.8.3). The blur comes
+// from CSS instead: .scroll-edge under the navbar, .tabbar-blur under the tab bar (App.vue).
+const androidNoGlass = { effect: 'none' as const }
 
 let router: Router
 
@@ -106,7 +103,6 @@ function navbarOptions(route: RouteLocationNormalized) {
     backButton: { visible: chrome === 'push' && platform === 'android', title: t('back') },
     leftItems: chrome === 'push' && platform === 'ios' ? [{ id: 'back', title: t('back'), icon: backIcon }] : [],
     // Android: a see-through bar like iOS; the page's .scroll-edge blur sits under the title.
-    // (The plugin's glass would paint a 62% white surface here.)
     colors: platform === 'android' ? { ...colors, background: '#00000000' } : colors,
     glass: platform === 'android' ? androidNoGlass : undefined,
     // The page transition already animates; animating the bar swap (back button ↔ large title) can
@@ -142,10 +138,10 @@ async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
     hidden,
     selectedId: tab ?? 'teams',
     labelVisibilityMode: 'labeled',
-    colors: { ...colors, background: '#FFFAF5' },
+    // Android parses #AARRGGBB: a 70% cream surface over the CSS blur.
+    colors: { ...colors, background: platform === 'android' ? '#B3FFFAF5' : '#FFFAF5' },
     indicatorColor: colors.indicator,
-    // The floating tab bar defaults to liquidGlass on Android 12+: same flashing as the top bar.
-    glass: androidGlassFlashes ? androidNoGlass : undefined,
+    glass: platform === 'android' ? androidNoGlass : undefined,
     tabs: tabs.map<NativeNavigationTab>(item => ({
       id: item.id,
       title: t(item.title),
@@ -169,10 +165,6 @@ export async function initNavigation(appRouter: Router): Promise<void> {
   if (!isNative)
     return
   watch(messagesVersion, refreshChrome)
-  if (androidGlassFlashes) {
-    const { build } = await App.getInfo()
-    androidGlassFlashes = Number(build) <= LAST_ANDROID_BUILD_WITH_FLASHING_GLASS
-  }
   await NativeNavigation.configure({
     contentInsetMode: 'css',
     animationDuration: 320,
