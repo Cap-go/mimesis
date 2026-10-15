@@ -62,6 +62,12 @@ const colors = {
 
 const androidNoGlass = { effect: 'none' as const, surfaceAlpha: 0.95 }
 
+// Before native-navigation 8.8.3 the Android liquidGlass redrew the WebView into the bars while
+// scrolling, blanking the page for a frame. Live updates still reach binaries built with the old
+// plugin (Android versionCode 31301999 / 3.13.1 and below), so those keep solid bars.
+const LAST_ANDROID_BUILD_WITH_FLASHING_GLASS = 31301999
+let androidGlassFlashes = platform === 'android'
+
 let router: Router
 
 // Push a page on the stack with a forward slide.
@@ -99,10 +105,9 @@ function navbarOptions(route: RouteLocationNormalized) {
     // iOS: a chevron item renders as a glass back button. Android: the Toolbar's own up arrow.
     backButton: { visible: chrome === 'push' && platform === 'android', title: t('back') },
     leftItems: chrome === 'push' && platform === 'ios' ? [{ id: 'back', title: t('back'), icon: backIcon }] : [],
-    // Android: a solid orange bar instead of the default white surface. The plugin's liquidGlass
-    // redraws the whole WebView into the bar while scrolling, which blanks the page for a frame.
-    colors: platform === 'android' ? { ...colors, background: '#F39A55' } : colors,
-    glass: platform === 'android' ? androidNoGlass : undefined,
+    // Old Android plugin: a solid orange bar instead of the flashing glass.
+    colors: androidGlassFlashes ? { ...colors, background: '#F39A55' } : colors,
+    glass: androidGlassFlashes ? androidNoGlass : undefined,
     // The page transition already animates; animating the bar swap (back button ↔ large title) can
     // leave the previous page's bar on screen on some iOS versions.
     animated: false,
@@ -132,7 +137,7 @@ async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
     colors: { ...colors, background: '#FFFAF5' },
     indicatorColor: colors.indicator,
     // The floating tab bar defaults to liquidGlass on Android 12+: same flashing as the top bar.
-    glass: platform === 'android' ? androidNoGlass : undefined,
+    glass: androidGlassFlashes ? androidNoGlass : undefined,
     tabs: tabs.map<NativeNavigationTab>(item => ({
       id: item.id,
       title: t(item.title),
@@ -156,6 +161,10 @@ export async function initNavigation(appRouter: Router): Promise<void> {
   if (!isNative)
     return
   watch(messagesVersion, refreshChrome)
+  if (androidGlassFlashes) {
+    const { build } = await App.getInfo()
+    androidGlassFlashes = Number(build) <= LAST_ANDROID_BUILD_WITH_FLASHING_GLASS
+  }
   await NativeNavigation.configure({
     contentInsetMode: 'css',
     animationDuration: 320,
