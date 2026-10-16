@@ -32,11 +32,11 @@ project(':capacitor-status-bar').projectDir = new File('../node_modules/@capacit
 include ':capgo-capacitor-crisp'
 project(':capgo-capacitor-crisp').projectDir = new File('../node_modules/@capgo/capacitor-crisp/android')
 
+include ':capgo-capacitor-native-audio'
+project(':capgo-capacitor-native-audio').projectDir = new File('../node_modules/@capgo/capacitor-native-audio/android')
+
 include ':capgo-capacitor-native-navigation'
 project(':capgo-capacitor-native-navigation').projectDir = new File('../node_modules/@capgo/capacitor-native-navigation/android')
 
 include ':capgo-capacitor-updater'
 project(':capgo-capacitor-updater').projectDir = new File('../node_modules/@capgo/capacitor-updater/android')
-
-include ':capgo-native-audio'
-project(':capgo-native-audio').projectDir = new File('../node_modules/@capgo/native-audio/android')
