@@ -22,9 +22,9 @@ let package = Package(
         .package(name: "CapacitorSplashScreen", path: "../../../node_modules/@capacitor/splash-screen"),
         .package(name: "CapacitorStatusBar", path: "../../../node_modules/@capacitor/status-bar"),
         .package(name: "CapgoCapacitorCrisp", path: "../../../node_modules/@capgo/capacitor-crisp"),
+        .package(name: "CapgoCapacitorNativeAudio", path: "../../../node_modules/@capgo/capacitor-native-audio"),
         .package(name: "CapgoCapacitorNativeNavigation", path: "../../../node_modules/@capgo/capacitor-native-navigation"),
-        .package(name: "CapgoCapacitorUpdater", path: "../../../node_modules/@capgo/capacitor-updater"),
-        .package(name: "CapgoNativeAudio", path: "../../../node_modules/@capgo/native-audio")
+        .package(name: "CapgoCapacitorUpdater", path: "../../../node_modules/@capgo/capacitor-updater")
     ],
     targets: [
         .target(
@@ -42,9 +42,9 @@ let package = Package(
                 .product(name: "CapacitorSplashScreen", package: "CapacitorSplashScreen"),
                 .product(name: "CapacitorStatusBar", package: "CapacitorStatusBar"),
                 .product(name: "CapgoCapacitorCrisp", package: "CapgoCapacitorCrisp"),
+                .product(name: "CapgoCapacitorNativeAudio", package: "CapgoCapacitorNativeAudio"),
                 .product(name: "CapgoCapacitorNativeNavigation", package: "CapgoCapacitorNativeNavigation"),
-                .product(name: "CapgoCapacitorUpdater", package: "CapgoCapacitorUpdater"),
-                .product(name: "CapgoNativeAudio", package: "CapgoNativeAudio")
+                .product(name: "CapgoCapacitorUpdater", package: "CapgoCapacitorUpdater")
             ]
         )
     ]

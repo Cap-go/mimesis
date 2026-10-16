@@ -1,4 +1,4 @@
-import { NativeAudio } from '@capgo/native-audio'
+import { NativeAudio } from '@capgo/capacitor-native-audio'
 import { isNative } from './platform'
 
 export type SoundName = 'horn' | 'tada'

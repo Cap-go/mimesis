@@ -87,7 +87,7 @@ export function back(fallback = '/teams'): void {
     void router.replace(fallback)
 }
 
-// iOS large titles collapse to an inline title once the page scrolls, like system apps.
+// Large titles collapse to an inline title once the page scrolls, like system apps.
 let titleCollapsed = false
 
 function navbarOptions(route: RouteLocationNormalized) {
@@ -154,7 +154,7 @@ async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
 
 // Called by pages as they scroll: swaps the large title for the inline one past the top.
 export function setTitleCollapsed(collapsed: boolean): void {
-  if (!isNative || platform !== 'ios' || !router || collapsed === titleCollapsed)
+  if (!isNative || !router || collapsed === titleCollapsed)
     return
   titleCollapsed = collapsed
   void setNavbar(router.currentRoute.value)

@@ -20,11 +20,12 @@ const chrome = route.meta.chrome
 // Native chrome draws the bars and titles; the browser build draws its own.
 const webHeader = !isNative && chrome !== 'immersive'
 const showTitle = props.title && !isNative
-// iOS large titles shrink as the page scrolls; keep the content offset at the large size so the
-// collapse never makes it jump.
+// Large titles shrink as the page scrolls; keep the content offset at the large size so the
+// collapse never makes it jump. The large bar is 96px on iOS and 108px on Android.
+const largeBar = platform === 'android' ? 108 : 96
 const top = chrome === 'immersive'
   ? 'var(--safe-top)'
-  : chrome === 'tab' && platform === 'ios' ? 'calc(var(--inset-top) + 96px + 0.5rem)' : 'calc(var(--safe-top) + 0.5rem)'
+  : chrome === 'tab' && isNative ? `calc(var(--inset-top) + ${largeBar}px + 0.5rem)` : 'calc(var(--safe-top) + 0.5rem)'
 const scrolled = ref(false)
 let cleanup: (() => void) | undefined
 
