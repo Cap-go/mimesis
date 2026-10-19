@@ -13,6 +13,8 @@ require "tmpdir"
 
 STORE = File.expand_path("../store", __dir__)
 LOCALES = JSON.parse(File.read(File.join(STORE, "locales.json")))
+# App Review (3.1.2) wants the EULA linked from every App Store description.
+LEGAL = "\n\nTerms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\nPrivacy Policy: https://mimesis.fun/privacy"
 
 def listing(locale)
   JSON.parse(File.read(File.join(STORE, "listing", "#{locale}.json")))
@@ -44,7 +46,7 @@ platform :ios do
         write(File.join(metadata, code), {
           "name" => text["name"],
           "subtitle" => text["subtitle"],
-          "description" => text["description"],
+          "description" => text["description"] + LEGAL,
           "keywords" => text["keywords"],
           "promotional_text" => text["promotionalText"],
           "release_notes" => text["whatsNew"],
