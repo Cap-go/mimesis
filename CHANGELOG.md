@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.13.4](https://github.com/Cap-go/mimesis/compare/3.13.3...3.13.4) (2026-10-20)
+
+
+### Bug Fixes
+
+* **store:** full-screen App Store previews without device frame ([#35](https://github.com/Cap-go/mimesis/issues/35)) ([cde71be](https://github.com/Cap-go/mimesis/commit/cde71bea1721ab125f55cf4d717b1b14d56076d9))
+
 ## [3.13.3](https://github.com/Cap-go/mimesis/compare/3.13.2...3.13.3) (2026-10-16)
 
 ## [3.13.2](https://github.com/Cap-go/mimesis/compare/3.13.1...3.13.2) (2026-10-15)
