@@ -90,7 +90,7 @@ fastlane android listing
 
 `promo/` is a [Remotion](https://www.remotion.dev) project that turns a real game, recorded on the iOS simulator, into:
 
-- `store/preview/<locale>/app-preview.mp4`: App Store app previews (886×1920, 30 fps, en-US and fr-FR).
+- `store/preview/<locale>/app-preview.mp4`: App Store app previews (886×1920, 30 fps, en-US and fr-FR). Apple rejects previews that show a device frame or non-app footage, so the recording fills the whole video and only the captions are overlaid.
 - `website/video/mimesis-<lang>.mp4` + `poster-<lang>.webp`: the website video (1920×1080).
 
 The game is the `reel` demo scene (`src/services/demo.ts`): it plays through the real buttons, from adding a player to the winning confetti. To refresh the videos:
