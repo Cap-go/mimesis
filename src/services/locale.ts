@@ -9,3 +9,6 @@ export function normalizeLocale(tag: string | undefined): string {
     return 'zh-hant'
   return base
 }
+
+// Same set the website uses when it sets dir="rtl".
+export const RTL_LOCALES = new Set(['ar', 'he', 'fa', 'ur'])

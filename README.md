@@ -58,6 +58,7 @@ Only English is stored. The app speaks the phone's language, whatever it is: UI 
 | Random player and team names                      | `locales/names.json`                                                                                                                                       |
 | Cards                                             | `backend/content/en.json`, loaded into D1 by a migration built with `bun scripts/build-content-migration.ts migrations/<n>_<name>.sql` (run in `backend/`) |
 | Store listing, release notes, screenshot captions | `store/listing/<store-locale>.json`, mapped to App Store and Play locale codes in `store/locales.json`                                                     |
+| Website                                           | English in `website/`. Other languages are `/{lang}/`, translated on demand from `locales/site.json`                                                       |
 
 How translation works:
 

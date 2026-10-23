@@ -1,13 +1,24 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en" data-locale="en" data-complete="true">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mimesis · Le jeu de mime entre amis</title>
-    <meta name="description" content="Mimesis, le jeu de mime pour jouer en famille ou entre amis. Un téléphone, des équipes, zéro parole." />
+    <title data-i18n="meta.title">Mimesis · The charades game for friends</title>
+    <meta name="description" content="Mimesis, the charades game for family and friends. One phone, teams, zero words." data-i18n="meta.description" />
     <meta name="theme-color" content="#e67f3c" />
-    <meta property="og:title" content="Mimesis · Le jeu de mime entre amis" />
-    <meta property="og:description" content="Un téléphone, des équipes, zéro parole. Fous rires garantis." />
+    <link rel="canonical" href="https://mimesis.fun/" />
+    <link rel="alternate" hreflang="x-default" href="https://mimesis.fun/" />
+    <link rel="alternate" hreflang="en" href="https://mimesis.fun/" />
+    <link rel="alternate" hreflang="fr" href="https://mimesis.fun/fr/" />
+    <link rel="alternate" hreflang="es" href="https://mimesis.fun/es/" />
+    <link rel="alternate" hreflang="pt" href="https://mimesis.fun/pt/" />
+    <link rel="alternate" hreflang="de" href="https://mimesis.fun/de/" />
+    <link rel="alternate" hreflang="it" href="https://mimesis.fun/it/" />
+    <link rel="alternate" hreflang="ja" href="https://mimesis.fun/ja/" />
+    <link rel="alternate" hreflang="zh" href="https://mimesis.fun/zh/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://mimesis.fun/zh-hant/" />
+    <meta property="og:title" content="Mimesis · The charades game for friends" data-i18n="meta.title" />
+    <meta property="og:description" content="One phone, teams, zero words. Guaranteed laughs." data-i18n="meta.ogDescription" />
     <meta property="og:image" content="https://mimesis.fun/img/og.png" />
     <meta property="og:url" content="https://mimesis.fun/" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -16,36 +27,56 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/styles.css" />
     <script defer data-website-id="dfid_zkP2b7EROoZs2gVFqOLAA" data-domain="mimesis.fun" src="https://datafa.st/js/script.js"></script>
+    <script defer src="/i18n.js"></script>
   </head>
   <body>
     <header class="site-header container">
       <div class="bar">
-        <a class="brand" href="/" aria-label="Mimesis, accueil">
+        <a class="brand" data-localize href="/" data-i18n-aria="nav.home" aria-label="Mimesis, home">
           <img src="/img/icon.webp" width="38" height="38" alt="" />
           Mimesis
         </a>
-        <nav class="site-nav" aria-label="Navigation principale">
-          <a href="#comment-jouer">Comment jouer</a>
-          <a href="#capgo">Open source</a>
-          <a class="cta" href="#telecharger">Télécharger</a>
+        <nav class="site-nav" data-i18n-aria="nav.primary" aria-label="Main">
+          <a data-localize href="/#how-to-play" data-i18n="nav.how">How to play</a>
+          <a data-localize href="/#capgo" data-i18n="nav.openSource">Open source</a>
+          <details class="lang">
+            <summary>
+              <span class="visually-hidden" data-i18n="nav.language">Language</span>
+              <span class="lang-current" lang="en">English</span>
+              <span aria-hidden="true">▾</span>
+            </summary>
+            <div class="lang-menu">
+              <a href="/en/?choose=1" hreflang="en" lang="en" data-lang="en" aria-current="true">English</a>
+              <a href="/fr/?choose=1" hreflang="fr" lang="fr" data-lang="fr">Français</a>
+              <a href="/es/?choose=1" hreflang="es" lang="es" data-lang="es">Español</a>
+              <a href="/pt/?choose=1" hreflang="pt" lang="pt" data-lang="pt">Português</a>
+              <a href="/de/?choose=1" hreflang="de" lang="de" data-lang="de">Deutsch</a>
+              <a href="/it/?choose=1" hreflang="it" lang="it" data-lang="it">Italiano</a>
+              <a href="/ja/?choose=1" hreflang="ja" lang="ja" data-lang="ja">日本語</a>
+              <a href="/zh/?choose=1" hreflang="zh" lang="zh" data-lang="zh">简体中文</a>
+              <a href="/zh-hant/?choose=1" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh-hant">繁體中文</a>
+            </div>
+          </details>
+          <a class="cta" data-localize href="/#download" data-i18n="nav.download">Download</a>
         </nav>
       </div>
     </header>
 
     <main class="container">
-      <section class="hero" id="telecharger" aria-labelledby="hero-title">
+      <span id="telecharger"></span>
+      <section class="hero" id="download" aria-labelledby="hero-title">
         <div>
           <img class="hero-icon" src="/img/icon.webp" width="96" height="96" alt="" />
-          <h1 id="hero-title">Mime, ils devinent&nbsp;!</h1>
-          <p class="lead">Le jeu de mime pour les soirées entre amis et en famille. Un téléphone, des équipes, zéro parole et des fous rires garantis.</p>
+          <h1 id="hero-title" data-i18n="hero.title">Mime it. They guess!</h1>
+          <p class="lead" data-i18n="hero.lead">The charades game for nights with friends and family. One phone, teams, zero words, and guaranteed laughs.</p>
           <div class="stores">
-            <a class="store" href="https://apps.apple.com/fr/app/mimesis-jeu-de-m%C3%AEmes/id1559423136" target="_blank" rel="noopener">
+            <a class="store" data-store="apple" href="https://apps.apple.com/app/id1559423136" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.19-1.72-1.36-.14-2.65.8-3.34.8-.7 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.1 8.79.73 1.06 1.6 2.25 2.74 2.2 1.1-.04 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.08 2.65-2.14.84-1.23 1.18-2.42 1.2-2.48-.03-.01-2.3-.88-2.32-3.5zM14.18 6.13c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.54 1.31-.56.65-1.05 1.68-.92 2.67.97.08 1.96-.49 2.56-1.22z" /></svg>
-              <span><small>Télécharger dans</small><strong>l'App Store</strong></span>
+              <span><small data-i18n="store.apple.small">Download on the</small><strong data-i18n="store.apple">App Store</strong></span>
             </a>
-            <a class="store" href="https://play.google.com/store/apps/details?id=ee.forgr.mimesis" target="_blank" rel="noopener">
+            <a class="store" data-store="google" href="https://play.google.com/store/apps/details?id=ee.forgr.mimesis" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 2.3 13.4 12l-9.8 9.7a1.6 1.6 0 0 1-.6-1.3V3.6c0-.5.2-1 .6-1.3z" /><path fill="#FBBC04" d="m17 8.4-3.6 3.6 3.6 3.6 4.1-2.3c1.2-.7 1.2-1.9 0-2.6z" /><path fill="#EA4335" d="M3.6 21.7c.4.4 1 .4 1.7 0L17 15.6 13.4 12z" /><path fill="#4285F4" d="M5.3 2.3c-.7-.4-1.3-.4-1.7 0L13.4 12 17 8.4z" /></svg>
-              <span><small>Disponible sur</small><strong>Google Play</strong></span>
+              <span><small data-i18n="store.google.small">Get it on</small><strong data-i18n="store.google">Google Play</strong></span>
             </a>
           </div>
         </div>
@@ -55,57 +86,58 @@
         </div>
       </section>
 
-      <section id="comment-jouer" aria-labelledby="how-title">
-        <h2 class="section-title" id="how-title">Comment jouer</h2>
-        <p class="section-lead">Pas de plateau, pas de cartes à mélanger. Mimesis s'occupe des équipes, du chrono et des scores.</p>
-        <video class="promo" src="/video/mimesis-fr.mp4" poster="/video/poster-fr.webp" width="1920" height="1080" controls muted autoplay loop playsinline preload="metadata" aria-label="Vidéo : une partie de Mimesis"></video>
+      <span id="comment-jouer"></span>
+      <section id="how-to-play" aria-labelledby="how-title">
+        <h2 class="section-title" id="how-title" data-i18n="how.title">How to play</h2>
+        <p class="section-lead" data-i18n="how.lead">No board, no cards to shuffle. Mimesis handles the teams, the timer, and the scores.</p>
+        <video class="promo" data-video src="/video/mimesis-en.mp4" poster="/video/poster-en.webp" width="1920" height="1080" controls muted autoplay loop playsinline preload="metadata" data-i18n-aria="how.video" aria-label="Video: a game of Mimesis"></video>
         <div class="cards">
           <article class="card">
             <span class="badge">1</span>
-            <h3>Crée les équipes</h3>
-            <p>Au moins deux équipes de deux joueurs. Mimesis désigne le prochain mimeur à chaque tour.</p>
+            <h3 data-i18n="how.teams.title">Make the teams</h3>
+            <p data-i18n="how.teams.body">At least two teams of two players. Mimesis picks the next mime each turn.</p>
           </article>
           <article class="card">
             <span class="badge">2</span>
-            <h3>Choisis un thème</h3>
-            <p>Expressions, rébus, art, situations improbables… des centaines de cartes à faire deviner.</p>
+            <h3 data-i18n="how.theme.title">Pick a theme</h3>
+            <p data-i18n="how.theme.body">Idioms, rebus, art, unlikely situations… hundreds of cards to act out.</p>
           </article>
           <article class="card">
             <span class="badge">3</span>
-            <h3>Mime sans un mot</h3>
-            <p>Interdit de parler, de chanter ou d'écrire. Chaque carte trouvée rapporte un point à ton équipe.</p>
+            <h3 data-i18n="how.mime.title">Mime without a word</h3>
+            <p data-i18n="how.mime.body">No talking, singing, or writing. Each card your team finds scores a point.</p>
           </article>
         </div>
-        <div class="gallery" aria-label="Captures d'écran de Mimesis">
-          <div class="phone"><img src="/img/themes.webp" width="660" height="1434" alt="Choix du thème" loading="lazy" /></div>
-          <div class="phone"><img src="/img/handoff.webp" width="660" height="1434" alt="Au tour de l'équipe suivante" loading="lazy" /></div>
-          <div class="phone"><img src="/img/winner.webp" width="660" height="1434" alt="Écran de victoire" loading="lazy" /></div>
-          <div class="phone"><img src="/img/rules.webp" width="660" height="1434" alt="Règles du jeu" loading="lazy" /></div>
-          <div class="phone"><img src="/img/teams.webp" width="660" height="1434" alt="Création des équipes" loading="lazy" /></div>
+        <div class="gallery" data-i18n-aria="gallery.label" aria-label="Mimesis screenshots">
+          <div class="phone"><img src="/img/themes.webp" width="660" height="1434" alt="Theme picker" data-i18n-alt="gallery.themes" loading="lazy" /></div>
+          <div class="phone"><img src="/img/handoff.webp" width="660" height="1434" alt="Next team's turn" data-i18n-alt="gallery.handoff" loading="lazy" /></div>
+          <div class="phone"><img src="/img/winner.webp" width="660" height="1434" alt="Winner screen" data-i18n-alt="gallery.winner" loading="lazy" /></div>
+          <div class="phone"><img src="/img/rules.webp" width="660" height="1434" alt="Rules" data-i18n-alt="gallery.rules" loading="lazy" /></div>
+          <div class="phone"><img src="/img/teams.webp" width="660" height="1434" alt="Making teams" data-i18n-alt="gallery.teams" loading="lazy" /></div>
         </div>
       </section>
 
       <section id="capgo" aria-labelledby="capgo-title">
         <div class="built">
           <div>
-            <h2 id="capgo-title">Open source, construit avec Capgo</h2>
-            <p>Mimesis est l'app de référence de Capgo : une app Vue publiée sur iOS et Android avec Capacitor, mise à jour en direct et publiée sur les stores à chaque commit.</p>
-            <a class="link" href="https://github.com/Cap-go/mimesis" target="_blank" rel="noopener">Voir le code sur GitHub</a>
+            <h2 id="capgo-title" data-i18n="capgo.title">Open source, built with Capgo</h2>
+            <p data-i18n="capgo.body">Mimesis is Capgo's reference app: a Vue app on iOS and Android with Capacitor, updated live and published to the stores on every commit.</p>
+            <a class="link" href="https://github.com/Cap-go/mimesis" target="_blank" rel="noopener" data-i18n="capgo.code">See the code on GitHub</a>
           </div>
           <ul>
-            <li><strong>Mises à jour en direct</strong> : chaque nouvelle version arrive sur ton téléphone sans attendre les stores.</li>
-            <li><strong>Navigation native</strong> : barre d'onglets Liquid Glass sur iOS et Material sur Android.</li>
-            <li><strong>Hors ligne</strong> : les cartes restent sur le téléphone, joue même sans réseau.</li>
+            <li><strong data-i18n="capgo.live.label">Live updates</strong>: <span data-i18n="capgo.live.body">every new version reaches your phone without waiting on the stores.</span></li>
+            <li><strong data-i18n="capgo.nav.label">Native navigation</strong>: <span data-i18n="capgo.nav.body">a Liquid Glass tab bar on iOS and Material on Android.</span></li>
+            <li><strong data-i18n="capgo.offline.label">Offline</strong>: <span data-i18n="capgo.offline.body">the cards stay on the phone, so you can play with no connection.</span></li>
           </ul>
         </div>
       </section>
     </main>
 
     <footer class="site-footer container">
-      <a class="brand" href="/"><img src="/img/icon.webp" width="38" height="38" alt="" />Mimesis</a>
-      <nav aria-label="Liens">
-        <a href="mailto:contact@mimesis.fun">Contact</a>
-        <a href="/privacy/">Confidentialité</a>
+      <a class="brand" data-localize href="/"><img src="/img/icon.webp" width="38" height="38" alt="" />Mimesis</a>
+      <nav data-i18n-aria="footer.links" aria-label="Links">
+        <a href="mailto:contact@mimesis.fun" data-i18n="footer.contact">Contact</a>
+        <a data-localize href="/privacy/" data-i18n="footer.privacy">Privacy</a>
         <a href="https://capgo.app/?ref=mimesis" target="_blank" rel="noopener">Capgo</a>
       </nav>
       <p>© 2021–2026 Mimesis</p>

@@ -1,12 +1,13 @@
 // Translates Mimesis into any language on demand.
 //   GET /v1/messages?lang=ko  UI strings + random names
 //   GET /v1/catalog?lang=ko   themes and cards
+//   GET /v1/site?lang=ko      marketing site copy
 // Each language has one dictionary in R2 (dict/<lang>.json) mapping "<kind>:<english>" to the
 // translation. Requests only read it: anything missing falls back to English, is reported with
 // `complete: false`, and is filled by the queue consumer so the next request gets it.
 import type { Catalog, Item, Kind } from './source'
 import { normalizeLocale } from '../../src/services/locale'
-import { cardKind, catalogItems, itemKey, messages, names, uiItems } from './source'
+import { cardKind, catalogItems, itemKey, messages, names, site, siteItems, uiItems } from './source'
 
 interface Env {
   AI: Ai
@@ -80,6 +81,14 @@ function localizedMessages(dict: Dict) {
   }
 }
 
+function localizedSite(dict: Dict) {
+  const missing = { count: 0 }
+  return {
+    complete: () => missing.count === 0,
+    messages: Object.fromEntries(Object.entries(site).map(([key, text]) => [key, lookup(dict, 'site', text, missing)])),
+  }
+}
+
 function localizedCatalog(catalog: Catalog, dict: Dict) {
   const missing = { count: 0 }
   const guesses = catalog.guesses.map(guess => ({
@@ -115,7 +124,7 @@ async function handle(request: Request, env: Env, ctx: ExecutionContext): Promis
     return new Response(null, { headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, OPTIONS' } })
   if (url.pathname === '/')
     return json({ name: 'mimesis-translate', ok: true }, false)
-  if (request.method !== 'GET' || !['/v1/messages', '/v1/catalog'].includes(url.pathname))
+  if (request.method !== 'GET' || !['/v1/messages', '/v1/catalog', '/v1/site'].includes(url.pathname))
     return json({ error: 'not_found' }, false, 404)
 
   const lang = normalizeLocale(url.searchParams.get('lang') ?? 'en')
@@ -129,6 +138,11 @@ async function handle(request: Request, env: Env, ctx: ExecutionContext): Promis
     const result = localizedMessages(dict ?? {})
     complete = !dict || result.complete()
     body = { lang, complete, messages: dict ? result.messages : messages, names: dict ? result.names : names }
+  }
+  else if (url.pathname === '/v1/site') {
+    const result = localizedSite(dict ?? {})
+    complete = !dict || result.complete()
+    body = { lang, complete, messages: dict ? result.messages : site }
   }
   else {
     const catalog = await englishCatalog(env)
@@ -150,6 +164,7 @@ async function handle(request: Request, env: Env, ctx: ExecutionContext): Promis
 
 const INSTRUCTIONS: Record<Kind, string> = {
   ui: 'These are interface strings of Mimesis, a charades party game app; the hint is the string id. Translate each into LANGUAGE naturally and concisely, like a native app would say it. Keep every {placeholder} exactly as written. Keep the same number of "|" separators, they split plural forms (none | one | many). Keep Mimesis, Capgo, Capacitor and GitHub as is.',
+  site: 'These are sentences from the Mimesis website, a charades party game; the hint is the string id. Translate each into LANGUAGE naturally, the way a friendly game website would say it. Keep every {placeholder} exactly as written. Keep Mimesis, Capgo, Capacitor, Vue, GitHub, iOS, Android, Liquid Glass, Material, App Store and Google Play as is. For the App Store and Google Play badge lines, use the official badge wording in LANGUAGE.',
   first: 'These are common first names. Replace each with a popular first name for LANGUAGE speakers, same gender, written in the usual script of LANGUAGE. All names must be different from each other.',
   team: 'These are playful team names for a party game. Replace each with a short, fun team name in LANGUAGE with the same spirit (usually a funny animal or group). All names must be different from each other.',
   category: 'These are short category labels of cards (Book, Movie, Song, Painting...). Translate each as a short LANGUAGE noun, capitalized like a label.',
@@ -227,14 +242,14 @@ async function translateBatch(env: Env, language: string, kind: Kind, items: Ite
   return true
 }
 
-const QUICK_KINDS: Kind[] = ['ui', 'first', 'team', 'category', 'work']
+const QUICK_KINDS: Kind[] = ['ui', 'site', 'first', 'team', 'category', 'work']
 const FULL_KINDS: Kind[] = [...QUICK_KINDS, 'idiom', 'scene', 'rebus']
 
 async function translateLanguage(env: Env, lang: string, phase: 'quick' | 'full'): Promise<void> {
   const language = languageName(lang)
   if (!language || lang === 'en')
     return
-  const items = [...uiItems(), ...catalogItems(await englishCatalog(env))]
+  const items = [...uiItems(), ...siteItems(), ...catalogItems(await englishCatalog(env))]
   const dict = await readDict(env, lang)
   const save = () => env.CACHE.put(`dict/${lang}.json`, JSON.stringify(dict), { httpMetadata: { contentType: 'application/json' } })
 

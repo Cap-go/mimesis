@@ -17,6 +17,7 @@ jobs:
       - run: bun install --frozen-lockfile
       - run: bun run lint
       - run: bun run typecheck
+      - run: bunx tsc -p website/tsconfig.json --noEmit
       - run: bun run test:run
       - run: bunx vite build
 

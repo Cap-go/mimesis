@@ -2,10 +2,11 @@
 // cards come from the API.
 import messages from '../../locales/en.json'
 import names from '../../locales/names.json'
+import site from '../../locales/site.json'
 
-export { messages, names }
+export { messages, names, site }
 
-export type Kind = 'ui' | 'first' | 'team' | 'category' | 'work' | 'idiom' | 'scene' | 'rebus'
+export type Kind = 'ui' | 'site' | 'first' | 'team' | 'category' | 'work' | 'idiom' | 'scene' | 'rebus'
 
 export interface Item {
   kind: Kind
@@ -45,6 +46,10 @@ export function uiItems(): Item[] {
     ...names.firstNames.map((text): Item => ({ kind: 'first', text })),
     ...names.teamNames.map((text): Item => ({ kind: 'team', text })),
   ]
+}
+
+export function siteItems(): Item[] {
+  return Object.entries(site).map(([key, text]): Item => ({ kind: 'site', text, hint: key }))
 }
 
 export function catalogItems(catalog: Catalog): Item[] {

@@ -2,7 +2,7 @@ import { ref, shallowRef } from 'vue'
 import { createI18n } from 'vue-i18n'
 import en from '../../locales/en.json'
 import enNames from '../../locales/names.json'
-import { normalizeLocale } from './locale'
+import { normalizeLocale, RTL_LOCALES } from './locale'
 import { getStorage, setStorage } from './storage'
 
 // Only English ships with the app. Every other language comes from the translation worker,
@@ -39,13 +39,11 @@ export function deviceLocale(): string {
   return normalizeLocale(navigator.languages?.[0] ?? navigator.language)
 }
 
-const RTL = new Set(['ar', 'he', 'fa', 'ur'])
-
 function apply(translation: Translation): void {
   i18n.global.setLocaleMessage(translation.lang, translation.messages)
   i18n.global.locale.value = translation.lang
   document.documentElement.lang = translation.lang
-  document.documentElement.dir = RTL.has(translation.lang) ? 'rtl' : 'ltr'
+  document.documentElement.dir = RTL_LOCALES.has(translation.lang) ? 'rtl' : 'ltr'
   names.value = translation.names
   messagesVersion.value++
 }

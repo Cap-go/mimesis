@@ -3,10 +3,14 @@
   "name": "mimesis-website",
   "compatibility_date": "2026-10-01",
   "account_id": "9ee3d7479a3c359681e3fab2c8cb22c0",
+  "main": "worker.ts",
   "assets": {
     "directory": ".",
-    "html_handling": "auto-trailing-slash"
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "run_worker_first": true
   },
+  "services": [{ "binding": "TRANSLATE", "service": "mimesis-translate" }],
   "routes": [
     { "pattern": "mimesis.fun", "custom_domain": true },
     { "pattern": "www.mimesis.fun", "custom_domain": true }
