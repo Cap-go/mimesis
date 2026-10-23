@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.14.0](https://github.com/Cap-go/mimesis/compare/3.13.4...3.14.0) (2026-10-23)
+
+
+### Features
+
+* **website:** serve English by default and translate other languages ([dd72dc6](https://github.com/Cap-go/mimesis/commit/dd72dc67a4b57cd985fde35934b9cb20201b9096))
+
 ## [3.13.4](https://github.com/Cap-go/mimesis/compare/3.13.3...3.13.4) (2026-10-20)
 
 

@@ -7,8 +7,8 @@ android {
         applicationId = "ee.forgr.mimesis"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 31304999
-        versionName "3.13.4"
+        versionCode 31400999
+        versionName "3.14.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
             // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
