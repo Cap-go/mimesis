@@ -15,6 +15,7 @@ import { initNavigation } from './services/navigation'
 import pinia, { whenHydrated } from './services/pinia'
 import { isNative } from './services/platform'
 import { initSound } from './services/sound'
+import { getStorage, setStorage } from './services/storage'
 import { useCatalogStore } from './store/catalog'
 import { useGameStore } from './store/game'
 import { useSettingsStore } from './store/settings'
@@ -75,6 +76,14 @@ async function init() {
     void StatusBar.setStyle({ style: Style.Light })
     void initSound()
     await SplashScreen.hide()
+    if (import.meta.env.VITE_DEMO) {
+      await document.fonts.ready
+      await Promise.all([...document.images].map(image => image.decode().catch(() => {})))
+      await setStorage('demoReady', {
+        scene: await getStorage<string>('demo') ?? `${import.meta.env.VITE_DEMO} fr`,
+        at: Date.now(),
+      })
+    }
     const [identifier, device, info] = await Promise.all([getInstallId(), Device.getInfo(), CapApp.getInfo()])
     void initCrisp({
       'user-uuid': identifier,

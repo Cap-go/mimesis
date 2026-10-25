@@ -6,6 +6,7 @@ import { App } from '@capacitor/app'
 import { useCatalogStore } from '~/store/catalog'
 import { useGameStore } from '~/store/game'
 import { useSettingsStore } from '~/store/settings'
+import { getCachedCatalog } from './api'
 import { i18n, setLocale } from './i18n'
 import { names } from './names'
 import { push, refreshChrome, resetTo } from './navigation'
@@ -51,7 +52,14 @@ async function stage(router: Router, scene: string, lang: string): Promise<void>
   // "duo" shows the 2-player setup; every other scene is a team game.
   game.duo = scene === 'duo'
   game.duoTeams.forEach((side, i) => game.renameSolo(side, firstNames[i * 3]))
-  await catalog.load(lang)
+  const cached = await getCachedCatalog(lang)
+  if (cached) {
+    catalog.catalog = cached
+    void catalog.load(lang)
+  }
+  else {
+    await catalog.load(lang)
+  }
   await router.isReady()
   if (scene === 'rules' || scene === 'settings' || scene === 'welcome')
     return resetTo(`/${scene}`, 'none')

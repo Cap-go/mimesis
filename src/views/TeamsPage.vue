@@ -2,7 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import AppPage from '~/components/AppPage.vue'
 import { tap } from '~/services/haptics'
-import { push } from '~/services/navigation'
+import { push, usesNativePlayAction } from '~/services/navigation'
 import { isNative } from '~/services/platform'
 import { DUO_GUESSER_POINTS, DUO_MIME_POINTS, TEAM_COLORS, useGameStore } from '~/store/game'
 
@@ -146,8 +146,9 @@ function play() {
       </Transition>
     </template>
 
-    <div class="h-24" aria-hidden="true" />
+    <div v-if="!usesNativePlayAction" class="h-24" aria-hidden="true" />
     <div
+      v-if="!usesNativePlayAction"
       class="pointer-events-none sticky z-10 mt-auto"
       :style="{ bottom: isNative ? 'calc(var(--safe-bottom) + 1rem)' : 'calc(max(0.75rem, var(--inset-bottom)) + 5.5rem)' }"
     >

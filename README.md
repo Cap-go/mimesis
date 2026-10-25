@@ -108,7 +108,29 @@ Tap times and captions live in `promo/src/theme.ts`. The background music (`prom
 
 The same render also writes the iOS 27 App Store creative assets to `store/creative/<locale>/`: `header.mp4` / `header.png` (product page header, 21:9, 3840×1646), `search.mp4` (search results, 3:2, 2880×1920) and `universal.png` (16:9, 5244×2950, works for both). They autoplay muted and loop, so they carry no sound and little text.
 
-iPhone Duo screenshots (outer 1398×2034, inner 2007×2853) come from the demo web build at the Duo's point sizes, since the Duo simulator can't switch poses from the command line:
+iPhone Duo supports both the closed outer display and the open inner display. Native Navigation 8.14 uses adaptive placement: on iOS, the Teams screen's “Choose a theme” arrow lives in the native tab bar (the trailing rail on Duo), follows team validity, and disappears on other tabs. The web and Android builds retain the in-page button.
+
+Capture the native app with a `VITE_DEMO=teams` build installed on a Duo simulator. Fold the Duo closed for the outer pass, then unfold it for the inner pass (Device Hub / `agent-device fold`, or the Simulator pose controls). Capture one panel at a time; the inactive panel is black. The capture script selects each display explicitly rather than using the simulator's default display:
+
+```bash
+LOCALES=en-US,fr-FR bun scripts/capture-screenshots.ts /tmp/mimesis-raw duo-outer=<udid>
+# Unfold the Duo before the second pass.
+LOCALES=en-US,fr-FR bun scripts/capture-screenshots.ts /tmp/mimesis-raw duo-inner=<udid>
+bun scripts/compose-screenshots.ts /tmp/mimesis-raw
+```
+
+Omit `LOCALES` to capture every listing language. Capture waits for the demo build to finish loading fonts and images and hide its splash screen; a missing readiness signal fails the run instead of saving a splash screen. Results live in `store/screenshots/<locale>/iphone-duo-{outer,inner}/`; the compositor preserves the capture's portrait or landscape orientation. Fastlane uploads the existing iPhone 6.9-inch and iPad 13-inch sets. The App Store Connect CLI (`asc`) supports Duo directly as `APP_IPHONE_DUO`.
+
+Apple shares one ten-image Duo set per locale between both displays. Curate five captures from each panel (playing, duo, teams, themes, winner) into one locale directory with unique, ordered filenames, then validate and upload to an existing editable version:
+
+```bash
+asc screenshots validate --path <curated-locale-dir> --device-type APP_IPHONE_DUO
+asc screenshots upload --app 1559423136 --version 3.14.0 --locale en-US --path <curated-locale-dir> --device-type APP_IPHONE_DUO --skip-existing
+```
+
+Repeat for `fr-FR` with its curated directory. If replacing an existing Duo set, preview with `--replace --dry-run`, then apply with `--replace --confirm`; this only replaces that locale's Duo screenshots, not its other device sets. Uploading screenshots does not submit or release the app.
+
+For layout-only browser previews without native bars or system safe areas, use the web capture fallback (outer 1398×2034, inner 2007×2853):
 
 ```bash
 VITE_DEMO=teams bunx vite --port 3334

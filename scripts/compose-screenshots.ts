@@ -71,6 +71,14 @@ function html(scene: Scene, target: typeof targets[number], image: string) {
       border-radius: ${target.radius}px; border: ${unit * 1.2}px solid #3b0a1f;
       box-shadow: 0 ${unit * 3}px ${unit * 8}px rgb(59 10 31 / 0.45);
     }
+    @media (orientation: landscape) {
+      body { flex-direction: row; }
+      header { flex: 0 0 38%; padding: ${unit * 5}px; text-align: left; }
+      h1 { font-size: ${unit * 5.6}px; }
+      p { font-size: ${unit * 2.6}px; }
+      .stage { width: 62%; height: 100%; align-items: center; padding: ${unit * 4}px ${unit * 4}px ${unit * 4}px 0; }
+      img { max-width: 100%; max-height: 90%; }
+    }
   </style></head><body>
     <header><h1>${scene.title}</h1><p>${scene.subtitle}</p></header>
     <div class="stage"><img src="${image}"></div>
@@ -91,7 +99,12 @@ for (const locale of rawLocales) {
       if (!(await file.exists()))
         continue
       const image = await dataUrl(file.name!)
-      await page.setContent(html(scene, target, image), { waitUntil: 'networkidle' })
+      const bytes = Buffer.from(await file.arrayBuffer())
+      const output = bytes.readUInt32BE(16) > bytes.readUInt32BE(20)
+        ? { ...target, width: target.height, height: target.width }
+        : target
+      await page.setViewportSize({ width: output.width, height: output.height })
+      await page.setContent(html(scene, output, image), { waitUntil: 'networkidle' })
       await page.evaluate(() => document.fonts.ready)
       index++
       const path = `${dir}/${String(index).padStart(2, '0')}-${scene.id}.jpg`

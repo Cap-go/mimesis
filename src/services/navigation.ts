@@ -4,10 +4,15 @@ import { App } from '@capacitor/app'
 import { NativeNavigation } from '@capgo/capacitor-native-navigation'
 import { setDirection, setNavigation } from '@capgo/capacitor-transitions/vue'
 import { watch } from 'vue'
+import { useGameStore } from '~/store/game'
+import { tap } from './haptics'
 import { i18n, messagesVersion } from './i18n'
 import { isNative, platform } from './platform'
 
 export type TabId = 'teams' | 'rules' | 'settings'
+
+export const usesNativePlayAction = isNative && platform === 'ios'
+const playActionId = 'choose-theme'
 
 declare module 'vue-router' {
   interface RouteMeta {
@@ -51,6 +56,11 @@ export const tabs: TabItem[] = [
 const backIcon: NativeNavigationIcon = {
   svg: svg('<path d="m15 18-6-6 6-6"/>'),
   ios: { sfSymbol: 'chevron.backward' },
+}
+
+const playIcon: NativeNavigationIcon = {
+  svg: svg('<path d="M5 12h14M13 6l6 6-6 6"/>'),
+  ios: { sfSymbol: 'arrow.right' },
 }
 
 const colors = {
@@ -133,6 +143,22 @@ async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
   const hidden = chrome !== 'tab'
   const animated = tabbarHidden !== undefined && hidden !== tabbarHidden
   tabbarHidden = hidden
+  const nativeTabs: NativeNavigationTab[] = tabs.map(item => ({
+    id: item.id,
+    title: t(item.title),
+    icon: item.icon,
+    selectedIcon: item.selectedIcon,
+  }))
+  if (usesNativePlayAction && route.path === '/teams') {
+    nativeTabs.push({
+      id: playActionId,
+      title: t('chooseTheme'),
+      icon: playIcon,
+      selectedIcon: playIcon,
+      role: 'normal',
+      enabled: useGameStore().canStart,
+    })
+  }
   await setNavbar(route)
   await NativeNavigation.setTabbar({
     hidden,
@@ -142,12 +168,8 @@ async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
     colors: { ...colors, background: platform === 'android' ? '#B3FFFAF5' : '#FFFAF5' },
     indicatorColor: colors.indicator,
     glass: platform === 'android' ? androidNoGlass : undefined,
-    tabs: tabs.map<NativeNavigationTab>(item => ({
-      id: item.id,
-      title: t(item.title),
-      icon: item.icon,
-      selectedIcon: item.selectedIcon,
-    })),
+    style: { placement: 'auto' },
+    tabs: nativeTabs,
     animated,
   })
 }
@@ -165,6 +187,8 @@ export async function initNavigation(appRouter: Router): Promise<void> {
   if (!isNative)
     return
   watch(messagesVersion, refreshChrome)
+  if (usesNativePlayAction)
+    watch(() => useGameStore().canStart, refreshChrome)
   await NativeNavigation.configure({
     contentInsetMode: 'css',
     animationDuration: 320,
@@ -176,6 +200,13 @@ export async function initNavigation(appRouter: Router): Promise<void> {
   })
   await syncNativeChrome(router.currentRoute.value)
   await NativeNavigation.addListener('tabSelect', ({ id }) => {
+    if (id === playActionId) {
+      if (router.currentRoute.value.path === '/teams' && useGameStore().canStart) {
+        tap()
+        push('/themes')
+      }
+      return
+    }
     const target = tabs.find(item => item.id === id)
     if (target && router.currentRoute.value.path !== target.path)
       resetTo(target.path, 'none')
