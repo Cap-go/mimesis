@@ -1,6 +1,8 @@
 // Builds a D1 migration that (re)loads the English cards from content/en.json.
 // Other languages are translated on demand by the translation worker (translate/).
 //   bun scripts/build-content-migration.ts migrations/0002_i18n.sql
+// Pass theme ids to only (re)load those themes and keep every other card id untouched:
+//   bun scripts/build-content-migration.ts migrations/0006_easy_themes.sql 9,10,11
 import { readdir } from 'node:fs/promises'
 import process from 'node:process'
 
@@ -14,18 +16,21 @@ interface Card {
 
 const out = process.argv[2]
 if (!out)
-  throw new Error('usage: bun scripts/build-content-migration.ts <migration.sql>')
+  throw new Error('usage: bun scripts/build-content-migration.ts <migration.sql> [mode,mode...]')
+const modes = process.argv[3]?.split(',').map(Number)
 
 const sql = (v: string | number | null) => v === null ? 'NULL' : typeof v === 'number' ? String(v) : `'${v.replaceAll('\'', '\'\'')}'`
 const dir = `${import.meta.dir}/../content`
 const lines: string[] = []
 
 for (const file of (await readdir(dir)).filter(f => f.endsWith('.json') && f !== 'fr.json').sort()) {
-  const { locale, name, guesses } = JSON.parse(await Bun.file(`${dir}/${file}`).text()) as { locale: string, name: string, guesses: Card[] }
+  const content = JSON.parse(await Bun.file(`${dir}/${file}`).text()) as { locale: string, name: string, guesses: Card[] }
+  const { locale, name } = content
+  const guesses = modes ? content.guesses.filter(g => modes.includes(g.mode)) : content.guesses
   const lang = `(SELECT id FROM langs WHERE locale = ${sql(locale)})`
   lines.push(`\n-- ${name} (${guesses.length} cards)`)
   lines.push(`INSERT INTO langs (name, locale) VALUES (${sql(name)}, ${sql(locale)}) ON CONFLICT(locale) DO UPDATE SET name = excluded.name;`)
-  lines.push(`DELETE FROM guesses WHERE lang = ${lang};`)
+  lines.push(modes ? `DELETE FROM guesses WHERE lang = ${lang} AND mode IN (${modes.join(', ')});` : `DELETE FROM guesses WHERE lang = ${lang};`)
   for (let i = 0; i < guesses.length; i += 100) {
     const rows = guesses.slice(i, i + 100).map(g => `(${lang}, ${g.mode}, ${sql(g.title)}, ${sql(g.author)}, ${sql(g.type)}, ${sql(g.cover)})`)
     lines.push(`INSERT INTO guesses (lang, mode, title, author, type, cover) VALUES\n${rows.join(',\n')};`)
