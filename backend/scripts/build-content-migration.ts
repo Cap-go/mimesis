@@ -2,7 +2,7 @@
 // Other languages are translated on demand by the translation worker (translate/).
 //   bun scripts/build-content-migration.ts migrations/0002_i18n.sql
 // Pass theme ids to only (re)load those themes and keep every other card id untouched:
-//   bun scripts/build-content-migration.ts migrations/0006_easy_themes.sql 9,10,11
+//   bun scripts/build-content-migration.ts migrations/0007_easy_cards.sql 9,10,11,12,13
 import { readdir } from 'node:fs/promises'
 import process from 'node:process'
 

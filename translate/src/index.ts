@@ -231,7 +231,8 @@ async function reviewIdioms(env: Env, language: string, items: Item[], outputs: 
     return outputs
   const cards = items.map((item, i): Item => ({ kind: 'idiom', text: outputs[i] as string, hint: item.text }))
   const reviewed = await runModel(env, language, 'idiom', cards, IDIOM_REVIEW).catch(() => [])
-  return reviewed.length === outputs.length && new Set(reviewed).size === reviewed.length ? reviewed : outputs
+  const distinct = new Set(reviewed.map(card => typeof card === 'string' ? card.trim().toLowerCase() : card))
+  return reviewed.length === outputs.length && distinct.size === reviewed.length ? reviewed : outputs
 }
 
 // Returns false when the model could not be reached, so the job retries later.
