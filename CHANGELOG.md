@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.15.0](https://github.com/Cap-go/mimesis/compare/3.14.0...3.15.0) (2026-10-27)
+
+
+### Features
+
+* easy themes, real local idioms and clear theme names ([#36](https://github.com/Cap-go/mimesis/issues/36)) ([aea010b](https://github.com/Cap-go/mimesis/commit/aea010b1702d4b6ca3ca04b2ba4fce30f134c8c3))
+* **ios:** support Duo native rail action and screenshots [skip ci] ([21c6123](https://github.com/Cap-go/mimesis/commit/21c61234668150a37e67c292705db90912da5147))
+
 ## [3.14.0](https://github.com/Cap-go/mimesis/compare/3.13.4...3.14.0) (2026-10-23)
 
 
