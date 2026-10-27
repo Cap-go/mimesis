@@ -7,6 +7,7 @@
 // `complete: false`, and is filled by the queue consumer so the next request gets it.
 import type { Catalog, Item, Kind } from './source'
 import { normalizeLocale } from '../../src/services/locale'
+import { curatedDict } from './curated'
 import { cardKind, catalogItems, itemKey, messages, names, site, siteItems, uiItems } from './source'
 
 interface Env {
@@ -33,7 +34,7 @@ const COMPLETE_TTL = 60 * 60
 const BATCH_SIZE = 20
 // Names are generated as one list so they don't repeat.
 const LIST_KINDS = new Set<Kind>(['first', 'team'])
-const UNIQUE_KINDS = new Set<Kind>(['first', 'team', 'rebus'])
+const UNIQUE_KINDS = new Set<Kind>(['first', 'team', 'rebus', 'idiom'])
 // Batches translated at once; the model thinks for a while on puns.
 const PARALLEL = 4
 
@@ -50,9 +51,10 @@ function languageName(lang: string): string | null {
 
 // ── Reading ─────────────────────────────────────────────────────────────────────────────
 
+// Hand-checked entries (translate/curated) always override what the model produced.
 async function readDict(env: Env, lang: string): Promise<Dict> {
   const object = await env.CACHE.get(`dict/${lang}.json`)
-  return object ? await object.json<Dict>() : {}
+  return { ...(object ? await object.json<Dict>() : {}), ...curatedDict(lang) }
 }
 
 async function englishCatalog(env: Env): Promise<Catalog> {
@@ -163,16 +165,20 @@ async function handle(request: Request, env: Env, ctx: ExecutionContext): Promis
 // ── Translating ─────────────────────────────────────────────────────────────────────────
 
 const INSTRUCTIONS: Record<Kind, string> = {
-  ui: 'These are interface strings of Mimesis, a charades party game app; the hint is the string id. Translate each into LANGUAGE naturally and concisely, like a native app would say it. Keep every {placeholder} exactly as written. Keep the same number of "|" separators, they split plural forms (none | one | many). Keep Mimesis, Capgo, Capacitor and GitHub as is.',
+  ui: 'These are interface strings of Mimesis, a charades party game app; the hint is the string id, sometimes with what the string names. Translate each into LANGUAGE naturally and concisely, like a native app would say it. Keep every {placeholder} exactly as written. Keep the same number of "|" separators, they split plural forms (none | one | many). Keep Mimesis, Capgo, Capacitor and GitHub as is.',
   site: 'These are sentences from the Mimesis website, a charades party game; the hint is the string id. Translate each into LANGUAGE naturally, the way a friendly game website would say it. Keep every {placeholder} exactly as written. Keep Mimesis, Capgo, Capacitor, Vue, GitHub, iOS, Android, Liquid Glass, Material, App Store and Google Play as is. For the App Store and Google Play badge lines, use the official badge wording in LANGUAGE.',
   first: 'These are common first names. Replace each with a popular first name for LANGUAGE speakers, same gender, written in the usual script of LANGUAGE. All names must be different from each other.',
   team: 'These are playful team names for a party game. Replace each with a short, fun team name in LANGUAGE with the same spirit (usually a funny animal or group). All names must be different from each other.',
   category: 'These are short category labels of cards (Book, Movie, Song, Painting...). Translate each as a short LANGUAGE noun, capitalized like a label.',
   work: 'These are titles of famous works and monuments that players mime; the hint gives the category and creator. Give the official or best-known LANGUAGE title. Keep the original title when LANGUAGE speakers usually use it untranslated (many songs).',
-  idiom: 'These are English idioms that players mime. Replace each with a well-known LANGUAGE idiom or saying that can be mimed, ideally with the same meaning. Never translate word for word if that is not a real LANGUAGE idiom.',
+  idiom: 'These are English idioms that players mime. Replace each with a real, established LANGUAGE idiom or saying that native speakers use every day and would recognize instantly, written in its usual dictionary form. Use the LANGUAGE equivalent with the same meaning when one exists. If none exists, pick a different famous LANGUAGE idiom that is easy to mime. Never translate word for word and never invent a phrase: a literal translation is only allowed when it is itself a common LANGUAGE idiom. Every card must be a different idiom.',
+  word: 'These are simple things players mime; the hint says what it is (animal, job, sport, everyday action, food or drink). Give the everyday LANGUAGE word or short phrase a child would use, capitalized like a card title. For actions, use the usual LANGUAGE way to name the action.',
   scene: 'These are funny absurd situations that players mime. Translate each naturally into LANGUAGE, keeping it short, visual and funny.',
   rebus: 'Each English card is a rebus: a word, then in parentheses the syllable parts that sound like it, each part being a real word that is easy to mime (car + pet = carpet). English puns do not work in LANGUAGE. For each card, invent a NEW rebus in LANGUAGE: pick a common LANGUAGE word whose sound splits into 2 or 3 parts that are each real, easy-to-mime LANGUAGE words. Write it as "word (part / part)" entirely in LANGUAGE script. Examples from other languages: German "Nachtisch (Nacht / Tisch)", Japanese "かかし (蚊 / 菓子)", French "baleine (bas / lait / noeud)". Never reuse the English word, never use English letters unless LANGUAGE uses them, and use a different word for every card.',
 }
+
+// Second opinion on idioms: the first pass still slips in literal copies of English idioms.
+const IDIOM_REVIEW = 'You are a native LANGUAGE speaker checking cards of a charades party game. Each item is a card that must be a real, established LANGUAGE idiom or saying; the hint is the English idiom it replaces. Return the card unchanged when it is an idiom LANGUAGE speakers commonly use. When it is a word-for-word translation, invented, or unknown to most native speakers, return instead a real, well-known LANGUAGE idiom that is easy to mime, preferably with the same meaning as the hint, and not already used by another card.'
 
 const SCHEMA = {
   type: 'object',
@@ -198,8 +204,8 @@ function valid(item: Item, output: unknown): output is string {
   return true
 }
 
-async function runModel(env: Env, language: string, kind: Kind, items: Item[]): Promise<unknown[]> {
-  const system = `Target language: ${language}.\n${INSTRUCTIONS[kind].replaceAll('LANGUAGE', language)}\nAnswer with JSON {"translations": [...]}: exactly one string per input item, in the same order.`
+async function runModel(env: Env, language: string, kind: Kind, items: Item[], instructions = INSTRUCTIONS[kind]): Promise<unknown[]> {
+  const system = `Target language: ${language}.\n${instructions.replaceAll('LANGUAGE', language)}\nAnswer with JSON {"translations": [...]}: exactly one string per input item, in the same order.`
   const input = items.map(item => (item.hint ? { text: item.text, hint: item.hint } : { text: item.text }))
   const ai = env.AI as unknown as { run: (model: string, inputs: object) => Promise<ModelResult> }
   // A stuck model call must not hold the job until the queue's wall-clock limit.
@@ -220,6 +226,15 @@ async function runModel(env: Env, language: string, kind: Kind, items: Item[]): 
   return Array.isArray(translations) && translations.length === items.length ? translations : []
 }
 
+async function reviewIdioms(env: Env, language: string, items: Item[], outputs: unknown[]): Promise<unknown[]> {
+  if (!outputs.every(output => typeof output === 'string'))
+    return outputs
+  const cards = items.map((item, i): Item => ({ kind: 'idiom', text: outputs[i] as string, hint: item.text }))
+  const reviewed = await runModel(env, language, 'idiom', cards, IDIOM_REVIEW).catch(() => [])
+  const distinct = new Set(reviewed.map(card => typeof card === 'string' ? card.trim().toLowerCase() : card))
+  return reviewed.length === outputs.length && distinct.size === reviewed.length ? reviewed : outputs
+}
+
 // Returns false when the model could not be reached, so the job retries later.
 async function translateBatch(env: Env, language: string, kind: Kind, items: Item[], dict: Dict): Promise<boolean> {
   let outputs: unknown[]
@@ -232,6 +247,8 @@ async function translateBatch(env: Env, language: string, kind: Kind, items: Ite
   }
   if (UNIQUE_KINDS.has(kind) && new Set(outputs).size < outputs.length)
     outputs = await runModel(env, language, kind, items).catch(() => outputs)
+  if (kind === 'idiom')
+    outputs = await reviewIdioms(env, language, items, outputs)
   for (const [i, item] of items.entries()) {
     let output = outputs[i]
     // Retry alone once; if the model still breaks it, keep English so the language completes.
@@ -242,7 +259,7 @@ async function translateBatch(env: Env, language: string, kind: Kind, items: Ite
   return true
 }
 
-const QUICK_KINDS: Kind[] = ['ui', 'site', 'first', 'team', 'category', 'work']
+const QUICK_KINDS: Kind[] = ['ui', 'site', 'first', 'team', 'category', 'word', 'work']
 const FULL_KINDS: Kind[] = [...QUICK_KINDS, 'idiom', 'scene', 'rebus']
 
 async function translateLanguage(env: Env, lang: string, phase: 'quick' | 'full'): Promise<void> {
