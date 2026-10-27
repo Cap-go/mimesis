@@ -24,7 +24,8 @@ if (devices['duo-outer'] && devices['duo-outer'] === devices['duo-inner'])
   throw new Error('Capture one Duo panel at a time: fold closed for duo-outer, unfold for duo-inner')
 const only = process.env.LOCALES?.split(',')
 const locales = await Bun.file(resolve(import.meta.dir, '../store/locales.json')).json() as Record<string, { app: string }>
-const scenes = ['playing', 'duo', 'teams', 'themes', 'handoff', 'winner', 'rules']
+// SCENES=playing,themes retakes only those scenes (compose keeps each scene's store position).
+const scenes = ['playing', 'duo', 'teams', 'themes', 'handoff', 'winner', 'rules'].filter(scene => !process.env.SCENES || process.env.SCENES.split(',').includes(scene))
 const wait = (ms: number) => new Promise(r => setTimeout(r, ms))
 
 for (const [kind, id] of Object.entries(devices)) {
