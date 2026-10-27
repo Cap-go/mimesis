@@ -133,6 +133,10 @@ async function setNavbar(route: RouteLocationNormalized): Promise<void> {
   await NativeNavigation.setNavbar(options)
 }
 
+function compactWidth(): boolean {
+  return window.innerWidth < 600
+}
+
 // Animate the tab bar only when it appears or disappears: plugin 8.8.3 and older replay the
 // Android slide-in on every animated update, so the bar blinked on each tab tap.
 let tabbarHidden: boolean | undefined
@@ -155,7 +159,7 @@ async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
       title: t('chooseTheme'),
       icon: playIcon,
       selectedIcon: playIcon,
-      role: 'normal',
+      role: compactWidth() ? 'prominent' : 'normal',
       enabled: useGameStore().canStart,
     })
   }
@@ -169,6 +173,10 @@ async function syncNativeChrome(route: RouteLocationNormalized): Promise<void> {
     indicatorColor: colors.indicator,
     glass: platform === 'android' ? androidNoGlass : undefined,
     style: { placement: 'auto' },
+    // The system tab bar keeps a prominent tab inside the capsule. On phones, the plugin's own
+    // capsule (used while it minimizes on scroll) detaches it as a round button beside the tabs, so
+    // "Choose a theme" stands apart. Wide screens (unfolded iPhone Duo) keep the system rail.
+    minimizeBehavior: usesNativePlayAction && compactWidth() ? 'onScrollDown' : 'never',
     tabs: nativeTabs,
     animated,
   })
@@ -187,8 +195,17 @@ export async function initNavigation(appRouter: Router): Promise<void> {
   if (!isNative)
     return
   watch(messagesVersion, refreshChrome)
-  if (usesNativePlayAction)
+  if (usesNativePlayAction) {
     watch(() => useGameStore().canStart, refreshChrome)
+    // Folding or unfolding the iPhone Duo switches between the phone capsule and the rail.
+    let compact = compactWidth()
+    window.addEventListener('resize', () => {
+      if (compact !== compactWidth()) {
+        compact = compactWidth()
+        refreshChrome()
+      }
+    })
+  }
   await NativeNavigation.configure({
     contentInsetMode: 'css',
     animationDuration: 320,

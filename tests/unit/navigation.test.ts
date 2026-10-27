@@ -45,6 +45,7 @@ describe('native primary action', () => {
     vi.clearAllMocks()
     native.listeners.clear()
     setActivePinia(createPinia())
+    window.innerWidth = 390
     scope = effectScope()
     router = makeRouter()
     await router.push('/teams')
@@ -58,9 +59,19 @@ describe('native primary action', () => {
       selectedId: 'teams',
       style: { placement: 'auto' },
       tabs: expect.arrayContaining([
-        expect.objectContaining({ id: 'choose-theme', role: 'normal', enabled: true }),
+        expect.objectContaining({ id: 'choose-theme', role: 'prominent', enabled: true }),
       ]),
     }))
+  })
+
+  it('detaches the action beside the tabs on phones and keeps the system rail on wide screens', async () => {
+    expect(native.setTabbar).toHaveBeenLastCalledWith(expect.objectContaining({ minimizeBehavior: 'onScrollDown' }))
+    window.innerWidth = 900
+    window.dispatchEvent(new Event('resize'))
+    await vi.waitFor(() => expect(native.setTabbar).toHaveBeenLastCalledWith(expect.objectContaining({
+      minimizeBehavior: 'never',
+      tabs: expect.arrayContaining([expect.objectContaining({ id: 'choose-theme', role: 'normal' })]),
+    })))
   })
 
   it('opens themes when the native action is tapped', async () => {
