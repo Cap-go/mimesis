@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.16.0](https://github.com/Cap-go/mimesis/compare/3.15.0...3.16.0) (2026-10-28)
+
+
+### Features
+
+* **store:** store listings and screenshots for the 11 themes ([#37](https://github.com/Cap-go/mimesis/issues/37)) ([3897412](https://github.com/Cap-go/mimesis/commit/389741225a0272b02dc30c47a9857cccbe235d1f))
+
 ## [3.15.0](https://github.com/Cap-go/mimesis/compare/3.14.0...3.15.0) (2026-10-27)
 
 
