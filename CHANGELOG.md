@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.17.0](https://github.com/Cap-go/mimesis/compare/3.16.0...3.17.0) (2026-10-28)
+
+
+### Features
+
+* **ios:** detach Choose a theme as a round button beside the tab bar ([#38](https://github.com/Cap-go/mimesis/issues/38)) ([50ca461](https://github.com/Cap-go/mimesis/commit/50ca461d8748446dc94eba36a531a315d948b375))
+
 ## [3.16.0](https://github.com/Cap-go/mimesis/compare/3.15.0...3.16.0) (2026-10-28)
 
 
