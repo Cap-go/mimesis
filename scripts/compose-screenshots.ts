@@ -93,8 +93,7 @@ for (const locale of rawLocales) {
     const page = await browser.newPage({ viewport: { width: target.width, height: target.height } })
     const dir = `${outDir}/${locale}/${target.id}`
     await mkdir(dir, { recursive: true })
-    let index = 0
-    for (const scene of scenes) {
+    for (const [index, scene] of scenes.entries()) {
       const file = Bun.file(`${rawDir}/${locale}/${target.raw}/${scene.id}.png`)
       if (!(await file.exists()))
         continue
@@ -106,8 +105,8 @@ for (const locale of rawLocales) {
       await page.setViewportSize({ width: output.width, height: output.height })
       await page.setContent(html(scene, output, image), { waitUntil: 'networkidle' })
       await page.evaluate(() => document.fonts.ready)
-      index++
-      const path = `${dir}/${String(index).padStart(2, '0')}-${scene.id}.jpg`
+      // Numbered by store position, so retaking a few scenes keeps the others in place.
+      const path = `${dir}/${String(index + 1).padStart(2, '0')}-${scene.id}.jpg`
       await page.screenshot({ path, type: 'jpeg', quality: 88 })
       console.log(path)
     }
